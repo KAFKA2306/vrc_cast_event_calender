@@ -229,6 +229,55 @@ def get_profile_and_tweets(driver, profile_url):
     
     return profile, pinned_tweet, latest_tweet
 
+def get_profile_and_tweets2(driver, profile_url):
+    logger.info(f"プロフィール取得開始: {profile_url}")
+    driver.get(profile_url)
+    time.sleep(5)
+    
+    profile = ""
+    try:
+        bio_elem = driver.find_element(By.CSS_SELECTOR, "div[data-testid='UserDescription']")
+        profile = bio_elem.text
+        logger.info(f"プロフィール取得成功: {profile} ")
+    except:
+        pass
+     
+    return profile
+
+
+def get_profiles(list_members_url = "https://x.com/i/lists/1834685283276935624/members"):
+    logger.info("スクリプト実行開始")
+    driver = initialize_driver()
+    try:
+        if not check_login_status(driver):
+            login(driver)
+        
+        list_members_url = list_members_url
+        members = get_list_members(driver, list_members_url, max_members=250)
+        
+        logger.info(f"{len(members)}人のプロフィール情報取得開始")
+        results = []
+        for i, member in enumerate(members):
+            logger.info(f"プロフィール取得中 ({i+1}/{len(members)}): {member['account_id']}")
+            profile = get_profile_and_tweets2(driver, member["profile_url"])
+            results.append({
+                "account_id": member["account_id"],
+                "url": member["profile_url"],
+                "profile": profile,
+            })
+        
+        logger.info("CSVファイル保存開始")
+        df = pd.DataFrame(results)
+        os.makedirs("twitter_profiles", exist_ok=True)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_file = f"twitter_profiles/profiles_raw_{timestamp}.csv"
+        df.to_csv(output_file, index=False, encoding="utf-8-sig")
+        logger.info(f"CSVファイル保存成功: {output_file}")
+    finally:
+        driver.quit()
+        logger.info("ドライバーを終了しました")
+
+
 if __name__ == "__main__":
     logger.info("スクリプト実行開始")
     driver = initialize_driver()
