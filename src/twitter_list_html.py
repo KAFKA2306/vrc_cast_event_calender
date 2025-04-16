@@ -112,6 +112,7 @@ for _, row in regular_df.iterrows():
     event_name = str(row.get('イベント名', '')) if pd.notnull(row.get('イベント名')) else ''
     start_time = str(row.get('定期開催時刻 (開始)', '')) if pd.notnull(row.get('定期開催時刻 (開始)')) else ''
     organizer_text = str(row.get('主催者', '')) if pd.notnull(row.get('主催者')) else ''
+    how_to_join = str(row.get('参加方法', '')) if pd.notnull(row.get('参加方法')) else ''
 
     # イベントキー（アカウントID, イベント名, 開始時刻でユニーク性を判定）
     event_key = f"{account_id}_{event_name}_{start_time}"
@@ -139,7 +140,10 @@ for _, row in regular_df.iterrows():
             # ハッシュタグ
             if pd.notnull(row.get('公式ハッシュタグ')) and str(row['公式ハッシュタグ']).strip():
                 info += f'<span class="hashtag">{row["公式ハッシュタグ"]}</span> '
-            # 主催者（特定のアカウントを除く）
+            # ハッシュタグ
+            if pd.notnull(row.get('参加方法')) and str(row['参加方法']).strip():
+                info += f'<span class="hashtag">{row["参加方法"]}</span> '
+
             if organizer_text and "@GN001EXIA" not in organizer_text: # "@GN001EXIA" を含む場合は表示しない
                 info += f'<span class="organizer">主催: {organizer_text}</span>'
 
@@ -349,6 +353,7 @@ for _, row in irregular_df_sorted.iterrows():
     event_name = str(row.get('イベント名', '')) if pd.notnull(row.get('イベント名')) else ''
     hashtag = str(row.get('公式ハッシュタグ', '')) if pd.notnull(row.get('公式ハッシュタグ')) else ''
     organizer_text = str(row.get('主催者', '')) if pd.notnull(row.get('主催者')) else ''
+    start_time = str(row.get('主催者', '')) if pd.notnull(row.get('定期開催時刻 (開始)')) else ''
 
     # アカウントIDもイベント名もない場合は表示しない
     if not account_id and not event_name:
@@ -380,6 +385,9 @@ for _, row in irregular_df_sorted.iterrows():
         info += f'<span class="organizer">主催: {organizer_text}</span>'
     info += '</div>'
     html += f'<li>{info}</li>'
+
+    if start_time:
+        info += f'<span class="hashtag">{start_time}</span> '
 
 html += '</ul>'
 
