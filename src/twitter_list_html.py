@@ -97,7 +97,7 @@ df['曜日リスト'] = df.apply(expand_weekdays, axis=1)
 is_regular = df['開催頻度'].fillna('').str.contains('毎週|隔週|毎月|月\d回|週末|平日')
 regular_df = df[is_regular].copy() # SettingWithCopyWarning 対策
 irregular_df = df[~is_regular].copy() # SettingWithCopyWarning 対策
-print(f"定期イベント: {len(regular_df)}件, 不定期イベント: {len(irregular_df)}件")
+print(f"定期キャスト接客イベント: {len(regular_df)}件, 不定期イベント: {len(irregular_df)}件")
 
 
 # カレンダー用データ整形
@@ -106,7 +106,7 @@ calendar = {d: [] for d in ['月', '火', '水', '木', '金', '土', '日']}
 # 各曜日ごとにアカウントとイベントの組み合わせを記録（重複表示防止）
 day_event_accounts = {day: set() for day in calendar.keys()}
 
-# 定期イベントの曜日別リストを作成（重複なし）
+# 定期キャスト接客イベントの曜日別リストを作成（重複なし）
 for _, row in regular_df.iterrows():
     account_id = str(row.get('account_id', '')) if pd.notnull(row.get('account_id')) else ''
     event_name = str(row.get('イベント名', '')) if pd.notnull(row.get('イベント名')) else ''
@@ -175,7 +175,7 @@ html = '''<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VRCイベントカレンダー</title>
+    <title>VRCキャスト接客イベントカレンダー</title>
     <style>
         body {
             font-family: 'Arial', 'Hiragino Kaku Gothic ProN', sans-serif;
@@ -322,11 +322,11 @@ html = '''<!DOCTYPE html>
     </style>
 </head>
 <body>
-    <h1>VRCイベントカレンダー</h1>
+    <h1>VRCキャスト接客イベントカレンダー</h1>
 '''
 
-# 定期イベントカレンダーテーブル生成
-html += '<h2>定期イベント</h2>'
+# 定期キャスト接客イベントカレンダーテーブル生成
+html += '<h2>定期キャスト接客イベント</h2>'
 html += '<table><thead><tr><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th></tr></thead><tbody><tr>'
 for day in ['月', '火', '水', '木', '金', '土', '日']:
     html += '<td>'
