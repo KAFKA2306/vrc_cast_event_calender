@@ -48,6 +48,7 @@ jobs:
           health = json.loads(Path('/tmp/cast-event-cal/health.json').read_text(encoding='utf-8'))
           assert isinstance(events.get('events'), list)
           assert events.get('count') == len(events['events'])
+          assert events.get('count') >= 60, f"event coverage too small: {events.get('count')}"
           assert health.get('status') in {'ok', 'degraded'}
           assert health.get('event_count') == events.get('count')
           PY
@@ -83,7 +84,7 @@ jobs:
             events_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-events.json -w '%{http_code}' "$PAGE_BASE/events.json" || true)"
             if [ "$root_status" = '200' ] && [ "$events_status" = '200' ] \
               && grep -q 'VRChat Event Calendar' /tmp/live-index.html \
-              && python -c 'import json; data=json.load(open("/tmp/live-events.json", encoding="utf-8")); assert isinstance(data.get("events"), list)'; then
+              && python -c 'import json; data=json.load(open("/tmp/live-events.json", encoding="utf-8")); assert isinstance(data.get("events"), list) and data.get("count", 0) >= 60'; then
               verified=true
               break
             fi
@@ -109,6 +110,7 @@ jobs:
               'root_status': int(os.environ['ROOT_STATUS']),
               'events_status': int(os.environ['EVENTS_STATUS']),
               'event_count': len(live.get('events', [])),
+              'minimum_event_count': 60,
               'status': 'ok',
           }
           Path('audit/production-status.json').write_text(
