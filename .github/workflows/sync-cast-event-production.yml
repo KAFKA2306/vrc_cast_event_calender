@@ -51,6 +51,11 @@ jobs:
           assert events.get('count') >= 60, f"event coverage too small: {events.get('count')}"
           assert health.get('status') in {'ok', 'degraded'}
           assert health.get('event_count') == events.get('count')
+          assert health.get('enabled_sources', 0) >= 2
+          assert {item.get('name') for item in health.get('sources', [])} >= {
+              'repository_manual_events',
+              'vrchat_calendar_discovery',
+          }
           PY
 
       - name: Publish assets to Pages source
@@ -103,14 +108,17 @@ jobs:
           from pathlib import Path
 
           live = json.loads(Path('/tmp/live-events.json').read_text(encoding='utf-8'))
+          health = json.loads(Path('/tmp/cast-event-cal/health.json').read_text(encoding='utf-8'))
           result = {
-              'schema_version': '1.0',
+              'schema_version': '1.1',
               'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
               'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/',
               'root_status': int(os.environ['ROOT_STATUS']),
               'events_status': int(os.environ['EVENTS_STATUS']),
               'event_count': len(live.get('events', [])),
               'minimum_event_count': 60,
+              'enabled_sources': health.get('enabled_sources'),
+              'sources': health.get('sources', []),
               'status': 'ok',
           }
           Path('audit/production-status.json').write_text(
