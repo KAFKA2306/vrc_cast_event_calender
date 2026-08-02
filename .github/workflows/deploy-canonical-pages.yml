@@ -50,7 +50,13 @@ jobs:
           assert events.get('count', 0) >= 400
           assert health.get('event_count') == events.get('count')
           assert health.get('status') in {'ok', 'degraded'}
-          assert health.get('enabled_sources', 0) >= 3
+          assert health.get('enabled_sources', 0) >= 4
+          assert {item.get('name') for item in health.get('sources', [])} >= {
+              'repository_manual_events',
+              'vrchat_calendar_discovery',
+              'x_curated_events',
+              'yahoo_realtime_events',
+          }
           PY
 
       - name: Publish static Pages assets
@@ -78,24 +84,40 @@ jobs:
           set -euo pipefail
           root_status=000
           events_status=000
+          health_status=000
           verified=false
           for attempt in $(seq 1 30); do
             root_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-index.html -w '%{http_code}' "$PAGE_BASE/" || true)"
             events_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-events.json -w '%{http_code}' "$PAGE_BASE/events.json" || true)"
-            if [ "$root_status" = '200' ] && [ "$events_status" = '200' ] \
+            health_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-health.json -w '%{http_code}' "$PAGE_BASE/health.json" || true)"
+            if [ "$root_status" = '200' ] && [ "$events_status" = '200' ] && [ "$health_status" = '200' ] \
               && grep -q 'VRChat Event Calendar' /tmp/live-index.html \
-              && python -c 'import json; data=json.load(open("/tmp/live-events.json", encoding="utf-8")); assert data.get("count", 0) >= 400'; then
+              && python - <<'PY'
+          import json
+          events = json.load(open('/tmp/live-events.json', encoding='utf-8'))
+          health = json.load(open('/tmp/live-health.json', encoding='utf-8'))
+          assert events.get('count', 0) >= 400
+          assert health.get('event_count') == events.get('count')
+          assert health.get('enabled_sources', 0) >= 4
+          assert {item.get('name') for item in health.get('sources', [])} >= {
+              'repository_manual_events',
+              'vrchat_calendar_discovery',
+              'x_curated_events',
+              'yahoo_realtime_events',
+          }
+          PY
+            then
               verified=true
               break
             fi
             sleep 10
           done
           if [ "$verified" != 'true' ]; then
-            echo "Pages verification failed: root=$root_status events=$events_status" >&2
+            echo "Pages verification failed: root=$root_status events=$events_status health=$health_status" >&2
             exit 1
           fi
           mkdir -p audit
-          export ROOT_STATUS="$root_status" EVENTS_STATUS="$events_status"
+          export ROOT_STATUS="$root_status" EVENTS_STATUS="$events_status" HEALTH_STATUS="$health_status"
           python - <<'PY'
           import json
           import os
@@ -103,14 +125,17 @@ jobs:
           from pathlib import Path
 
           live = json.loads(Path('/tmp/live-events.json').read_text(encoding='utf-8'))
+          health = json.loads(Path('/tmp/live-health.json').read_text(encoding='utf-8'))
           result = {
-              'schema_version': '2.0',
+              'schema_version': '3.0',
               'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
               'canonical_repository': 'KAFKA2306/cast_event_cal',
               'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/',
               'root_status': int(os.environ['ROOT_STATUS']),
               'events_status': int(os.environ['EVENTS_STATUS']),
+              'health_status': int(os.environ['HEALTH_STATUS']),
               'event_count': live.get('count', 0),
+              'enabled_sources': health.get('enabled_sources', 0),
               'status': 'ok',
           }
           Path('audit/production-status.json').write_text(
