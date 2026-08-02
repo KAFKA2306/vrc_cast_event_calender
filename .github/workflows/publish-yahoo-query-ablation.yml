@@ -1,0 +1,157 @@
+name: Publish Yahoo query ablation evidence
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7 21 * * *'
+  pull_request:
+    paths:
+      - .github/workflows/publish-yahoo-query-ablation.yml
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-yahoo-query-ablation.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: yahoo-query-ablation-pages
+  cancel-in-progress: false
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || 'main' }}
+          fetch-depth: 0
+
+      - name: Download canonical ablation evidence
+        env:
+          SOURCE_URL: https://raw.githubusercontent.com/KAFKA2306/cast_event_cal/main/public/yahoo-query-ablation.json
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 5 --retry-all-errors --connect-timeout 10 --max-time 60 \
+            "$SOURCE_URL" -o /tmp/yahoo-query-ablation.json
+
+      - name: Validate canonical ablation evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path('/tmp/yahoo-query-ablation.json').read_text(encoding='utf-8'))
+          assert payload.get('schema_version') == '1.0'
+          assert payload.get('classifier_version') == '1.8'
+          assert payload.get('status') == 'ok'
+          assert payload.get('variant_count') == 10
+          assert payload.get('successful_variant_count') == 10
+          assert payload.get('failed_variant_count') == 0
+          assert payload.get('full_variant_available') is True
+          assert set(payload.get('block_effects', {})) == {'access', 'announcement', 'platform'}
+          variants = {row['key']: row for row in payload.get('variants', [])}
+          assert len(variants) == 10
+          assert variants['abc_full'].get('candidate_count') == 40
+          assert variants['abc_full'].get('result_limit_reached') is True
+          assert all(row.get('candidate_count', 0) > 0 for row in variants.values())
+          assert all('content_acceptance_rate' in row for row in variants.values())
+          assert all('production_acceptance_rate' in row for row in variants.values())
+          assert variants['abc_full'].get('content_acceptance_rate', 0) > variants['c_only'].get('content_acceptance_rate', 0)
+          PY
+
+      - name: Publish ablation evidence
+        if: github.event_name != 'pull_request'
+        run: |
+          set -euo pipefail
+          cp /tmp/yahoo-query-ablation.json ./yahoo-query-ablation.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add yahoo-query-ablation.json
+          if git diff --cached --quiet; then
+            echo 'Yahoo query ablation evidence is already current'
+          else
+            git commit -m 'chore: publish Yahoo query ablation evidence [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Verify public ablation endpoint
+        if: github.event_name != 'pull_request'
+        env:
+          PAGE_URL: https://kafka2306.github.io/vrc_cast_event_calender/yahoo-query-ablation.json
+        run: |
+          set -euo pipefail
+          expected_generated_at="$(python -c "import json; print(json.load(open('/tmp/yahoo-query-ablation.json', encoding='utf-8'))['generated_at'])")"
+          status=000
+          verified=false
+          for attempt in $(seq 1 30); do
+            status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-yahoo-query-ablation.json -w '%{http_code}' "$PAGE_URL" || true)"
+            if [ "$status" = '200' ] && EXPECTED_GENERATED_AT="$expected_generated_at" python - <<'PY'
+          import json
+          import os
+
+          payload = json.load(open('/tmp/live-yahoo-query-ablation.json', encoding='utf-8'))
+          assert payload.get('generated_at') == os.environ['EXPECTED_GENERATED_AT']
+          assert payload.get('status') == 'ok'
+          assert payload.get('classifier_version') == '1.8'
+          assert payload.get('variant_count') == 10
+          assert payload.get('successful_variant_count') == 10
+          assert payload.get('failed_variant_count') == 0
+          assert payload.get('full_variant_available') is True
+          variants = {row['key']: row for row in payload.get('variants', [])}
+          assert variants['abc_full'].get('candidate_count') == 40
+          PY
+            then
+              verified=true
+              break
+            fi
+            sleep 10
+          done
+          test "$verified" = true
+          mkdir -p audit
+          HTTP_STATUS="$status" python - <<'PY'
+          import json
+          import os
+          from datetime import UTC, datetime
+          from pathlib import Path
+
+          payload = json.loads(Path('/tmp/live-yahoo-query-ablation.json').read_text(encoding='utf-8'))
+          variants = {row['key']: row for row in payload['variants']}
+          full = variants['abc_full']
+          result = {
+              'schema_version': '1.0',
+              'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
+              'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/yahoo-query-ablation.json',
+              'http_status': int(os.environ['HTTP_STATUS']),
+              'source_generated_at': payload['generated_at'],
+              'classifier_version': payload['classifier_version'],
+              'variant_count': payload['variant_count'],
+              'successful_variant_count': payload['successful_variant_count'],
+              'full_candidate_count': full['candidate_count'],
+              'full_accepted_count': full['content_accepted_count'],
+              'full_acceptance_rate': full['content_acceptance_rate'],
+              'status': 'ok',
+          }
+          Path('audit/yahoo-query-ablation-status.json').write_text(
+              json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+
+      - name: Record public verification
+        if: github.event_name != 'pull_request'
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add audit/yahoo-query-ablation-status.json
+          if git diff --cached --quiet; then
+            echo 'No ablation verification changes'
+          else
+            git commit -m 'chore: record Yahoo ablation Pages verification [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
