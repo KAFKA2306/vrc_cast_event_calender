@@ -1,10 +1,12 @@
 {
-  "schema_version": "2.0",
-  "verified_at": "2026-08-02T06:22:27Z",
+  "schema_version": "3.0",
+  "verified_at": "2026-08-02T06:45:06Z",
   "canonical_repository": "KAFKA2306/cast_event_cal",
   "page_url": "https://kafka2306.github.io/vrc_cast_event_calender/",
   "root_status": 200,
   "events_status": 200,
+  "health_status": 200,
   "event_count": 495,
+  "enabled_sources": 4,
   "status": "ok"
 }
