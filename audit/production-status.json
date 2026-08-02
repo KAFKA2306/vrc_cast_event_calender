@@ -1,12 +1,19 @@
 {
-  "schema_version": "3.0",
-  "verified_at": "2026-08-02T06:45:06Z",
+  "schema_version": "4.0",
+  "verified_at": "2026-08-02T07:27:29Z",
   "canonical_repository": "KAFKA2306/cast_event_cal",
   "page_url": "https://kafka2306.github.io/vrc_cast_event_calender/",
   "root_status": 200,
   "events_status": 200,
   "health_status": 200,
-  "event_count": 495,
+  "ontology_status": 200,
+  "ontology_audit_status": 200,
+  "yahoo_history_status": 200,
+  "event_count": 500,
   "enabled_sources": 4,
+  "yahoo_event_count": 5,
+  "yahoo_candidate_count": 40,
+  "ontology_matched_events": 2,
+  "ontology_ambiguous_events": 0,
   "status": "ok"
 }
