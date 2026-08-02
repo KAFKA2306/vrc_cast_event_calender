@@ -30,7 +30,15 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/cast-event-cal
-          for file in index.html events.json health.json calendar.ics .nojekyll; do
+          for file in \
+            index.html \
+            events.json \
+            health.json \
+            calendar.ics \
+            event-ontology.json \
+            ontology-match-audit.json \
+            yahoo-candidate-history.json \
+            .nojekyll; do
             curl -fsSL --retry 5 --retry-all-errors --connect-timeout 10 --max-time 60 \
               "$SOURCE_BASE/$file" -o "/tmp/cast-event-cal/$file"
           done
@@ -39,37 +47,70 @@ jobs:
         run: |
           set -euo pipefail
           grep -q 'VRChat Event Calendar' /tmp/cast-event-cal/index.html
+          grep -q '公式リンク' /tmp/cast-event-cal/index.html
           grep -q 'BEGIN:VCALENDAR' /tmp/cast-event-cal/calendar.ics
           python - <<'PY'
           import json
           from pathlib import Path
 
-          events = json.loads(Path('/tmp/cast-event-cal/events.json').read_text(encoding='utf-8'))
-          health = json.loads(Path('/tmp/cast-event-cal/health.json').read_text(encoding='utf-8'))
+          root = Path('/tmp/cast-event-cal')
+          events = json.loads((root / 'events.json').read_text(encoding='utf-8'))
+          health = json.loads((root / 'health.json').read_text(encoding='utf-8'))
+          ontology = json.loads((root / 'event-ontology.json').read_text(encoding='utf-8'))
+          audit = json.loads((root / 'ontology-match-audit.json').read_text(encoding='utf-8'))
+          history = json.loads((root / 'yahoo-candidate-history.json').read_text(encoding='utf-8'))
+
           assert events.get('count') == len(events.get('events', []))
-          assert events.get('count', 0) >= 400
+          assert events.get('count', 0) >= 500
           assert health.get('event_count') == events.get('count')
           assert health.get('status') in {'ok', 'degraded'}
           assert health.get('enabled_sources', 0) >= 4
-          assert {item.get('name') for item in health.get('sources', [])} >= {
+          sources = {item.get('name'): item for item in health.get('sources', [])}
+          assert set(sources) >= {
               'repository_manual_events',
               'vrchat_calendar_discovery',
               'x_curated_events',
               'yahoo_realtime_events',
           }
+          assert sources['yahoo_realtime_events'].get('count', 0) >= 5
+          assert ontology.get('schema_version') == '1.1'
+          assert len(ontology.get('entries', [])) >= 2
+          assert audit.get('ontology_entries') == len(ontology.get('entries', []))
+          assert audit.get('matched_events', 0) >= 2
+          assert audit.get('ambiguous_events') == 0
+          assert history.get('retention_days') == 30
+          assert history.get('candidate_count', 0) >= 40
+          assert history.get('candidate_count') == len(history.get('candidates', []))
+          enriched = [item for item in events.get('events', []) if item.get('ontology_id')]
+          assert len(enriched) == audit.get('matched_events')
+          assert all(item.get('official_links') for item in enriched)
           PY
 
       - name: Publish static Pages assets
         run: |
           set -euo pipefail
-          cp /tmp/cast-event-cal/index.html ./index.html
-          cp /tmp/cast-event-cal/events.json ./events.json
-          cp /tmp/cast-event-cal/health.json ./health.json
-          cp /tmp/cast-event-cal/calendar.ics ./calendar.ics
-          cp /tmp/cast-event-cal/.nojekyll ./.nojekyll
+          for file in \
+            index.html \
+            events.json \
+            health.json \
+            calendar.ics \
+            event-ontology.json \
+            ontology-match-audit.json \
+            yahoo-candidate-history.json \
+            .nojekyll; do
+            cp "/tmp/cast-event-cal/$file" "./$file"
+          done
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add index.html events.json health.json calendar.ics .nojekyll
+          git add \
+            index.html \
+            events.json \
+            health.json \
+            calendar.ics \
+            event-ontology.json \
+            ontology-match-audit.json \
+            yahoo-candidate-history.json \
+            .nojekyll
           if git diff --cached --quiet; then
             echo 'Pages assets are already current'
           else
@@ -85,26 +126,41 @@ jobs:
           root_status=000
           events_status=000
           health_status=000
+          ontology_status=000
+          audit_status=000
+          history_status=000
           verified=false
           for attempt in $(seq 1 30); do
             root_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-index.html -w '%{http_code}' "$PAGE_BASE/" || true)"
             events_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-events.json -w '%{http_code}' "$PAGE_BASE/events.json" || true)"
             health_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-health.json -w '%{http_code}' "$PAGE_BASE/health.json" || true)"
-            if [ "$root_status" = '200' ] && [ "$events_status" = '200' ] && [ "$health_status" = '200' ] \
+            ontology_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-ontology.json -w '%{http_code}' "$PAGE_BASE/event-ontology.json" || true)"
+            audit_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-ontology-audit.json -w '%{http_code}' "$PAGE_BASE/ontology-match-audit.json" || true)"
+            history_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-yahoo-history.json -w '%{http_code}' "$PAGE_BASE/yahoo-candidate-history.json" || true)"
+            if [ "$root_status" = '200' ] \
+              && [ "$events_status" = '200' ] \
+              && [ "$health_status" = '200' ] \
+              && [ "$ontology_status" = '200' ] \
+              && [ "$audit_status" = '200' ] \
+              && [ "$history_status" = '200' ] \
               && grep -q 'VRChat Event Calendar' /tmp/live-index.html \
+              && grep -q '公式リンク' /tmp/live-index.html \
               && python - <<'PY'
           import json
           events = json.load(open('/tmp/live-events.json', encoding='utf-8'))
           health = json.load(open('/tmp/live-health.json', encoding='utf-8'))
-          assert events.get('count', 0) >= 400
+          ontology = json.load(open('/tmp/live-ontology.json', encoding='utf-8'))
+          audit = json.load(open('/tmp/live-ontology-audit.json', encoding='utf-8'))
+          history = json.load(open('/tmp/live-yahoo-history.json', encoding='utf-8'))
+          sources = {item.get('name'): item for item in health.get('sources', [])}
+          assert events.get('count', 0) >= 500
           assert health.get('event_count') == events.get('count')
           assert health.get('enabled_sources', 0) >= 4
-          assert {item.get('name') for item in health.get('sources', [])} >= {
-              'repository_manual_events',
-              'vrchat_calendar_discovery',
-              'x_curated_events',
-              'yahoo_realtime_events',
-          }
+          assert sources.get('yahoo_realtime_events', {}).get('count', 0) >= 5
+          assert ontology.get('schema_version') == '1.1'
+          assert audit.get('matched_events', 0) >= 2
+          assert audit.get('ambiguous_events') == 0
+          assert history.get('candidate_count', 0) >= 40
           PY
             then
               verified=true
@@ -113,11 +169,12 @@ jobs:
             sleep 10
           done
           if [ "$verified" != 'true' ]; then
-            echo "Pages verification failed: root=$root_status events=$events_status health=$health_status" >&2
+            echo "Pages verification failed: root=$root_status events=$events_status health=$health_status ontology=$ontology_status audit=$audit_status history=$history_status" >&2
             exit 1
           fi
           mkdir -p audit
           export ROOT_STATUS="$root_status" EVENTS_STATUS="$events_status" HEALTH_STATUS="$health_status"
+          export ONTOLOGY_STATUS="$ontology_status" AUDIT_STATUS="$audit_status" HISTORY_STATUS="$history_status"
           python - <<'PY'
           import json
           import os
@@ -126,16 +183,26 @@ jobs:
 
           live = json.loads(Path('/tmp/live-events.json').read_text(encoding='utf-8'))
           health = json.loads(Path('/tmp/live-health.json').read_text(encoding='utf-8'))
+          ontology_audit = json.loads(Path('/tmp/live-ontology-audit.json').read_text(encoding='utf-8'))
+          history = json.loads(Path('/tmp/live-yahoo-history.json').read_text(encoding='utf-8'))
+          sources = {item.get('name'): item for item in health.get('sources', [])}
           result = {
-              'schema_version': '3.0',
+              'schema_version': '4.0',
               'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
               'canonical_repository': 'KAFKA2306/cast_event_cal',
               'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/',
               'root_status': int(os.environ['ROOT_STATUS']),
               'events_status': int(os.environ['EVENTS_STATUS']),
               'health_status': int(os.environ['HEALTH_STATUS']),
+              'ontology_status': int(os.environ['ONTOLOGY_STATUS']),
+              'ontology_audit_status': int(os.environ['AUDIT_STATUS']),
+              'yahoo_history_status': int(os.environ['HISTORY_STATUS']),
               'event_count': live.get('count', 0),
               'enabled_sources': health.get('enabled_sources', 0),
+              'yahoo_event_count': sources.get('yahoo_realtime_events', {}).get('count', 0),
+              'yahoo_candidate_count': history.get('candidate_count', 0),
+              'ontology_matched_events': ontology_audit.get('matched_events', 0),
+              'ontology_ambiguous_events': ontology_audit.get('ambiguous_events', 0),
               'status': 'ok',
           }
           Path('audit/production-status.json').write_text(
