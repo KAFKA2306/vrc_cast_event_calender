@@ -1,0 +1,131 @@
+name: Deploy canonical cast_event_cal Pages
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '27 */6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/deploy-canonical-pages.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: canonical-cast-event-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v6
+
+      - name: Download canonical generated assets
+        env:
+          SOURCE_BASE: https://raw.githubusercontent.com/KAFKA2306/cast_event_cal/main/public
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cast-event-cal
+          for file in index.html events.json health.json calendar.ics .nojekyll; do
+            curl -fsSL --retry 5 --retry-all-errors --connect-timeout 10 --max-time 60 \
+              "$SOURCE_BASE/$file" -o "/tmp/cast-event-cal/$file"
+          done
+
+      - name: Validate canonical assets
+        run: |
+          set -euo pipefail
+          grep -q 'VRChat Event Calendar' /tmp/cast-event-cal/index.html
+          grep -q 'BEGIN:VCALENDAR' /tmp/cast-event-cal/calendar.ics
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          events = json.loads(Path('/tmp/cast-event-cal/events.json').read_text(encoding='utf-8'))
+          health = json.loads(Path('/tmp/cast-event-cal/health.json').read_text(encoding='utf-8'))
+          assert events.get('count') == len(events.get('events', []))
+          assert events.get('count', 0) >= 400
+          assert health.get('event_count') == events.get('count')
+          assert health.get('status') in {'ok', 'degraded'}
+          assert health.get('enabled_sources', 0) >= 3
+          PY
+
+      - name: Publish static Pages assets
+        run: |
+          set -euo pipefail
+          cp /tmp/cast-event-cal/index.html ./index.html
+          cp /tmp/cast-event-cal/events.json ./events.json
+          cp /tmp/cast-event-cal/health.json ./health.json
+          cp /tmp/cast-event-cal/calendar.ics ./calendar.ics
+          cp /tmp/cast-event-cal/.nojekyll ./.nojekyll
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add index.html events.json health.json calendar.ics .nojekyll
+          if git diff --cached --quiet; then
+            echo 'Pages assets are already current'
+          else
+            git commit -m 'chore: publish canonical calendar [skip ci]'
+            git push
+          fi
+
+      - name: Verify public Pages endpoints
+        env:
+          PAGE_BASE: https://kafka2306.github.io/vrc_cast_event_calender
+        run: |
+          set -euo pipefail
+          root_status=000
+          events_status=000
+          verified=false
+          for attempt in $(seq 1 30); do
+            root_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-index.html -w '%{http_code}' "$PAGE_BASE/" || true)"
+            events_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-events.json -w '%{http_code}' "$PAGE_BASE/events.json" || true)"
+            if [ "$root_status" = '200' ] && [ "$events_status" = '200' ] \
+              && grep -q 'VRChat Event Calendar' /tmp/live-index.html \
+              && python -c 'import json; data=json.load(open("/tmp/live-events.json", encoding="utf-8")); assert data.get("count", 0) >= 400'; then
+              verified=true
+              break
+            fi
+            sleep 10
+          done
+          if [ "$verified" != 'true' ]; then
+            echo "Pages verification failed: root=$root_status events=$events_status" >&2
+            exit 1
+          fi
+          mkdir -p audit
+          export ROOT_STATUS="$root_status" EVENTS_STATUS="$events_status"
+          python - <<'PY'
+          import json
+          import os
+          from datetime import UTC, datetime
+          from pathlib import Path
+
+          live = json.loads(Path('/tmp/live-events.json').read_text(encoding='utf-8'))
+          result = {
+              'schema_version': '2.0',
+              'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
+              'canonical_repository': 'KAFKA2306/cast_event_cal',
+              'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/',
+              'root_status': int(os.environ['ROOT_STATUS']),
+              'events_status': int(os.environ['EVENTS_STATUS']),
+              'event_count': live.get('count', 0),
+              'status': 'ok',
+          }
+          Path('audit/production-status.json').write_text(
+              json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+
+      - name: Record Pages verification
+        run: |
+          set -euo pipefail
+          git add audit/production-status.json
+          if git diff --cached --quiet; then
+            echo 'No audit changes'
+            exit 0
+          fi
+          git commit -m 'chore: record Pages verification [skip ci]'
+          git pull --rebase origin main
+          git push
