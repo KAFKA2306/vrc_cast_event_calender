@@ -1,0 +1,152 @@
+name: Publish Yahoo best-1000 evidence
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - .github/workflows/publish-yahoo-best-1000.yml
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-yahoo-best-1000.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: yahoo-best-1000-pages
+  cancel-in-progress: false
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || 'main' }}
+          fetch-depth: 0
+
+      - name: Download canonical best-1000 evidence
+        env:
+          SOURCE_URL: https://raw.githubusercontent.com/KAFKA2306/cast_event_cal/main/public/yahoo-best-1000-audit.json
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 5 --retry-all-errors --connect-timeout 10 --max-time 60 \
+            "$SOURCE_URL" -o /tmp/yahoo-best-1000-audit.json
+
+      - name: Validate canonical best-1000 evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path('/tmp/yahoo-best-1000-audit.json').read_text(encoding='utf-8'))
+          assert payload.get('schema_version') == '1.0'
+          assert payload.get('classifier_version') == '1.8'
+          assert payload.get('strategy_version') == 'ablation-informed-1.0'
+          assert payload.get('status') == 'ok'
+          assert payload.get('target_count') == 1000
+          assert payload.get('target_reached') is True
+          assert payload.get('candidate_count') == 1000
+          assert payload.get('queries_attempted', 0) > 0
+          assert payload.get('queries_failed') == 0
+          assert payload.get('production_accepted_count', 0) > 0
+          assert payload.get('quality', {}).get('duplicate_status_ids') == 0
+          assert payload.get('quality', {}).get('missing_query_provenance') == 0
+          assert payload.get('quality', {}).get('ambiguous_decisions') == 0
+          assert payload.get('strategy', {}).get('primary') == 'A+B+C full query'
+          assert payload.get('strategy', {}).get('complements') == ['A+C', 'B+C']
+          PY
+
+      - name: Publish best-1000 evidence
+        if: github.event_name != 'pull_request'
+        run: |
+          set -euo pipefail
+          cp /tmp/yahoo-best-1000-audit.json ./yahoo-best-1000-audit.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add yahoo-best-1000-audit.json
+          if git diff --cached --quiet; then
+            echo 'Yahoo best-1000 evidence is already current'
+          else
+            git commit -m 'chore: publish Yahoo best-1000 evidence [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Verify public best-1000 endpoint
+        if: github.event_name != 'pull_request'
+        env:
+          PAGE_URL: https://kafka2306.github.io/vrc_cast_event_calender/yahoo-best-1000-audit.json
+        run: |
+          set -euo pipefail
+          expected_generated_at="$(python -c "import json; print(json.load(open('/tmp/yahoo-best-1000-audit.json', encoding='utf-8'))['generated_at'])")"
+          status=000
+          verified=false
+          for attempt in $(seq 1 30); do
+            status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-yahoo-best-1000.json -w '%{http_code}' "$PAGE_URL" || true)"
+            if [ "$status" = '200' ] && EXPECTED_GENERATED_AT="$expected_generated_at" python - <<'PY'
+          import json
+          import os
+
+          payload = json.load(open('/tmp/live-yahoo-best-1000.json', encoding='utf-8'))
+          assert payload.get('generated_at') == os.environ['EXPECTED_GENERATED_AT']
+          assert payload.get('status') == 'ok'
+          assert payload.get('classifier_version') == '1.8'
+          assert payload.get('strategy_version') == 'ablation-informed-1.0'
+          assert payload.get('target_reached') is True
+          assert payload.get('candidate_count') == 1000
+          assert payload.get('quality', {}).get('duplicate_status_ids') == 0
+          PY
+            then
+              verified=true
+              break
+            fi
+            sleep 10
+          done
+          test "$verified" = true
+          mkdir -p audit
+          HTTP_STATUS="$status" python - <<'PY'
+          import json
+          import os
+          from datetime import UTC, datetime
+          from pathlib import Path
+
+          payload = json.loads(Path('/tmp/live-yahoo-best-1000.json').read_text(encoding='utf-8'))
+          result = {
+              'schema_version': '1.0',
+              'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
+              'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/yahoo-best-1000-audit.json',
+              'http_status': int(os.environ['HTTP_STATUS']),
+              'source_generated_at': payload['generated_at'],
+              'classifier_version': payload['classifier_version'],
+              'strategy_version': payload['strategy_version'],
+              'candidate_count': payload['candidate_count'],
+              'accepted_count': payload['production_accepted_count'],
+              'acceptance_rate': payload['production_acceptance_rate'],
+              'new_to_ledger': payload['new_to_existing_ledger_count'],
+              'new_accepted': payload['new_accepted_to_existing_ledger_count'],
+              'queries_attempted': payload['queries_attempted'],
+              'status': 'ok',
+          }
+          Path('audit/yahoo-best-1000-status.json').write_text(
+              json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+
+      - name: Record public verification
+        if: github.event_name != 'pull_request'
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add audit/yahoo-best-1000-status.json
+          if git diff --cached --quiet; then
+            echo 'No best-1000 verification changes'
+          else
+            git commit -m 'chore: record Yahoo best-1000 Pages verification [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
