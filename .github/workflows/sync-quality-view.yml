@@ -44,8 +44,8 @@ jobs:
           test -f canonical/public/uiux-v4.js
           node --check canonical/functions/index.js
           node --check canonical/public/uiux-v4.js
-          grep -q '2026-08-03-quality-view-v4' canonical/functions/index.js
-          grep -q '2026-08-03-quality-view-v4' canonical/public/uiux-v4.js
+          grep -q '2026-08-04-quality-view-v5' canonical/functions/index.js
+          grep -q '2026-08-04-quality-view-v5' canonical/public/uiux-v4.js
       - name: Synchronize Cloudflare Pages files
         run: |
           set -euo pipefail
@@ -62,7 +62,7 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add functions _routes.json uiux-v4.css uiux-v4.js
           if ! git diff --cached --quiet; then
-            git commit -m 'chore: sync Cloudflare quality view'
+            git commit -m 'chore: sync Cloudflare quality view v5'
             git pull --rebase origin main
             git push origin HEAD:main
           fi
@@ -85,13 +85,16 @@ jobs:
           css=Path('/tmp/uiux.css').read_text(encoding='utf-8')
           script=Path('/tmp/uiux.js').read_text(encoding='utf-8')
           events=json.loads(Path('/tmp/events.json').read_text(encoding='utf-8'))
-          assert 'x-quality-view: 2026-08-03-quality-view-v4' in headers
+          assert 'x-quality-view: 2026-08-04-quality-view-v5' in headers
           assert 'href="/uiux-v4.css"' in html
           assert 'src="/uiux-v4.js"' in html
-          assert '.ux-mobile-nav' in css
+          assert '.ux-mobile-nav{display:none!important}' in css
+          assert '.ux-filter-toggle' in css
+          assert '.ux-load-more' in css
           assert 'prefers-reduced-motion' in css
-          assert '2026-08-03-quality-view-v4' in script
-          assert 'MutationObserver' in script
+          assert '2026-08-04-quality-view-v5' in script
+          assert 'applyPagination' in script
+          assert "selectRange('today',false)" in script
           assert events['count'] == len(events['events'])
           assert events['count'] > 555
           PY
@@ -112,15 +115,16 @@ jobs:
           def digest(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
           events=json.loads(Path('/tmp/events.json').read_text(encoding='utf-8'))
           result={
-            'schema_version':'1.0',
+            'schema_version':'1.1',
             'verified_at':datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00','Z'),
             'page_url':'https://vrc-cast-event-calender.pages.dev/',
-            'quality_view':'2026-08-03-quality-view-v4',
+            'quality_view':'2026-08-04-quality-view-v5',
             'event_count':events['count'],
             'root_header_verified':True,
             'root_asset_injection_verified':True,
             'responsive_css_verified':True,
             'javascript_contract_verified':True,
+            'visual_hierarchy_contract_verified':True,
             'sha256':{
               'root_html':digest('/tmp/root.html'),
               'uiux_css':digest('/tmp/uiux.css'),
@@ -132,11 +136,10 @@ jobs:
           Path('.github/audit/pages-uiux-verification.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
           git add .github/audit/pages-uiux-verification.json
-          git commit -m 'chore: record Cloudflare UIUX verification [skip ci]' || true
+          git commit -m 'chore: record Cloudflare UIUX v5 verification [skip ci]' || true
           git pull --rebase origin main
           git push origin HEAD:main
-          for branch in agent/pages-uiux-production agent/pages-uiux-deploy-trigger; do
-            if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null 2>&1; then
-              git push origin --delete "$branch"
-            fi
-          done
+          branch='agent/visual-hierarchy-v5-production'
+          if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null 2>&1; then
+            git push origin --delete "$branch"
+          fi
