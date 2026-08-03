@@ -1,0 +1,79 @@
+name: Capture production visual audit fast
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/capture-visual-audit-fast.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: capture-production-visual-audit-fast
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Capture production pixels
+        run: |
+          set -euo pipefail
+          browser="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
+          test -n "$browser"
+          npm init -y >/dev/null 2>&1
+          npm install playwright-core@1.54.2 >/dev/null
+          mkdir -p audit/visual/current
+          BROWSER_PATH="$browser" node --input-type=module <<'JS'
+          import { chromium } from 'playwright-core';
+          import fs from 'node:fs/promises';
+          const browser = await chromium.launch({ headless: true, executablePath: process.env.BROWSER_PATH, args: ['--no-sandbox'] });
+          const url = 'https://vrc-cast-event-calender.pages.dev/?visual-audit=' + Date.now();
+          const report = { url, captured_at: new Date().toISOString(), targets: {} };
+          for (const target of [{name:'desktop',width:1440,height:1200},{name:'mobile',width:390,height:844}]) {
+            const page = await browser.newPage({ viewport: { width: target.width, height: target.height } });
+            await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
+            await page.waitForTimeout(5000);
+            await page.screenshot({ path: `audit/visual/current/${target.name}-viewport.png` });
+            await page.screenshot({ path: `audit/visual/current/${target.name}-full.png`, fullPage: true });
+            report.targets[target.name] = await page.evaluate(() => {
+              const box = s => { const e=document.querySelector(s); if(!e)return null; const r=e.getBoundingClientRect(); const c=getComputedStyle(e); return {x:r.x,y:r.y,width:r.width,height:r.height,right:r.right,bottom:r.bottom,display:c.display,position:c.position}; };
+              const overlap=(a,b)=>Boolean(a&&b&&!(a.right<=b.x||b.right<=a.x||a.bottom<=b.y||b.bottom<=a.y));
+              const hero=box('.hero'), command=box('.ux-command'), summary=box('.summary'), controls=box('.controls'), recommendations=box('#recommendations'), firstEvent=box('.event'), mobileNav=box('.ux-mobile-nav');
+              const first=document.querySelector('.event');
+              return {
+                viewport:{width:innerWidth,height:innerHeight},
+                document:{scrollWidth:document.documentElement.scrollWidth,clientWidth:document.documentElement.clientWidth,scrollHeight:document.documentElement.scrollHeight},
+                qualityView:document.documentElement.dataset.qualityView||null,
+                hero,command,summary,controls,recommendations,firstEvent,mobileNav,
+                overlap:{command_summary:overlap(command,summary),mobile_nav_first_event:overlap(mobileNav,firstEvent)},
+                visible_event_count:document.querySelectorAll('.event').length,
+                first_event:first?{title:first.querySelector('h2')?.textContent?.trim()||null,image:Boolean(first.querySelector('.event-media')),links:[...first.querySelectorAll('.event-link')].map(a=>a.textContent.trim())}:null,
+              };
+            });
+            await page.close();
+          }
+          await browser.close();
+          await fs.writeFile('audit/visual/current/layout-report.json', JSON.stringify(report,null,2)+'\n');
+          JS
+      - name: Publish evidence and clean capture workflows
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          rm -f .github/workflows/capture-visual-audit.yml .github/workflows/capture-visual-audit-fast.yml
+          git add audit/visual/current .github/workflows
+          git commit -m 'chore: record production visual audit [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          for branch in agent/visual-audit-capture agent/visual-audit-fast; do
+            if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null 2>&1; then git push origin --delete "$branch"; fi
+          done
