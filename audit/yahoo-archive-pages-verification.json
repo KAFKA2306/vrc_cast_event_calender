@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "verified_at": "2026-08-03T03:13:02Z",
+  "page_url": "https://kafka2306.github.io/vrc_cast_event_calender/",
+  "classifier_version": "1.9",
+  "yahoo_candidate_count": 2579,
+  "yahoo_accepted_count": 430,
+  "yahoo_rejected_count": 2149,
+  "past_accepted_count": 353,
+  "low_retweet_accepted_count": 178,
+  "event_count": 591,
+  "status": "ok"
+}
