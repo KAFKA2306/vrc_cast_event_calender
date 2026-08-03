@@ -1,17 +1,18 @@
 {
-  "schema_version": "1.0",
-  "verified_at": "2026-08-03T21:48:54Z",
+  "schema_version": "1.1",
+  "verified_at": "2026-08-03T23:17:48Z",
   "page_url": "https://vrc-cast-event-calender.pages.dev/",
-  "quality_view": "2026-08-03-quality-view-v4",
+  "quality_view": "2026-08-04-quality-view-v5",
   "event_count": 588,
   "root_header_verified": true,
   "root_asset_injection_verified": true,
   "responsive_css_verified": true,
   "javascript_contract_verified": true,
+  "visual_hierarchy_contract_verified": true,
   "sha256": {
     "root_html": "71ab811b83513e0604aeee65df7679ecea33d23bb3b4567b7e20c7d859a6c0f4",
-    "uiux_css": "b8d314322f197a522e046666913f5df5ae9dc7d95431fe99474576e514102f68",
-    "uiux_js": "562c8d797e89b23cf9f0e2d2cfffd92a27addad260c91649ae0f063452a02727",
+    "uiux_css": "2b4c6c52785f189b6c0409d29943edccb0721baf86f78fef9cfaeb0b1b216d1d",
+    "uiux_js": "3f196496d53d42fa1b484275bf736fd0c1423f0b7ba947625942e585df514383",
     "events_json": "ba0295c88091647f0c5d7d8ea0ff56b759aca5512d0be2e6a61d90a81b3e8ba0"
   },
   "status": "ok"
