@@ -62,7 +62,7 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add functions _routes.json uiux-v4.css uiux-v4.js
           if ! git diff --cached --quiet; then
-            git commit -m 'chore: sync Cloudflare quality view [skip ci]'
+            git commit -m 'chore: sync Cloudflare quality view'
             git pull --rebase origin main
             git push origin HEAD:main
           fi
@@ -99,7 +99,7 @@ jobs:
             sleep 10
           done
           test "$verified" = true
-      - name: Record production proof and clean branch
+      - name: Record production proof and clean branches
         working-directory: production
         run: |
           set -euo pipefail
@@ -135,7 +135,8 @@ jobs:
           git commit -m 'chore: record Cloudflare UIUX verification [skip ci]' || true
           git pull --rebase origin main
           git push origin HEAD:main
-          branch='agent/pages-uiux-production'
-          if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null 2>&1; then
-            git push origin --delete "$branch"
-          fi
+          for branch in agent/pages-uiux-production agent/pages-uiux-deploy-trigger; do
+            if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null 2>&1; then
+              git push origin --delete "$branch"
+            fi
+          done
