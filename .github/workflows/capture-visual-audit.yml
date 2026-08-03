@@ -1,0 +1,107 @@
+name: Capture production visual audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/capture-visual-audit.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: capture-production-visual-audit
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Install browser
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.54.2
+          npx playwright install --with-deps chromium
+      - name: Capture desktop and mobile
+        run: |
+          mkdir -p audit/visual/current
+          cat > /tmp/capture.mjs <<'JS'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs/promises';
+
+          const url = 'https://vrc-cast-event-calender.pages.dev/?visual-audit=' + Date.now();
+          const targets = [
+            { name: 'desktop', width: 1440, height: 1200, deviceScaleFactor: 1 },
+            { name: 'mobile', width: 390, height: 844, deviceScaleFactor: 1 },
+          ];
+          const browser = await chromium.launch({ headless: true });
+          const report = { url, captured_at: new Date().toISOString(), targets: {} };
+          for (const target of targets) {
+            const page = await browser.newPage({ viewport: { width: target.width, height: target.height }, deviceScaleFactor: target.deviceScaleFactor });
+            await page.goto(url, { waitUntil: 'networkidle', timeout: 120000 });
+            await page.waitForTimeout(3000);
+            await page.screenshot({ path: `audit/visual/current/${target.name}-viewport.png`, fullPage: false });
+            await page.screenshot({ path: `audit/visual/current/${target.name}-full.png`, fullPage: true });
+            report.targets[target.name] = await page.evaluate(() => {
+              const rect = (selector) => {
+                const el = document.querySelector(selector);
+                if (!el) return null;
+                const r = el.getBoundingClientRect();
+                const s = getComputedStyle(el);
+                return { x: r.x, y: r.y, width: r.width, height: r.height, bottom: r.bottom, right: r.right, display: s.display, position: s.position, overflowX: s.overflowX };
+              };
+              const overlaps = (a, b) => a && b && !(a.right <= b.x || b.right <= a.x || a.bottom <= b.y || b.bottom <= a.y);
+              const hero = rect('.hero');
+              const command = rect('.ux-command');
+              const summary = rect('.summary');
+              const controls = rect('.controls');
+              const recommendations = rect('#recommendations');
+              const firstEvent = rect('.event');
+              const mobileNav = rect('.ux-mobile-nav');
+              const firstCard = document.querySelector('.event');
+              return {
+                viewport: { width: innerWidth, height: innerHeight },
+                document: { scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth, scrollHeight: document.documentElement.scrollHeight },
+                qualityView: document.documentElement.dataset.qualityView || null,
+                title: document.title,
+                hero, command, summary, controls, recommendations, firstEvent, mobileNav,
+                overlap: {
+                  command_summary: overlaps(command, summary),
+                  mobile_nav_first_event: overlaps(mobileNav, firstEvent),
+                },
+                first_event: firstCard ? {
+                  title: firstCard.querySelector('h2')?.textContent?.trim() || null,
+                  links: [...firstCard.querySelectorAll('.event-link')].map(a => ({ label: a.textContent.trim(), width: a.getBoundingClientRect().width })),
+                  image: Boolean(firstCard.querySelector('.event-media')),
+                } : null,
+                visible_event_count: document.querySelectorAll('.event').length,
+                body_classes: document.body.className,
+              };
+            });
+            await page.close();
+          }
+          await browser.close();
+          await fs.writeFile('audit/visual/current/layout-report.json', JSON.stringify(report, null, 2) + '\n');
+          JS
+          node /tmp/capture.mjs
+      - name: Publish visual evidence and remove one-time workflow
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          rm .github/workflows/capture-visual-audit.yml
+          git add audit/visual/current .github/workflows/capture-visual-audit.yml
+          git commit -m 'chore: record production visual audit [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          branch='agent/visual-audit-capture'
+          if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null 2>&1; then
+            git push origin --delete "$branch"
+          fi
