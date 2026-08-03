@@ -1,0 +1,121 @@
+name: Sync from canonical event calendar
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '27 20 * * *'
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/sync-from-canonical.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: production-calendar-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout production repository
+        uses: actions/checkout@v6
+        with:
+          path: production
+          fetch-depth: 0
+      - name: Checkout public canonical repository
+        uses: actions/checkout@v6
+        with:
+          repository: KAFKA2306/cast_event_cal
+          path: canonical
+      - name: Validate canonical assets
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          base = Path('canonical/public')
+          audit = json.loads((base / 'yahoo-classifier-audit.json').read_text(encoding='utf-8'))
+          events = json.loads((base / 'events.json').read_text(encoding='utf-8'))
+          assert audit['classifier_version'] == '1.9'
+          assert audit['accepted_count'] > 59
+          assert audit['past_accepted_count'] > 0
+          assert audit['low_retweet_accepted_count'] > 0
+          assert events['count'] > 555
+          assert (base / 'index.html').exists()
+          PY
+      - name: Synchronize public files
+        run: |
+          set -euo pipefail
+          find production -mindepth 1 -maxdepth 1 ! -name .git ! -name .github -exec rm -rf {} +
+          cp -a canonical/public/. production/
+          touch production/.nojekyll
+      - name: Commit production assets
+        working-directory: production
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'Production assets already current'
+          else
+            git commit -m 'chore: publish canonical event calendar [skip ci]'
+            git push origin HEAD:main
+          fi
+      - name: Verify GitHub Pages
+        run: |
+          set -euo pipefail
+          base='https://kafka2306.github.io/vrc_cast_event_calender'
+          verified=false
+          for attempt in $(seq 1 36); do
+            if curl -fsS "$base/yahoo-classifier-audit.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/audit.json \
+              && curl -fsS "$base/events.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/events.json \
+              && python - <<'PY'
+          import json
+          audit = json.load(open('/tmp/audit.json', encoding='utf-8'))
+          events = json.load(open('/tmp/events.json', encoding='utf-8'))
+          assert audit['classifier_version'] == '1.9'
+          assert audit['accepted_count'] > 59
+          assert audit['past_accepted_count'] > 0
+          assert audit['low_retweet_accepted_count'] > 0
+          assert events['count'] > 555
+          PY
+            then verified=true; break; fi
+            sleep 10
+          done
+          test "$verified" = true
+      - name: Record Pages verification
+        working-directory: production
+        run: |
+          set -euo pipefail
+          mkdir -p audit
+          python - <<'PY'
+          import json
+          from datetime import UTC, datetime
+          from pathlib import Path
+          classifier = json.load(open('/tmp/audit.json', encoding='utf-8'))
+          events = json.load(open('/tmp/events.json', encoding='utf-8'))
+          result = {
+              'schema_version': '1.0',
+              'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
+              'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/',
+              'classifier_version': classifier['classifier_version'],
+              'yahoo_candidate_count': classifier['candidate_count'],
+              'yahoo_accepted_count': classifier['accepted_count'],
+              'yahoo_rejected_count': classifier['rejected_count'],
+              'past_accepted_count': classifier['past_accepted_count'],
+              'low_retweet_accepted_count': classifier['low_retweet_accepted_count'],
+              'event_count': events['count'],
+              'status': 'ok',
+          }
+          Path('audit/yahoo-archive-pages-verification.json').write_text(
+              json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+          git add audit/yahoo-archive-pages-verification.json
+          git commit -m 'chore: record Yahoo archive Pages verification [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
