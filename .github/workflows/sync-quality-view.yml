@@ -1,0 +1,141 @@
+name: Sync Cloudflare quality view
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '42 20 * * *'
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/sync-quality-view.yml
+  workflow_run:
+    workflows: ["Sync from canonical event calendar"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: production-quality-view-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout production repository
+        uses: actions/checkout@v6
+        with:
+          path: production
+          fetch-depth: 0
+      - name: Checkout canonical repository
+        uses: actions/checkout@v6
+        with:
+          repository: KAFKA2306/cast_event_cal
+          path: canonical
+      - name: Validate quality-view source
+        run: |
+          set -euo pipefail
+          test -f canonical/functions/index.js
+          test -f canonical/public/_routes.json
+          test -f canonical/public/uiux-v4.css
+          test -f canonical/public/uiux-v4.js
+          node --check canonical/functions/index.js
+          node --check canonical/public/uiux-v4.js
+          grep -q '2026-08-03-quality-view-v4' canonical/functions/index.js
+          grep -q '2026-08-03-quality-view-v4' canonical/public/uiux-v4.js
+      - name: Synchronize Cloudflare Pages files
+        run: |
+          set -euo pipefail
+          rm -rf production/functions
+          cp -a canonical/functions production/functions
+          cp canonical/public/_routes.json production/_routes.json
+          cp canonical/public/uiux-v4.css production/uiux-v4.css
+          cp canonical/public/uiux-v4.js production/uiux-v4.js
+      - name: Publish quality-view files
+        working-directory: production
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add functions _routes.json uiux-v4.css uiux-v4.js
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: sync Cloudflare quality view [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Verify Cloudflare Pages production
+        run: |
+          set -euo pipefail
+          base='https://vrc-cast-event-calender.pages.dev'
+          verified=false
+          for attempt in $(seq 1 48); do
+            token="${GITHUB_RUN_ID}-${attempt}"
+            if curl -fsS -D /tmp/root.headers "$base/?verify=$token" -o /tmp/root.html \
+              && curl -fsS "$base/uiux-v4.css?verify=$token" -o /tmp/uiux.css \
+              && curl -fsS "$base/uiux-v4.js?verify=$token" -o /tmp/uiux.js \
+              && curl -fsS "$base/events.json?verify=$token" -o /tmp/events.json \
+              && python - <<'PY'
+          import json
+          from pathlib import Path
+          headers=Path('/tmp/root.headers').read_text(encoding='utf-8',errors='replace').lower()
+          html=Path('/tmp/root.html').read_text(encoding='utf-8')
+          css=Path('/tmp/uiux.css').read_text(encoding='utf-8')
+          script=Path('/tmp/uiux.js').read_text(encoding='utf-8')
+          events=json.loads(Path('/tmp/events.json').read_text(encoding='utf-8'))
+          assert 'x-quality-view: 2026-08-03-quality-view-v4' in headers
+          assert 'href="/uiux-v4.css"' in html
+          assert 'src="/uiux-v4.js"' in html
+          assert '.ux-mobile-nav' in css
+          assert 'prefers-reduced-motion' in css
+          assert '2026-08-03-quality-view-v4' in script
+          assert 'MutationObserver' in script
+          assert events['count'] == len(events['events'])
+          assert events['count'] > 555
+          PY
+            then verified=true; break; fi
+            sleep 10
+          done
+          test "$verified" = true
+      - name: Record production proof and clean branch
+        working-directory: production
+        run: |
+          set -euo pipefail
+          mkdir -p .github/audit
+          python - <<'PY'
+          import hashlib
+          import json
+          from datetime import UTC, datetime
+          from pathlib import Path
+          def digest(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+          events=json.loads(Path('/tmp/events.json').read_text(encoding='utf-8'))
+          result={
+            'schema_version':'1.0',
+            'verified_at':datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00','Z'),
+            'page_url':'https://vrc-cast-event-calender.pages.dev/',
+            'quality_view':'2026-08-03-quality-view-v4',
+            'event_count':events['count'],
+            'root_header_verified':True,
+            'root_asset_injection_verified':True,
+            'responsive_css_verified':True,
+            'javascript_contract_verified':True,
+            'sha256':{
+              'root_html':digest('/tmp/root.html'),
+              'uiux_css':digest('/tmp/uiux.css'),
+              'uiux_js':digest('/tmp/uiux.js'),
+              'events_json':digest('/tmp/events.json'),
+            },
+            'status':'ok',
+          }
+          Path('.github/audit/pages-uiux-verification.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          git add .github/audit/pages-uiux-verification.json
+          git commit -m 'chore: record Cloudflare UIUX verification [skip ci]' || true
+          git pull --rebase origin main
+          git push origin HEAD:main
+          branch='agent/pages-uiux-production'
+          if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null 2>&1; then
+            git push origin --delete "$branch"
+          fi
