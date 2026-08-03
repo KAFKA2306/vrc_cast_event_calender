@@ -1,0 +1,196 @@
+{
+  "url": "https://vrc-cast-event-calender.pages.dev/?visual-audit=1785798463617",
+  "captured_at": "2026-08-03T23:07:43.617Z",
+  "targets": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 1200
+      },
+      "document": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 16712
+      },
+      "qualityView": "2026-08-03-quality-view-v4",
+      "hero": {
+        "x": 112,
+        "y": 30,
+        "width": 1216,
+        "height": 234.78125,
+        "right": 1328,
+        "bottom": 264.78125,
+        "display": "grid",
+        "position": "relative"
+      },
+      "command": {
+        "x": 112,
+        "y": 278.78125,
+        "width": 1216,
+        "height": 66,
+        "right": 1328,
+        "bottom": 344.78125,
+        "display": "grid",
+        "position": "sticky"
+      },
+      "summary": {
+        "x": 112,
+        "y": 358.78125,
+        "width": 1216,
+        "height": 88,
+        "right": 1328,
+        "bottom": 446.78125,
+        "display": "grid",
+        "position": "static"
+      },
+      "controls": {
+        "x": 112,
+        "y": 460.78125,
+        "width": 1216,
+        "height": 151,
+        "right": 1328,
+        "bottom": 611.78125,
+        "display": "block",
+        "position": "relative"
+      },
+      "recommendations": {
+        "x": 112,
+        "y": 629.78125,
+        "width": 1216,
+        "height": 695.796875,
+        "right": 1328,
+        "bottom": 1325.578125,
+        "display": "block",
+        "position": "static"
+      },
+      "firstEvent": {
+        "x": 236,
+        "y": 1369.578125,
+        "width": 1092,
+        "height": 238.921875,
+        "right": 1328,
+        "bottom": 1608.5,
+        "display": "grid",
+        "position": "static"
+      },
+      "mobileNav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "right": 0,
+        "bottom": 0,
+        "display": "none",
+        "position": "static"
+      },
+      "overlap": {
+        "command_summary": false,
+        "mobile_nav_first_event": false
+      },
+      "visible_event_count": 73,
+      "first_event": {
+        "title": "Quest Dance party Club No.269 [VRC Quest対応DJイベント] 📅8月4日(火) OPEN 20:40 JST～ START 21:00 JST～ 今週のゲ…",
+        "image": true,
+        "links": [
+          "公式告知",
+          "公式X"
+        ]
+      }
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "document": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 35231
+      },
+      "qualityView": "2026-08-03-quality-view-v4",
+      "hero": {
+        "x": 12,
+        "y": 14,
+        "width": 366,
+        "height": 301.71875,
+        "right": 378,
+        "bottom": 315.71875,
+        "display": "grid",
+        "position": "relative"
+      },
+      "command": {
+        "x": 12,
+        "y": 329.71875,
+        "width": 366,
+        "height": 56,
+        "right": 378,
+        "bottom": 385.71875,
+        "display": "grid",
+        "position": "static"
+      },
+      "summary": {
+        "x": 12,
+        "y": 399.71875,
+        "width": 366,
+        "height": 160,
+        "right": 378,
+        "bottom": 559.71875,
+        "display": "grid",
+        "position": "static"
+      },
+      "controls": {
+        "x": 12,
+        "y": 573.71875,
+        "width": 366,
+        "height": 361,
+        "right": 378,
+        "bottom": 934.71875,
+        "display": "block",
+        "position": "relative"
+      },
+      "recommendations": {
+        "x": 12,
+        "y": 952.71875,
+        "width": 366,
+        "height": 1756.953125,
+        "right": 378,
+        "bottom": 2709.671875,
+        "display": "block",
+        "position": "static"
+      },
+      "firstEvent": {
+        "x": 12,
+        "y": 2840.671875,
+        "width": 366,
+        "height": 562.4375,
+        "right": 378,
+        "bottom": 3403.109375,
+        "display": "grid",
+        "position": "static"
+      },
+      "mobileNav": {
+        "x": 10,
+        "y": 770,
+        "width": 370,
+        "height": 64,
+        "right": 380,
+        "bottom": 834,
+        "display": "grid",
+        "position": "fixed"
+      },
+      "overlap": {
+        "command_summary": false,
+        "mobile_nav_first_event": false
+      },
+      "visible_event_count": 73,
+      "first_event": {
+        "title": "Quest Dance party Club No.269 [VRC Quest対応DJイベント] 📅8月4日(火) OPEN 20:40 JST～ START 21:00 JST～ 今週のゲ…",
+        "image": true,
+        "links": [
+          "公式告知",
+          "公式X"
+        ]
+      }
+    }
+  }
+}
