@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.1",
+  "verified_at": "2026-08-03T21:37:32Z",
+  "page_url": "https://kafka2306.github.io/vrc_cast_event_calender/",
+  "event_count": 597,
+  "events_with_primary_action": 173,
+  "events_with_application": 4,
+  "events_with_vrchat_group": 50,
+  "ontology_schema_version": "3.0",
+  "category_ontology_schema_version": "2.0",
+  "observed_entity_count": 117,
+  "linked_image_count": 101,
+  "recommendation_build": "2026-08-03-local-history-recommend-v2",
+  "status": "ok"
+}
