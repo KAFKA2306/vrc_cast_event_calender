@@ -1,4 +1,4 @@
-# trigger: 2026-08-03T12:20+09:00
+# trigger: 2026-08-03T12:32+09:00
 name: Sync from canonical event calendar
 
 on:
@@ -39,13 +39,16 @@ jobs:
           from pathlib import Path
           base = Path('canonical/public')
           audit = json.loads((base / 'yahoo-classifier-audit.json').read_text(encoding='utf-8'))
+          assets = json.loads((base / 'official-asset-audit.json').read_text(encoding='utf-8'))
           events = json.loads((base / 'events.json').read_text(encoding='utf-8'))
+          html = (base / 'index.html').read_text(encoding='utf-8')
           assert audit['classifier_version'] == '1.9'
           assert audit['accepted_count'] > 59
-          assert audit['past_accepted_count'] > 0
-          assert audit['low_retweet_accepted_count'] > 0
           assert events['count'] > 555
-          assert (base / 'index.html').exists()
+          assert assets['counts']['official_x'] > 0
+          assert assets['counts']['official_web'] > 0
+          assert assets['counts']['webp_image'] > 0
+          assert 'event-media' in html and 'WebP画像' in html
           PY
       - name: Synchronize public files
         run: |
@@ -72,17 +75,21 @@ jobs:
           base='https://kafka2306.github.io/vrc_cast_event_calender'
           verified=false
           for attempt in $(seq 1 36); do
-            if curl -fsS "$base/yahoo-classifier-audit.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/audit.json \
+            if curl -fsS "$base/official-asset-audit.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/assets.json \
               && curl -fsS "$base/events.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/events.json \
+              && curl -fsS "$base/?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/index.html \
               && python - <<'PY'
           import json
-          audit = json.load(open('/tmp/audit.json', encoding='utf-8'))
+          assets = json.load(open('/tmp/assets.json', encoding='utf-8'))
           events = json.load(open('/tmp/events.json', encoding='utf-8'))
-          assert audit['classifier_version'] == '1.9'
-          assert audit['accepted_count'] > 59
-          assert audit['past_accepted_count'] > 0
-          assert audit['low_retweet_accepted_count'] > 0
-          assert events['count'] > 555
+          html = open('/tmp/index.html', encoding='utf-8').read()
+          assert assets['counts']['official_x'] > 0
+          assert assets['counts']['official_web'] > 0
+          assert assets['counts']['webp_image'] > 0
+          assert any(row.get('official_x_url') for row in events['events'])
+          assert any(row.get('official_website_url') for row in events['events'])
+          assert any('format=webp' in str(row.get('image_url') or '') for row in events['events'])
+          assert 'event-media' in html and 'WebP画像' in html
           PY
             then verified=true; break; fi
             sleep 10
@@ -97,26 +104,25 @@ jobs:
           import json
           from datetime import UTC, datetime
           from pathlib import Path
-          classifier = json.load(open('/tmp/audit.json', encoding='utf-8'))
+          assets = json.load(open('/tmp/assets.json', encoding='utf-8'))
           events = json.load(open('/tmp/events.json', encoding='utf-8'))
           result = {
               'schema_version': '1.0',
               'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
               'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/',
-              'classifier_version': classifier['classifier_version'],
-              'yahoo_candidate_count': classifier['candidate_count'],
-              'yahoo_accepted_count': classifier['accepted_count'],
-              'yahoo_rejected_count': classifier['rejected_count'],
-              'past_accepted_count': classifier['past_accepted_count'],
-              'low_retweet_accepted_count': classifier['low_retweet_accepted_count'],
               'event_count': events['count'],
+              'official_x_count': assets['counts']['official_x'],
+              'official_web_count': assets['counts']['official_web'],
+              'webp_image_count': assets['counts']['webp_image'],
+              'post_media_count': assets['counts']['post_media'],
+              'profile_image_count': assets['counts']['profile_image'],
               'status': 'ok',
           }
-          Path('audit/yahoo-archive-pages-verification.json').write_text(
+          Path('audit/official-assets-pages-verification.json').write_text(
               json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
           )
           PY
-          git add audit/yahoo-archive-pages-verification.json
-          git commit -m 'chore: record Yahoo archive Pages verification [skip ci]'
+          git add audit/official-assets-pages-verification.json
+          git commit -m 'chore: record official asset Pages verification [skip ci]'
           git pull --rebase origin main
           git push origin HEAD:main
