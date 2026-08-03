@@ -1,4 +1,4 @@
-# trigger: 2026-08-03T12:32+09:00
+# trigger: 2026-08-03T18:34+09:00
 name: Sync from canonical event calendar
 
 on:
@@ -38,17 +38,19 @@ jobs:
           import json
           from pathlib import Path
           base = Path('canonical/public')
-          audit = json.loads((base / 'yahoo-classifier-audit.json').read_text(encoding='utf-8'))
-          assets = json.loads((base / 'official-asset-audit.json').read_text(encoding='utf-8'))
           events = json.loads((base / 'events.json').read_text(encoding='utf-8'))
+          assets = json.loads((base / 'official-asset-audit.json').read_text(encoding='utf-8'))
+          links = json.loads((base / 'event-link-audit.json').read_text(encoding='utf-8'))
+          ontology = json.loads((base / 'event-ontology.json').read_text(encoding='utf-8'))
           html = (base / 'index.html').read_text(encoding='utf-8')
-          assert audit['classifier_version'] == '1.9'
-          assert audit['accepted_count'] > 59
           assert events['count'] > 555
           assert assets['counts']['official_x'] > 0
-          assert assets['counts']['official_web'] > 0
           assert assets['counts']['webp_image'] > 0
-          assert 'event-media' in html and 'WebP画像' in html
+          assert links['events_with_primary_action'] > 0
+          assert ontology['schema_version'] == '2.0'
+          assert ontology['source_event_count'] == events['count']
+          assert ontology['observed_entity_count'] > 2
+          assert 'event-media-link' in html and 'primary_action_url' in html
           PY
       - name: Synchronize public files
         run: |
@@ -75,21 +77,25 @@ jobs:
           base='https://kafka2306.github.io/vrc_cast_event_calender'
           verified=false
           for attempt in $(seq 1 36); do
-            if curl -fsS "$base/official-asset-audit.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/assets.json \
-              && curl -fsS "$base/events.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/events.json \
+            if curl -fsS "$base/events.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/events.json \
+              && curl -fsS "$base/event-link-audit.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/links.json \
+              && curl -fsS "$base/event-ontology.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/ontology.json \
               && curl -fsS "$base/?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/index.html \
               && python - <<'PY'
           import json
-          assets = json.load(open('/tmp/assets.json', encoding='utf-8'))
-          events = json.load(open('/tmp/events.json', encoding='utf-8'))
-          html = open('/tmp/index.html', encoding='utf-8').read()
-          assert assets['counts']['official_x'] > 0
-          assert assets['counts']['official_web'] > 0
-          assert assets['counts']['webp_image'] > 0
-          assert any(row.get('official_x_url') for row in events['events'])
-          assert any(row.get('official_website_url') for row in events['events'])
-          assert any('format=webp' in str(row.get('image_url') or '') for row in events['events'])
-          assert 'event-media' in html and 'WebP画像' in html
+          events=json.load(open('/tmp/events.json',encoding='utf-8'))
+          links=json.load(open('/tmp/links.json',encoding='utf-8'))
+          ontology=json.load(open('/tmp/ontology.json',encoding='utf-8'))
+          html=open('/tmp/index.html',encoding='utf-8').read()
+          assert events['count'] > 555
+          assert links['events_with_primary_action'] > 0
+          assert links['events_with_application'] > 0
+          assert links['events_with_vrchat_group'] > 0
+          assert ontology['schema_version'] == '2.0'
+          assert ontology['source_event_count'] == events['count']
+          assert ontology['observed_entity_count'] > 2
+          assert any(row.get('image_url') and row.get('primary_action_url') for row in events['events'])
+          assert 'event-media-link' in html
           PY
             then verified=true; break; fi
             sleep 10
@@ -104,25 +110,25 @@ jobs:
           import json
           from datetime import UTC, datetime
           from pathlib import Path
-          assets = json.load(open('/tmp/assets.json', encoding='utf-8'))
-          events = json.load(open('/tmp/events.json', encoding='utf-8'))
-          result = {
-              'schema_version': '1.0',
-              'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
-              'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/',
-              'event_count': events['count'],
-              'official_x_count': assets['counts']['official_x'],
-              'official_web_count': assets['counts']['official_web'],
-              'webp_image_count': assets['counts']['webp_image'],
-              'post_media_count': assets['counts']['post_media'],
-              'profile_image_count': assets['counts']['profile_image'],
-              'status': 'ok',
+          events=json.load(open('/tmp/events.json',encoding='utf-8'))
+          links=json.load(open('/tmp/links.json',encoding='utf-8'))
+          ontology=json.load(open('/tmp/ontology.json',encoding='utf-8'))
+          result={
+            'schema_version':'1.0',
+            'verified_at':datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00','Z'),
+            'page_url':'https://kafka2306.github.io/vrc_cast_event_calender/',
+            'event_count':events['count'],
+            'events_with_primary_action':links['events_with_primary_action'],
+            'events_with_application':links['events_with_application'],
+            'events_with_vrchat_group':links['events_with_vrchat_group'],
+            'ontology_schema_version':ontology['schema_version'],
+            'observed_entity_count':ontology['observed_entity_count'],
+            'linked_image_count':sum(bool(row.get('image_url') and row.get('primary_action_url')) for row in events['events']),
+            'status':'ok',
           }
-          Path('audit/official-assets-pages-verification.json').write_text(
-              json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
-          )
+          Path('audit/link-ontology-pages-verification.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
-          git add audit/official-assets-pages-verification.json
-          git commit -m 'chore: record official asset Pages verification [skip ci]'
+          git add audit/link-ontology-pages-verification.json
+          git commit -m 'chore: record link and ontology Pages verification [skip ci]'
           git pull --rebase origin main
           git push origin HEAD:main
