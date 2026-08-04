@@ -1,9 +1,13 @@
 {
   "schema_version": "2.0",
   "ontology_entries": 2,
-  "event_count": 588,
+  "curation_mode": "human_only",
+  "event_count": 595,
   "matched_events": 1,
-  "unmatched_events": 587,
+  "matched_series": {
+    "zerozoku-auction": 1
+  },
+  "unmatched_events": 594,
   "ambiguous_events": 0,
   "matches": [
     {
@@ -15,20 +19,21 @@
         "alias",
         "organizer",
         "required_patterns"
-      ]
+      ],
+      "profile_attached": true
     }
   ],
   "category_classification": {
     "schema_version": "2.0",
-    "event_count": 588,
+    "event_count": 595,
     "category_breakdown": {
-      "art": 132,
-      "community": 132,
+      "art": 136,
+      "community": 134,
       "game": 106,
       "language_exchange": 34,
       "learning": 22,
       "music": 22,
-      "other": 22,
+      "other": 23,
       "performance": 6,
       "recruitment_deadline": 5,
       "technology": 38,
@@ -46,7 +51,7 @@
       "dj": 17,
       "engineering": 25,
       "fitness": 34,
-      "hangout": 26,
+      "hangout": 27,
       "language_exchange": 34,
       "lecture": 3,
       "mystery": 34,
@@ -55,7 +60,7 @@
       "reading": 1,
       "research": 13,
       "show": 2,
-      "social": 73,
+      "social": 74,
       "tabletop": 36,
       "theater": 1,
       "workshop": 1,
@@ -64,18 +69,18 @@
     "event_mode_breakdown": {
       "deadline": 5,
       "hybrid": 3,
-      "in_world": 580
+      "in_world": 587
     },
     "classification_source_breakdown": {
       "curated_ontology": 1,
-      "fallback": 22,
-      "keyword_rules": 86,
+      "fallback": 23,
+      "keyword_rules": 92,
       "legacy_and_keywords": 461,
       "legacy_category": 18
     },
     "organizer_profile_count": 21,
-    "low_confidence_event_count": 51,
-    "audit_event_count": 51
+    "low_confidence_event_count": 55,
+    "audit_event_count": 55
   },
   "category_review_queue": [
     {
@@ -107,6 +112,23 @@
       "evidence": [],
       "event_mode": "in_world",
       "ambiguous_with": []
+    },
+    {
+      "event_id": "ea24139957ccc6072fee",
+      "title": "START 本日20時より、第101回「VRCニコニコ集会（vR）」を開催します！ 今回は複数のワールドアップデートと二周年イベントのポスター、そして週末の出張集会について告知しますのでお楽し…",
+      "category": "art",
+      "label": "アート・展示・撮影",
+      "subcategory": null,
+      "score": 5,
+      "confidence": 0.58,
+      "source": "keyword_rules",
+      "evidence": [
+        "keyword:title:art"
+      ],
+      "event_mode": "in_world",
+      "ambiguous_with": [
+        "community"
+      ]
     },
     {
       "event_id": "c8d673e9f78ad5cd40da",
@@ -163,6 +185,41 @@
       "evidence": [],
       "event_mode": "in_world",
       "ambiguous_with": []
+    },
+    {
+      "event_id": "d1533a1f61d56637855d",
+      "title": "START VRC軍装同好会定期集会！ 今回はiyorokenさん制作の 【Just Sonatine】 で開催します！ 開催日8月5日 22時～ 皆様のご参加お待ちしております！ グループ …",
+      "category": "art",
+      "label": "アート・展示・撮影",
+      "subcategory": null,
+      "score": 5,
+      "confidence": 0.58,
+      "source": "keyword_rules",
+      "evidence": [
+        "keyword:title:art"
+      ],
+      "event_mode": "in_world",
+      "ambiguous_with": [
+        "community"
+      ]
+    },
+    {
+      "event_id": "662239231affbbd34aee",
+      "title": "START 明日です！ VRChatでのBar DJ #GrooveNoir は8月5日（水）22時から90分ほど。 今回は6月〜7月の新譜を中心に、深めのジャジーなハウスから心躍るディスコ・…",
+      "category": "art",
+      "label": "アート・展示・撮影",
+      "subcategory": null,
+      "score": 5,
+      "confidence": 0.58,
+      "source": "keyword_rules",
+      "evidence": [
+        "keyword:title:art"
+      ],
+      "event_mode": "in_world",
+      "ambiguous_with": [
+        "music",
+        "community"
+      ]
     },
     {
       "event_id": "fe722777d71f3ced229e",
@@ -309,6 +366,19 @@
     {
       "event_id": "f4a3c692befd6da02f8a",
       "title": "『俺だけが勝ち確だと思っていた件』",
+      "category": "other",
+      "label": "その他",
+      "subcategory": null,
+      "score": 0,
+      "confidence": 0.25,
+      "source": "fallback",
+      "evidence": [],
+      "event_mode": "in_world",
+      "ambiguous_with": []
+    },
+    {
+      "event_id": "7eb8dc6600ae7a6427d7",
+      "title": "SwingBox in VRC 8/8 12:00〜17:00 21:00〜26:00 8/9 12:00〜17:00 21:00〜26:00 2日間で狂気の20時間のエレスイイベント わたし…",
       "category": "other",
       "label": "その他",
       "subcategory": null,

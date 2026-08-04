@@ -1,8 +1,21 @@
 {
   "schema_version": "3.0",
-  "generated_at": "2026-08-03T21:32:51Z",
-  "source_event_generated_at": "2026-08-03T21:32:01Z",
-  "source_event_count": 588,
+  "generated_at": "2026-08-04T03:28:18Z",
+  "source_event_generated_at": "2026-08-04T03:27:17Z",
+  "source_event_count": 595,
+  "curated_schema_version": "2.0",
+  "governance": {
+    "curation_mode": "human_only",
+    "automatic_entry_creation": false,
+    "automatic_entry_rewrite": false,
+    "observed_events_may_only_link_to_existing_entries": true,
+    "preferred_sources": [
+      "official_website",
+      "vrchat_group",
+      "official_x",
+      "official_participation_guide"
+    ]
+  },
   "matching_policy": {
     "fuzzy_matching": false,
     "pattern_only_match": false,
@@ -10,7 +23,7 @@
     "required_identity": "alias or exact organizer plus all required patterns"
   },
   "curated_entry_count": 2,
-  "observed_entity_count": 109,
+  "observed_entity_count": 116,
   "category_ontology_schema_version": "2.0",
   "category_labels": {
     "recruitment_deadline": "募集・締切",
@@ -27,27 +40,27 @@
     "other": "その他"
   },
   "category_breakdown": {
-    "art": 132,
-    "community": 132,
+    "art": 136,
+    "community": 134,
     "game": 106,
     "wellness": 51,
     "technology": 38,
     "language_exchange": 34,
+    "other": 23,
     "learning": 22,
     "music": 22,
-    "other": 22,
     "world_tour": 18,
     "performance": 6,
     "recruitment_deadline": 5
   },
   "subcategory_breakdown": {
     "photography": 125,
-    "social": 73,
+    "social": 74,
     "tabletop": 36,
     "fitness": 34,
     "language_exchange": 34,
     "mystery": 34,
-    "hangout": 26,
+    "hangout": 27,
     "engineering": 25,
     "orientation": 18,
     "world_tour": 18,
@@ -67,14 +80,14 @@
     "workshop": 1
   },
   "event_mode_breakdown": {
-    "in_world": 580,
+    "in_world": 587,
     "deadline": 5,
     "hybrid": 3
   },
   "classification_source_breakdown": {
     "legacy_and_keywords": 461,
-    "keyword_rules": 86,
-    "fallback": 22,
+    "keyword_rules": 92,
+    "fallback": 23,
     "legacy_category": 18,
     "curated_ontology": 1
   },
@@ -99,24 +112,47 @@
         {
           "label": "主催者公式X",
           "url": "https://x.com/0zoku_vrc",
-          "kind": "organizer_profile"
+          "kind": "official_x"
         }
       ],
+      "schedule": {
+        "type": "irregular",
+        "label": "不定期開催",
+        "cadence": "開催回ごとに公式告知",
+        "note": "開催日時、出品条件、観戦条件は今回の公式告知を優先してください。"
+      },
+      "introduction": "VRChat内で参加者が品物や権利を競り合う、観戦も含めて場の熱量を楽しめるオークション形式のイベントです。",
+      "highlights": [
+        "出品者と参加者の掛け合いをライブで楽しめる",
+        "各回の出品内容によって体験が変わる",
+        "参加条件と観戦条件が公式告知で明示される"
+      ],
+      "first_time_guide": "初参加時は、当日の公式告知で参加資格、リクイン受付時間、観戦可否を確認してください。",
       "participation_method": "リクイン抽選式。参加条件と観戦条件は各回の公式告知を確認。",
       "event_format": "VRChat内オークションイベント",
       "audience": "所定のUC所持条件を満たす参加者・観戦者",
       "default_location": "VRChat",
       "tags": [
         "オークション",
-        "リクイン抽選"
-      ]
+        "リクイン抽選",
+        "不定期開催"
+      ],
+      "curation": {
+        "status": "human_curated",
+        "reviewed_at": "2026-08-04",
+        "sources": [
+          "https://x.com/0zoku_vrc"
+        ]
+      }
     },
     {
       "canonical_id": "cafe-bar-for-light",
       "canonical_name": "Cafe & Bar FOR LIGHT",
       "aliases": [
         "Cafe & Bar FOR LIGHT",
-        "FOR LIGHT"
+        "Café & Bar FOR LIGHT",
+        "FOR LIGHT",
+        "フォーライト"
       ],
       "organizers": [
         "@FOR_LIGHT202209"
@@ -128,20 +164,41 @@
       "subcategory": "cafe",
       "official_links": [
         {
-          "label": "主催者公式X",
+          "label": "イベント公式X",
           "url": "https://x.com/FOR_LIGHT202209",
-          "kind": "organizer_profile"
+          "kind": "official_x"
         }
       ],
+      "schedule": {
+        "type": "recurring",
+        "label": "定期開催",
+        "cadence": "日曜夜を中心に定期営業",
+        "note": "休止、時間変更、特別営業は当日の公式告知を優先してください。"
+      },
+      "introduction": "初心者から常連まで参加しやすく、静かな会話と賑やかな交流の両方を楽しめるローテーション制のVRChatカフェ・バーです。",
+      "highlights": [
+        "短いローテーションで複数の相手と会話しやすい",
+        "VRChat初心者・イベント初心者を歓迎",
+        "静かに話したい人と賑やかに過ごしたい人の両方に対応"
+      ],
+      "first_time_guide": "当日の公式告知でインスタンスリーダーを確認し、事前にフレンド申請してから指定時刻にJOINしてください。",
       "participation_method": "JOIN制。公式告知で指定されたILへフレンド申請後にJOIN。",
-      "event_format": "20分単位のローテーション制カフェ・バー",
+      "event_format": "20分単位を基本とするローテーション制カフェ・バー",
       "audience": "VRC初心者、イベント初心者を含む一般参加者",
       "default_location": "VRChat",
       "tags": [
         "カフェ",
         "JOIN制",
-        "初心者歓迎"
-      ]
+        "初心者歓迎",
+        "定期開催"
+      ],
+      "curation": {
+        "status": "human_curated",
+        "reviewed_at": "2026-08-04",
+        "sources": [
+          "https://x.com/FOR_LIGHT202209"
+        ]
+      }
     }
   ],
   "observed_entities": [
@@ -180,6 +237,7 @@
       "event_mode_distribution": {
         "in_world": 121
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -219,6 +277,7 @@
       "event_mode_distribution": {
         "in_world": 34
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -256,6 +315,7 @@
       "event_mode_distribution": {
         "in_world": 34
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -293,6 +353,7 @@
       "event_mode_distribution": {
         "in_world": 34
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -330,6 +391,7 @@
       "event_mode_distribution": {
         "in_world": 18
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/EXPLOIT",
@@ -373,6 +435,7 @@
       "event_mode_distribution": {
         "in_world": 18
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -408,6 +471,7 @@
       "event_mode_distribution": {
         "in_world": 18
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -445,6 +509,7 @@
       "event_mode_distribution": {
         "in_world": 17
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -482,6 +547,7 @@
       "event_mode_distribution": {
         "in_world": 17
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -519,6 +585,7 @@
       "event_mode_distribution": {
         "in_world": 17
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -554,6 +621,7 @@
       "event_mode_distribution": {
         "in_world": 17
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -591,6 +659,7 @@
       "event_mode_distribution": {
         "in_world": 17
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -628,6 +697,7 @@
       "event_mode_distribution": {
         "in_world": 17
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -663,6 +733,7 @@
       "event_mode_distribution": {
         "in_world": 17
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://vrchat.com/home/group/grp_34ca87e0-7ab4-4a55-b9aa-5f502ad493d5/calendar/cal_0cfc20f2-aba2-4c15-8628-59212d1dc53f",
@@ -706,6 +777,7 @@
       "event_mode_distribution": {
         "in_world": 17
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -743,6 +815,7 @@
       "event_mode_distribution": {
         "in_world": 17
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://vrchat.com/home/group/grp_3e1dd1c4-c555-4477-a39d-96f0bb0469ca/calendar/cal_ffabe2fa-029c-427e-a20e-ec19ebfacb5f",
@@ -786,6 +859,7 @@
       "event_mode_distribution": {
         "in_world": 17
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -823,6 +897,7 @@
       "event_mode_distribution": {
         "in_world": 16
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -860,6 +935,7 @@
       "event_mode_distribution": {
         "in_world": 12
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -897,6 +973,7 @@
       "event_mode_distribution": {
         "in_world": 8
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/SW_Arch",
@@ -940,6 +1017,7 @@
       "event_mode_distribution": {
         "in_world": 8
       },
+      "matched_ontology_ids": {},
       "official_links": []
     },
     {
@@ -976,6 +1054,7 @@
       "event_mode_distribution": {
         "in_world": 3
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/rhinohornVR/status/2078017438864802265",
@@ -1047,6 +1126,7 @@
       "event_mode_distribution": {
         "in_world": 2
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/ComaPre/status/2079127292694134992",
@@ -1101,6 +1181,7 @@
       "event_mode_distribution": {
         "in_world": 2
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/nakadarariri/status/2083197505324695668",
@@ -1155,6 +1236,7 @@
       "event_mode_distribution": {
         "in_world": 2
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/Shakugan_com487/status/2081312271750590667",
@@ -1215,6 +1297,7 @@
       "event_mode_distribution": {
         "in_world": 2
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/317TutyVRC/status/2077590352660517097",
@@ -1272,6 +1355,7 @@
       "event_mode_distribution": {
         "in_world": 2
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/vrc_cbc/status/2083840233876111559",
@@ -1331,6 +1415,7 @@
       "event_mode_distribution": {
         "in_world": 2
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/yossy222_VRC/status/2081546495783047173",
@@ -1398,6 +1483,9 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {
+        "zerozoku-auction": 1
+      },
       "official_links": [
         {
           "url": "https://x.com/0zoku_vrc/status/2083770096582119685?utm_source=yjrealtime&utm_medium=search",
@@ -1407,7 +1495,7 @@
         {
           "url": "https://x.com/0zoku_vrc",
           "label": "主催者公式X",
-          "kind": "organizer_profile"
+          "kind": "official_x"
         }
       ]
     },
@@ -1440,6 +1528,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/2024_0509VRC/status/2084216820861653223",
@@ -1487,6 +1576,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/202509VRC/status/2083913746049814998",
@@ -1534,6 +1624,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/317TutyVRC/status/2077590352660517097",
@@ -1581,6 +1672,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/__iGod/status/2083496975576784998",
@@ -1626,6 +1718,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/_EmuEnvy",
@@ -1661,6 +1754,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/_osiruko/status/2083447750969233708",
@@ -1706,6 +1800,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/aiai1969767/status/2083387251816534442",
@@ -1756,6 +1851,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/akaiheya_vrc/status/2084119568612487374?utm_source=yjrealtime&utm_medium=search",
@@ -1803,6 +1899,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/AkiranekoE/status/2083690882629505216?utm_source=yjrealtime&utm_medium=search",
@@ -1850,6 +1947,7 @@
       "event_mode_distribution": {
         "hybrid": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/Books0422/status/2083830419305402583",
@@ -1910,6 +2008,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/chara_ket/status/2084184881433817387?utm_source=yjrealtime&utm_medium=search",
@@ -1918,6 +2017,52 @@
         },
         {
           "url": "https://x.com/chara_ket",
+          "label": "公式X",
+          "kind": "official_x"
+        }
+      ]
+    },
+    {
+      "entity_id": "https://x.com/cheddaraddehc",
+      "organizer": "@CheddaraddehC",
+      "official_x_url": "https://x.com/CheddaraddehC",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/media/HO2IwzqakAAa9ud.jpg?format=webp&name=small",
+      "image_kind": "post_media",
+      "observed_event_count": 1,
+      "latest_observed_start": "2026-08-04T11:00:00Z",
+      "sample_event_ids": [
+        "ea24139957ccc6072fee"
+      ],
+      "sample_titles": [
+        "START 本日20時より、第101回「VRCニコニコ集会（vR）」を開催します！ 今回は複数のワールドアップデートと二周年イベントのポスター、そして週末の出張集会について告知しますのでお楽し…"
+      ],
+      "category_distribution": {
+        "art": 1
+      },
+      "dominant_category": {
+        "value": "art",
+        "count": 1,
+        "share": 1.0
+      },
+      "subcategory_distribution": {},
+      "event_mode_distribution": {
+        "in_world": 1
+      },
+      "matched_ontology_ids": {},
+      "official_links": [
+        {
+          "url": "https://twitter.com/CheddaraddehC/status/2084472620561711551",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/CheddaraddehC/status/2084472620561711551?utm_source=yjrealtime&utm_medium=search",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/CheddaraddehC",
           "label": "公式X",
           "kind": "official_x"
         }
@@ -1952,6 +2097,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/ClubDanceparty/status/2082974922272612758",
@@ -1965,6 +2111,52 @@
         },
         {
           "url": "https://x.com/ClubDanceparty",
+          "label": "公式X",
+          "kind": "official_x"
+        }
+      ]
+    },
+    {
+      "entity_id": "https://x.com/dj_tsumugi",
+      "organizer": "@dj_tsumugi",
+      "official_x_url": "https://x.com/dj_tsumugi",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/media/HO2JxAma4AEz9if.jpg?format=webp&name=small",
+      "image_kind": "post_media",
+      "observed_event_count": 1,
+      "latest_observed_start": "2026-08-05T13:00:00Z",
+      "sample_event_ids": [
+        "662239231affbbd34aee"
+      ],
+      "sample_titles": [
+        "START 明日です！ VRChatでのBar DJ #GrooveNoir は8月5日（水）22時から90分ほど。 今回は6月〜7月の新譜を中心に、深めのジャジーなハウスから心躍るディスコ・…"
+      ],
+      "category_distribution": {
+        "art": 1
+      },
+      "dominant_category": {
+        "value": "art",
+        "count": 1,
+        "share": 1.0
+      },
+      "subcategory_distribution": {},
+      "event_mode_distribution": {
+        "in_world": 1
+      },
+      "matched_ontology_ids": {},
+      "official_links": [
+        {
+          "url": "https://twitter.com/dj_tsumugi/status/2084474368143540713",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/dj_tsumugi/status/2084474368143540713?utm_source=yjrealtime&utm_medium=search",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/dj_tsumugi",
           "label": "公式X",
           "kind": "official_x"
         }
@@ -1999,6 +2191,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/eclairr_xx/status/2083847223167926414",
@@ -2044,6 +2237,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/el_ma_riu/status/2083145652478136497",
@@ -2057,6 +2251,54 @@
         },
         {
           "url": "https://x.com/el_ma_riu",
+          "label": "公式X",
+          "kind": "official_x"
+        }
+      ]
+    },
+    {
+      "entity_id": "https://x.com/esperina_e",
+      "organizer": "@esperina_e",
+      "official_x_url": "https://x.com/esperina_e",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/media/HO1maXxa0AANT3D.png?format=webp&name=small",
+      "image_kind": "post_media",
+      "observed_event_count": 1,
+      "latest_observed_start": "2026-08-04T13:00:00Z",
+      "sample_event_ids": [
+        "a1c28a60476fea046b7b"
+      ],
+      "sample_titles": [
+        "START 本日8/4（火）22:00からVRChat内で手話交流イベント #ゆびさきmeetup を開催します 手話に興味があるけれど「会話に加わるのはちょっと不安…」という方でも、毎回テー…"
+      ],
+      "category_distribution": {
+        "community": 1
+      },
+      "dominant_category": {
+        "value": "community",
+        "count": 1,
+        "share": 1.0
+      },
+      "subcategory_distribution": {
+        "social": 1
+      },
+      "event_mode_distribution": {
+        "in_world": 1
+      },
+      "matched_ontology_ids": {},
+      "official_links": [
+        {
+          "url": "https://twitter.com/esperina_e/status/2084474409192948111",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/esperina_e/status/2084474409192948111?utm_source=yjrealtime&utm_medium=search",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/esperina_e",
           "label": "公式X",
           "kind": "official_x"
         }
@@ -2089,6 +2331,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/frisbee_V/status/2083746800033517642",
@@ -2134,6 +2377,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/FTC_VRC/status/2084239288276058405",
@@ -2179,6 +2423,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/fyuear_r/status/2083682081184551379",
@@ -2199,6 +2444,57 @@
           "url": "https://vrchat.com/home/group/grp_0f943d09-4fb3-4db9-ad5c-c81df9eb392b",
           "label": "VRChat Group",
           "kind": "vrchat_group"
+        }
+      ]
+    },
+    {
+      "entity_id": "https://x.com/gunpuku1940",
+      "organizer": "@GUNPUKU1940",
+      "official_x_url": "https://x.com/GUNPUKU1940",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/media/HO0IDZqbYAE-hG7.jpg?format=webp&name=small",
+      "image_kind": "post_media",
+      "observed_event_count": 1,
+      "latest_observed_start": "2026-08-05T13:00:00Z",
+      "sample_event_ids": [
+        "d1533a1f61d56637855d"
+      ],
+      "sample_titles": [
+        "START VRC軍装同好会定期集会！ 今回はiyorokenさん制作の 【Just Sonatine】 で開催します！ 開催日8月5日 22時～ 皆様のご参加お待ちしております！ グループ …"
+      ],
+      "category_distribution": {
+        "art": 1
+      },
+      "dominant_category": {
+        "value": "art",
+        "count": 1,
+        "share": 1.0
+      },
+      "subcategory_distribution": {},
+      "event_mode_distribution": {
+        "in_world": 1
+      },
+      "matched_ontology_ids": {},
+      "official_links": [
+        {
+          "url": "https://twitter.com/GUNPUKU1940/status/2084331064076734821",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/GUNPUKU1940/status/2084331064076734821?utm_source=yjrealtime&utm_medium=search",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/GUNPUKU1940",
+          "label": "公式X",
+          "kind": "official_x"
+        },
+        {
+          "url": "https://vrchat.com/home/world/wrld_46d277ab-040b-423f-9892-8b2afa4c6ac3/info",
+          "label": "VRChat World",
+          "kind": "vrchat_world"
         }
       ]
     },
@@ -2229,6 +2525,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/haconiwa_VRC/status/2077926565833544098",
@@ -2276,6 +2573,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/hakushiza/status/2080216356952158297",
@@ -2323,6 +2621,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/Hibiki_VR_ac/status/2084089354952294853",
@@ -2343,6 +2642,57 @@
           "url": "https://vrchat.com/home/group/grp_31f3d5fc-14fc-403f-9b17-dd84e1ea6c4a",
           "label": "VRChat Group",
           "kind": "vrchat_group"
+        }
+      ]
+    },
+    {
+      "entity_id": "https://x.com/hitoha_ks",
+      "organizer": "@Hitoha_ks",
+      "official_x_url": "https://x.com/Hitoha_ks",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/media/HO1UYjBaEAAle4w.jpg?format=webp&name=small",
+      "image_kind": "post_media",
+      "observed_event_count": 1,
+      "latest_observed_start": "2026-08-08T03:00:00Z",
+      "sample_event_ids": [
+        "7eb8dc6600ae7a6427d7"
+      ],
+      "sample_titles": [
+        "SwingBox in VRC 8/8 12:00〜17:00 21:00〜26:00 8/9 12:00〜17:00 21:00〜26:00 2日間で狂気の20時間のエレスイイベント わたし…"
+      ],
+      "category_distribution": {
+        "other": 1
+      },
+      "dominant_category": {
+        "value": "other",
+        "count": 1,
+        "share": 1.0
+      },
+      "subcategory_distribution": {},
+      "event_mode_distribution": {
+        "in_world": 1
+      },
+      "matched_ontology_ids": {},
+      "official_links": [
+        {
+          "url": "https://twitter.com/Hitoha_ks/status/2084414990027821351",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://twitter.com/swingbox_vrc/status/2080956389175013376",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/Hitoha_ks/status/2084414990027821351?utm_source=yjrealtime&utm_medium=search",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/Hitoha_ks",
+          "label": "公式X",
+          "kind": "official_x"
         }
       ]
     },
@@ -2375,6 +2725,7 @@
       "event_mode_distribution": {
         "deadline": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/ibekoresub/status/2082990245176586249",
@@ -2422,6 +2773,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/Isara_VRC/status/2084112024142012846",
@@ -2472,6 +2824,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/Jokin0126_vrc/status/2082264781936037965",
@@ -2524,6 +2877,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/VRCKWorldRadio/status/2082081752919765212",
@@ -2571,6 +2925,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/kagami_nuit_vrc/status/2083438067671838761?utm_source=yjrealtime&utm_medium=search",
@@ -2611,6 +2966,7 @@
       "event_mode_distribution": {
         "deadline": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/kamonegi10_06/status/2084118756473889132",
@@ -2658,6 +3014,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/kikiki_kikyo/status/2074822308578173164",
@@ -2673,6 +3030,54 @@
           "url": "https://x.com/kikiki_kikyo",
           "label": "公式X",
           "kind": "official_x"
+        }
+      ]
+    },
+    {
+      "entity_id": "https://x.com/kmid_numanidive",
+      "organizer": "@KMID_Numanidive",
+      "official_x_url": "https://x.com/KMID_Numanidive",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/profile_images/1532933351572910080/U5sVGHKp.jpg?format=webp&name=200x200",
+      "image_kind": "organizer_profile",
+      "observed_event_count": 1,
+      "latest_observed_start": "2026-08-04T12:00:00Z",
+      "sample_event_ids": [
+        "df3cf671239aebdc5d44"
+      ],
+      "sample_titles": [
+        "【告知】 本日21:00から『沼民VRC部集会』を開催します。 グループインスタンスでの開催となるため、集会に参加する方は沼民グループへの参加をお忘れなく。 https://t.co/NJ7R…"
+      ],
+      "category_distribution": {
+        "community": 1
+      },
+      "dominant_category": {
+        "value": "community",
+        "count": 1,
+        "share": 1.0
+      },
+      "subcategory_distribution": {
+        "hangout": 1
+      },
+      "event_mode_distribution": {
+        "in_world": 1
+      },
+      "matched_ontology_ids": {},
+      "official_links": [
+        {
+          "url": "https://x.com/KMID_Numanidive/status/2084478715246117041?utm_source=yjrealtime&utm_medium=search",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/KMID_Numanidive",
+          "label": "公式X",
+          "kind": "official_x"
+        },
+        {
+          "url": "https://vrchat.com/home/group/grp_c4849e38-2902-4099-8760-4c20a7a95832",
+          "label": "VRChat Group",
+          "kind": "vrchat_group"
         }
       ]
     },
@@ -2705,6 +3110,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/kodoresu_vr/status/2082464324216655917",
@@ -2757,6 +3163,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/kumakuma_0904/status/2081721537246490688",
@@ -2802,6 +3209,7 @@
       "event_mode_distribution": {
         "deadline": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/KuyaHuei_VR/status/2082398223872798889",
@@ -2849,6 +3257,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/KyushuShukai/status/1693556047456194720",
@@ -2894,6 +3303,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/LEAFshade_/status/2073723567930560656",
@@ -2939,6 +3349,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/maemiemiemi/status/2083118271105311023",
@@ -2984,6 +3395,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/natuse_sea/status/2084094535618232476",
@@ -3031,6 +3443,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/METAFES_jp/status/2078766798611021888?utm_source=yjrealtime&utm_medium=search",
@@ -3073,6 +3486,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/miraraKnight/status/2083313317666500975",
@@ -3120,6 +3534,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/ponhayate_vrc/status/2084118223654633538",
@@ -3167,6 +3582,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/mizuki_VRC/status/2080232112758907002",
@@ -3214,6 +3630,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/momo_potensi/status/2080563836353171877",
@@ -3261,6 +3678,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/nagayanyan/status/2083889568210882925",
@@ -3306,6 +3724,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/Ninoukyo_VRC/status/2084202614946984184",
@@ -3351,6 +3770,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/NKYSKW_VRC/status/2083945313384210826",
@@ -3398,6 +3818,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/NUMA7ma_VRC/status/2080627512992989634",
@@ -3445,6 +3866,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/OYSM_VR/status/2084187675288797205",
@@ -3492,6 +3914,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/PCF0927/status/2074740243383906767",
@@ -3537,6 +3960,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/PerfectVRC/status/2084250255160406372?utm_source=yjrealtime&utm_medium=search",
@@ -3579,6 +4003,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/pocho_inu/status/2082361100381872541?utm_source=yjrealtime&utm_medium=search",
@@ -3621,6 +4046,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/Pyropaw",
@@ -3661,6 +4087,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/Rinoa_VRC/status/2078354078581837955",
@@ -3706,6 +4133,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/ruu_01234/status/2083840956588343552",
@@ -3758,6 +4186,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/SHOHEI_YAMATO/status/2084232626135793819",
@@ -3805,6 +4234,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/SingSongLine/status/2083153781156610203",
@@ -3850,6 +4280,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/sirabosi_hinatu/status/2083360068549099578",
@@ -3895,6 +4326,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/sovereign_vrc/status/2082413742231531814",
@@ -3942,6 +4374,7 @@
       "event_mode_distribution": {
         "deadline": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://forms.gle/xtnTpqY2QPUGFshy6",
@@ -3984,6 +4417,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/TAD_exe_VRC/status/2080959303486517348",
@@ -4031,6 +4465,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/tapanohito/status/2082818006938452168",
@@ -4076,6 +4511,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/TazTaz926/status/2082118916898488545",
@@ -4128,6 +4564,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/ULPHA_S/status/2065398765167751649",
@@ -4180,6 +4617,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/Vnkaok/status/2082440692153098294?utm_source=yjrealtime&utm_medium=search",
@@ -4220,6 +4658,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/voisism_vrc/status/2083316775962485235",
@@ -4267,6 +4706,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/vr_launch/status/2082745642745766378",
@@ -4314,6 +4754,7 @@
       "event_mode_distribution": {
         "deadline": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/VRC_BarLithops/status/2084112021570940978",
@@ -4332,6 +4773,52 @@
         },
         {
           "url": "https://x.com/VRC_BarLithops",
+          "label": "公式X",
+          "kind": "official_x"
+        }
+      ]
+    },
+    {
+      "entity_id": "https://x.com/vrc_billiards",
+      "organizer": "@VRC_billiards",
+      "official_x_url": "https://x.com/VRC_billiards",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/profile_images/1744695668038590464/chJrTXC1.png?format=webp&name=200x200",
+      "image_kind": "organizer_profile",
+      "observed_event_count": 1,
+      "latest_observed_start": "2026-08-04T09:00:00Z",
+      "sample_event_ids": [
+        "1660345195ff72cb3f5d"
+      ],
+      "sample_titles": [
+        "START 参加受付は本日8/4(火) 18:00まで！ VRCビリヤードC級ビギナー大会｢新人王｣、今夜21時スタート🎱 参加予定の方は登録をお忘れなく👇 #VRCビリヤード同好会 #VRC…"
+      ],
+      "category_distribution": {
+        "art": 1
+      },
+      "dominant_category": {
+        "value": "art",
+        "count": 1,
+        "share": 1.0
+      },
+      "subcategory_distribution": {},
+      "event_mode_distribution": {
+        "in_world": 1
+      },
+      "matched_ontology_ids": {},
+      "official_links": [
+        {
+          "url": "https://twitter.com/VRC_billiards/status/2082798924889481514",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/VRC_billiards/status/2084462067415965876?utm_source=yjrealtime&utm_medium=search",
+          "label": "公式告知",
+          "kind": "announcement"
+        },
+        {
+          "url": "https://x.com/VRC_billiards",
           "label": "公式X",
           "kind": "official_x"
         }
@@ -4366,6 +4853,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/VRC_Cup_of_Time/status/2084112032085733744",
@@ -4411,6 +4899,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/VRC_lumitia/status/2083326848017031454",
@@ -4458,6 +4947,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/VRC_MDJ/status/2083394790712906199",
@@ -4503,6 +4993,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/VRC_nayameeting/status/2083886085877485717",
@@ -4550,6 +5041,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/VRC_StayClose/status/2083706861216518266",
@@ -4597,6 +5089,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/VRCbadminton/status/2083522584138883522",
@@ -4644,6 +5137,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/VRCbowlingClub/status/2082381268361302241",
@@ -4694,6 +5188,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/VRCHaiku/status/2083509617980821695?utm_source=yjrealtime&utm_medium=search",
@@ -4734,6 +5229,7 @@
       "event_mode_distribution": {
         "hybrid": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/VRCSF6_Champion/status/2081276166149923156",
@@ -4781,6 +5277,7 @@
       "event_mode_distribution": {
         "hybrid": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/VrcYss/status/2083855733653995885",
@@ -4826,6 +5323,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://x.com/VRTon",
@@ -4868,6 +5366,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/wakaran_vrc/status/2082435979541971082",
@@ -4913,6 +5412,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/Kagarihi_vr/status/2083508046752366960",
@@ -4960,6 +5460,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/WR_VRC/status/2083885523681353945",
@@ -5012,6 +5513,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/YakitoriYataro/status/2083174586934579596",
@@ -5059,6 +5561,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/yuki_ame0122/status/2083354510366531782",
@@ -5104,6 +5607,7 @@
       "event_mode_distribution": {
         "in_world": 1
       },
+      "matched_ontology_ids": {},
       "official_links": [
         {
           "url": "https://twitter.com/yumemian29/status/2084114872397337064",
