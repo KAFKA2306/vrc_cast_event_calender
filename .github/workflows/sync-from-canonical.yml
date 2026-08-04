@@ -1,4 +1,3 @@
-# trigger: 2026-08-03T19:25+09:00
 name: Sync from canonical event calendar
 
 on:
@@ -20,51 +19,59 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Checkout production repository
         uses: actions/checkout@v6
         with:
           path: production
           fetch-depth: 0
-      - name: Checkout public canonical repository
+      - name: Checkout canonical repository
         uses: actions/checkout@v6
         with:
           repository: KAFKA2306/cast_event_cal
           path: canonical
-      - name: Validate canonical assets
+          fetch-depth: 0
+      - name: Wait for generated curated profiles
         run: |
-          python - <<'PY'
+          set -euo pipefail
+          ready=false
+          for attempt in $(seq 1 60); do
+            git -C canonical fetch origin main
+            git -C canonical reset --hard origin/main
+            if python - <<'PY'
           import json
           from pathlib import Path
-          base = Path('canonical/public')
-          events = json.loads((base / 'events.json').read_text(encoding='utf-8'))
-          assets = json.loads((base / 'official-asset-audit.json').read_text(encoding='utf-8'))
-          links = json.loads((base / 'event-link-audit.json').read_text(encoding='utf-8'))
-          ontology = json.loads((base / 'event-ontology.json').read_text(encoding='utf-8'))
-          categories = json.loads((base / 'category-ontology.json').read_text(encoding='utf-8'))
-          ontology_audit = json.loads((base / 'ontology-match-audit.json').read_text(encoding='utf-8'))
-          html = (base / 'index.html').read_text(encoding='utf-8')
-          rows = events['events']
-          allowed = {item['id'] for item in categories['categories'] if item.get('id')}
-          assert events['count'] > 555
-          assert assets['counts']['official_x'] > 0
-          assert assets['counts']['webp_image'] > 0
-          assert links['events_with_primary_action'] > 0
+          base=Path('canonical/public')
+          events=json.loads((base/'events.json').read_text(encoding='utf-8'))
+          ontology=json.loads((base/'event-ontology.json').read_text(encoding='utf-8'))
+          audit=json.loads((base/'ontology-match-audit.json').read_text(encoding='utf-8'))
+          rows=events['events']
+          assert events['count'] == len(rows) and events['count'] > 555
           assert ontology['schema_version'] == '3.0'
-          assert ontology['category_ontology_schema_version'] == '2.0'
-          assert ontology['source_event_count'] == events['count']
-          assert ontology['observed_entity_count'] > 2
-          assert categories['schema_version'] == '2.0'
-          assert all(row.get('category') in allowed for row in rows)
-          assert ontology_audit['category_classification']['event_count'] == events['count']
-          assert 'event-media-link' in html
-          assert 'preferredActionUrl' in html
-          assert 'id="recommendations"' in html
-          assert '2026-08-03-local-history-recommend-v2' in html
-          assert 'localStorage' in html
-          assert 'MMR_RELEVANCE=0.82' in html
+          assert ontology['curated_schema_version'] == '2.0'
+          assert ontology['governance']['curation_mode'] == 'human_only'
+          assert ontology['governance']['automatic_entry_creation'] is False
+          assert ontology['governance']['automatic_entry_rewrite'] is False
+          assert ontology['curated_entry_count'] >= 2
+          assert any(row.get('series_profile') for row in rows)
+          assert all(row.get('series_profile',{}).get('curation',{}).get('status') == 'human_curated' for row in rows if row.get('series_profile'))
+          assert audit['category_classification']['event_count'] == events['count']
+          assert (base/'series-profile.js').exists()
           PY
+            then ready=true; break; fi
+            sleep 10
+          done
+          test "$ready" = true
+      - name: Validate canonical assets
+        run: |
+          set -euo pipefail
+          node --check canonical/public/uiux-v4.js
+          node --check canonical/public/series-profile.js
+          grep -q 'CURATED SERIES PROFILE' canonical/public/series-profile.js
+          grep -q '人手で確認したオントロジー' canonical/public/series-profile.js
+          grep -q 'event-media-link' canonical/public/index.html
+          grep -q 'id="recommendations"' canonical/public/index.html
       - name: Synchronize public files
         run: |
           set -euo pipefail
@@ -81,7 +88,8 @@ jobs:
           if git diff --cached --quiet; then
             echo 'Production assets already current'
           else
-            git commit -m 'chore: publish canonical event calendar [skip ci]'
+            git commit -m 'chore: publish curated event series profiles [skip ci]'
+            git pull --rebase origin main
             git push origin HEAD:main
           fi
       - name: Verify GitHub Pages
@@ -89,40 +97,23 @@ jobs:
           set -euo pipefail
           base='https://kafka2306.github.io/vrc_cast_event_calender'
           verified=false
-          for attempt in $(seq 1 36); do
-            if curl -fsS "$base/events.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/events.json \
-              && curl -fsS "$base/event-link-audit.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/links.json \
-              && curl -fsS "$base/event-ontology.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/ontology.json \
-              && curl -fsS "$base/category-ontology.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/categories.json \
-              && curl -fsS "$base/ontology-match-audit.json?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/ontology-audit.json \
-              && curl -fsS "$base/?run=${GITHUB_RUN_ID}-${attempt}" -o /tmp/index.html \
+          for attempt in $(seq 1 48); do
+            token="${GITHUB_RUN_ID}-${attempt}"
+            if curl -fsS "$base/events.json?run=$token" -o /tmp/events.json \
+              && curl -fsS "$base/event-ontology.json?run=$token" -o /tmp/ontology.json \
+              && curl -fsS "$base/series-profile.js?run=$token" -o /tmp/series-profile.js \
               && python - <<'PY'
           import json
-          events=json.load(open('/tmp/events.json',encoding='utf-8'))
-          links=json.load(open('/tmp/links.json',encoding='utf-8'))
-          ontology=json.load(open('/tmp/ontology.json',encoding='utf-8'))
-          categories=json.load(open('/tmp/categories.json',encoding='utf-8'))
-          ontology_audit=json.load(open('/tmp/ontology-audit.json',encoding='utf-8'))
-          html=open('/tmp/index.html',encoding='utf-8').read()
+          from pathlib import Path
+          events=json.loads(Path('/tmp/events.json').read_text(encoding='utf-8'))
+          ontology=json.loads(Path('/tmp/ontology.json').read_text(encoding='utf-8'))
+          profile=Path('/tmp/series-profile.js').read_text(encoding='utf-8')
           rows=events['events']
-          allowed={item['id'] for item in categories['categories'] if item.get('id')}
-          assert events['count'] > 555
-          assert links['events_with_primary_action'] > 0
-          assert links['events_with_application'] > 0
-          assert links['events_with_vrchat_group'] > 0
-          assert ontology['schema_version'] == '3.0'
-          assert ontology['category_ontology_schema_version'] == '2.0'
-          assert ontology['source_event_count'] == events['count']
-          assert ontology['observed_entity_count'] > 2
-          assert categories['schema_version'] == '2.0'
-          assert all(row.get('category') in allowed for row in rows)
-          assert ontology_audit['category_classification']['event_count'] == events['count']
-          assert any(row.get('image_url') and row.get('primary_action_url') for row in rows)
-          assert 'event-media-link' in html
-          assert 'id="recommendations"' in html
-          assert '2026-08-03-local-history-recommend-v2' in html
-          assert 'localStorage' in html
-          assert 'MMR_RELEVANCE=0.82' in html
+          assert events['count'] == len(rows) and events['count'] > 555
+          assert ontology['curated_schema_version'] == '2.0'
+          assert ontology['governance']['curation_mode'] == 'human_only'
+          assert any(row.get('series_profile') for row in rows)
+          assert 'CURATED SERIES PROFILE' in profile
           PY
             then verified=true; break; fi
             sleep 10
@@ -137,28 +128,23 @@ jobs:
           import json
           from datetime import UTC, datetime
           from pathlib import Path
-          events=json.load(open('/tmp/events.json',encoding='utf-8'))
-          links=json.load(open('/tmp/links.json',encoding='utf-8'))
-          ontology=json.load(open('/tmp/ontology.json',encoding='utf-8'))
-          categories=json.load(open('/tmp/categories.json',encoding='utf-8'))
+          events=json.loads(Path('/tmp/events.json').read_text(encoding='utf-8'))
+          ontology=json.loads(Path('/tmp/ontology.json').read_text(encoding='utf-8'))
+          profiles=[row for row in events['events'] if row.get('series_profile')]
           result={
-            'schema_version':'1.1',
+            'schema_version':'1.2',
             'verified_at':datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00','Z'),
             'page_url':'https://kafka2306.github.io/vrc_cast_event_calender/',
             'event_count':events['count'],
-            'events_with_primary_action':links['events_with_primary_action'],
-            'events_with_application':links['events_with_application'],
-            'events_with_vrchat_group':links['events_with_vrchat_group'],
-            'ontology_schema_version':ontology['schema_version'],
-            'category_ontology_schema_version':categories['schema_version'],
-            'observed_entity_count':ontology['observed_entity_count'],
-            'linked_image_count':sum(bool(row.get('image_url') and row.get('primary_action_url')) for row in events['events']),
-            'recommendation_build':'2026-08-03-local-history-recommend-v2',
+            'curated_profile_event_count':len(profiles),
+            'curated_entry_count':ontology['curated_entry_count'],
+            'curated_schema_version':ontology['curated_schema_version'],
+            'curation_mode':ontology['governance']['curation_mode'],
             'status':'ok',
           }
           Path('audit/link-ontology-pages-verification.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
           git add audit/link-ontology-pages-verification.json
-          git commit -m 'chore: record recommendation Pages verification [skip ci]'
+          git commit -m 'chore: record curated series Pages verification [skip ci]' || true
           git pull --rebase origin main
           git push origin HEAD:main

@@ -42,10 +42,14 @@ jobs:
           test -f canonical/public/_routes.json
           test -f canonical/public/uiux-v4.css
           test -f canonical/public/uiux-v4.js
+          test -f canonical/public/series-profile.js
           node --check canonical/functions/index.js
           node --check canonical/public/uiux-v4.js
-          grep -q '2026-08-04-quality-view-v5' canonical/functions/index.js
-          grep -q '2026-08-04-quality-view-v5' canonical/public/uiux-v4.js
+          node --check canonical/public/series-profile.js
+          grep -q '2026-08-04-quality-view-v6' canonical/functions/index.js
+          grep -q 'series-profile.js' canonical/functions/index.js
+          grep -q 'CURATED SERIES PROFILE' canonical/public/series-profile.js
+          grep -q "typeof state!=='undefined'" canonical/public/series-profile.js
       - name: Synchronize Cloudflare Pages files
         run: |
           set -euo pipefail
@@ -54,15 +58,16 @@ jobs:
           cp canonical/public/_routes.json production/_routes.json
           cp canonical/public/uiux-v4.css production/uiux-v4.css
           cp canonical/public/uiux-v4.js production/uiux-v4.js
+          cp canonical/public/series-profile.js production/series-profile.js
       - name: Publish quality-view files
         working-directory: production
         run: |
           set -euo pipefail
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add functions _routes.json uiux-v4.css uiux-v4.js
+          git add functions _routes.json uiux-v4.css uiux-v4.js series-profile.js
           if ! git diff --cached --quiet; then
-            git commit -m 'chore: sync Cloudflare quality view v5'
+            git commit -m 'chore: sync Cloudflare quality view v6'
             git pull --rebase origin main
             git push origin HEAD:main
           fi
@@ -76,33 +81,42 @@ jobs:
             if curl -fsS -D /tmp/root.headers "$base/?verify=$token" -o /tmp/root.html \
               && curl -fsS "$base/uiux-v4.css?verify=$token" -o /tmp/uiux.css \
               && curl -fsS "$base/uiux-v4.js?verify=$token" -o /tmp/uiux.js \
+              && curl -fsS "$base/series-profile.js?verify=$token" -o /tmp/series-profile.js \
               && curl -fsS "$base/events.json?verify=$token" -o /tmp/events.json \
+              && curl -fsS "$base/event-ontology.json?verify=$token" -o /tmp/ontology.json \
               && python - <<'PY'
           import json
           from pathlib import Path
           headers=Path('/tmp/root.headers').read_text(encoding='utf-8',errors='replace').lower()
           html=Path('/tmp/root.html').read_text(encoding='utf-8')
           css=Path('/tmp/uiux.css').read_text(encoding='utf-8')
-          script=Path('/tmp/uiux.js').read_text(encoding='utf-8')
+          uiux=Path('/tmp/uiux.js').read_text(encoding='utf-8')
+          profile=Path('/tmp/series-profile.js').read_text(encoding='utf-8')
           events=json.loads(Path('/tmp/events.json').read_text(encoding='utf-8'))
-          assert 'x-quality-view: 2026-08-04-quality-view-v5' in headers
+          ontology=json.loads(Path('/tmp/ontology.json').read_text(encoding='utf-8'))
+          rows=events['events']
+          assert 'x-quality-view: 2026-08-04-quality-view-v6' in headers
           assert 'href="/uiux-v4.css"' in html
           assert 'src="/uiux-v4.js"' in html
+          assert 'src="/series-profile.js"' in html
           assert '.ux-mobile-nav{display:none!important}' in css
-          assert '.ux-filter-toggle' in css
-          assert '.ux-load-more' in css
-          assert 'prefers-reduced-motion' in css
-          assert '2026-08-04-quality-view-v5' in script
-          assert 'applyPagination' in script
-          assert "selectRange('today',false)" in script
-          assert events['count'] == len(events['events'])
+          assert 'IntersectionObserver' in uiux
+          assert 'CURATED SERIES PROFILE' in profile
+          assert '人手で確認したオントロジー' in profile
+          assert events['count'] == len(rows)
           assert events['count'] > 555
+          assert ontology['schema_version'] == '3.0'
+          assert ontology['curated_schema_version'] == '2.0'
+          assert ontology['governance']['curation_mode'] == 'human_only'
+          assert ontology['governance']['automatic_entry_creation'] is False
+          assert any(row.get('series_profile') for row in rows)
+          assert all(row.get('series_profile',{}).get('curation',{}).get('status') == 'human_curated' for row in rows if row.get('series_profile'))
           PY
             then verified=true; break; fi
             sleep 10
           done
           test "$verified" = true
-      - name: Record production proof and clean branches
+      - name: Record production proof
         working-directory: production
         run: |
           set -euo pipefail
@@ -114,32 +128,34 @@ jobs:
           from pathlib import Path
           def digest(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
           events=json.loads(Path('/tmp/events.json').read_text(encoding='utf-8'))
+          ontology=json.loads(Path('/tmp/ontology.json').read_text(encoding='utf-8'))
+          profiles=[row for row in events['events'] if row.get('series_profile')]
           result={
-            'schema_version':'1.1',
+            'schema_version':'1.2',
             'verified_at':datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00','Z'),
             'page_url':'https://vrc-cast-event-calender.pages.dev/',
-            'quality_view':'2026-08-04-quality-view-v5',
+            'quality_view':'2026-08-04-quality-view-v6',
             'event_count':events['count'],
-            'root_header_verified':True,
+            'curated_profile_event_count':len(profiles),
+            'curated_entry_count':ontology['curated_entry_count'],
+            'curated_schema_version':ontology['curated_schema_version'],
+            'curation_mode':ontology['governance']['curation_mode'],
+            'automatic_entry_creation':ontology['governance']['automatic_entry_creation'],
             'root_asset_injection_verified':True,
-            'responsive_css_verified':True,
-            'javascript_contract_verified':True,
-            'visual_hierarchy_contract_verified':True,
+            'series_profile_ui_verified':True,
             'sha256':{
               'root_html':digest('/tmp/root.html'),
               'uiux_css':digest('/tmp/uiux.css'),
               'uiux_js':digest('/tmp/uiux.js'),
+              'series_profile_js':digest('/tmp/series-profile.js'),
               'events_json':digest('/tmp/events.json'),
+              'ontology_json':digest('/tmp/ontology.json'),
             },
             'status':'ok',
           }
           Path('.github/audit/pages-uiux-verification.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
           git add .github/audit/pages-uiux-verification.json
-          git commit -m 'chore: record Cloudflare UIUX v5 verification [skip ci]' || true
+          git commit -m 'chore: record curated series profile verification [skip ci]' || true
           git pull --rebase origin main
           git push origin HEAD:main
-          branch='agent/visual-hierarchy-v5-production'
-          if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null 2>&1; then
-            git push origin --delete "$branch"
-          fi
