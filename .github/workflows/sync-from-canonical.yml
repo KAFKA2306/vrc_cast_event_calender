@@ -1,3 +1,4 @@
+# trigger: 2026-08-04T13:54+09:00
 name: Sync from canonical event calendar
 
 on:
@@ -47,14 +48,18 @@ jobs:
           ontology=json.loads((base/'event-ontology.json').read_text(encoding='utf-8'))
           audit=json.loads((base/'ontology-match-audit.json').read_text(encoding='utf-8'))
           rows=events['events']
-          assert events['count'] == len(rows) and events['count'] > 555
+          assert events['count'] == len(rows) == 595
           assert ontology['schema_version'] == '3.0'
           assert ontology['curated_schema_version'] == '2.0'
           assert ontology['governance']['curation_mode'] == 'human_only'
           assert ontology['governance']['automatic_entry_creation'] is False
           assert ontology['governance']['automatic_entry_rewrite'] is False
-          assert ontology['curated_entry_count'] >= 2
-          assert any(row.get('series_profile') for row in rows)
+          assert ontology['curated_entry_count'] == 7
+          assert audit['ontology_entries'] == 7
+          assert audit['matched_events'] == 121
+          assert audit['unmatched_events'] == 474
+          assert audit['ambiguous_events'] == 0
+          assert sum(bool(row.get('series_profile')) for row in rows) == 121
           assert all(row.get('series_profile',{}).get('curation',{}).get('status') == 'human_curated' for row in rows if row.get('series_profile'))
           assert audit['category_classification']['event_count'] == events['count']
           assert (base/'series-profile.js').exists()
@@ -88,7 +93,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'Production assets already current'
           else
-            git commit -m 'chore: publish curated event series profiles [skip ci]'
+            git commit -m 'chore: publish expanded event series links [skip ci]'
             git pull --rebase origin main
             git push origin HEAD:main
           fi
@@ -101,18 +106,23 @@ jobs:
             token="${GITHUB_RUN_ID}-${attempt}"
             if curl -fsS "$base/events.json?run=$token" -o /tmp/events.json \
               && curl -fsS "$base/event-ontology.json?run=$token" -o /tmp/ontology.json \
+              && curl -fsS "$base/ontology-match-audit.json?run=$token" -o /tmp/audit.json \
               && curl -fsS "$base/series-profile.js?run=$token" -o /tmp/series-profile.js \
               && python - <<'PY'
           import json
           from pathlib import Path
           events=json.loads(Path('/tmp/events.json').read_text(encoding='utf-8'))
           ontology=json.loads(Path('/tmp/ontology.json').read_text(encoding='utf-8'))
+          audit=json.loads(Path('/tmp/audit.json').read_text(encoding='utf-8'))
           profile=Path('/tmp/series-profile.js').read_text(encoding='utf-8')
           rows=events['events']
-          assert events['count'] == len(rows) and events['count'] > 555
+          assert events['count'] == len(rows) == 595
           assert ontology['curated_schema_version'] == '2.0'
           assert ontology['governance']['curation_mode'] == 'human_only'
-          assert any(row.get('series_profile') for row in rows)
+          assert ontology['curated_entry_count'] == 7
+          assert audit['matched_events'] == 121
+          assert audit['ambiguous_events'] == 0
+          assert sum(bool(row.get('series_profile')) for row in rows) == 121
           assert 'CURATED SERIES PROFILE' in profile
           PY
             then verified=true; break; fi
@@ -130,9 +140,10 @@ jobs:
           from pathlib import Path
           events=json.loads(Path('/tmp/events.json').read_text(encoding='utf-8'))
           ontology=json.loads(Path('/tmp/ontology.json').read_text(encoding='utf-8'))
+          audit=json.loads(Path('/tmp/audit.json').read_text(encoding='utf-8'))
           profiles=[row for row in events['events'] if row.get('series_profile')]
           result={
-            'schema_version':'1.2',
+            'schema_version':'1.3',
             'verified_at':datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00','Z'),
             'page_url':'https://kafka2306.github.io/vrc_cast_event_calender/',
             'event_count':events['count'],
@@ -140,11 +151,13 @@ jobs:
             'curated_entry_count':ontology['curated_entry_count'],
             'curated_schema_version':ontology['curated_schema_version'],
             'curation_mode':ontology['governance']['curation_mode'],
+            'matched_series':audit['matched_series'],
+            'ambiguous_events':audit['ambiguous_events'],
             'status':'ok',
           }
           Path('audit/link-ontology-pages-verification.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
           git add audit/link-ontology-pages-verification.json
-          git commit -m 'chore: record curated series Pages verification [skip ci]' || true
+          git commit -m 'chore: record expanded series Pages verification [skip ci]' || true
           git pull --rebase origin main
           git push origin HEAD:main
