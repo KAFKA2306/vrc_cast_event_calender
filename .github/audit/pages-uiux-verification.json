@@ -1,19 +1,23 @@
 {
-  "schema_version": "1.1",
-  "verified_at": "2026-08-03T23:17:48Z",
+  "schema_version": "1.2",
+  "verified_at": "2026-08-04T03:31:39Z",
   "page_url": "https://vrc-cast-event-calender.pages.dev/",
-  "quality_view": "2026-08-04-quality-view-v5",
-  "event_count": 588,
-  "root_header_verified": true,
+  "quality_view": "2026-08-04-quality-view-v6",
+  "event_count": 595,
+  "curated_profile_event_count": 1,
+  "curated_entry_count": 2,
+  "curated_schema_version": "2.0",
+  "curation_mode": "human_only",
+  "automatic_entry_creation": false,
   "root_asset_injection_verified": true,
-  "responsive_css_verified": true,
-  "javascript_contract_verified": true,
-  "visual_hierarchy_contract_verified": true,
+  "series_profile_ui_verified": true,
   "sha256": {
-    "root_html": "71ab811b83513e0604aeee65df7679ecea33d23bb3b4567b7e20c7d859a6c0f4",
+    "root_html": "93bda97c09916683ad0071b81ac1a070cc77585defbbf520c84e132797a2a03e",
     "uiux_css": "2b4c6c52785f189b6c0409d29943edccb0721baf86f78fef9cfaeb0b1b216d1d",
-    "uiux_js": "3f196496d53d42fa1b484275bf736fd0c1423f0b7ba947625942e585df514383",
-    "events_json": "ba0295c88091647f0c5d7d8ea0ff56b759aca5512d0be2e6a61d90a81b3e8ba0"
+    "uiux_js": "c6eed12aeb38a458702d90958493577a8a398787ecce08b6876390fe45cc7932",
+    "series_profile_js": "2b36c91985318e3ecae6770d88692e3fce14ab4c5818195eaa2263cac7345afc",
+    "events_json": "679bc648104cb8343dd27742a8f42d1efe71c943762ada691f2a3cbe54e9a485",
+    "ontology_json": "5104a2c3813cad5d88974b961cfdebfb4d7b53b249b5cfc0346fb5428b509531"
   },
   "status": "ok"
 }
