@@ -16,13 +16,19 @@ jobs:
         with:
           node-version: "22.18.0"
       - run: node --check tonight/tonight.js
-      - name: Validate participation, URL and mobile contracts
+      - run: node --check tonight/kafka-signal.js
+      - name: Validate participation, URL, infinite scroll and mobile contracts
         run: |
           grep -q '参加方法を見る' tonight/index.html
           grep -q '説明・分類根拠・証跡' tonight/index.html
           grep -q 'new URLSearchParams' tonight/tonight.js
           grep -q 'popstate' tonight/tonight.js
           grep -q 'function stateFor' tonight/tonight.js
+          grep -q 'function installInfiniteScroll' tonight/kafka-signal.js
+          grep -q 'new IntersectionObserver' tonight/kafka-signal.js
+          grep -q 'more.click' tonight/kafka-signal.js
+          grep -q 'preventScroll' tonight/kafka-signal.js
+          grep -q 'rootMargin' tonight/kafka-signal.js
           grep -q 'state-unknown' tonight/tonight.css
           grep -q 'min-height:44px' tonight/tonight.css
           grep -q '@media(max-width:620px)' tonight/tonight.css
