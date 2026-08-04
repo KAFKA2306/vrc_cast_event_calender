@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "verified_at": "2026-08-04T03:11:53Z",
+  "page_url": "https://vrc-cast-event-calender.pages.dev/",
+  "asset_url": "https://vrc-cast-event-calender.pages.dev/uiux-v4.js",
+  "infinite_scroll": true,
+  "intersection_observer": true,
+  "desktop_batch_size": 20,
+  "mobile_batch_size": 12,
+  "semantic_cast_search": true,
+  "cast_service_alias": true,
+  "javascript_syntax_verified": true,
+  "sha256": "c6eed12aeb38a458702d90958493577a8a398787ecce08b6876390fe45cc7932",
+  "status": "ok"
+}
