@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "verified_at": "2026-08-04T22:19:10Z",
+  "page_url": "https://kafka2306.github.io/vrc_cast_event_calender/yahoo-query-ablation.json",
+  "http_status": 200,
+  "source_generated_at": "2026-08-04T21:58:38Z",
+  "classifier_version": "1.8",
+  "variant_count": 10,
+  "successful_variant_count": 10,
+  "full_candidate_count": 40,
+  "full_accepted_count": 10,
+  "full_acceptance_rate": 0.25,
+  "status": "ok"
+}
