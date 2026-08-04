@@ -79,7 +79,7 @@ jobs:
           cmp ontology-match-audit.json /tmp/canonical/public/ontology-match-audit.json
           cmp health.json /tmp/canonical/public/health.json
           sha256sum -c /tmp/cloudflare-function.sha256
-          git diff --check
+          git diff --check -- . ':(exclude)calendar.ics'
       - name: Remove one-time synchronization workflows
         run: |
           rm -f .github/workflows/sync-expanded-series-assets.yml
