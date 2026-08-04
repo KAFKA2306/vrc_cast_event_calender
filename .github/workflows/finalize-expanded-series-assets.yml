@@ -1,0 +1,91 @@
+name: Finalize expanded series production assets
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.head_ref == 'agent/sync-expanded-series-batches-2-3'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - name: Preserve Cloudflare-specific runtime contract
+        run: |
+          set -euo pipefail
+          test -f functions/index.js
+          sha256sum functions/index.js > /tmp/cloudflare-function.sha256
+      - name: Fetch canonical generated public assets
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch main https://github.com/KAFKA2306/cast_event_cal.git /tmp/canonical
+          rsync -a /tmp/canonical/public/ ./
+      - name: Validate synchronized production data
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          events = json.loads(Path('events.json').read_text(encoding='utf-8'))
+          ontology = json.loads(Path('event-ontology.json').read_text(encoding='utf-8'))
+          audit = json.loads(Path('ontology-match-audit.json').read_text(encoding='utf-8'))
+          health = json.loads(Path('health.json').read_text(encoding='utf-8'))
+
+          assert events['count'] == 600
+          assert ontology['source_event_count'] == 600
+          assert ontology['curated_entry_count'] == 15
+          assert audit['event_count'] == 600
+          assert audit['ontology_entries'] == 15
+          assert audit['matched_events'] == 276
+          assert audit['unmatched_events'] == 324
+          assert audit['ambiguous_events'] == 0
+          assert len(audit['matched_series']) == 14
+          assert audit['matched_series']['vrc-idle-gathering'] == 17
+          assert audit['matched_series']['vrc-petting-zoo'] == 17
+          assert health['status'] == 'ok'
+          assert health['event_count'] == 600
+          assert health['ontology']['entries'] == 15
+          assert health['ontology']['matched_events'] == 276
+          assert health['ontology']['matched_series'] == 14
+          assert health['ontology']['unmatched_events'] == 324
+          assert health['ontology']['ambiguous_events'] == 0
+          assert Path('uiux-v4.css').is_file()
+          assert Path('uiux-v4.js').is_file()
+          assert Path('series-profile.js').is_file()
+          print(json.dumps({
+              'event_count': 600,
+              'ontology_entries': 15,
+              'matched_events': 276,
+              'unmatched_events': 324,
+              'ambiguous_events': 0,
+              'matched_series': 14,
+              'status': 'ok',
+          }, ensure_ascii=False))
+          PY
+          sha256sum -c /tmp/cloudflare-function.sha256
+          git diff --check
+      - name: Remove one-time synchronization workflows
+        run: |
+          rm -f .github/workflows/sync-expanded-series-assets.yml
+          rm -f .github/workflows/finalize-expanded-series-assets.yml
+      - name: Commit synchronized assets
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m 'Sync expanded event series production assets'
+          git pull --rebase origin "$GITHUB_HEAD_REF"
+          git push origin HEAD:"$GITHUB_HEAD_REF"
