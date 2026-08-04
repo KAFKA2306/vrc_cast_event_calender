@@ -1,0 +1,38 @@
+name: Clean expanded series production sync branch
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ontology-match-audit.json
+      - health.json
+      - .github/workflows/cleanup-expanded-series-sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Delete implementation branch
+        run: |
+          set -euo pipefail
+          branch='agent/sync-expanded-series-batches-2-3'
+          if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null 2>&1; then
+            git push origin --delete "$branch"
+          fi
+      - name: Remove one-time cleanup workflow
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          rm -f .github/workflows/cleanup-expanded-series-sync.yml
+          git add .github/workflows/cleanup-expanded-series-sync.yml
+          git commit -m 'chore: remove expanded series sync cleanup [skip ci]' || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
