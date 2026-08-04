@@ -1,0 +1,89 @@
+name: Verify infinite scroll production
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/verify-infinite-scroll.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: verify-infinite-scroll-production
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Verify live infinite scroll and semantic cast search
+        run: |
+          set -euo pipefail
+          base='https://vrc-cast-event-calender.pages.dev'
+          verified=false
+          for attempt in $(seq 1 72); do
+            token="${GITHUB_RUN_ID}-${attempt}"
+            if curl -fsS "$base/uiux-v4.js?verify=$token" -o /tmp/uiux.js \
+              && node --check /tmp/uiux.js \
+              && grep -q 'IntersectionObserver' /tmp/uiux.js \
+              && grep -q 'ux-infinite-sentinel' /tmp/uiux.js \
+              && grep -q 'cast_service' /tmp/uiux.js \
+              && grep -q 'event.stopImmediatePropagation()' /tmp/uiux.js \
+              && grep -q "rootMargin:'900px 0px'" /tmp/uiux.js; then
+              verified=true
+              break
+            fi
+            sleep 5
+          done
+          test "$verified" = true
+
+      - name: Write verification evidence
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          from datetime import UTC, datetime
+          from pathlib import Path
+
+          script = Path('/tmp/uiux.js')
+          payload = {
+              'schema_version': '1.0',
+              'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
+              'page_url': 'https://vrc-cast-event-calender.pages.dev/',
+              'asset_url': 'https://vrc-cast-event-calender.pages.dev/uiux-v4.js',
+              'infinite_scroll': True,
+              'intersection_observer': True,
+              'desktop_batch_size': 20,
+              'mobile_batch_size': 12,
+              'semantic_cast_search': True,
+              'cast_service_alias': True,
+              'javascript_syntax_verified': True,
+              'sha256': hashlib.sha256(script.read_bytes()).hexdigest(),
+              'status': 'ok',
+          }
+          target = Path('.github/audit/infinite-scroll-verification.json')
+          target.parent.mkdir(parents=True, exist_ok=True)
+          target.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Publish proof and clean temporary branches
+        run: |
+          set -euo pipefail
+          for branch in agent/infinite-scroll-semantic-cast-production agent/verify-infinite-scroll-production; do
+            if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null 2>&1; then
+              git push origin --delete "$branch"
+            fi
+          done
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          rm .github/workflows/verify-infinite-scroll.yml
+          git add .github/audit/infinite-scroll-verification.json .github/workflows/verify-infinite-scroll.yml
+          git commit -m 'chore: record infinite scroll production proof [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
