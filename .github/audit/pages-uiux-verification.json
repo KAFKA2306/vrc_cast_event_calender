@@ -1,23 +1,33 @@
 {
-  "schema_version": "1.2",
-  "verified_at": "2026-08-04T04:56:01Z",
+  "schema_version": "1.3",
+  "verified_at": "2026-08-04T04:56:50Z",
   "page_url": "https://vrc-cast-event-calender.pages.dev/",
   "quality_view": "2026-08-04-quality-view-v6",
   "event_count": 595,
-  "curated_profile_event_count": 1,
-  "curated_entry_count": 2,
+  "curated_profile_event_count": 121,
+  "curated_entry_count": 7,
   "curated_schema_version": "2.0",
   "curation_mode": "human_only",
   "automatic_entry_creation": false,
+  "matched_series": {
+    "vrc-goita": 18,
+    "yuruge-meet": 17,
+    "wednesday-quest-beginners": 17,
+    "asmr-gathering": 34,
+    "en-jp-language-exchange": 34,
+    "zerozoku-auction": 1
+  },
+  "ambiguous_events": 0,
   "root_asset_injection_verified": true,
   "series_profile_ui_verified": true,
   "sha256": {
-    "root_html": "93bda97c09916683ad0071b81ac1a070cc77585defbbf520c84e132797a2a03e",
+    "root_html": "89961a60cbe73ebb2f8b7479f1608482b30d86d941bac22558b4a496a5aae0e3",
     "uiux_css": "2b4c6c52785f189b6c0409d29943edccb0721baf86f78fef9cfaeb0b1b216d1d",
     "uiux_js": "c6eed12aeb38a458702d90958493577a8a398787ecce08b6876390fe45cc7932",
     "series_profile_js": "2b36c91985318e3ecae6770d88692e3fce14ab4c5818195eaa2263cac7345afc",
-    "events_json": "679bc648104cb8343dd27742a8f42d1efe71c943762ada691f2a3cbe54e9a485",
-    "ontology_json": "5104a2c3813cad5d88974b961cfdebfb4d7b53b249b5cfc0346fb5428b509531"
+    "events_json": "97e4b8a61fe57b29c6e13f4bf91c4f236287fa263177e423926465f1e1dd95e3",
+    "ontology_json": "777b58e92bd83ed59ee6e49a05a69e1b13a8b4331ace1dd74050670ff1de53bb",
+    "audit_json": "d5c8839bb11e83c435565cf8b282802eb4c39d92c1b409a7927d1381263ae600"
   },
   "status": "ok"
 }
