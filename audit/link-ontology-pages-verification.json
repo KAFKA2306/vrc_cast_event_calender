@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.3",
+  "verified_at": "2026-08-04T04:55:48Z",
+  "page_url": "https://kafka2306.github.io/vrc_cast_event_calender/",
+  "event_count": 595,
+  "curated_profile_event_count": 121,
+  "curated_entry_count": 7,
+  "curated_schema_version": "2.0",
+  "curation_mode": "human_only",
+  "matched_series": {
+    "vrc-goita": 18,
+    "yuruge-meet": 17,
+    "wednesday-quest-beginners": 17,
+    "asmr-gathering": 34,
+    "en-jp-language-exchange": 34,
+    "zerozoku-auction": 1
+  },
+  "ambiguous_events": 0,
+  "status": "ok"
+}
