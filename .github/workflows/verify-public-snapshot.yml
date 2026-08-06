@@ -6,9 +6,15 @@ on:
     branches:
       - main
       - "agent/**"
+      - "automation/**"
+  workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: verify-public-snapshot-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   verify:
@@ -23,5 +29,23 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Compile verifier and tests
+        run: python -m py_compile scripts/verify_public_snapshot.py tests/test_verify_public_snapshot.py
+
+      - name: Run verifier unit tests
+        run: python -m unittest tests.test_verify_public_snapshot -v
+
       - name: Verify public snapshot
-        run: python scripts/verify_public_snapshot.py
+        run: |
+          python scripts/verify_public_snapshot.py \
+            --report build/public-snapshot-audit.json
+          test -s build/public-snapshot-audit.json
+
+      - name: Upload snapshot audit
+        if: always() && hashFiles('build/public-snapshot-audit.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-snapshot-audit
+          path: build/public-snapshot-audit.json
+          retention-days: 30
+          if-no-files-found: error
