@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "baseline_name": "yahoo-best-1000-2026-08-03",
+  "source_generated_at": "2026-08-03T03:04:32Z",
+  "classifier_version": "1.8",
+  "strategy_version": "ablation-informed-1.0",
+  "rejected_count": 956,
+  "rejection_reason_counts": {
+    "conflicting_date_context": 1,
+    "giveaway_only": 6,
+    "missing_datetime": 170,
+    "missing_event_marker": 154,
+    "missing_participation_method": 1,
+    "not_vrchat": 3,
+    "past_event": 2,
+    "past_event_now": 160,
+    "product_only": 13,
+    "retweet_below_threshold": 444,
+    "too_far_future": 2
+  },
+  "rejection_reason_shares": {
+    "conflicting_date_context": 0.00104603,
+    "giveaway_only": 0.00627615,
+    "missing_datetime": 0.17782427,
+    "missing_event_marker": 0.16108787,
+    "missing_participation_method": 0.00104603,
+    "not_vrchat": 0.00313808,
+    "past_event": 0.00209205,
+    "past_event_now": 0.16736402,
+    "product_only": 0.01359833,
+    "retweet_below_threshold": 0.46443515,
+    "too_far_future": 0.00209205
+  }
+}
