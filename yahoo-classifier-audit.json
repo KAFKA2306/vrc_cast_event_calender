@@ -2,22 +2,22 @@
   "schema_version": "1.4",
   "classifier_version": "1.9",
   "date_resolution_policy": "calendar-week-relative-date.v1",
-  "generated_at": "2026-08-04T09:43:03Z",
+  "generated_at": "2026-08-09T05:09:41Z",
   "target_count": 1000,
-  "candidate_count": 2825,
+  "candidate_count": 3627,
   "target_reached": true,
-  "accepted_count": 459,
-  "rejected_count": 2366,
-  "acceptance_rate": 0.162478,
+  "accepted_count": 577,
+  "rejected_count": 3050,
+  "acceptance_rate": 0.159085,
   "rejection_reason_counts": {
     "conflicting_date_context": 1,
-    "giveaway_only": 60,
-    "missing_datetime": 2156,
-    "missing_event_marker": 114,
+    "giveaway_only": 103,
+    "missing_datetime": 2759,
+    "missing_event_marker": 146,
     "missing_participation_method": 2,
-    "not_vrchat": 2,
-    "product_only": 26,
-    "too_far_future_now": 5
+    "not_vrchat": 3,
+    "product_only": 30,
+    "too_far_future_now": 6
   },
   "query_results": [
     {
@@ -27,10 +27,10 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88+OR+%E9%9B%86%E4%BC%9A+OR+%E4%BA%A4%E6%B5%81%E4%BC%9A+OR+%E5%96%B6%E6%A5%AD+OR+%E5%85%AC%E6%BC%94+OR+%E3%83%A9%E3%82%A4%E3%83%96+OR+DJ+OR+%E5%A4%A7%E4%BC%9A+OR+%E6%9C%97%E8%AA%AD%E4%BC%9A+OR+%E6%9C%97%E8%AA%AD%E5%8A%87+OR+%E6%9C%97%E8%AA%AD%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%AB%E3%83%AB+OR+%E8%88%9E%E5%8F%B0+OR+%E4%B8%8A%E6%98%A0%E4%BC%9A+OR+%E6%98%A0%E7%94%BB%E7%A5%AD+OR+%E5%B1%95%E7%A4%BA%E4%BC%9A+OR+%E6%92%AE%E5%BD%B1%E4%BC%9A+OR+%E3%83%95%E3%82%A7%E3%82%B9+OR+%E7%A5%AD%E3%82%8A+OR+%E3%82%AA%E3%83%95%E4%BC%9A+OR+%E8%AA%AC%E6%98%8E%E4%BC%9A+OR+%E4%BD%93%E9%A8%93%E4%BC%9A%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 725895,
+      "html_bytes": 686775,
       "raw_candidates": 40,
       "unique_candidates_after_query": 40,
-      "duration_ms": 1877
+      "duration_ms": 2020
     },
     {
       "key": "base-001",
@@ -39,10 +39,10 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E5%91%8A%E7%9F%A5+OR+%E5%96%B6%E6%A5%AD%E5%91%8A%E7%9F%A5+OR+%E9%80%9A%E5%B8%B8%E5%96%B6%E6%A5%AD+OR+%E9%96%8B%E5%82%AC%E6%B1%BA%E5%AE%9A+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%29+%28JOIN+OR+%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%B3+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+reqin+OR+Group%2B+OR+%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9+OR+%E3%83%95%E3%83%AC%E3%83%B3%E3%83%89%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9+OR+%E5%8F%82%E5%8A%A0%E6%96%B9%E6%B3%95%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 664217,
+      "html_bytes": 666397,
       "raw_candidates": 40,
-      "unique_candidates_after_query": 80,
-      "duration_ms": 1673
+      "unique_candidates_after_query": 78,
+      "duration_ms": 1608
     },
     {
       "key": "base-002",
@@ -51,10 +51,10 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28JOIN+OR+%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%B3+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+reqin+OR+%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%82%A4%E3%83%B3%E3%83%90%E3%82%A4%E3%83%88+OR+%22request+invite%22+OR+Group%2B+OR+%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9+OR+%E3%83%95%E3%83%AC%E3%83%B3%E3%83%89%E7%94%B3%E8%AB%8B%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 650590,
+      "html_bytes": 688127,
       "raw_candidates": 40,
       "unique_candidates_after_query": 106,
-      "duration_ms": 1492
+      "duration_ms": 1123
     },
     {
       "key": "base-003",
@@ -63,226 +63,226 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E5%8B%9F%E9%9B%86+OR+%E3%82%B9%E3%82%BF%E3%83%83%E3%83%95%E5%8B%9F%E9%9B%86+OR+%E5%BA%97%E5%93%A1%E5%8B%9F%E9%9B%86+OR+%E6%BC%94%E8%80%85%E5%8B%9F%E9%9B%86+OR+%E3%83%86%E3%82%B9%E3%82%BF%E3%83%BC%E5%8B%9F%E9%9B%86+OR+%E5%8F%82%E5%8A%A0%E8%80%85%E5%8B%9F%E9%9B%86+OR+%E5%87%BA%E5%B1%95%E5%8B%9F%E9%9B%86+OR+%E5%85%AC%E5%8B%9F%29+%28%E7%B7%A0%E5%88%87+OR+%E3%80%86%E5%88%87+OR+%E5%BF%9C%E5%8B%9F%E6%9C%9F%E9%99%90+OR+%E9%9D%A2%E6%8E%A5%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 262350,
-      "raw_candidates": 10,
-      "unique_candidates_after_query": 116,
-      "duration_ms": 2281
+      "html_bytes": 280684,
+      "raw_candidates": 11,
+      "unique_candidates_after_query": 117,
+      "duration_ms": 944
     },
     {
-      "key": "core-012-試写会",
-      "group": "core",
-      "term": "試写会",
+      "key": "recruitment-002-店員募集",
+      "group": "recruitment",
+      "term": "店員募集",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E8%A9%A6%E5%86%99%E4%BC%9A%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 142891,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E5%BA%97%E5%93%A1%E5%8B%9F%E9%9B%86%29+%28%E7%B7%A0%E5%88%87+OR+%E3%80%86%E5%88%87+OR+%E5%BF%9C%E5%8B%9F%E6%9C%9F%E9%99%90+OR+%E9%9D%A2%E6%8E%A5+OR+%E5%8B%9F%E9%9B%86%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 141912,
       "raw_candidates": 0,
-      "unique_candidates_after_query": 116,
-      "duration_ms": 1111
+      "unique_candidates_after_query": 117,
+      "duration_ms": 1061
     },
     {
-      "key": "core-013-オフ会",
-      "group": "core",
-      "term": "オフ会",
+      "key": "recruitment-003-演者募集",
+      "group": "recruitment",
+      "term": "演者募集",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%82%AA%E3%83%95%E4%BC%9A%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 592148,
-      "raw_candidates": 40,
-      "unique_candidates_after_query": 156,
-      "duration_ms": 2389
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E6%BC%94%E8%80%85%E5%8B%9F%E9%9B%86%29+%28%E7%B7%A0%E5%88%87+OR+%E3%80%86%E5%88%87+OR+%E5%BF%9C%E5%8B%9F%E6%9C%9F%E9%99%90+OR+%E9%9D%A2%E6%8E%A5+OR+%E5%8B%9F%E9%9B%86%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 141032,
+      "raw_candidates": 0,
+      "unique_candidates_after_query": 117,
+      "duration_ms": 794
     },
     {
-      "key": "core-014-祭り",
-      "group": "core",
-      "term": "祭り",
+      "key": "recruitment-004-テスタ-募集",
+      "group": "recruitment",
+      "term": "テスター募集",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E7%A5%AD%E3%82%8A%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 660893,
-      "raw_candidates": 40,
-      "unique_candidates_after_query": 196,
-      "duration_ms": 1359
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%83%86%E3%82%B9%E3%82%BF%E3%83%BC%E5%8B%9F%E9%9B%86%29+%28%E7%B7%A0%E5%88%87+OR+%E3%80%86%E5%88%87+OR+%E5%BF%9C%E5%8B%9F%E6%9C%9F%E9%99%90+OR+%E9%9D%A2%E6%8E%A5+OR+%E5%8B%9F%E9%9B%86%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 310400,
+      "raw_candidates": 15,
+      "unique_candidates_after_query": 131,
+      "duration_ms": 1087
     },
     {
-      "key": "core-015-フェス",
-      "group": "core",
-      "term": "フェス",
+      "key": "recruitment-005-参加者募集",
+      "group": "recruitment",
+      "term": "参加者募集",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%83%95%E3%82%A7%E3%82%B9%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 691720,
-      "raw_candidates": 40,
-      "unique_candidates_after_query": 231,
-      "duration_ms": 1312
-    },
-    {
-      "key": "access-000-join制",
-      "group": "access",
-      "term": "JOIN制",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28JOIN%E5%88%B6%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 212788,
-      "raw_candidates": 7,
-      "unique_candidates_after_query": 237,
-      "duration_ms": 1148
-    },
-    {
-      "key": "access-001-group-instance",
-      "group": "access",
-      "term": "Group+ instance",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28Group%2B+instance%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 682841,
-      "raw_candidates": 40,
-      "unique_candidates_after_query": 255,
-      "duration_ms": 1502
-    },
-    {
-      "key": "access-002-group-インスタンス",
-      "group": "access",
-      "term": "Group+インスタンス",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28Group%2B%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 659015,
-      "raw_candidates": 40,
-      "unique_candidates_after_query": 287,
-      "duration_ms": 1389
-    },
-    {
-      "key": "access-003-ジョイン",
-      "group": "access",
-      "term": "ジョイン",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%B3%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 347732,
-      "raw_candidates": 20,
-      "unique_candidates_after_query": 306,
-      "duration_ms": 1276
-    },
-    {
-      "key": "access-004-リクイン",
-      "group": "access",
-      "term": "リクイン",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 599249,
-      "raw_candidates": 40,
-      "unique_candidates_after_query": 340,
-      "duration_ms": 1462
-    },
-    {
-      "key": "access-005-reqin",
-      "group": "access",
-      "term": "reqin",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28reqin%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 154867,
-      "raw_candidates": 3,
-      "unique_candidates_after_query": 343,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E5%8F%82%E5%8A%A0%E8%80%85%E5%8B%9F%E9%9B%86%29+%28%E7%B7%A0%E5%88%87+OR+%E3%80%86%E5%88%87+OR+%E5%BF%9C%E5%8B%9F%E6%9C%9F%E9%99%90+OR+%E9%9D%A2%E6%8E%A5+OR+%E5%8B%9F%E9%9B%86%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 185384,
+      "raw_candidates": 6,
+      "unique_candidates_after_query": 137,
       "duration_ms": 934
     },
     {
-      "key": "access-006-リクエストインバイト",
-      "group": "access",
-      "term": "リクエストインバイト",
+      "key": "recruitment-006-出展募集",
+      "group": "recruitment",
+      "term": "出展募集",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%82%A4%E3%83%B3%E3%83%90%E3%82%A4%E3%83%88%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 215049,
-      "raw_candidates": 8,
-      "unique_candidates_after_query": 350,
-      "duration_ms": 1488
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E5%87%BA%E5%B1%95%E5%8B%9F%E9%9B%86%29+%28%E7%B7%A0%E5%88%87+OR+%E3%80%86%E5%88%87+OR+%E5%BF%9C%E5%8B%9F%E6%9C%9F%E9%99%90+OR+%E9%9D%A2%E6%8E%A5+OR+%E5%8B%9F%E9%9B%86%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 133368,
+      "raw_candidates": 1,
+      "unique_candidates_after_query": 138,
+      "duration_ms": 936
     },
     {
-      "key": "access-007-request-invite",
-      "group": "access",
-      "term": "request invite",
+      "key": "recruitment-007-公募",
+      "group": "recruitment",
+      "term": "公募",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28request+invite%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 232921,
-      "raw_candidates": 9,
-      "unique_candidates_after_query": 359,
-      "duration_ms": 1254
-    },
-    {
-      "key": "access-008-group-instance",
-      "group": "access",
-      "term": "Group Instance",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28Group+Instance%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 678817,
-      "raw_candidates": 40,
-      "unique_candidates_after_query": 359,
-      "duration_ms": 1518
-    },
-    {
-      "key": "access-009-グル-プインスタンス",
-      "group": "access",
-      "term": "グループインスタンス",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 632861,
-      "raw_candidates": 40,
-      "unique_candidates_after_query": 384,
-      "duration_ms": 1328
-    },
-    {
-      "key": "access-010-フレンドインスタンス",
-      "group": "access",
-      "term": "フレンドインスタンス",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%83%95%E3%83%AC%E3%83%B3%E3%83%89%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 182026,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E5%85%AC%E5%8B%9F%29+%28%E7%B7%A0%E5%88%87+OR+%E3%80%86%E5%88%87+OR+%E5%BF%9C%E5%8B%9F%E6%9C%9F%E9%99%90+OR+%E9%9D%A2%E6%8E%A5+OR+%E5%8B%9F%E9%9B%86%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 188469,
       "raw_candidates": 5,
-      "unique_candidates_after_query": 388,
-      "duration_ms": 1162
+      "unique_candidates_after_query": 140,
+      "duration_ms": 1057
     },
     {
-      "key": "access-011-フレンド申請",
-      "group": "access",
-      "term": "フレンド申請",
+      "key": "recruitment-008-応募期限",
+      "group": "recruitment",
+      "term": "応募期限",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%83%95%E3%83%AC%E3%83%B3%E3%83%89%E7%94%B3%E8%AB%8B%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 633815,
-      "raw_candidates": 40,
-      "unique_candidates_after_query": 413,
-      "duration_ms": 1311
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E5%BF%9C%E5%8B%9F%E6%9C%9F%E9%99%90%29+%28%E7%B7%A0%E5%88%87+OR+%E3%80%86%E5%88%87+OR+%E5%BF%9C%E5%8B%9F%E6%9C%9F%E9%99%90+OR+%E9%9D%A2%E6%8E%A5+OR+%E5%8B%9F%E9%9B%86%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 240871,
+      "raw_candidates": 9,
+      "unique_candidates_after_query": 149,
+      "duration_ms": 1068
     },
     {
-      "key": "commerce_noise-003-配布",
+      "key": "recruitment-009-面接",
+      "group": "recruitment",
+      "term": "面接",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E9%9D%A2%E6%8E%A5%29+%28%E7%B7%A0%E5%88%87+OR+%E3%80%86%E5%88%87+OR+%E5%BF%9C%E5%8B%9F%E6%9C%9F%E9%99%90+OR+%E9%9D%A2%E6%8E%A5+OR+%E5%8B%9F%E9%9B%86%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 469349,
+      "raw_candidates": 35,
+      "unique_candidates_after_query": 182,
+      "duration_ms": 1079
+    },
+    {
+      "key": "core-000-イベント告知",
+      "group": "core",
+      "term": "イベント告知",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E5%91%8A%E7%9F%A5%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 614956,
+      "raw_candidates": 40,
+      "unique_candidates_after_query": 212,
+      "duration_ms": 1003
+    },
+    {
+      "key": "core-001-営業告知",
+      "group": "core",
+      "term": "営業告知",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E5%96%B6%E6%A5%AD%E5%91%8A%E7%9F%A5%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 286580,
+      "raw_candidates": 13,
+      "unique_candidates_after_query": 221,
+      "duration_ms": 959
+    },
+    {
+      "key": "core-002-通常営業",
+      "group": "core",
+      "term": "通常営業",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E9%80%9A%E5%B8%B8%E5%96%B6%E6%A5%AD%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 490971,
+      "raw_candidates": 26,
+      "unique_candidates_after_query": 247,
+      "duration_ms": 1041
+    },
+    {
+      "key": "core-003-開催決定",
+      "group": "core",
+      "term": "開催決定",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E9%96%8B%E5%82%AC%E6%B1%BA%E5%AE%9A%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 657349,
+      "raw_candidates": 40,
+      "unique_candidates_after_query": 284,
+      "duration_ms": 1154
+    },
+    {
+      "key": "core-004-集会",
+      "group": "core",
+      "term": "集会",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E9%9B%86%E4%BC%9A%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 635191,
+      "raw_candidates": 40,
+      "unique_candidates_after_query": 317,
+      "duration_ms": 1404
+    },
+    {
+      "key": "core-005-交流会",
+      "group": "core",
+      "term": "交流会",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E4%BA%A4%E6%B5%81%E4%BC%9A%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 669321,
+      "raw_candidates": 40,
+      "unique_candidates_after_query": 354,
+      "duration_ms": 1127
+    },
+    {
+      "key": "core-006-公演",
+      "group": "core",
+      "term": "公演",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E5%85%AC%E6%BC%94%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 393648,
+      "raw_candidates": 20,
+      "unique_candidates_after_query": 372,
+      "duration_ms": 1116
+    },
+    {
+      "key": "core-007-ライブイベント",
+      "group": "core",
+      "term": "ライブイベント",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%83%A9%E3%82%A4%E3%83%96%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%29+%28%E9%96%8B%E5%82%AC+OR+%E5%91%8A%E7%9F%A5+OR+%E6%97%A5%E6%99%82+OR+OPEN+OR+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3+OR+%E9%96%8B%E5%A0%B4+OR+%E9%96%8B%E5%A7%8B+OR+%E5%96%B6%E6%A5%AD+OR+%E6%9C%AC%E6%97%A5+OR+%E4%BB%8A%E6%97%A5+OR+%E6%98%8E%E6%97%A5+OR+%E4%BB%8A%E5%A4%9C+OR+%E5%8F%82%E5%8A%A0+OR+JOIN+OR+%E3%83%AA%E3%82%AF%E3%82%A4%E3%83%B3+OR+Group%2B%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 754406,
+      "raw_candidates": 40,
+      "unique_candidates_after_query": 409,
+      "duration_ms": 1055
+    },
+    {
+      "key": "commerce_noise-013-フォロ-rp",
       "group": "commerce_noise",
-      "term": "配布",
+      "term": "フォロー＆RP",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E9%85%8D%E5%B8%83%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 599134,
-      "raw_candidates": 40,
-      "unique_candidates_after_query": 453,
-      "duration_ms": 1165
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%83%95%E3%82%A9%E3%83%AD%E3%83%BC%EF%BC%86RP%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 412499,
+      "raw_candidates": 21,
+      "unique_candidates_after_query": 428,
+      "duration_ms": 1082
     },
     {
-      "key": "commerce_noise-004-セ-ル",
-      "group": "commerce_noise",
-      "term": "セール",
+      "key": "temporal_audit-000-本日",
+      "group": "temporal_audit",
+      "term": "本日",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E3%82%BB%E3%83%BC%E3%83%AB%29+%28VRChat+OR+VRC%29&md=h",
-      "html_bytes": 595652,
+      "final_url": "https://search.yahoo.co.jp/realtime/search?ei=UTF-8&p=%28%E6%9C%AC%E6%97%A5%29+%28VRChat+OR+VRC%29&md=h",
+      "html_bytes": 629526,
       "raw_candidates": 40,
-      "unique_candidates_after_query": 493,
-      "duration_ms": 1156
+      "unique_candidates_after_query": 460,
+      "duration_ms": 1086
     }
   ],
   "high_retweet_rejections": [
@@ -309,12 +309,34 @@
       ]
     },
     {
+      "status_id": "2075506268383690992",
+      "url": "https://x.com/MitoKumo_VRC/status/2075506268383690992?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 1695,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-07-10T09:03:50Z",
+      "text_excerpt": "🎀 MitoKumo Hair Sale 開催中 🎀  かわいいVRChat向けヘアが、 期間限定でお得にお迎えできます♡  さらに、フォロー＆RPイベントも開催します！  🎁 参加方法 ① MitoKumo をフォロー ② この投稿をRP  抽選で5名様に、 お好きなMitoKumoヘアを1点プレゼントいたします✨  📅 抽選発表 https://t.co/e4VxvipFF0",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2082415112946962827",
       "url": "https://x.com/chelly_lk/status/2082415112946962827?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 1617,
+      "retweet_count": 1693,
       "reason": "giveaway_only",
       "source_created_at": "2026-07-29T10:37:06Z",
       "text_excerpt": "【複数アバター対応】Mammon【VRChat想定】 #OC666 新作衣装を7月31日(金)より販売開始します！  下記日程でセールと、このツイートをRT、フォローで抽選で10名様にプレゼントします！ 奮って応募してね～～～～！！！！ https://t.co/T2V4H2ixlx",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2084194058055073808",
+      "url": "https://x.com/VRC_lala_dark/status/2084194058055073808?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 1621,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-03T08:26:00Z",
+      "text_excerpt": "【12アバター対応】Dreamy Bear【VRChat想定】ららもより新衣装のお知らせです！🦇 https://t.co/zYUKvuufDu 販売記念としてギフト抽選RP企画を行います～！🦇♡ このツイートをRP＆フォローで抽選にて7名様にフルセットをプレゼント！✨ギフトURLは譲渡もOK！♡【2026年8月 6日23時59分迄】 https://t.co/fTYBA3Rjrl",
       "query_groups": [
         "commerce_noise"
       ]
@@ -342,12 +364,45 @@
       ]
     },
     {
-      "status_id": "2084194058055073808",
-      "url": "https://x.com/VRC_lala_dark/status/2084194058055073808?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 863,
+      "status_id": "2084572551481614825",
+      "url": "https://x.com/Mimorie_3D/status/2084572551481614825?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 1094,
       "reason": "missing_datetime",
-      "source_created_at": "2026-08-03T08:26:00Z",
-      "text_excerpt": "【12アバター対応】Dreamy Bear【VRChat想定】ららもより新衣装のお知らせです！🦇 https://t.co/zYUKvuufDu 販売記念としてギフト抽選RP企画を行います～！🦇♡ このツイートをRP＆フォローで抽選にて7名様にフルセットをプレゼント！✨ギフトURLは譲渡もOK！♡【2026年8月 6日23時59分迄】 https://t.co/fTYBA3Rjrl",
+      "source_created_at": "2026-08-04T09:30:00Z",
+      "text_excerpt": "─────────────  VRChat向け新ワールド  「 𝑻𝒊𝒏𝒚 𝑫𝒂𝒚𝒔 」 販売記念キャンペーン🎁⁺˳✧  ─────────────  ⊹ 応募方法 ⊹   1️⃣このアカウントをフォロー (@Mimorie_3D) 2️⃣この投稿をリポスト＆いいね  BOOTHスキが100増えるごとに、当選枠＋1名追加！♡ 期間：8/6 https://t.co/7rgV4Ei3nQ",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "1953788281357025655",
+      "url": "https://x.com/inernuri_/status/1953788281357025655?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 1041,
+      "reason": "giveaway_only",
+      "source_created_at": "2025-08-08T12:00:00Z",
+      "text_excerpt": "🎀VRC衣装「Dreaming summer」発売決定🎀 https://t.co/8MuN2MVvZC  🤍プレゼントキャンペーン🤍 ﾌｫﾛｰ＆RP頂いた方の中から抽選で3名様にﾌﾟﾚｾﾞﾝﾄ！ boothの♡200毎に当選枠+1✨ ⏰8/11 24時〆 対応*MUMUS ショコラ マヌカ キプフェル ミルフィ 凪 ※当選はDMで8/12迄にお知らせ! #VRChat https://t.co/umyCXIH7YQ",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2085652221036028212",
+      "url": "https://x.com/PoteSuto29/status/2085652221036028212?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 1014,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-07T09:00:13Z",
+      "text_excerpt": "🎁祝 ぽてとら2周年-RPキャンペーン🎁  VRChat向けトラッカー『ぽてとら』は皆様のご支援とご愛顧のおかげで、発売から２周年を迎えることができました!!  2周年を記念して、割引セールとRPキャンペーンを開催します🎉",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2084474414989824491",
+      "url": "https://x.com/Vignetoiro_VRC/status/2084474414989824491?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 942,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-04T03:00:02Z",
+      "text_excerpt": "📢VRChatアバタープレゼントキャンペーン🎁  新作+Headアバター「千景 -Chikage-」を 抽選で5名様にプレゼント🌱  🍃応募方法 ①@Vignetoiro_VRCをフォロー ②この投稿をRP  🍃応募期間 8月6日23時迄  💚更にBOOTHのスキ数+200毎に当選枠を+1名追加！ 🔗商品ページはリプライのリンクにて https://t.co/xXuVqyfsy8",
       "query_groups": [
         "commerce_noise"
       ]
@@ -375,6 +430,17 @@
       ]
     },
     {
+      "status_id": "2073304848502784496",
+      "url": "https://x.com/Tom_t0m_tommy/status/2073304848502784496?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 790,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-04T07:16:10Z",
+      "text_excerpt": "半年前に限定公開していたVRChat BattleFieldを、7/15に常設ワールドにします！ 武器・フィールド・ガチャなどが揃った、VRChat最大級のシューティングゲームです！  一部フィールドはPatreonのサポーターのみ選択可能ですが、順次公開にします。 また、サポーターは専用武器スキンを使用できます！ https://t.co/Zhx771NgPI",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2058358995270942761",
       "url": "https://x.com/vrcnavi/status/2058358995270942761?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 778,
@@ -387,12 +453,57 @@
       ]
     },
     {
+      "status_id": "1818891850130112627",
+      "url": "https://x.com/youyou0147/status/1818891850130112627?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 764,
+      "reason": "missing_datetime",
+      "source_created_at": "2024-08-01T06:09:45Z",
+      "text_excerpt": "活動を始めてから3年が経ちました！ 記念に「VRChat住民票 登録番号777番」を１名様にプレゼントします！  フォロー＆RPで応募できます（引用は含めませんがしていただけると嬉しいです😆）  発表は8/6夜の予定です あまり活動できてませんが今後ともよろしくお願いします！ #VRChat住民票 https://t.co/w7dKGV9LGW",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2083102029870998010",
       "url": "https://x.com/SiroinoWorks/status/2083102029870998010?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 760,
       "reason": "missing_datetime",
       "source_created_at": "2026-07-31T08:06:40Z",
       "text_excerpt": "【無料・CC0】 VRChat向け共通素体「SiroinoSotai」正式リリース！  PC版 △16,704 Mobile版 △3,500 商用利用・改変・再配布OK。 クレジット・利用報告不要です。  アバター・衣装制作のほか、ゲームや映像などVRC外でも自由に使えます。 #VRChat #3DCG  ▼無料ダウンロード https://t.co/X8Aa6ZltQ4 https://t.co/HFgBE5CPFI",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2073602779906703716",
+      "url": "https://x.com/hitohuman_365/status/2073602779906703716?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 746,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-05T03:00:03Z",
+      "text_excerpt": "#VRChat_world紹介 🌏『Ecliptica』  VRCの完成度が高すぎる ローグライク・アクションRPG！  名前は聞くけど、どんなゲーム？ この動画を見れば一発でわかるように解説します！  ⚠️現在はPatreon支援者向けのアーリーアクセスワールドです。 👀遊ぶ方法は動画をチェック！  #Ecliptica https://t.co/aTjIBv1sKr",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2085305853331304732",
+      "url": "https://x.com/VRChat_JP/status/2085305853331304732?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 735,
+      "reason": "missing_event_marker",
+      "source_created_at": "2026-08-06T10:03:53Z",
+      "text_excerpt": "今年もVRChatで盆踊り!🏮 「超!寝転ん盆踊り2026」にVRChat日本チームも協力し、どなたでも参加できる公式インスタンスを7つご用意します✨  開催日時:8月8日(土)22:00〜24:00 参加方法:ワールドのインスタンスリスト、または当日22時頃投稿されるリンクから  23時からは花火の打ち上げも🎆 https://t.co/N8erpTuY0l",
+      "query_groups": [
+        "ablation_complement",
+        "lexical_high_precision"
+      ]
+    },
+    {
+      "status_id": "2077537338226540777",
+      "url": "https://x.com/Tom_t0m_tommy/status/2077537338226540777?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 713,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-15T23:34:34Z",
+      "text_excerpt": "START\tVRChat BattleFieldをpublic化しました！ 様々な武器やガチャ要素がある、大規模ゲムワです！  一部フィールドの開放・追加コンテンツ実装など、順次アプデも予定しています！  Patreonのサポーターは、下記の特典を利用可能です！  ・特殊スキン適用 ・サポーター専用フィールド ・武器統計データ表示 https://t.co/OFXM8KHY51",
       "query_groups": [
         "commerce_noise"
       ]
@@ -420,6 +531,18 @@
       ]
     },
     {
+      "status_id": "2083789493862330826",
+      "url": "https://x.com/KUSHINAKA/status/2083789493862330826?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 616,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-02T05:38:24Z",
+      "text_excerpt": "【💝VRC向けワールド販売告知＆プレゼントキャンペーン💝】  ワールドアセット【KAWAII GAME ROOM】を明日販売を行います！  イラスト・配信などの背景素材としても商用利用可能です！ 販売価格は1週間限定で全てまとめて100円での販売をおこないます！ https://t.co/HC0r9zJjkh",
+      "query_groups": [
+        "activities",
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2072969008304054311",
       "url": "https://x.com/toro_n_/status/2072969008304054311?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 616,
@@ -441,6 +564,28 @@
         "ablation_complement",
         "core",
         "structured_core"
+      ]
+    },
+    {
+      "status_id": "2084573962282123624",
+      "url": "https://x.com/KUSHINAKA/status/2084573962282123624?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 455,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-04T09:35:36Z",
+      "text_excerpt": "【💝ワールド販売記念＆毎日！プレゼントキャンペーン💝】 VRC向けワールドアセット 【KAWAII GAME ROOM】を現在100円販売を行っております！  たくさんの人に手に取っていただけて嬉しいです！ 初めての制作のため一旦この価格で行わせていただいておりますが https://t.co/BprNFxVQri",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2083115461873676443",
+      "url": "https://x.com/virtualparty_co/status/2083115461873676443?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 434,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-07-31T09:00:03Z",
+      "text_excerpt": "【新作衣装プレゼントキャンペーン】 8/7発売　VRChat向けアバター衣装「花霞の学服」 🔗https://t.co/C30c79OsOO   発売を記念して、衣装を抽選で5名様にプレゼント！   ◆応募方法 ①このポストをリポスト ②当アカウントをフォロー さらに！ BOOTHの「スキ！」100増加ごとに当選枠＋1名！ https://t.co/iR7f7OqFfP",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -468,14 +613,25 @@
       ]
     },
     {
-      "status_id": "2083115461873676443",
-      "url": "https://x.com/virtualparty_co/status/2083115461873676443?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 396,
-      "reason": "giveaway_only",
-      "source_created_at": "2026-07-31T09:00:03Z",
-      "text_excerpt": "【新作衣装プレゼントキャンペーン】 8/7発売　VRChat向けアバター衣装「花霞の学服」 🔗https://t.co/C30c79OsOO   発売を記念して、衣装を抽選で5名様にプレゼント！   ◆応募方法 ①このポストをリポスト ②当アカウントをフォロー さらに！ BOOTHの「スキ！」100増加ごとに当選枠＋1名！ https://t.co/iR7f7OqFfP",
+      "status_id": "2031293676677435478",
+      "url": "https://x.com/ruset_VRC/status/2031293676677435478?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 398,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-03-10T08:58:46Z",
+      "text_excerpt": "START\tVRChatのキャスト面接で  『あなたの性癖ってなんですか？？』 に対して  仮想空間とはいえども面接なので 『はい。私は純愛のいちゃらぶえっちが好きです。』と真剣に返事したら  『性癖(アバター改変の拘り)ですよ？笑』 って笑われたの未だに納得いってない。",
       "query_groups": [
-        "commerce_noise"
+        "recruitment"
+      ]
+    },
+    {
+      "status_id": "2086014554446692564",
+      "url": "https://x.com/uTwTy/status/2086014554446692564?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 373,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-08T09:00:00Z",
+      "text_excerpt": "🎁 VRC髪型「Liminalight」発売記念キャンペーン！🎁  ホラワ探索に持ってこいな髪型アセットです！！🔦  本日よりBOOTH販売開始しました！✨ 今回は錚々たる面々が携わってくれています🤯 （販売ページと豪華メンバーはリプ欄へ↓📎）  🎁プレゼントキャンペーン🎁 https://t.co/tGOV7bvaDN",
+      "query_groups": [
+        "temporal_audit"
       ]
     },
     {
@@ -487,6 +643,30 @@
       "text_excerpt": "🎁1周年記念プレゼントキャンペーン🎁 『ポップアップストリーマー』発売1周年を記念して、フォロー&RPキャンペーンを開催します✨  抽選で10名様にVRC向け衣装『ポップアップストリーマー フルセット』をプレゼント！ さらに、RP数が100増えるごとに当選者を1名ずつ追加いたします⚡ https://t.co/zeBLY5HPKy",
       "query_groups": [
         "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2084566498723651953",
+      "url": "https://x.com/akadori_i/status/2084566498723651953?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 363,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-04T09:05:57Z",
+      "text_excerpt": "⚔️【RTプレゼント企画】ギミック搭載！Aurum Noir Scythe ⚔️  黒×金の装甲と赤い宝石をあしらった、VRChat向けの大型戦闘鎌です！  召喚展開、回転、斬撃、円盤射出など、複数の演出ギミックを搭載。 パーティクル・トレイル・効果音は個別にON／OFFできます！ https://t.co/mb0aa0yxP3",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2085510361827164309",
+      "url": "https://x.com/KaniStreetStore/status/2085510361827164309?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 354,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-06T23:36:31Z",
+      "text_excerpt": "\\リポストキャンペーン🎁/ 新作服のリリースを記念して VRC向け服のリポストキャンペーンを開催します！  当選枠 3名+Boothのスキ数100ごとに当選数+1！  参加方法 1、このアカウントフォロー 2、このポストをリポスト  期限は8/10までです！！ 服の詳細はリプ欄をみてね！ https://t.co/mxUgKsfVY1",
+      "query_groups": [
+        "ablation_complement",
+        "commerce_noise",
+        "lexical_high_precision"
       ]
     },
     {
@@ -503,7 +683,7 @@
     {
       "status_id": "2080286839009927501",
       "url": "https://x.com/dennou9ryu/status/2080286839009927501?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 326,
+      "retweet_count": 327,
       "reason": "giveaway_only",
       "source_created_at": "2026-07-23T13:40:06Z",
       "text_excerpt": "🎉第6回プレゼント企画🎉 🎉 #VRC合法チート研究会 様のご協力で  VRC向け衣装  『コマネ - Komane -』 『九龍TEK 〜 KowloonTek 〜』   を抽選で各1名様（計2名様）にプレゼント  🎁応募方法  ①@vgc_gohocheatと@dennou9ryuのフォロー  ②このポストをいいね&リポスト      🎁応募期限  8/5 12:00 https://t.co/7DoNn8ZaTs",
@@ -523,6 +703,18 @@
       ]
     },
     {
+      "status_id": "2084217009982836839",
+      "url": "https://x.com/mayuri0201/status/2084217009982836839?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 315,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-03T09:57:12Z",
+      "text_excerpt": "◆◆VRChat Touch Voiceプレゼント企画◆◆  抽選で10名様にVRChatで使えるボイスを無料プレゼントいたします。 ギミックにボイスを導入して、なでなでやV睡をお楽しみください♪  【応募条件】 ・このアカウント( @mayuri0201)をフォロー ・このポストをRP ・応募期限8月8日(土)20時まで https://t.co/ubjsBedQcm",
+      "query_groups": [
+        "commerce_noise",
+        "recruitment"
+      ]
+    },
+    {
       "status_id": "2057023528973778946",
       "url": "https://x.com/virtualparty_co/status/2057023528973778946?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 315,
@@ -531,6 +723,17 @@
       "text_excerpt": "━━━━━━━━━━━━ 「迷子」VR版発売開始！ ━━━━━━━━━━━━ おっぽゲームズ様制作の人気ボードゲーム「迷子」がVRChatワールドとして公開！ 今なら無料で体験OK！  「迷子」に恐怖する、変則ババ抜きホラーゲームをお楽しみください  🌐ワールド https://t.co/Iw6nM3tGqa https://t.co/ItB9UkuJlS",
       "query_groups": [
         "activities"
+      ]
+    },
+    {
+      "status_id": "2084768471100068227",
+      "url": "https://x.com/BOOTH_NOW/status/2084768471100068227?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 313,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-04T22:28:31Z",
+      "text_excerpt": "📸VRChat不要！Unityだけでかわいい写真が撮れます🌟 ぜひ一度使ってみてください🥹✨ 「私ってこんなに可愛かったの？」ってなるかも…👀  🎁フォロー＆RPで5名＋サイト内イベントで15名、計20名様にお好きなBOOTH衣装をプレゼント！  🔗 https://t.co/0JPEmLYRli 詳しい機能はツリーへ👇 https://t.co/4l22mKyjfg",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -547,6 +750,30 @@
       ]
     },
     {
+      "status_id": "2085924003613753445",
+      "url": "https://x.com/SANRIO_Vfes/status/2085924003613753445?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 301,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-08T03:00:11Z",
+      "text_excerpt": "／ 「SHOW BY ROCK!! WORLD」が 「RESONARK」とコラボレーション🎵 ＼ VRChatを代表する音楽ゲームワールド「RESONARK」と「SHOW BY ROCK!! WORLD」のスペシャルコラボが、8/28(金)～9/6(日)の期間限定で開催決定したよ💫  「RESONARK」では、「SHOW BY ROCK!!」の楽曲 💿 Autumn Sky - https://t.co/DjWcmhoQnz",
+      "query_groups": [
+        "ablation_complement",
+        "core",
+        "structured_core"
+      ]
+    },
+    {
+      "status_id": "2084935986619043857",
+      "url": "https://x.com/KUSHINAKA/status/2084935986619043857?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 298,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-05T09:34:10Z",
+      "text_excerpt": "【💝VRCワールド販売記念＆毎日！プレゼントキャンペーン💝】  VRC向けワールドアセット【KAWAII GAME ROOM】を現在100円販売を行っております！  様々な改変を行ってもらってとても嬉しいです！  現在、booth♡100につき1人分ギフトプレゼントしてます！ （現在確定で11人分配布） https://t.co/8GtODm3Zio",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2081696103624241402",
       "url": "https://x.com/hd4tails/status/2081696103624241402?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 297,
@@ -555,18 +782,6 @@
       "text_excerpt": "START\tVRChatワールド向けお絵描きギミック 【UMoffPen2】 2026年8月1日0時（JST）販売予定！  セーブ/ロード・手動同期・レイヤー追加/削除に新たに対応 UMoffPen購入者向けアップグレード版も  🟢発売記念フォロー＆RTキャンペーン 抽選で3名様にプレゼント！詳細は⬇  商品ページ:https://t.co/NVnz8Voqy4 https://t.co/AO3VWkAUdl",
       "query_groups": [
         "temporal_audit"
-      ]
-    },
-    {
-      "status_id": "2083789493862330826",
-      "url": "https://x.com/KUSHINAKA/status/2083789493862330826?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 264,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-02T05:38:24Z",
-      "text_excerpt": "【💝VRC向けワールド販売告知＆プレゼントキャンペーン💝】  ワールドアセット【KAWAII GAME ROOM】を明日販売を行います！  イラスト・配信などの背景素材としても商用利用可能です！ 販売価格は1週間限定で全てまとめて100円での販売をおこないます！ https://t.co/HC0r9zJjkh",
-      "query_groups": [
-        "activities",
-        "commerce_noise"
       ]
     },
     {
@@ -581,6 +796,28 @@
       ]
     },
     {
+      "status_id": "2084595209992859909",
+      "url": "https://x.com/BlackSunsIns/status/2084595209992859909?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 257,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-04T11:00:02Z",
+      "text_excerpt": "◢◤発売記念キャンペーン◢◤ VRC想定フード付ヘッドセット『GIGIMORA VISOR』 抽選10名様にプレゼント🎁  応募：当ポストRP+フォロー👍 締切：08/06 20:00 ♥BOOTHスキ♡100ごとに当選枠１つ追加 ➤https://t.co/HPFinA9z2f #booth_pm ＃VRChat https://t.co/wpCroIAqSU",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2084479601729052935",
+      "url": "https://x.com/lita_lita_mk/status/2084479601729052935?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 253,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-04T03:20:39Z",
+      "text_excerpt": "🌟🌟新作発表リポストキャンペーン🌟🌟 VRChat向け衣装 「Mirage」 🌟🎁抽選で3人様に当商品が当たります🎁 対応アバターと商品ページはリプツリー 🔶参加方法🔶 ・boothの商品ページの”スキ！”をチェック ・このポストをリポスト&いいね ・このアカウントのフォロー 締切8月6日17:00 締切と同時販売 https://t.co/DbNe770OB6",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2080955504751526090",
       "url": "https://x.com/Chronover_info/status/2080955504751526090?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 246,
@@ -589,6 +826,28 @@
       "text_excerpt": "今回は、VRChatホラーワールド 「P․R․O․超常現象研究機構［FILE1˸呪画像］」に挑戦！  舞台は、行方不明事件が相次ぐ元美術品倉庫。 “見た者を地獄へ連れていく”呪いの絵を調査し、無事に帰還できるのか。  そして、最も心拍数を上げ、初代ビビり王の烙印を押されるのは誰だ！ https://t.co/7iSxjpxqij",
       "query_groups": [
         "activities"
+      ]
+    },
+    {
+      "status_id": "2084206681823609259",
+      "url": "https://x.com/KUSHINAKA/status/2084206681823609259?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 239,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-03T09:16:10Z",
+      "text_excerpt": "【💝VRC向けワールド販売開始＆毎日！プレゼントキャンペーン💝】 ワールドアセット【KAWAII GAME ROOM】を本日より8月10日まで100円販売を行っております！  イラストや配信への背景素材としても商用利用可！  そしてセール期間中は毎日告知をRTしてくれた中から 100RTごと＋boothいいね100ごと https://t.co/oKsKRXQ10V",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2083046205001736515",
+      "url": "https://x.com/YOONKIRA/status/2083046205001736515?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 230,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-31T04:24:51Z",
+      "text_excerpt": "目標だった7月中に完成しました！  明日からまた鳥を作りますwww  🎁RTイベント🎁 RTしてくださる方の中でランダムで    5人にプレゼントします~~!     今回もよろしくお願いします  【VRC想定】Low_bun_hair | YOONKIRA https://t.co/TD5mw92alb https://t.co/qnhdKMZQYX",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -616,6 +875,17 @@
       ]
     },
     {
+      "status_id": "2085309247550869821",
+      "url": "https://x.com/KUSHINAKA/status/2085309247550869821?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 221,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-06T10:17:22Z",
+      "text_excerpt": "【💝ワールド販売記念＆毎日！プレゼントキャンペーン💝】  VRC向けワールドアセット【KAWAII GAME ROOM】が現在100円です！  皆さんの個性が出る改変が見れてとても嬉しく思っております！ セール期間も折り返しですので気になる方は是非この機会に！ https://t.co/Q8syNVsxF3",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2076322177516015660",
       "url": "https://x.com/LoveLive_staff/status/2076322177516015660?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 202,
@@ -628,12 +898,23 @@
       ]
     },
     {
-      "status_id": "2084206681823609259",
-      "url": "https://x.com/KUSHINAKA/status/2084206681823609259?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 183,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-03T09:16:10Z",
-      "text_excerpt": "【💝VRC向けワールド販売開始＆毎日！プレゼントキャンペーン💝】 ワールドアセット【KAWAII GAME ROOM】を本日より8月10日まで100円販売を行っております！  イラストや配信への背景素材としても商用利用可！  そしてセール期間中は毎日告知をRTしてくれた中から 100RTごと＋boothいいね100ごと https://t.co/oKsKRXQ10V",
+      "status_id": "2079607782811349488",
+      "url": "https://x.com/slyxg5/status/2079607782811349488?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 196,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-07-21T16:41:47Z",
+      "text_excerpt": "🎁タトゥー発売記念RPキャンペーン🎁  【VRCタトゥーデカール】♡PLUS BPM♡18種セット | sugarcoat #booth_pm https://t.co/V5g3SvznGB  🎀参加方法はフォロー＆RP🎀 ♡抽選人数3名 ♡締切7月25日お昼の12時まで ♡当選者さんはDMさせていただきます",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2084945653793477055",
+      "url": "https://x.com/karakusa_kyoka/status/2084945653793477055?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 186,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-05T10:12:34Z",
+      "text_excerpt": "START\tVRC向けアクセサリー westringia antlerを発売しました！発売記念として、プレゼント企画を実施します！  https://t.co/KN698A510s  　抽選で2名様に🎁 　＊Boothのスキ100ごとに1名追加  🌷応募方法🌷 　本ポストをRP、本アカウントのフォロー 　〆切：8/8 15:00迄 #VRChat #BOOTH https://t.co/FDjvwQyjl2",
       "query_groups": [
         "commerce_noise"
       ]
@@ -661,6 +942,17 @@
       ]
     },
     {
+      "status_id": "2084240289104081034",
+      "url": "https://x.com/kg13panda/status/2084240289104081034?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 176,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-03T11:29:42Z",
+      "text_excerpt": "START\t商品バリエーション削除の罠とか、知っておくと便利な機能とか 意外と知られてないのかな？なBOOTHショップの仕様をまとめてみました。  VRChat向けアイテムを配布・販売するときに知っておきたい、BOOTHの仕様｜kg13 @kg13panda https://t.co/t2gnXLfDSG",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2075913116341489877",
       "url": "https://x.com/una2nv/status/2075913116341489877?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 174,
@@ -672,24 +964,24 @@
       ]
     },
     {
-      "status_id": "2075806603081642131",
-      "url": "https://x.com/MAAAAAAAASAHIRO/status/2075806603081642131?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 172,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-11T04:57:15Z",
-      "text_excerpt": "さぁ、明日に迫った7/12のVRC内でやる井上正大デバッグフェス！無料！  これがフェス参加者だ！(実はもう1人います)  21:00から開演！好きなインスタンスに入って楽しんで！  この日のために沢山準備してきました。前回のに加えて、新しい演出、新しい曲もあります！ https://t.co/w2B52d2qEX",
-      "query_groups": [
-        "core",
-        "structured_core"
-      ]
-    },
-    {
       "status_id": "2080216512330367460",
       "url": "https://x.com/GraffitiA_VRC/status/2080216512330367460?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 172,
       "reason": "missing_datetime",
       "source_created_at": "2026-07-23T09:00:39Z",
       "text_excerpt": "大人の職業体験コンセプト！VRCイベント告知📣 【大量募集】☆大きなお屋敷で楽しくお仕事☆未経験大歓迎◎お酒をやめてメイドになろう✨  一人前のメイドになるには… ⚠️⚠️‼️フレンドとの協力が必須‼️⚠️⚠️  《本日中のフォロー＆これをRPで1名様にペアチケ🎁》 #GraffitiA_VRC  #OC666 https://t.co/sm9EvBWAPs https://t.co/AiGZVB01nb",
+      "query_groups": [
+        "core",
+        "structured_core"
+      ]
+    },
+    {
+      "status_id": "2075806603081642131",
+      "url": "https://x.com/MAAAAAAAASAHIRO/status/2075806603081642131?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 172,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-11T04:57:15Z",
+      "text_excerpt": "さぁ、明日に迫った7/12のVRC内でやる井上正大デバッグフェス！無料！  これがフェス参加者だ！(実はもう1人います)  21:00から開演！好きなインスタンスに入って楽しんで！  この日のために沢山準備してきました。前回のに加えて、新しい演出、新しい曲もあります！ https://t.co/w2B52d2qEX",
       "query_groups": [
         "core",
         "structured_core"
@@ -707,12 +999,46 @@
       ]
     },
     {
+      "status_id": "2085313165500506294",
+      "url": "https://x.com/agu_mizuir0/status/2085313165500506294?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 164,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-06T10:32:56Z",
+      "text_excerpt": "🩵無償イラストプレゼント企画🩵  参加方法▶︎フォロー&リポスト&資料をリプ  参加条件▶︎VRchatの改変アバターもしくはオリジナルの固定キャラがいる方 締め切り▶︎8月9日(日)21時まで 当選人数▶︎2人  リプ欄に注意事項があります、必ず併せてお読みください⬇️  #イラスト企画 #無償イラスト企画 https://t.co/BAimSaw2La",
+      "query_groups": [
+        "ablation_complement"
+      ]
+    },
+    {
+      "status_id": "2083853481778311315",
+      "url": "https://x.com/uTwTy/status/2083853481778311315?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 153,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-02T09:52:40Z",
+      "text_excerpt": "✨VRC髪型「Liminalight」販売日決定のお知らせ！✨  販売ページ先行公開しました～～！ 暗いワールドの探索等に使えるギミック付きです💡 「スキ」をいただけると励みになります🙇‍♂️  【販売日】 ✅8/8(土) 18:00～  【同時開催イベント】 1️⃣プレゼントキャンペーン 2️⃣発売記念1週間限定セール https://t.co/AiVEQYprrt",
+      "query_groups": [
+        "base",
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2083711827729698995",
       "url": "https://x.com/suisyou_vr/status/2083711827729698995?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 148,
+      "retweet_count": 151,
       "reason": "missing_datetime",
       "source_created_at": "2026-08-02T00:29:47Z",
       "text_excerpt": "🎉発売記念キャンペーン🎉  新しいお洋服を販売開始しました！ よろしくお願いします✨  このポストをRPで3名様にプレゼント！ 2026/08/03まで。  【VRChat】PunMesh | 石英雑貨店  https://t.co/YeA8lIieD7   #石英雑貨店  #Suiha3D",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2081865966325989489",
+      "url": "https://x.com/yuucha_vrc/status/2081865966325989489?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 147,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-07-27T22:15:00Z",
+      "text_excerpt": "🎁Boothプレゼント企画【二弾】🎁  神メカクレヘア キプフェル＋まめひなたセット登場！ 1,200円→980円✨  抽選2名様にプレゼント！ 応募： @ yuucha_vrc をフォロー＆RP 引用で当選確率アップ⤴  購入済み当選者様はYuchaMin別商品1点🎁 〆7/30 23:59  https://t.co/IqlWQFBIxX https://t.co/0im2cZsU1f",
       "query_groups": [
         "commerce_noise"
       ]
@@ -763,18 +1089,6 @@
       ]
     },
     {
-      "status_id": "2083853481778311315",
-      "url": "https://x.com/uTwTy/status/2083853481778311315?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 129,
-      "reason": "giveaway_only",
-      "source_created_at": "2026-08-02T09:52:40Z",
-      "text_excerpt": "✨VRC髪型「Liminalight」販売日決定のお知らせ！✨  販売ページ先行公開しました～～！ 暗いワールドの探索等に使えるギミック付きです💡 「スキ」をいただけると励みになります🙇‍♂️  【販売日】 ✅8/8(土) 18:00～  【同時開催イベント】 1️⃣プレゼントキャンペーン 2️⃣発売記念1週間限定セール https://t.co/AiVEQYprrt",
-      "query_groups": [
-        "base",
-        "commerce_noise"
-      ]
-    },
-    {
       "status_id": "1923936587366162813",
       "url": "https://x.com/metametarea/status/1923936587366162813?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 129,
@@ -783,17 +1097,6 @@
       "text_excerpt": "クロード・モネの絵が鑑賞できるワールド 鑑賞できるだけでなく、絵の中と同じ風景に入る事もできる 休日には美術に触れるのも良いかもしれない world：VRC Museum By     ：Ectique URL    ：https://t.co/0rXR4yWqnV タグ：景観　展示  #VRC #VRChat_world紹介 https://t.co/vlfKKSG5Z8",
       "query_groups": [
         "activities"
-      ]
-    },
-    {
-      "status_id": "2084240289104081034",
-      "url": "https://x.com/kg13panda/status/2084240289104081034?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 126,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-03T11:29:42Z",
-      "text_excerpt": "商品バリエーション削除の罠とか、知っておくと便利な機能とか 意外と知られてないのかな？なBOOTHショップの仕様をまとめてみました。  VRChat向けアイテムを配布・販売するときに知っておきたい、BOOTHの仕様｜kg13 @kg13panda https://t.co/t2gnXLfDSG",
-      "query_groups": [
-        "commerce_noise"
       ]
     },
     {
@@ -808,6 +1111,17 @@
         "core",
         "recruitment",
         "structured_core"
+      ]
+    },
+    {
+      "status_id": "2084190353503162844",
+      "url": "https://x.com/ramasudzyan/status/2084190353503162844?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 116,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-03T08:11:17Z",
+      "text_excerpt": "【あと６日！】 【🎁＆アバター１体無料キャンペーン！！】  新VRChat向けオリジナル3Dモデル「ノワールミミィ」を公開しました！  ①「ノワールミミィ」購入者にVRChat向け3Dモデル「ララスピナ」が付属！ ②RP＆フォローでプレゼントキャンペーン開催中！   ▼キャンペーン https://t.co/edZABDyZaY",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -844,6 +1158,39 @@
       ]
     },
     {
+      "status_id": "2080638575138468172",
+      "url": "https://x.com/nekokakushi_3d/status/2080638575138468172?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 110,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-07-24T12:57:47Z",
+      "text_excerpt": "🎁全品セール＆RP企画🎁 VRC衣装を発売しました！ ※ひゅーじょん君には無料追加  🎉フォロー＆RPで 抽選で5名様にショップ内お好きな商品プレゼント！ 7/28火〆  ✨全品セール中です！ https://t.co/TZgflwOtUP Fusion Tech 900円 ひゅーじょん君アバター 2100円＋もちふぃった～プロファイル追加！ https://t.co/4lJ4seSC57",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2084112017091412424",
+      "url": "https://x.com/Sonaveil_vrc/status/2084112017091412424?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 109,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-03T03:00:00Z",
+      "text_excerpt": "🫧 シャボン玉ギミック テスター募集🫧 声やジェスチャーに反応して、口元からシャボン玉が流れ出すVRChatギミック、BubbleStream🫧を制作中です！ 泡はふわふわ流れて、床や壁に当たるとぽんっと弾けます。 実際にアバターへ導入して遊んでくれるテスターさんを募集中です！ https://t.co/G4SUGmyrEz",
+      "query_groups": [
+        "recruitment"
+      ]
+    },
+    {
+      "status_id": "2083864704263545058",
+      "url": "https://x.com/harukazehisui/status/2083864704263545058?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 107,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-02T10:37:16Z",
+      "text_excerpt": "公開しました🍀 8/5(水) 22時まで期間限定で無料配布します🌠  【期間限定無料】お星さまの角【VRChat想定】 | はるかぜひすい https://t.co/Cnk8UtTuSo  #booth_pm #VRChat #はるかぜひすい https://t.co/zo0o75W9ho",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2083885573044122017",
       "url": "https://x.com/vrc_salebot/status/2083885573044122017?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 106,
@@ -855,25 +1202,25 @@
       ]
     },
     {
-      "status_id": "2083864704263545058",
-      "url": "https://x.com/harukazehisui/status/2083864704263545058?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 105,
+      "status_id": "2073689887933681951",
+      "url": "https://x.com/rikaidekinu/status/2073689887933681951?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 103,
       "reason": "giveaway_only",
-      "source_created_at": "2026-08-02T10:37:16Z",
-      "text_excerpt": "公開しました🍀 8/5(水) 22時まで期間限定で無料配布します🌠  【期間限定無料】お星さまの角【VRChat想定】 | はるかぜひすい https://t.co/Cnk8UtTuSo  #booth_pm #VRChat #はるかぜひすい https://t.co/zo0o75W9ho",
+      "source_created_at": "2026-07-05T08:46:11Z",
+      "text_excerpt": "販売記念プレゼントキャンペーン🐟  フォロー＆RP  してくれた人の中から  『【VRC想定衣装】シーラカンスに食べられた！！』  を抽選で2名にプレゼントします🐟 🏛  BOOTHのスキ❗️が50増える度当選人数を1名ずつ追加します❣️  〜7月7日締切〆  https://t.co/ObEHYwshnC #VRChat #エルシオン https://t.co/IkuN11vTvc",
       "query_groups": [
         "commerce_noise"
       ]
     },
     {
-      "status_id": "2084217009982836839",
-      "url": "https://x.com/mayuri0201/status/2084217009982836839?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 101,
+      "status_id": "2084666231747907649",
+      "url": "https://x.com/BoothVRChat/status/2084666231747907649?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 100,
       "reason": "giveaway_only",
-      "source_created_at": "2026-08-03T09:57:12Z",
-      "text_excerpt": "◆◆VRChat Touch Voiceプレゼント企画◆◆  抽選で10名様にVRChatで使えるボイスを無料プレゼントいたします。 ギミックにボイスを導入して、なでなでやV睡をお楽しみください♪  【応募条件】 ・このアカウント( @mayuri0201)をフォロー ・このポストをRP ・応募期限8月8日(土)20時まで https://t.co/ubjsBedQcm",
+      "source_created_at": "2026-08-04T15:42:15Z",
+      "text_excerpt": "🎁24時間無料配布ちゅう🎁【VRC向けHair】めかくれゔぁんぷへあー/MekakureVampHair - Cute4ggress1on - BOOTH ¥0 #BVRChat_ACC https://t.co/T2pW6O4bbw",
       "query_groups": [
-        "recruitment"
+        "commerce_noise"
       ]
     },
     {
@@ -948,6 +1295,28 @@
       ]
     },
     {
+      "status_id": "2082227347689013293",
+      "url": "https://x.com/shixu_vrc/status/2082227347689013293?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 85,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-07-28T22:11:00Z",
+      "text_excerpt": "🎉 公開しました！ 🎉 ＜Nade Pose Editor ～なでぽ～＞  VRChat向けハンドジェスチャー編集ツール  「Nade Pose Editor ～なでぽ～」 を公開しました！ 「なで」の手をもっと自然にしたい。 そんな思いから生まれたツールです🤍  📅 無料配布期間：7月30日～8月1日 ぜひこの機会にお試しください✨ https://t.co/Pc0VA0DPDK",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2084116772937249074",
+      "url": "https://x.com/VeraVROfficial/status/2084116772937249074?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 84,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-03T03:18:54Z",
+      "text_excerpt": "somewhere after midnight  New vrchat world in development .   Early access through ko-fi/patreon 新しいワールドは現在も開発中です。  早期アクセスはKo-fi/Patreonよりご利用いただけます。  https://t.co/jbUIZFmQFh  #VRChat_world紹介 #VRChatPhotography #VRChat https://t.co/LHjlJldp89",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2084122149300900349",
       "url": "https://x.com/acho18_vrc/status/2084122149300900349?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 83,
@@ -993,6 +1362,19 @@
       ]
     },
     {
+      "status_id": "2082632983899758832",
+      "url": "https://x.com/Megane_hiromeru/status/2082632983899758832?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 80,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-30T01:02:51Z",
+      "text_excerpt": "👓【メガネ祭り 開催決定】👓  8月、VRChatで活動する30団体が 「メガネ」でつながる大型連携企画を開催します！  接客・ゲーム・集会など 各団体のイベントが、この夏だけの“メガネ仕様”に。  かける楽しさ、つながる輪 この夏は、メガネ祭りへ！  #VRCメガネ祭り #VRCイベント https://t.co/PPMyyo3RO1",
+      "query_groups": [
+        "ablation_complement",
+        "core",
+        "structured_core"
+      ]
+    },
+    {
       "status_id": "2083384707170062748",
       "url": "https://x.com/mementomori_3D/status/2083384707170062748?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 78,
@@ -1015,16 +1397,14 @@
       ]
     },
     {
-      "status_id": "2082632983899758832",
-      "url": "https://x.com/Megane_hiromeru/status/2082632983899758832?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 72,
+      "status_id": "2085663419303416304",
+      "url": "https://x.com/timtimSKCM/status/2085663419303416304?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 71,
       "reason": "missing_datetime",
-      "source_created_at": "2026-07-30T01:02:51Z",
-      "text_excerpt": "👓【メガネ祭り 開催決定】👓  8月、VRChatで活動する30団体が 「メガネ」でつながる大型連携企画を開催します！  接客・ゲーム・集会など 各団体のイベントが、この夏だけの“メガネ仕様”に。  かける楽しさ、つながる輪 この夏は、メガネ祭りへ！  #VRCメガネ祭り #VRCイベント https://t.co/PPMyyo3RO1",
+      "source_created_at": "2026-08-07T09:44:43Z",
+      "text_excerpt": "✨️販売開始✨️  『【TIM】QuickMenu 』    VRChatメニューの隣に現れる、多機能パネル    ■ネームタグ キャスト名やお好きな言葉  ■スタッフ管理 権限を手元から付与  ■LuraSwitch2連携 手元からボタンON/OFF    チルワからイベントまで    BOOTHはツリーに📷📷 #VRChat ⁠#VRChatワールド紹介 https://t.co/VHkebQ7oiX",
       "query_groups": [
-        "ablation_complement",
-        "core",
-        "structured_core"
+        "base"
       ]
     },
     {
@@ -1035,7 +1415,41 @@
       "source_created_at": "2026-06-21T03:31:38Z",
       "text_excerpt": "秋葉原VRChat映画祭で銀幕デビューキャンペーン開催します！  「からふるぱーてぃ」「カデシュ・プロジェクト」「VRCムービーアワード」で共同開催する映画館貸し切り企画「秋葉原VRChat映画祭」を7月26日（日）に開催します！ https://t.co/yVPZicayfw",
       "query_groups": [
+        "activities",
         "structured_activities"
+      ]
+    },
+    {
+      "status_id": "2085311434943316012",
+      "url": "https://x.com/KUSHINAKA/status/2085311434943316012?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 69,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-06T10:26:03Z",
+      "text_excerpt": "【💝販売記念＆プレゼントキャンペーン💝】 VRCアバター向け装飾 【KAWAII ネコミミ ヘッドフォン】を現在定価400円予定のところ 半額の200円販売を行っております！  KAWAII GAME ROOMをイメージしたヘッドフォンとなり アバターに着せてもワールドにおいても合うアイテムとなっております！ https://t.co/M8PWKHlBn0",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2084849120293110000",
+      "url": "https://x.com/Iris0000_Alice/status/2084849120293110000?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 69,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-05T03:48:59Z",
+      "text_excerpt": "【🎁新作発売＆プレゼント企画🎁】  鏡に、カメラの自由な視点をプラス。 好きな場所の景色を、手元の画面で立体映像として楽しめるVRChat向けギミック「Iris TwinView」を発売しました！ 発売記念セール 500円  📌応募：この投稿をRP＆フォロー 🎁3名様＋BOOTHの「スキ！」100件ごとに1名様追加",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2085170676709867693",
+      "url": "https://x.com/ILM_Wrokshop/status/2085170676709867693?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 68,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-06T01:06:44Z",
+      "text_excerpt": "🎁新発売記念キャンペーン🎁  VRC想定衣装　『SUMMER RELAX』  抽選で10名様にプレゼント！  👉応募方法  　-@ILM_Wrokshopをフォロー  　-このポストをリポスト🔁  Boothのスキ！💖100ごとに当選枠一名追加！  当選した方はDMにてお知らせします  〆締め切り  8/9（日）23:59まで！  #VRChat https://t.co/H5USCJc5Ut",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -1046,7 +1460,22 @@
       "source_created_at": "2026-07-24T11:12:42Z",
       "text_excerpt": "🌙VRC 1対1接客型イベント 『Luminous Night』✨  RP招待キャンペーン  【7/28(火) 22:00 開演】 💎 VIP枠 抽選で2名様 ▶ フォロー＆RPで応募完了 締切：7/27(月)18:00  #VRChat #VRCイベント #ルミナイ https://t.co/2YxNSq5mC2",
       "query_groups": [
-        "access"
+        "access",
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2083372144939925742",
+      "url": "https://x.com/Megane_hiromeru/status/2083372144939925742?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 65,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-01T02:00:01Z",
+      "text_excerpt": "📷メガネ祭りフォトコン開催！📷  メガネ祭りを記念して「メガネと夏」をテーマにしたVRChatフォトコンテストを開催します✨ #VRCメガネ祭り #VRCフォトコン  この夏の「メガネ」を、写真に残そう。 お気に入りの一枚をぜひご応募ください！  応募期間：8/1(土)~8/31(月)  📮応募方法 https://t.co/hBYRnQAC4J",
+      "query_groups": [
+        "activities",
+        "core",
+        "structured_activities",
+        "structured_core"
       ]
     },
     {
@@ -1085,6 +1514,17 @@
       ]
     },
     {
+      "status_id": "2085682737030279491",
+      "url": "https://x.com/KUSHINAKA/status/2085682737030279491?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 62,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-07T11:01:29Z",
+      "text_excerpt": "【💝VRCワールド販売記念＆毎日！プレゼントキャンペーン💝】  VRC向けワールドアセット【KAWAII GAME ROOM】を現在100円販売を行っております！  これをきっかけにワールド改変を行ってくれてる方も多く嬉しいです！  応募方法：明日18時までにRTから5名！ https://t.co/gEWHq5poMA",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2083107901690765476",
       "url": "https://x.com/kodamaVR44/status/2083107901690765476?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 61,
@@ -1104,6 +1544,18 @@
       "text_excerpt": "【🎆バーチャルの夏祭りを楽しもう！🏮】 VRChatで行ける夏祭りワールドをご紹介します！  https://t.co/2n1PKvAfDv  ・大勢で楽しめる！賑やかな縁日のワールド ・ひと夏の思い出を...。エモい雰囲気の景観ワールド ・謎解き！夏祭りワールドからの脱出　など https://t.co/0RYHxiiNC6 https://t.co/V5udc6flVz",
       "query_groups": [
         "activities"
+      ]
+    },
+    {
+      "status_id": "2085926020604146156",
+      "url": "https://x.com/rietzscha/status/2085926020604146156?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 58,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-08T03:08:12Z",
+      "text_excerpt": "START\t今日はVRChatで夏祭りがあるが、素直に祭りを楽しめないのにお祭りは好きという捻くれクソ野郎の私の過去の漫画を貼っておく https://t.co/Hoxa0UEB1n",
+      "query_groups": [
+        "base",
+        "structured_core"
       ]
     },
     {
@@ -1148,9 +1600,21 @@
       "source_created_at": "2026-07-04T03:00:02Z",
       "text_excerpt": "🔥 VirtualMarket × VRC感情の解釈フォトコン コラボ開催決定！ 🔥  ついにコラボフォトコンを開催します！  📅 開催期間 7/11(土) ～ 7/26(日)（VKET開催期間） 今回のテーマは 「熱狂」。  コラボ開催ということで、今回は通常回とは少し異なるルールを予定しています。 https://t.co/FKR1nnqkex",
       "query_groups": [
+        "activities",
         "core",
         "structured_activities",
         "structured_core"
+      ]
+    },
+    {
+      "status_id": "2085677839635165616",
+      "url": "https://x.com/zansis_vrc/status/2085677839635165616?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 56,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-07T10:42:01Z",
+      "text_excerpt": "❣VRC1対1接客型RPイベント❣ ✝『懺悔シスターズ』✝  📢RT招待キャンペーン  【 8/8(土) 21:55~ 】  抽選で2名様をご招待‼  ✅応募方法：フォロー&RT  🍻カスシスター達との宴... 💕個室での特別な”懺悔”タイム...  引用RTで「#懺悔シスターズ」を書くと当選率大UP😘 https://t.co/a78pFCrjQb",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -1162,6 +1626,28 @@
       "text_excerpt": "アニメ版VRC3期 第1話「Re:Start」 第2話「新しい自分」 第3話「これでいい」 第4話「見たくなかった」 第5話「初めてのブロック」 第6話「思い出したくない」 第7話「優しい嘘」 第8話「Invite」 第9話「全部知ってたんだね」 第10話「滲み出てたモノ」 第11話「あの頃に戻りたい」 第12話「VRChat」",
       "query_groups": [
         "access"
+      ]
+    },
+    {
+      "status_id": "2074427179455451530",
+      "url": "https://x.com/DolceMimi_vrc/status/2074427179455451530?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 54,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-07-07T09:35:55Z",
+      "text_excerpt": "🤍RPキャンペーン🤍  7月11日の営業にご主人様を招待いたします🫖  ⬇️参加方法⬇️ ・この投稿をRT+アカウントフォロー ・VRCグループ加入  引用RPで当選確率🆙 推しキャストへの愛をぜひ語ってください♡  応募期限：7月10日20時 当選された方はお友達を1人招待可能です♡ ご応募お待ちしております🌟 https://t.co/5hfKKJLUR1",
+      "query_groups": [
+        "recruitment"
+      ]
+    },
+    {
+      "status_id": "2083760900742447420",
+      "url": "https://x.com/mokkei_VE/status/2083760900742447420?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 54,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-02T03:44:47Z",
+      "text_excerpt": "今まで色々なVRCの謎解き系ワールドに行ってきたけどその中でもギミックが凄すぎて驚愕したのは『Charcoal』だった “ナイフで視界を切り抜いて”その線の軌跡で謎を解くという斬新極まるギミックは衝撃 あれから4年近く経つけどこのレベルの謎解き系ワールドはほとんどない https://t.co/ZbAmLA76xT https://t.co/4NKLRY7iDw",
+      "query_groups": [
+        "activities"
       ]
     },
     {
@@ -1178,38 +1664,14 @@
       ]
     },
     {
-      "status_id": "2083372144939925742",
-      "url": "https://x.com/Megane_hiromeru/status/2083372144939925742?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 54,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-01T02:00:01Z",
-      "text_excerpt": "📷メガネ祭りフォトコン開催！📷  メガネ祭りを記念して「メガネと夏」をテーマにしたVRChatフォトコンテストを開催します✨ #VRCメガネ祭り #VRCフォトコン  この夏の「メガネ」を、写真に残そう。 お気に入りの一枚をぜひご応募ください！  応募期間：8/1(土)~8/31(月)  📮応募方法 https://t.co/hBYRnQAC4J",
-      "query_groups": [
-        "core",
-        "structured_activities",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "2083760900742447420",
-      "url": "https://x.com/mokkei_VE/status/2083760900742447420?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 54,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-02T03:44:47Z",
-      "text_excerpt": "今まで色々なVRCの謎解き系ワールドに行ってきたけどその中でもギミックが凄すぎて驚愕したのは『Charcoal』だった “ナイフで視界を切り抜いて”その線の軌跡で謎を解くという斬新極まるギミックは衝撃 あれから4年近く経つけどこのレベルの謎解き系ワールドはほとんどない https://t.co/ZbAmLA76xT https://t.co/4NKLRY7iDw",
-      "query_groups": [
-        "activities"
-      ]
-    },
-    {
-      "status_id": "2074427179455451530",
-      "url": "https://x.com/DolceMimi_vrc/status/2074427179455451530?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 54,
+      "status_id": "2085531427748421746",
+      "url": "https://x.com/vrc_salebot/status/2085531427748421746?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 51,
       "reason": "giveaway_only",
-      "source_created_at": "2026-07-07T09:35:55Z",
-      "text_excerpt": "🤍RPキャンペーン🤍  7月11日の営業にご主人様を招待いたします🫖  ⬇️参加方法⬇️ ・この投稿をRT+アカウントフォロー ・VRCグループ加入  引用RPで当選確率🆙 推しキャストへの愛をぜひ語ってください♡  応募期限：7月10日20時 当選された方はお友達を1人招待可能です♡ ご応募お待ちしております🌟 https://t.co/5hfKKJLUR1",
+      "source_created_at": "2026-08-07T01:00:14Z",
+      "text_excerpt": "🔹【無料配布】【VRChat想定】white velvet 🤍_cross pierce_ - white velvet  🪽Sio   300円 → 0円 (100%OFF) 🪽kids wormiesok   300円 → 0円 (100%OFF) 🪽for Powari   300円 → 0円 (100%OFF)  🏷️ 3D装飾品 🔍 本日の100%OFF商品(11件)  #VRChat #booth_pm #BOOTH_超特価  👇 詳細はリプから https://t.co/dSOe0jzKXv",
       "query_groups": [
-        "recruitment"
+        "commerce_noise"
       ]
     },
     {
@@ -1233,7 +1695,43 @@
       "source_created_at": "2026-07-08T10:10:54Z",
       "text_excerpt": "フレンドたちが開催する、からぱりの秋葉原VRChat映画祭、今年は３団体合同！ しかもフレンドの中にガチの映画のエンジニアがいる。ぶいちゃはおかしいなことばかり起こる！ #VRC漫画 #PR https://t.co/8Ptv33sFmb",
       "query_groups": [
+        "activities",
         "structured_activities"
+      ]
+    },
+    {
+      "status_id": "2077603832469811242",
+      "url": "https://x.com/oizimajas/status/2077603832469811242?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 50,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-16T03:58:48Z",
+      "text_excerpt": "START\tVRCワールド 「Ecliptica」  ボス戦に挑み 能力をアップグレード 協力型ハクスラゲームワールド  ※現状一般公開はされてません Patreon支援やPatreon支援者のinstanceで遊ぶことができます https://t.co/RuY0jlktD1",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2084227404491620426",
+      "url": "https://x.com/DolceMimi_vrc/status/2084227404491620426?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 49,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-03T10:38:30Z",
+      "text_excerpt": "🤍RPキャンペーン🤍  8月8日の営業にご主人様を招待いたします🫖  ⬇️参加方法⬇️ ・この投稿をRT+アカウントフォロー ・応募フォーム記入 ・VRCグループ加入  応募期限：8月9日20時 当選された方はお友達を1人招待可能です♡ ご応募お待ちしております！  https://t.co/oYDm8Tujih",
+      "query_groups": [
+        "base",
+        "commerce_noise",
+        "recruitment"
+      ]
+    },
+    {
+      "status_id": "2084674628899983833",
+      "url": "https://x.com/yuyake_hino/status/2084674628899983833?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 49,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-04T16:15:37Z",
+      "text_excerpt": "今日の無料髪型情報です  🎁24時間無料配布ちゅう🎁【VRC向けHair】めかくれゔぁんぷへあー/MekakureVampHair | Cute4ggress1on https://t.co/aaqNG6yLKh #booth_pm",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -1271,6 +1769,28 @@
       ]
     },
     {
+      "status_id": "2084940528723075123",
+      "url": "https://x.com/miyamoto_michan/status/2084940528723075123?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 46,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-05T09:52:13Z",
+      "text_excerpt": "今週土曜に発売予定のVRChatアバターギミック、人体発火ギミックを抽選で3名にプレゼントいたします 全身に炎を纏うことができ、火力調整をMAXにするとかなりのアチアチになります。使い所は気を付けようね https://t.co/ZeV1RfONqI",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2084889753825264096",
+      "url": "https://x.com/girigiriotaoji/status/2084889753825264096?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 46,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-05T06:30:27Z",
+      "text_excerpt": "START\tアバターとかは好みとかあるけどこのギミックだけはマジで便利なのでみんなに勧めたいと常々思っている、オブジェクトぶち込めば大体のメガネ手で持って着脱できるようになるのホントに神なんだ。  【VRChat】眼鏡ギミックテンプレート | 物置(夜日空用) #booth_pm https://t.co/lbt3cX7vm9",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2072256836120822006",
       "url": "https://x.com/REARV_Tw/status/2072256836120822006?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 46,
@@ -1305,6 +1825,51 @@
       ]
     },
     {
+      "status_id": "2083206059288936617",
+      "url": "https://x.com/hd4tails/status/2083206059288936617?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 44,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-31T15:00:03Z",
+      "text_excerpt": "🔵VRChatワールド向けお絵描きギミック 【UMoffPen2】 をリリースいたしました！  セーブ/ロード・手動同期・レイヤー追加/削除に新たに対応 UMoffPen購入者向けのお得なアップグレード版もあります  ご興味がございましたら、ぜひご覧ください！  ⬇商品ページ https://t.co/NVnz8VoYnC https://t.co/XYdYcoTgBb",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2085256253346074954",
+      "url": "https://x.com/holomomochan/status/2085256253346074954?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 43,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-06T06:46:47Z",
+      "text_excerpt": "『VRChat標準カメラ限定』フォトコンを開催します！📸 詳細は画像をご確認いただき、ご不明な点がございましたらお気軽にDMまでお問い合わせください！  『標準カメラ限定』としているのは、「アバターギミックがない初心者の方にも、気軽にフォトコンへ参加していただきたい」という思いからです。 https://t.co/ECjrYq2H2c",
+      "query_groups": [
+        "structured_activities"
+      ]
+    },
+    {
+      "status_id": "2083842823246553118",
+      "url": "https://x.com/zansis_vrc/status/2083842823246553118?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 43,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-02T09:10:19Z",
+      "text_excerpt": "＼＼　 \\ 　/ 　／／  新規キャスト募集 ‼  ／／　 /　 \\　 ＼＼  VRCイベント『懺悔シスターズ』 🍺新規キャストを募集します！🍺  ✅イベント初心者OK！ ✅RP幅は自由！  ~皮を脱ぎ捨て、新しい自分を発揮しろ🔥~  【応募方法】 キャスト応募フォームを送信！⤵ https://t.co/NTqzBnvgIJ  #VRChat https://t.co/KgrV7A48ex",
+      "query_groups": [
+        "base",
+        "recruitment"
+      ]
+    },
+    {
+      "status_id": "2075579188418064456",
+      "url": "https://x.com/vrc_luminai/status/2075579188418064456?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 42,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-07-10T13:53:35Z",
+      "text_excerpt": "🌙VRC 1対1接客型イベント 『Luminous Night』✨  RP招待キャンペーン  【7/14(火) 22:00 開演】 💎 VIP枠 抽選で2名様 ▶ フォロー＆RPで応募完了  締切：7/13(月)18:00  #VRChat #VRCイベント #ルミナイ https://t.co/sMCoSeMFra",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2075746897235460416",
       "url": "https://x.com/46nekoVRC/status/2075746897235460416?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 42,
@@ -1312,7 +1877,21 @@
       "source_created_at": "2026-07-11T01:00:00Z",
       "text_excerpt": "🎉 VirtualMarket × VRC感情の解釈フォトコン コラボ開催！ 📸  VKETSummerにて、コラボフォトコンを開催します！  📅 開催期間 7/11(土) ～ 7/26(日)（VKET開催期間） 🎭 テーマ 「熱狂」  🏆 優秀作品5作品には、VKET関連の特別3Dモデルをプレゼント！(投稿数により変動の可能性あり) https://t.co/mKbpHAJGZr",
       "query_groups": [
+        "activities",
         "structured_activities"
+      ]
+    },
+    {
+      "status_id": "2072289119661969740",
+      "url": "https://x.com/VRC_MOVIEAWARD/status/2072289119661969740?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 41,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-01T12:00:02Z",
+      "text_excerpt": "◤◢◤◢◤◢◤◢◤◢◤◢    #VRCムービーアワード   第5回協賛募集スタート！  ◤◢◤◢◤◢◤◢◤◢◤◢  #VRChat 最大級の映像の祭典、 今年度も開催決定!!  第5回VRCムービーアワードの 協賛(運営スタッフ)募集開始！  詳細は添付画像をチェック！  ✅応募はコチラ https://t.co/aNg5ZxaY38 https://t.co/EDoKqqToyb",
+      "query_groups": [
+        "core",
+        "recruitment",
+        "structured_core"
       ]
     },
     {
@@ -1339,19 +1918,6 @@
       ]
     },
     {
-      "status_id": "2072289119661969740",
-      "url": "https://x.com/VRC_MOVIEAWARD/status/2072289119661969740?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 41,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-01T12:00:02Z",
-      "text_excerpt": "◤◢◤◢◤◢◤◢◤◢◤◢    #VRCムービーアワード   第5回協賛募集スタート！  ◤◢◤◢◤◢◤◢◤◢◤◢  #VRChat 最大級の映像の祭典、 今年度も開催決定!!  第5回VRCムービーアワードの 協賛(運営スタッフ)募集開始！  詳細は添付画像をチェック！  ✅応募はコチラ https://t.co/aNg5ZxaY38 https://t.co/EDoKqqToyb",
-      "query_groups": [
-        "core",
-        "recruitment",
-        "structured_core"
-      ]
-    },
-    {
       "status_id": "2082632268900716912",
       "url": "https://x.com/vrlife_magazine/status/2082632268900716912?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 40,
@@ -1375,6 +1941,28 @@
       ]
     },
     {
+      "status_id": "2085333345253437816",
+      "url": "https://x.com/nagatuki_ptr/status/2085333345253437816?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 39,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-06T11:53:07Z",
+      "text_excerpt": "【VRCキャスト・スタッフ募集】   「てんちるカフェ（仮） 」では、一緒にお店を作ってくださるキャスト・スタッフを募集しています  キャスト経験・プレイ環境は問いません！  募集内容  ・キャスト（接客・交流）※無言勢・デスクトップ可  ・スタッフ（運営・案内・サポート・制作等...） #てんちる https://t.co/TOjbrYGZWE",
+      "query_groups": [
+        "recruitment"
+      ]
+    },
+    {
+      "status_id": "2084881092465860660",
+      "url": "https://x.com/askVRCshop/status/2084881092465860660?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 39,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-05T05:56:02Z",
+      "text_excerpt": "📌近日公開予定  💎プレゼントキャンペーン【10名】💎  VRCアバター「結桜」制作中です🌸  ワンコイン以下の値段での販売を予定しています💰  (ある程度反応があれば無料の予定です)  🎁応募方法🎁 このアカウントをフォロー この投稿をRT   #VRCアバター制作中  #Blender  #Blender初心者  #VRC https://t.co/pI77b5VnIH",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
       "status_id": "2078443577194197249",
       "url": "https://x.com/adachi_yuya/status/2078443577194197249?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 38,
@@ -1385,6 +1973,61 @@
         "activities",
         "core",
         "structured_core"
+      ]
+    },
+    {
+      "status_id": "2084932508572103016",
+      "url": "https://x.com/HideNSick_VRC/status/2084932508572103016?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 38,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-05T09:20:20Z",
+      "text_excerpt": "■━━━━━━━━━━━━━━━■ 💜VRChatロールプレイイベント🎭  　　  ⛓️　Hide & Sick　⛓️ ■━━━━━━━━━━━━━━━■  監禁部屋から逃げ出して、クローゼットに身を隠す。 暗闇には【誰か】の声だけが響いている。 悪夢はまだ終わらない――  -男女RP各4回 期間限定開催- #HnS_VRC https://t.co/dpmRmmz76H",
+      "query_groups": [
+        "base"
+      ]
+    },
+    {
+      "status_id": "2084776397340324320",
+      "url": "https://x.com/vrcnavi/status/2084776397340324320?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 38,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-04T23:00:01Z",
+      "text_excerpt": "【VRChat】アバターをスライム化改変する方法を紹介！かわいいスライムになろう！ https://t.co/qf9NHKSpBg  暑いのでひんやりかわいいスライムボディになってみませんか？ 改変方法なんかも簡単に纏めてますので、ひんやりかわいいスライム改変もぜひ!!",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2077364568087732636",
+      "url": "https://x.com/to_fu_factory/status/2077364568087732636?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 37,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-07-15T12:08:03Z",
+      "text_excerpt": "写真表示ギミック　VRChat Cloud Gallery 発売記念リポストキャンペーン  抽選で5名様にツールをプレゼント BOOTHの100スキ毎に+1名（最大10名）  応募方法 1、このアカウント（@to_fu_factory）をフォロー 2、このポストをリポスト  応募期限 7/19（日）23:00まで https://t.co/B90a7bnLuL https://t.co/HevLZ8EVKk",
+      "query_groups": [
+        "recruitment"
+      ]
+    },
+    {
+      "status_id": "2085547210486563152",
+      "url": "https://x.com/vrchat_v/status/2085547210486563152?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 37,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-07T02:02:57Z",
+      "text_excerpt": "約9,600人が同時に花火を鑑賞✨ VプロデュースのVRChatイベント「ゆかたde花火大会」🎆 3D和装ブランド「Kimonowa」より、「MyYukata 2026」および「MyYukata 2026 for Men」の浴衣発売を記念し開催いたしました！  🔗詳細はこちら https://t.co/NxmacKlSzj  #Kimonowa #ゆかたde花火大会 #VRChat https://t.co/YRW0EdhZV2",
+      "query_groups": [
+        "base"
+      ]
+    },
+    {
+      "status_id": "2084567102309167112",
+      "url": "https://x.com/ramasudzyan/status/2084567102309167112?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 37,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-04T09:08:21Z",
+      "text_excerpt": "【あと５日！】 【🎁＆アバター１体無料キャンペーン！！】  🎉新モデル「ノワールミミィ」を公開！！ ①「ノワールミミィ」購入者にVRChat向けオリジナル3Dモデル「ララスピナ」が付属！ ②RP＆フォローでプレゼントキャンペーン開催中！ ▼キャンペーン https://t.co/edZABDyZaY",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -1400,37 +2043,14 @@
       ]
     },
     {
-      "status_id": "2077364568087732636",
-      "url": "https://x.com/to_fu_factory/status/2077364568087732636?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 37,
-      "reason": "giveaway_only",
-      "source_created_at": "2026-07-15T12:08:03Z",
-      "text_excerpt": "写真表示ギミック　VRChat Cloud Gallery 発売記念リポストキャンペーン  抽選で5名様にツールをプレゼント BOOTHの100スキ毎に+1名（最大10名）  応募方法 1、このアカウント（@to_fu_factory）をフォロー 2、このポストをリポスト  応募期限 7/19（日）23:00まで https://t.co/B90a7bnLuL https://t.co/HevLZ8EVKk",
-      "query_groups": [
-        "recruitment"
-      ]
-    },
-    {
-      "status_id": "2084202623733830046",
-      "url": "https://x.com/Attrazione_VRC/status/2084202623733830046?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 36,
-      "reason": "missing_event_marker",
-      "source_created_at": "2026-08-03T09:00:02Z",
-      "text_excerpt": "姫様へ  後夜も鬨を響かせ 酒宴の狼煙をあげていく  VRCで1番ド派手なホスイベ 悪い男達が彩る祭典 『Attrazione』   今、扉が開く   8月度 姫救済特別営業は8月15日 22時始動  　   Attrazioneは姫様の ご来店をお待ちしております  #Attrazione_VRC  #VRChat https://t.co/315T0yyFcu",
-      "query_groups": [
-        "base"
-      ]
-    },
-    {
-      "status_id": "2083842823246553118",
-      "url": "https://x.com/zansis_vrc/status/2083842823246553118?utm_source=yjrealtime&utm_medium=search",
+      "status_id": "2085304888247124017",
+      "url": "https://x.com/VrcBoxing/status/2085304888247124017?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 36,
       "reason": "missing_datetime",
-      "source_created_at": "2026-08-02T09:10:19Z",
-      "text_excerpt": "＼＼　 \\ 　/ 　／／  新規キャスト募集 ‼  ／／　 /　 \\　 ＼＼  VRCイベント『懺悔シスターズ』 🍺新規キャストを募集します！🍺  ✅イベント初心者OK！ ✅RP幅は自由！  ~皮を脱ぎ捨て、新しい自分を発揮しろ🔥~  【応募方法】 キャスト応募フォームを送信！⤵ https://t.co/NTqzBnvgIJ  #VRChat https://t.co/KgrV7A48ex",
+      "source_created_at": "2026-08-06T10:00:03Z",
+      "text_excerpt": "◤◢◤◢◤◢◤◢◤◢◤◢◤◢ 　　　🥊VRC BOXING🥊 🟦SUMMER SHOWDOWN🟦 　　🔥出場選手募集開始‼️ ◤◢◤◢◤◢◤◢◤◢◤◢◤◢  VRC BOXING最大級の夏の大会が開幕‼️ 各部門の頂点を目指せ💥🏆  応募フォームはコチラ🔽　⚠️応募締切：8月18日 https://t.co/o0lmwAyhXw  #VRChat #vrcboxing https://t.co/h1lyHIACXH",
       "query_groups": [
-        "base",
-        "recruitment"
+        "base"
       ]
     },
     {
@@ -1446,15 +2066,36 @@
       ]
     },
     {
-      "status_id": "2079142739527229808",
-      "url": "https://x.com/pikepikeid/status/2079142739527229808?utm_source=yjrealtime&utm_medium=search",
+      "status_id": "2078308802940780782",
+      "url": "https://x.com/Q2iCU/status/2078308802940780782?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 35,
       "reason": "missing_datetime",
-      "source_created_at": "2026-07-20T09:53:52Z",
-      "text_excerpt": "なでなでマッチングで落ちる件の調査 ・9070XT限定で起こる ・VRC起動後2回目以降のJoinで落ちやすい ・Unity 6だとリジョインでほぼ確実に落ちる ・ドライバーのバージョンに関係なく起こる ・キャッシュを消しても再現する ・たまにロビーの壁が壊れている状態に遭遇することがある ・1人でも再現可",
+      "source_created_at": "2026-07-18T02:40:06Z",
+      "text_excerpt": "✨新作衣装テスター募集✨  📷お願いしたいこと ・UnityまたはVRChatでの撮影 ・販売開始時にPR用のポストを1件以上ポスト ・衣装の導入／動作チェック  ✉応募方法 リプライにて希望アバター名とお写真をお送りください。  たくさんのご応募お待ちしております！🖤 https://t.co/gWOAWHJ7nb",
       "query_groups": [
-        "access",
-        "structured_access"
+        "recruitment"
+      ]
+    },
+    {
+      "status_id": "2085682366945579194",
+      "url": "https://x.com/uTwTy/status/2085682366945579194?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 35,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-07T11:00:01Z",
+      "text_excerpt": "✨VRC髪型「Liminalight」明日発売！！✨  ホラワ探索のお供にぴったりな新作髪型です！！🔦  明日 8/8(土) 18:00～　BOOTH販売開始！！ プレゼントキャンペーン＆記念セールも同時開催！！ ㊙㊙重大告知もあります～！！㊙㊙  #VRChat #Marycia3D #Kipfel #冬蟲工房 #Backrooms https://t.co/YJMqHIjEqY",
+      "query_groups": [
+        "commerce_noise"
+      ]
+    },
+    {
+      "status_id": "2084190260389728443",
+      "url": "https://x.com/omanju_kosi_an/status/2084190260389728443?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 35,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-03T08:10:55Z",
+      "text_excerpt": "✨BOOTH新商品のお知らせ✨ 異世界の居酒屋店員をモチーフにした VRChat向け３D衣装 「いざかや酒縁」 その場で酒器やおつまみも出せる…！ 現在、7アバター対応しています 是非チェックしてね🙆‍♀️ https://t.co/sKsuO9fMDU #vrc #booth https://t.co/XdOylw7aO0",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -1469,12 +2110,24 @@
       ]
     },
     {
-      "status_id": "2078308802940780782",
-      "url": "https://x.com/Q2iCU/status/2078308802940780782?utm_source=yjrealtime&utm_medium=search",
+      "status_id": "2079142739527229808",
+      "url": "https://x.com/pikepikeid/status/2079142739527229808?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 35,
       "reason": "missing_datetime",
-      "source_created_at": "2026-07-18T02:40:06Z",
-      "text_excerpt": "✨新作衣装テスター募集✨  📷お願いしたいこと ・UnityまたはVRChatでの撮影 ・販売開始時にPR用のポストを1件以上ポスト ・衣装の導入／動作チェック  ✉応募方法 リプライにて希望アバター名とお写真をお送りください。  たくさんのご応募お待ちしております！🖤 https://t.co/gWOAWHJ7nb",
+      "source_created_at": "2026-07-20T09:53:52Z",
+      "text_excerpt": "なでなでマッチングで落ちる件の調査 ・9070XT限定で起こる ・VRC起動後2回目以降のJoinで落ちやすい ・Unity 6だとリジョインでほぼ確実に落ちる ・ドライバーのバージョンに関係なく起こる ・キャッシュを消しても再現する ・たまにロビーの壁が壊れている状態に遭遇することがある ・1人でも再現可",
+      "query_groups": [
+        "access",
+        "structured_access"
+      ]
+    },
+    {
+      "status_id": "2080279448616907025",
+      "url": "https://x.com/enechia1219/status/2080279448616907025?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 34,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-23T13:10:44Z",
+      "text_excerpt": "〖テスター募集〗 こちらの商品のテスターの募集をさせていただきます🙌 VRC内での動作確認と、サムネイルやPR用のお写真の撮影をお願いいたします📷✨  ※対応アバターの参考にはしないでください🙇🏻‍♀️ ⇩募集アバター⇩ Sio・Milltina・Manuka・Hanka・Nakiya・Minase・Lumima・Mayo・Eku・Shinano https://t.co/x3dLg6bvGm",
       "query_groups": [
         "recruitment"
       ]
@@ -1488,17 +2141,6 @@
       "text_excerpt": "【Unityで実写合成】VRChatアバターとリアル写真を自然に馴染ませる方法（Avagraphy） https://t.co/zfz57dFATT  旅先で撮影した実写の写真に、お気に入りのVRChatアバターを一緒に並べたいと思った時はありませんか？  こちらのツールでは高精度な合成写真・映像を作成ができたりします。",
       "query_groups": [
         "activities"
-      ]
-    },
-    {
-      "status_id": "2080279448616907025",
-      "url": "https://x.com/enechia1219/status/2080279448616907025?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 34,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-23T13:10:44Z",
-      "text_excerpt": "〖テスター募集〗 こちらの商品のテスターの募集をさせていただきます🙌 VRC内での動作確認と、サムネイルやPR用のお写真の撮影をお願いいたします📷✨  ※対応アバターの参考にはしないでください🙇🏻‍♀️ ⇩募集アバター⇩ Sio・Milltina・Manuka・Hanka・Nakiya・Minase・Lumima・Mayo・Eku・Shinano https://t.co/x3dLg6bvGm",
-      "query_groups": [
-        "recruitment"
       ]
     },
     {
@@ -1521,6 +2163,28 @@
       "text_excerpt": "【VRCイベントスタッフ募集】 🌏特選ワールド巡り Flux  流行りの新作はもちろん、海外の文化に触れたり隠れた名作などワールド巡りなら何でもおまかせください！💪  私たちと一緒に旅して楽しみながら、スタッフをやってみたい方を募集中です✨  続きはツリーに↓ #VRCイベント求人 #VRCキャスト募集 https://t.co/5eqKaB4ktX",
       "query_groups": [
         "recruitment"
+      ]
+    },
+    {
+      "status_id": "2081673448401629652",
+      "url": "https://x.com/hitaka012/status/2081673448401629652?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 33,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-27T09:30:00Z",
+      "text_excerpt": "8月中旬よりVRC学園型コミュニティイベント、 サマーバケーションを開催いたします。  詳細につきましては添付の画像をご参照ください。  生徒参加を希望される方は、こちらのURLよりご応募ください。 https://t.co/H1MkHl2lRN 応募期限は8/8までとなっております。 https://t.co/XBe2uBPium",
+      "query_groups": [
+        "recruitment"
+      ]
+    },
+    {
+      "status_id": "2084538308760310046",
+      "url": "https://x.com/recaptray/status/2084538308760310046?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 33,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-04T07:13:56Z",
+      "text_excerpt": "【⚠️まもなく終了⚠️】  VRChat向けギミック「どっぺりん！」のリリース記念セールが終了間近です！ ✨ リリース記念1,000円OFF ✨  通常 ¥3,000 → ¥2,000 で買えるのは【明日 8/5(水)】まで！ お得にゲットできるラストチャンスです！  🎁 プレゼントキャンペーンは本日締切 🎁 https://t.co/mPo1IhpTsd",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -1547,17 +2211,6 @@
       ]
     },
     {
-      "status_id": "2081673448401629652",
-      "url": "https://x.com/hitaka012/status/2081673448401629652?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 32,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-27T09:30:00Z",
-      "text_excerpt": "8月中旬よりVRC学園型コミュニティイベント、 サマーバケーションを開催いたします。  詳細につきましては添付の画像をご参照ください。  生徒参加を希望される方は、こちらのURLよりご応募ください。 https://t.co/H1MkHl2lRN 応募期限は8/8までとなっております。 https://t.co/XBe2uBPium",
-      "query_groups": [
-        "recruitment"
-      ]
-    },
-    {
       "status_id": "2080941167685009563",
       "url": "https://x.com/SANRIO_Vfes/status/2080941167685009563?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 32,
@@ -1580,6 +2233,17 @@
       ]
     },
     {
+      "status_id": "2079880606398439668",
+      "url": "https://x.com/hamanako_nako/status/2079880606398439668?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 31,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-07-22T10:45:53Z",
+      "text_excerpt": "【VRChat】オブジェクト着火ギミック 発売記念リポストキャンペーン  抽選で5名様にギミックをプレゼント  応募方法 1、このアカウント（@hamanako_nako）をフォロー 2、このポストをリポスト  応募期限 7/23（日）24:00まで https://t.co/OXwjFo7G3j https://t.co/UE6Ex9C3Ij",
+      "query_groups": [
+        "recruitment"
+      ]
+    },
+    {
       "status_id": "2074440790672347584",
       "url": "https://x.com/enishi_VRC/status/2074440790672347584?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 31,
@@ -1592,6 +2256,18 @@
       ]
     },
     {
+      "status_id": "2071371922890498383",
+      "url": "https://x.com/VRC_DenshiSai/status/2071371922890498383?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 31,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-06-28T23:15:25Z",
+      "text_excerpt": "-勝負の祭典、再び- 『VRC 電紙祭　2026夏』 VRChatのカードゲームワールド 3タイトル合同大会、開催決定！  3団体にてスイスドロー形式の大会を開催。全大会制覇《グランドスラム》達成すれば豪華な賞品を進呈します 開催期間:7/18(土)　7/19(日) #VRChat #VRガンナガン #VRふるよに #VRブラリコ https://t.co/Qzqk7cO1s4",
+      "query_groups": [
+        "core",
+        "structured_core"
+      ]
+    },
+    {
       "status_id": "2083757231041089604",
       "url": "https://x.com/mokkei_VE/status/2083757231041089604?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 31,
@@ -1600,17 +2276,6 @@
       "text_excerpt": "『TRACE』 独特な趣がある一種の謎解きワールドが来た 奇妙で無機質な灰色の通路と部屋 各部屋で条件を満たし、奥へ奥へと進んで行くのだが…… シンプルでありながらVRCならではを感じる小気味よいギミックの数々 これは貴方のTRACE（痕跡）の物語 推定時間: 15分程度 #VRChat_world紹介 https://t.co/NaO4cTz3ej",
       "query_groups": [
         "activities"
-      ]
-    },
-    {
-      "status_id": "2079880606398439668",
-      "url": "https://x.com/hamanako_nako/status/2079880606398439668?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 31,
-      "reason": "giveaway_only",
-      "source_created_at": "2026-07-22T10:45:53Z",
-      "text_excerpt": "【VRChat】オブジェクト着火ギミック 発売記念リポストキャンペーン  抽選で5名様にギミックをプレゼント  応募方法 1、このアカウント（@hamanako_nako）をフォロー 2、このポストをリポスト  応募期限 7/23（日）24:00まで https://t.co/OXwjFo7G3j https://t.co/UE6Ex9C3Ij",
-      "query_groups": [
-        "recruitment"
       ]
     },
     {
@@ -1633,18 +2298,6 @@
       "text_excerpt": "🔰新規キャスト募集🔰  あなたも凪ちゃん喫茶で働きませんか？☕️  ===応募条件===  ・日本語での有声会話が可能 ・Discordでのやり取りが可能 ・PCVRでのVRChatが動作する ・モチーフに沿ったアバター改変ができる ・rio3d様オリジナル3Dモデル「凪」の使用ができる ・凪ちゃんが大好き！ https://t.co/FBypKo85J4",
       "query_groups": [
         "recruitment"
-      ]
-    },
-    {
-      "status_id": "2071371922890498383",
-      "url": "https://x.com/VRC_DenshiSai/status/2071371922890498383?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 31,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-06-28T23:15:25Z",
-      "text_excerpt": "-勝負の祭典、再び- 『VRC 電紙祭　2026夏』 VRChatのカードゲームワールド 3タイトル合同大会、開催決定！  3団体にてスイスドロー形式の大会を開催。全大会制覇《グランドスラム》達成すれば豪華な賞品を進呈します 開催期間:7/18(土)　7/19(日) #VRChat #VRガンナガン #VRふるよに #VRブラリコ https://t.co/Qzqk7cO1s4",
-      "query_groups": [
-        "core",
-        "structured_core"
       ]
     },
     {
@@ -1677,7 +2330,8 @@
       "source_created_at": "2026-07-20T10:37:39Z",
       "text_excerpt": "【1/2】  ◤　　　　　　　　　　　　　◥ 　🌟 新イベント、遂に開催！ 🌟 ◣　　　　　　　　　　　　　◢ G.C.C.本社上層に位置する高級ラウンジ **「Golden Zenith／ゴールデンゼニス」**が、 VRChatにて開店いたします。 ◆ イベントコンセプト ◆ 機械たちが接客を行うRP交流イベント  📅 https://t.co/CwATQV6hmS https://t.co/aD18q8ui7G",
       "query_groups": [
-        "structured_venues"
+        "structured_venues",
+        "venues"
       ]
     },
     {
@@ -1700,6 +2354,31 @@
       "text_excerpt": "昨日は、VRC同期会を作ろう！ #2026年6月VRC同期会 にご参加いただきありがとうございました。  443 人くらいの6月開始の方に来ていただきました。 同期として仲良くなっていただけると嬉しいです。  2026年6月VRC同期会のDiscordにも入ってね！Discordは、VRCグループのリンクに記載してます。 https://t.co/Fquz6b2On4",
       "query_groups": [
         "communities"
+      ]
+    },
+    {
+      "status_id": "2084996091813236854",
+      "url": "https://x.com/NIRARETERU/status/2084996091813236854?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 29,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-05T13:33:00Z",
+      "text_excerpt": "🎉THANK YOU!🎉  テルミのBOOTHスキ❤が4,000を突破しました！✨ さらに、もちきんも400スキ❤を達成🎊  たくさんの応援、本当にありがとうございます！ これからもテルミともちきんが、みなさまの素敵なVRCライフを彩れますように✨ 明日の非公式集会も素敵なものになりますように🎶 https://t.co/fx5ASuoQ3C",
+      "query_groups": [
+        "base",
+        "core",
+        "structured_core"
+      ]
+    },
+    {
+      "status_id": "2078414533824237724",
+      "url": "https://x.com/Virtual_Market_/status/2078414533824237724?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 29,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-18T09:40:14Z",
+      "text_excerpt": "START\tVRChat最大級ライブイベント ⚔ Autonomy vol.3 ⚔が 【Vketステージ】で開催決定‼️  Vket開催前のPre Openは大熱狂🔥 Vket開催期間中も3Daysで開催しますよ～🙌  🎤LIVE 🎧DJ 💃DANCE ⚔MCBATTLE …and more!!! 総勢40組以上の豪華タイムテーブルをチェック✨️ お楽しみに✨️ https://t.co/FRsUl585A2 https://t.co/sOjTHuvMT8",
+      "query_groups": [
+        "core",
+        "structured_core"
       ]
     },
     {
@@ -1735,19 +2414,8 @@
         "ablation_complement",
         "base",
         "core",
-        "structured_venues"
-      ]
-    },
-    {
-      "status_id": "2078414533824237724",
-      "url": "https://x.com/Virtual_Market_/status/2078414533824237724?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 29,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-18T09:40:14Z",
-      "text_excerpt": "START\tVRChat最大級ライブイベント ⚔ Autonomy vol.3 ⚔が 【Vketステージ】で開催決定‼️  Vket開催前のPre Openは大熱狂🔥 Vket開催期間中も3Daysで開催しますよ～🙌  🎤LIVE 🎧DJ 💃DANCE ⚔MCBATTLE …and more!!! 総勢40組以上の豪華タイムテーブルをチェック✨️ お楽しみに✨️ https://t.co/FRsUl585A2 https://t.co/sOjTHuvMT8",
-      "query_groups": [
-        "core",
-        "structured_core"
+        "structured_venues",
+        "venues"
       ]
     },
     {
@@ -1762,18 +2430,6 @@
       ]
     },
     {
-      "status_id": "2084227404491620426",
-      "url": "https://x.com/DolceMimi_vrc/status/2084227404491620426?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 28,
-      "reason": "giveaway_only",
-      "source_created_at": "2026-08-03T10:38:30Z",
-      "text_excerpt": "🤍RPキャンペーン🤍  8月8日の営業にご主人様を招待いたします🫖  ⬇️参加方法⬇️ ・この投稿をRT+アカウントフォロー ・応募フォーム記入 ・VRCグループ加入  応募期限：8月9日20時 当選された方はお友達を1人招待可能です♡ ご応募お待ちしております！  https://t.co/oYDm8Tujih",
-      "query_groups": [
-        "base",
-        "recruitment"
-      ]
-    },
-    {
       "status_id": "2083455189206380812",
       "url": "https://x.com/AssetLove/status/2083455189206380812?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 28,
@@ -1782,6 +2438,40 @@
       "text_excerpt": "【FAB】 海底に沈んだアトランティス遺跡が ¥1,415→無料に！😳 ​ 崩れた神殿、古びた石柱、海中に佇む像まで、失われた文明のロマンがぎっしり🏛️ ​ ​✅️Unityでも使える（全RP対応） ​ 『Atlantis Ruins / 37 Assets』期間限定無料 ⚡️8/11まで https://t.co/k34jFiWY4C #Unity ゲーム開発 VRChat https://t.co/LEsGeUvHMg",
       "query_groups": [
         "activities"
+      ]
+    },
+    {
+      "status_id": "2075535755598799016",
+      "url": "https://x.com/Virtual_Market_/status/2075535755598799016?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 27,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-07-10T11:01:00Z",
+      "text_excerpt": "START\tVRChatなど向けの商品販売プラットフォーム【Jinxxy】が 夏Vketでフォトコンテストを開催決定📷✨  Vketの会場内からJinxxyのコミュニティコラボブースを探して #️⃣ #Jinxxyフォトコン #️⃣をつけて投稿！📨  【Jinxxy】のシークレットギフトがもらえるかも？？？🎁 https://t.co/5r61747zGW",
+      "query_groups": [
+        "core",
+        "structured_core"
+      ]
+    },
+    {
+      "status_id": "2085576672519274568",
+      "url": "https://x.com/metacul_project/status/2085576672519274568?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 27,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-07T04:00:01Z",
+      "text_excerpt": "株式会社VがプロデュースするVRChat最大級の夏イベント「ゆかたde花火大会」を開催！ https://t.co/8mIzw00B3u  約9,600人が花火を鑑賞、わずか2時間で延べ約5万人が来場！ https://t.co/BWht6VjXeq",
+      "query_groups": [
+        "base"
+      ]
+    },
+    {
+      "status_id": "2084975316955713990",
+      "url": "https://x.com/ramasudzyan/status/2084975316955713990?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 27,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-05T12:10:27Z",
+      "text_excerpt": "【あと4日！】 【🎁＆アバター１体無料キャンペーン！！】  📷新モデル「ノワールミミィ」を公開！！ ①「ノワールミミィ」購入者にVRChat向けオリジナル3Dモデル「ララスピナ」が付属！ ②RP＆フォローでプレゼントキャンペーン開催中！ ▼キャンペーン https://t.co/edZABDyZaY",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -1798,18 +2488,6 @@
       ]
     },
     {
-      "status_id": "2075535755598799016",
-      "url": "https://x.com/Virtual_Market_/status/2075535755598799016?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 27,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-10T11:01:00Z",
-      "text_excerpt": "START\tVRChatなど向けの商品販売プラットフォーム【Jinxxy】が 夏Vketでフォトコンテストを開催決定📷✨  Vketの会場内からJinxxyのコミュニティコラボブースを探して #️⃣ #Jinxxyフォトコン #️⃣をつけて投稿！📨  【Jinxxy】のシークレットギフトがもらえるかも？？？🎁 https://t.co/5r61747zGW",
-      "query_groups": [
-        "core",
-        "structured_core"
-      ]
-    },
-    {
       "status_id": "2070095955425382753",
       "url": "https://x.com/last_VRC/status/2070095955425382753?utm_source=yjrealtime&utm_medium=search",
       "retweet_count": 27,
@@ -1818,6 +2496,30 @@
       "text_excerpt": "【VRChatイベント新規キャスト・スタッフ募集】  終末世界とメイドがテーマのBarでキャスト、スタッフとして活動して下さる方を募集いたします。  ☆募集期間☆ 6/25 (本日) ～7/4  ↓ご応募は、こちらから！↓ https://t.co/HKp3HPTXhL  #VRCキャスト募集 #VRCイベント求人 #VRChatイベント https://t.co/B8pcRGMuNd",
       "query_groups": [
         "recruitment"
+      ]
+    },
+    {
+      "status_id": "2084565006562005408",
+      "url": "https://x.com/hac_white1253/status/2084565006562005408?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 26,
+      "reason": "missing_datetime",
+      "source_created_at": "2026-08-04T09:00:01Z",
+      "text_excerpt": "📡ライブやります📡  チョー直前告知！今週末の8/8(土)に  『6周年！いきなりのThank you』 VRCワンマンライブを公演します🎉  さらにパワーアップしたイヌガミユキを、観て聴いて👀 #イヌガミユキ https://t.co/X3rAii2Xho",
+      "query_groups": [
+        "base",
+        "core",
+        "structured_core"
+      ]
+    },
+    {
+      "status_id": "2084914806029525210",
+      "url": "https://x.com/VR95611/status/2084914806029525210?utm_source=yjrealtime&utm_medium=search",
+      "retweet_count": 26,
+      "reason": "giveaway_only",
+      "source_created_at": "2026-08-05T08:10:00Z",
+      "text_excerpt": "🎁VRCプレゼント企画🎁  ＼VRゴーグル 抽選で1枚様にプレゼント‼️／  ▶️参加方法 ・フォロー&リポスト ・欲しい番号をコメント  ▶️リポスト期限 8月8日  #vrc  #vrchat https://t.co/jVeAT86alB",
+      "query_groups": [
+        "commerce_noise"
       ]
     },
     {
@@ -1851,7 +2553,8 @@
       "source_created_at": "2026-07-29T03:10:18Z",
       "text_excerpt": "START\t今夜、7/29(水) 22:00～（Open 21:45） VRChatで数曲程度の短いライブをさせていただく予定です。 ゲストにカソウ舞踏団のTarakoさんが来てくださいます。 Youtubeにも中継しますが、現地に来てくださる方は、事前にシュネーのVRChatグループにご参加ください。 リプにURLを張ります。 https://t.co/g8smERSVJm https://t.co/H8l4IL4i9j",
       "query_groups": [
-        "structured_venues"
+        "structured_venues",
+        "venues"
       ]
     },
     {
@@ -1862,737 +2565,41 @@
       "source_created_at": "2026-07-20T01:28:55Z",
       "text_excerpt": "#あなたの居場所フォトコン ShutterPactのβ版動作確認を兼ねてフォトコン開催します！ テーマは「あなたの居場所、心の拠り所」です。 VRChat内での撮影に限らせていただきます。応募にはShutterPactβ版を利用します。以下のリンクから応募してください‼️  応募先: https://t.co/JvZ8TXrX2M https://t.co/E0B2qZo79k",
       "query_groups": [
-        "structured_activities"
-      ]
-    },
-    {
-      "status_id": "2083473135714828501",
-      "url": "https://x.com/FishyThings3d/status/2083473135714828501?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 25,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-01T08:41:19Z",
-      "text_excerpt": "【VRChat想定】ゆらゆら金魚すくいのピアス | fishythings  夏の日々、お祭りの夜にピッタリの、ゆらゆら揺れる金魚すくいのアクセサリーを発売しました‼️ ローポリ風の金魚とともに、耳元を可愛く涼やかに過ごしてみませんか❓#VRChat #FishyThings3d https://t.co/utc5Fe8mo5 #booth_pm",
-      "query_groups": [
-        "commerce_noise"
-      ]
-    },
-    {
-      "status_id": "2083212038088905101",
-      "url": "https://x.com/FU_VRC/status/2083212038088905101?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 25,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-31T15:23:48Z",
-      "text_excerpt": "#竹ノ子式 #Gifter3D お髭＋まゆげテクスチャセット【Callsign:[Gifter]対応】【VRC想定／#kontohboh_vrc 】 | 痕桃梦 KONTOHBOH BOOTH https://t.co/mshU3DxR5D #booth_pm  ギフターくんの販売開始にあわせて、こちらも販売開始しました🙋‍♂️",
-      "query_groups": [
-        "commerce_noise"
-      ]
-    },
-    {
-      "status_id": "2077034387913461806",
-      "url": "https://x.com/tamagawarinri/status/2077034387913461806?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 25,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-14T14:16:02Z",
-      "text_excerpt": "大宇宙倫理の会うれしい情報 7/26（日）映画館貸し切りイベント「秋葉原VRChat映画祭」で私たちの映像が上映されるよ VRCムービーアワードのファンディスク、変なアベンジャーズとも言うような特殊な作品を映画館で見よう VKETREALと同じ日の秋葉原、一緒に行くのもアリ！ ※入場料がかかります https://t.co/yNffONnFZP https://t.co/ukQDbI7LlL",
-      "query_groups": [
-        "activities",
-        "core"
-      ]
-    },
-    {
-      "status_id": "2076958018567283066",
-      "url": "https://x.com/Ria_vrc11/status/2076958018567283066?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 25,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-14T09:12:34Z",
-      "text_excerpt": "【 お知らせ 】  「秋葉原VRChat映画祭」にて、 短編映画『凪いだ世界に、花丸を』が上映されます!!✨️📹  リアルの映画館で 3人の物語を見届けてみませんか??  __________________________  開催日：7月26日（日）　 場所：秋葉原UDXシアター __________________________  #凪いだ世界に花丸を https://t.co/M9UdFksx3C https://t.co/XBCBtQIkzP",
-      "query_groups": [
         "activities",
         "structured_activities"
-      ]
-    },
-    {
-      "status_id": "2083141809778393279",
-      "url": "https://x.com/Noa_Fortevita/status/2083141809778393279?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 24,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-31T10:44:45Z",
-      "text_excerpt": "リリースしました！！  VRChatイベント運営者向けのシフト管理ツール『VRC Shift Scheduler』正式公開です  できること：   ・営業日を入れると、シフト枠がまとめて自動生成   ・出欠は URL1本 送るだけ／集計は自動で埋まる   ・空いた枠だけが見える、穴埋めを狙い撃ちできる https://t.co/AJ6IrHSn7z",
-      "query_groups": [
-        "core"
-      ]
-    },
-    {
-      "status_id": "2083133038012375051",
-      "url": "https://x.com/anonemuna/status/2083133038012375051?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 24,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-31T10:09:53Z",
-      "text_excerpt": "🥳ラムネちゃんBoopスタンプ＆ステッカー販売開始しました🥳 #Ramune3D  無料版は4個セットあり✨️ 300円通常版は16個セットです！ 500円は16個セット+おまけ1個+PSDデータ付きです！🪼  VRChat・Discordのみ使用OKなのでぜひ沢山使ってください～～～！！！😍 BOOTHの商品ページはツリーから↓ https://t.co/LSaYIEWhoY",
-      "query_groups": [
-        "commerce_noise"
-      ]
-    },
-    {
-      "status_id": "2083115456874094999",
-      "url": "https://x.com/sakura_M_V_/status/2083115456874094999?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 24,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-31T09:00:01Z",
-      "text_excerpt": "🌸発売開始情報！🌸  VRChat用3Dモデル【山月マウ】の販売が開始されました！ かわいらしいトラの娘です！  https://t.co/ezon3KJB0l  現在5000円→3500円の２４時間限定の大幅値引きセールを実施中です！ この機会にぜひ手に入れてくださいね！  #VRChat #オリジナル3Dモデル https://t.co/7p71E1vzuF",
-      "query_groups": [
-        "commerce_noise"
-      ]
-    },
-    {
-      "status_id": "2047072960658158009",
-      "url": "https://x.com/VRC_lumitia/status/2047072960658158009?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 24,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-04-22T22:00:01Z",
-      "text_excerpt": "START\tVRCイベント【Luminous Astrantia】 キャスト募集のお知らせ  募集要項を確認の上、下記Googleフォームからご応募ください。 #ルミティアVRC #VRChat #VRCイベント #VRC接客イベント ✨応募フォーム✨ https://t.co/4JMS12qJ0l https://t.co/skQcDgUx9C",
-      "query_groups": [
-        "recruitment"
-      ]
-    },
-    {
-      "status_id": "2083138098561704289",
-      "url": "https://x.com/metacul_project/status/2083138098561704289?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 23,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-31T10:30:00Z",
-      "text_excerpt": "2026年8月にVRChatで開催される夏イベント4選 https://t.co/GlZUDVmOtj  メガネ祭りやビーチバレーなど、夏はイベントで盛り上がろう！ https://t.co/PBpoWKgbHq",
-      "query_groups": [
-        "core",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "2083871040531554404",
-      "url": "https://x.com/meisakyuvrc/status/2083871040531554404?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 23,
-      "reason": "giveaway_only",
-      "source_created_at": "2026-08-02T11:02:27Z",
-      "text_excerpt": "START\tVRCイベント「‐MIS‐メイドInサキュバス」 抽選で‐MIS‐ in Summer!2週目に1名様ご招待！！ 参加方法:フォロー& リポスト！ 抽選期間:8/4(火)20時まで！ 当選発表は8/4(火)23時頃！ #VRChatイベント #VRCメイサキュ https://t.co/Xvmxq7qCt6",
-      "query_groups": [
-        "ablation_complement",
-        "base"
-      ]
-    },
-    {
-      "status_id": "2083478528553853087",
-      "url": "https://x.com/gin_jp_/status/2083478528553853087?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 23,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-01T09:02:45Z",
-      "text_excerpt": "START\tVRCで短編映画を撮るために役者さんを一人募集します 動きに自信はないけどやる気があって挑戦してみたいって人も気軽に応募してみてください 自分もアクションシーンは初めて撮るので一緒に試行錯誤しながら楽しみましょう https://t.co/RwSv9NOPub",
-      "query_groups": [
-        "activities",
-        "base"
-      ]
-    },
-    {
-      "status_id": "2081381026430136571",
-      "url": "https://x.com/Anchan_VRC/status/2081381026430136571?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 23,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-26T14:08:01Z",
-      "text_excerpt": "START\t本日行われた秋葉原VRChat映画祭の各回の幕間にて、LSI industryのプロモーションムービーを放映させていただきました！ LSI industryは以下のような人材を募集中！ ・悪の組織ロールプレイしたい方 ・仲間同士でギスギスしたい方 お待ちしてます！ #ホテルカデシュ #秋葉原VRChat映画祭 #LSIindustry https://t.co/j9YrIhyG17",
-      "query_groups": [
-        "structured_activities"
-      ]
-    },
-    {
-      "status_id": "2078281730876658075",
-      "url": "https://x.com/Yuudutsu_Tear/status/2078281730876658075?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 22,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-18T00:52:31Z",
-      "text_excerpt": "おはようございます☀ 今日はついに！  VRChatにて開催のアイドルオンリー夏フェス　 🏝Dreamy Idol Summer⛱️当日です！  ⏰21:00開場  🎦YouTube同時配信あり https://t.co/IGQc1gsHqX  ✅#あまゆめ 様のGroup Onlyとなりますのでグループ参加お願いします！ https://t.co/bZVRaHaBkN https://t.co/CboTQWCozS https://t.co/8wACzeqmnM",
-      "query_groups": [
-        "core",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "2082739400149200948",
-      "url": "https://x.com/Kagua_VRC/status/2082739400149200948?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 22,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-30T08:05:43Z",
-      "text_excerpt": "｢裏で作業したいけど、Join音なくてフレンドが来てるのか分からない｣  そんな悩みを解決するツールを作りまし た  ログを読んでるだけなので安心して使えます。 作業に便利な機能いっぱいあります。  無料です  無料！🔔VRC入退室トラッカー🔔 | かぐあらぼ #booth_pm https://t.co/NgrVOnUT5h",
-      "query_groups": [
-        "access"
-      ]
-    },
-    {
-      "status_id": "2080821258082713686",
-      "url": "https://x.com/Malstrom_V/status/2080821258082713686?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 22,
-      "reason": "missing_event_marker",
-      "source_created_at": "2026-07-25T01:03:42Z",
-      "text_excerpt": "おはよう世界☀  ＼遂に…この日が来た！！！／ Virtual Idol Contest #サンリオVdol 予選DAY2 ✨本日開催✨です！  VRChat&21時からYoutube生放送あります🎥 投票は22時からです💌 最強にかっこいい舞台にするぞ～！！！！！ 応援よろしくお願いします！✨  photo by @amaselei  #おはようVtuber https://t.co/47j4Z9klwT https://t.co/qZmY4q8TLB",
-      "query_groups": [
-        "activities"
-      ]
-    },
-    {
-      "status_id": "2080605799295185178",
-      "url": "https://x.com/VRC_MOVIEAWARD/status/2080605799295185178?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 22,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-24T10:47:32Z",
-      "text_excerpt": "◤◢◤◢◤◢◤◢◤◢◤◢     VRCムービーアワード   リアル上映会開催まで 　　　　あと2日!!  ◤◢◤◢◤◢◤◢◤◢◤◢  7月26日開催「秋葉原VRChat映画祭」にて 歴代司会者が厳選した「プレゼンターズチョイス」を上映します。 今日は第3回司会者のお三方が選んだ作品をご紹介!!  (1/2)  #VRChat https://t.co/VrerbWorqz https://t.co/587mBka3UE",
-      "query_groups": [
-        "activities",
-        "structured_activities"
-      ]
-    },
-    {
-      "status_id": "2080231469092610276",
-      "url": "https://x.com/VRC_MOVIEAWARD/status/2080231469092610276?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 22,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-23T10:00:05Z",
-      "text_excerpt": "◤◢◤◢◤◢◤◢◤◢◤◢     VRCムービーアワード   リアル上映会開催まで 　　　　あと3日!!  ◤◢◤◢◤◢◤◢◤◢◤◢  7月26日開催「秋葉原VRChat映画祭」にて 歴代司会者が厳選した「プレゼンターズチョイス」を上映します。 今日は第２回司会者のお二人が選んだ作品をご紹介!!  (1/2)  #VRChat https://t.co/rKpjldUCSP",
-      "query_groups": [
-        "activities",
-        "structured_activities"
-      ]
-    },
-    {
-      "status_id": "2078864728324268449",
-      "url": "https://x.com/AUTONOMY_event/status/2078864728324268449?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 22,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-19T15:29:09Z",
-      "text_excerpt": "❖━━━＼DAY2終了しました!!!／━━━❖  【Vket公認】 VRChat最大級ライブイベント ⚔ Autonomy vol.3 ⚔ in Vket 2026 Summer  DAY2公演、ご来場・ご視聴いただいた皆さま 本当にありがとうございました!!!! 引き続きAutonomy vol.3の最終日 DAY3をよろしくお願いします!!!!  ■DAY2 配信URL https://t.co/Tt7xp4W7u2 https://t.co/1Lw7tz1egv",
-      "query_groups": [
-        "core"
-      ]
-    },
-    {
-      "status_id": "2078502561276117343",
-      "url": "https://x.com/AUTONOMY_event/status/2078502561276117343?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 22,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-18T15:30:01Z",
-      "text_excerpt": "❖━━━＼DAY1終了しました!!!／━━━❖  【Vket公認】 VRChat最大級ライブイベント ⚔ Autonomy vol.3 ⚔ in Vket 2026 Summer  DAY1公演、ご来場・ご視聴いただいた皆さま 本当にありがとうございました!!!! 引き続きAutonomy vol.3のDAY2 DAY3をよろしくお願いします!!!!  ■DAY1 配信URL https://t.co/AAaSIifjuJ",
-      "query_groups": [
-        "core"
-      ]
-    },
-    {
-      "status_id": "2076985062428467243",
-      "url": "https://x.com/VRCnicobon/status/2076985062428467243?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 22,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-14T11:00:02Z",
-      "text_excerpt": "年に一度の「超ニコニコ盆踊り」では物足りないニコ厨達へ…  『vrcニコニコ盆踊り（夏）』　　やります！！！！！  ニコ厨達よ、vrchatでも歌え！踊れ！！盆踊れ！！！ 8月 23日 21時 より開催決定！！  全力で盛り上げましょう！ 詳細はツリーへ #vrchat #vrcニコニコ盆踊り https://t.co/VcA5GuZ1Kz",
-      "query_groups": [
-        "core",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "2084232962888053154",
-      "url": "https://x.com/kikiki_kikyo/status/2084232962888053154?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 21,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-03T11:00:36Z",
-      "text_excerpt": "🐾【VRChat向け動物アバター販売開始】🐾 Excellent・PC/Quest対応・ローポリ・軽量！ 18種類の動物アバターを収録✨ 各アバター4色入り（猫のみ5色） イベントやフォールバック用にもおすすめです！  フルセット・Aセット・Bセット・単品あります💗 #VRChat #BOOTH #3Dモデル リンク👇 https://t.co/enoJLpjzMy",
-      "query_groups": [
-        "base",
-        "commerce_noise"
-      ]
-    },
-    {
-      "status_id": "2084247924150579250",
-      "url": "https://x.com/Lumina_Palette/status/2084247924150579250?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 21,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-03T12:00:03Z",
-      "text_excerpt": "💫お知らせ🎨  バーチャルピューロ公式様からご紹介いただきました🎀 パーティクルライブ『Noctiluca』が！  🗓️9/2(水)～12(土) ヴェネチア国際映画祭会期中  VRChatでいつでも見ることができる予定です✨ 続報をお待ちください🙏 https://t.co/ynxBUPkGat",
-      "query_groups": [
-        "base"
-      ]
-    },
-    {
-      "status_id": "2083341943946297775",
-      "url": "https://x.com/mamiya_mao/status/2083341943946297775?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 21,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-01T00:00:00Z",
-      "text_excerpt": "本日はついにVirtual Idol Contest Day3当日兼、魔王活動7周年目突入という己の活動における大切な節目の日である。  みなの応援が無いと立てない舞台がある、見たい景色が、見せたい景色がある。魔王はそこに立ちたいと思っている。  21時からVRC、Youtube配信があるから。 みなの応援、待ってるぞ。 https://t.co/PW5F3AAXff https://t.co/YVFFJgi5pY",
-      "query_groups": [
-        "activities"
-      ]
-    },
-    {
-      "status_id": "2083212080317166072",
-      "url": "https://x.com/FU_VRC/status/2083212080317166072?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 21,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-31T15:23:58Z",
-      "text_excerpt": "#竹ノ子式 #Gifter3D ボディーヘアテクスチャセット【Callsign:[Gifter]対応】【VRC想定／#kontohboh_vrc 】 | 痕桃梦 KONTOHBOH BOOTH https://t.co/7GXMxbQR6r #booth_pm  同じくこちらも販売開始しました🙋‍♂️",
-      "query_groups": [
-        "commerce_noise"
-      ]
-    },
-    {
-      "status_id": "2083206052938481861",
-      "url": "https://x.com/thamit_v/status/2083206052938481861?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 21,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-31T15:00:01Z",
-      "text_excerpt": "thamit（サミット）はVRCユーザー特化のリンクページサービスです  誰でも簡単に、色んなパーツを追加するだけで自分のページが作れちゃいます！  それだけじゃない！  ページの情報を元にXなどで共有できる自己紹介カードやスケジュールカードを生成できます！  只今よりオープンベータ開始  #thamit https://t.co/tHDAL3PSom",
-      "query_groups": [
-        "ablation_complement",
-        "core",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "2083151815957459167",
-      "url": "https://x.com/hayanagi_tigusa/status/2083151815957459167?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 21,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-31T11:24:30Z",
-      "text_excerpt": "#葉柳LIVE3D ありがとうございました！  今回VRChatで3D衣装モデルを制作されているALICEさんとのコラボが決定💐  【Memento】という衣装です！  販売、キャンペーンについては後日お知らせします！ ぜひお楽しみに♪ https://t.co/Q4fXQgn1EU https://t.co/iq0bXrCqRa",
-      "query_groups": [
-        "commerce_noise",
-        "core"
-      ]
-    },
-    {
-      "status_id": "2081723030263549990",
-      "url": "https://x.com/BH_VRC/status/2081723030263549990?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 21,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-27T12:47:01Z",
-      "text_excerpt": "昨日行われました秋葉原VRChat映画祭にて、協賛広告として Beyond Horizons / Secret Scale Service 合同でプロモーションムービーを上映させていただきました。  今後も両団体共によろしくお願いいたします。  #VRChat  #秋葉原VRChat映画祭  #ホテルカデシュ  #BeyondHorizons_VRC  #HQ_S3 https://t.co/Xdz641vBhV",
-      "query_groups": [
-        "activities"
-      ]
-    },
-    {
-      "status_id": "2080488153719460118",
-      "url": "https://x.com/LavieenRose0702/status/2080488153719460118?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 21,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-24T03:00:04Z",
-      "text_excerpt": "【💊VRC新イベント🩺】  とある病院へ診察に訪れたあなた… ナースやドクターに誘惑されながらのあま～いドキドキ病院RP！！  １０月オープン予定！！ 近日１期生キャスト募集！！ https://t.co/gAmqFjJEMz",
-      "query_groups": [
-        "recruitment"
-      ]
-    },
-    {
-      "status_id": "2076954868363952474",
-      "url": "https://x.com/AUTONOMY_event/status/2076954868363952474?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 21,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-14T09:00:03Z",
-      "text_excerpt": "❖━━━＼出演者意気込み動画／━━━❖  【Vket公認】 VRChat最大級ライブイベント ⚔ Autonomy vol.3 ⚔ in Vket 2026 Summer  今回は 「OFFICE DESTRUCTION GIRL」 さんから 熱い意気込みメッセージをいただきました!!! @__odg_  🗓Vket 2026 Summer 本開催 2026.7.18 - 7.20  📍会場 Autonomy https://t.co/I8HlLiUddH https://t.co/1Lw7tz1egv",
-      "query_groups": [
-        "core",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "2083190391411728414",
-      "url": "https://x.com/sunward_info/status/2083190391411728414?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 20,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-31T13:57:47Z",
-      "text_excerpt": "8月1日から、 VRChat『とびだせ！サンワード学園』に 無料の自習室をオープンします。  勉強でも。 読書でも。 作業でも。 考えごとでも。  使い方は、あなた次第。 https://t.co/l6EglKe0AZ",
-      "query_groups": [
-        "ablation_complement",
-        "core",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "2082407086022066669",
-      "url": "https://x.com/ZITTE_nazo/status/2082407086022066669?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 20,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-29T10:05:13Z",
-      "text_excerpt": "🎩🌹８月１日（土）開催🌹🎩 #再現捜査官選抜試験  事件現場を捜査・容疑者を取り調べて真実を暴け Vrchatでできる推理イベントが今週土曜日開催！  【参加方法】 ・完全予約制（リプ欄のフォームから応募）  【参加人数】 ・1～3名（マッチングなし）  #VRCイベント https://t.co/xZOqc33rKg https://t.co/X6SaMeMx4L",
-      "query_groups": [
-        "core"
-      ]
-    },
-    {
-      "status_id": "2078691299776188885",
-      "url": "https://x.com/AUTONOMY_event/status/2078691299776188885?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 20,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-19T04:00:00Z",
-      "text_excerpt": "❖━━━＼DAY2本日！／━━━❖  【Vket公認】 VRChat最大級ライブイベント  ⚔ Autonomy vol.3 ⚔ in Vket 2026 Summer  昨日に引き続きDAY2開催です!!!!  会場に来られない方は、 ぜひYouTube配信でお楽しみください！  ■DAY2 配信URL https://t.co/X5lAjVZGKB  #VRChat #Vket #VRAutonomy https://t.co/1Lw7tz1egv",
-      "query_groups": [
-        "core",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "2076976690916733270",
-      "url": "https://x.com/KakinokiMeisaku/status/2076976690916733270?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 20,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-14T10:26:46Z",
-      "text_excerpt": "未然探偵を上映していただくことになりました。VRCで動画を撮って応募するとそのまま映画館で上映されることもある。VRCムービーアワードは応募無料です。 https://t.co/bbrxPGMgF9 https://t.co/74nVbjqtXr",
-      "query_groups": [
-        "activities"
-      ]
-    },
-    {
-      "status_id": "2076949937238286590",
-      "url": "https://x.com/toryhara/status/2076949937238286590?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 20,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-14T08:40:27Z",
-      "text_excerpt": "第4回VRCムービーアワード応募作品『HOTEL QADESH:CRANK IN REUNION』が、なんと秋葉原VRChat映画祭にてリアル上映されることになりました！🎬 「映画を撮る、映画になる」をテーマにした当作品。選んで頂きありがとうございます！ https://t.co/rODzo7nGyO",
-      "query_groups": [
-        "activities"
-      ]
-    },
-    {
-      "status_id": "2076864269501469056",
-      "url": "https://x.com/AUTONOMY_event/status/2076864269501469056?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 20,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-14T03:00:02Z",
-      "text_excerpt": "❖━━━＼出演者意気込み動画／━━━❖  【Vket公認】 VRChat最大級ライブイベント ⚔ Autonomy vol.3 ⚔ in Vket 2026 Summer  今回は 「Alternoise」 さんから 熱い意気込みメッセージをいただきました!!! @Alternoise_VRB  🗓Vket 2026 Summer 本開催 2026.7.18 - 7.20  📍会場 Autonomy Group+ https://t.co/AQZLCsftoS",
-      "query_groups": [
-        "core",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "1996520385748373537",
-      "url": "https://x.com/luna_solace_vrc/status/1996520385748373537?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 20,
-      "reason": "missing_datetime",
-      "source_created_at": "2025-12-04T10:02:08Z",
-      "text_excerpt": "【VRCイベントキャスト募集】  ⛪️シスター×セミRP×ASMR⛪️ お客様を浄化して頂けるシスター募集 一緒に月が満ちた夜の教会に集まりませんか？ 個性あふれるシスターをお待ちしております。  応募フォーム https://t.co/pLqnqr5YMx  #VRChatイベント #VRChatキャスト募集 #Luna_Solace #ルナソレ https://t.co/CskWHpDGGF",
-      "query_groups": [
-        "recruitment"
-      ]
-    },
-    {
-      "status_id": "2082318984989589930",
-      "url": "https://x.com/hisouten1418/status/2082318984989589930?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 19,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-29T04:15:08Z",
-      "text_excerpt": "START\t今日でVRC初めて1年だから自己紹介カード更新〜！ フレンド申請お気軽にどぞ！ https://t.co/BCHRTvqxde  #VRC自己紹介カード #VRChatフレンド募集 https://t.co/FJALPZEYwY",
-      "query_groups": [
-        "access",
-        "structured_access"
-      ]
-    },
-    {
-      "status_id": "2078339706488606952",
-      "url": "https://x.com/AUTONOMY_event/status/2078339706488606952?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 19,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-18T04:42:54Z",
-      "text_excerpt": "❖━━━＼本日！／━━━❖  【Vket公認】 VRChat最大級ライブイベント  ⚔ Autonomy vol.3 ⚔ in Vket 2026 Summer  いよいよ当日、7/18(土)開催です!!!! まずはDAY1から!!!  会場に来られない方は、 ぜひYouTube配信でお楽しみください！  ■DAY1 配信URL https://t.co/1RKo0mCf2a  #VRChat #Vket https://t.co/1Lw7tz0GqX",
-      "query_groups": [
-        "core",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "2084218216503513582",
-      "url": "https://x.com/Hyouro_VRc/status/2084218216503513582?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 18,
-      "reason": "giveaway_only",
-      "source_created_at": "2026-08-03T10:02:00Z",
-      "text_excerpt": "START\tVRC用ヘイロー[Enestal] 期間限定モデルのみ無料配布～8/5まで | V雑貨かりかり屋 https://t.co/lcAjRLpbx2  期限無料報告定期(※一部のみ)",
-      "query_groups": [
-        "commerce_noise"
-      ]
-    },
-    {
-      "status_id": "2080488137403580635",
-      "url": "https://x.com/virtualparty_co/status/2080488137403580635?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 18,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-24T03:00:00Z",
-      "text_excerpt": "【今夜21時からクラファンスタート！】  今回初めて公開された「XyberDraw」と「VRCアバタートランプ」は肝入りの新プロジェクトとなっています！  どちらもバーチャルだけでなく、リアルでも遊べるようになっていますので、オフ会でもお楽しみいただけます  #VDP2026応援CF #VDP2026 https://t.co/4Hs77Wxqb4 https://t.co/o1QepLTvWZ",
-      "query_groups": [
-        "core",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "2083751022145712292",
-      "url": "https://x.com/Valu47_VRC/status/2083751022145712292?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 18,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-02T03:05:32Z",
-      "text_excerpt": "START\tBOOTHでもマリーさんのアバター買えるようになってよかった  VRCやっててもどこで買えばいいのかわからないと言ってた方が結構いたからこれを機にBunnimalsのアバターを使ってくれる方が増えてもらえれば嬉しい  あと期間限定で5000円→2500円はチャンス https://t.co/zDeeDhYGlB",
-      "query_groups": [
-        "commerce_noise"
-      ]
-    },
-    {
-      "status_id": "2083513138658627984",
-      "url": "https://x.com/usak0t/status/2083513138658627984?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 18,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-01T11:20:16Z",
-      "text_excerpt": "このゲームの名前はVrchatで、このゲームの値段は無料です。 https://t.co/Urj6R9x4Re",
-      "query_groups": [
-        "activities"
-      ]
-    },
-    {
-      "status_id": "2082420879225712865",
-      "url": "https://x.com/EGGNOG_VRC/status/2082420879225712865?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 18,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-29T11:00:01Z",
-      "text_excerpt": "🎥PUB EGGNOG 30秒CM公開！🎬  先日開催された「秋葉原VRChat映画祭」にて協賛広告として上映された、PUB EGGNOGの宣伝映像を公開いたします。  現地でご覧いただいた方も、まだご覧になっていない方も、ぜひお楽しみください。  #EGGNOG_VRC #秋葉原VRChat映画祭 #ホテルカデシュ https://t.co/jyU78DLg6l",
-      "query_groups": [
-        "activities",
-        "structured_activities"
-      ]
-    },
-    {
-      "status_id": "2081442883975233770",
-      "url": "https://x.com/Fuka_Kiryu/status/2081442883975233770?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 18,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-26T18:13:49Z",
-      "text_excerpt": "START\t本日は秋葉原VRCHAT映画祭にお越しいただきありがとうございました。 本日、全上映のデジタルシネマエンジニア及び映写技術、全アナウンスを担当していました！  途中上映トラブルがあり大変申し訳ございません。 でもみなさんの楽しそうな笑顔がたくさん見れてとても良かったです……！ #からぱり",
-      "query_groups": [
-        "activities",
-        "structured_activities"
-      ]
-    },
-    {
-      "status_id": "2081368898855899345",
-      "url": "https://x.com/AqualiaNocta/status/2081368898855899345?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 18,
-      "reason": "product_only",
-      "source_created_at": "2026-07-26T13:19:50Z",
-      "text_excerpt": "🌙【追加キャスト募集】🌙  VRChatナイトプール接客イベント 「Aqualia Nocta」では、追加キャストを募集いたします。 お客様との会話や交流を楽しみながら、私たちと一緒に特別な夜を作ってみませんか？  📅 開催日時 第1水曜日・第3月曜日 21:50～23:00  👙 衣装 水着  📍 会場 ナイトプール https://t.co/RnVPR86SF7",
-      "query_groups": [
-        "recruitment"
-      ]
-    },
-    {
-      "status_id": "2081225967062913112",
-      "url": "https://x.com/317TutyVRC/status/2081225967062913112?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 18,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-26T03:51:52Z",
-      "text_excerpt": "【告知】 VRChatではありそうでなかった、「アニメのEDオンリー」の原曲DJイベントを開催します。  イベント名は「宵待ちエンドロール」です。  アニメのEDテーマというのは多種多様でありますから、DJそれぞれのEDオンリーを楽しみにしています。   8/3(月) Group+(DJOKRK.3956) https://t.co/1E59p3bn7j",
-      "query_groups": [
-        "structured_activities"
-      ]
-    },
-    {
-      "status_id": "2075430228210729242",
-      "url": "https://x.com/MilleEclair_VRC/status/2075430228210729242?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 18,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-10T04:01:40Z",
-      "text_excerpt": "🌸追加ミルフィキャスト募集 🌸  VRC学園サロンRPイベント 「Salon de Mille Éclair」 の追加募集を開始いたしました！ ※ミルフィキャスト及び女性限定となります  概要は引用元ポストをご確認ください。 応募はリプ欄のGoogleフォームよりお願いいたします。 #VRCキャスト募集 #VRCイベント求人 https://t.co/Ayvi1989Xy https://t.co/39eAeFEgtb",
-      "query_groups": [
-        "recruitment"
-      ]
-    },
-    {
-      "status_id": "2082046473445990639",
-      "url": "https://x.com/last_VRC/status/2082046473445990639?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 17,
-      "reason": "missing_event_marker",
-      "source_created_at": "2026-07-28T10:12:16Z",
-      "text_excerpt": "【本日の出勤表】 本日はメイド17名、バーテンダー3名です。 22時～、19回目の終末が訪れます。（リクイン21:57～）  ☆参加方法☆ 21時57分に、主催（VRC ID：Seqnobloom）へリクインを送信 ※ツリーにある注意事項をご確認ください  ↓リクイン先↓ https://t.co/hLL9EYjYie  #VRCイベント https://t.co/1I0tVVjulR",
-      "query_groups": [
-        "access",
-        "core",
-        "structured_access"
-      ]
-    },
-    {
-      "status_id": "2083657772793463248",
-      "url": "https://x.com/kaname_miki/status/2083657772793463248?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 17,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-01T20:55:00Z",
-      "text_excerpt": "はい皆さんおはようさん。 今日は ＃バニーの日 なので #こあられのアトリエ さんのゴシックバニーでご挨拶。 まぁ、「じゃあ2/8に逆バニーするの？」と言われても困るんですが。 イベント事には積極参加。VRC民の遊び方ですわ。 今日の花は桔梗。花言葉は「永遠の愛」 でも清明桔梗紋って追儺よね https://t.co/qGSfIdYyP6",
-      "query_groups": [
-        "base",
-        "core"
-      ]
-    },
-    {
-      "status_id": "2083520926273126710",
-      "url": "https://x.com/monico_PC/status/2083520926273126710?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 17,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-01T11:51:13Z",
-      "text_excerpt": "ファンの方がきっかけで、VRChatでのDJに続き、次はリアル会場でのDJです…！ どちらもしっかり依頼をいただき、出演しております👍 素敵な機会をもらえて本当に嬉しいです。 久々のDJ MONICO、絶対見に来てね👊",
-      "query_groups": [
-        "base"
-      ]
-    },
-    {
-      "status_id": "2083208027034071068",
-      "url": "https://x.com/nijino_alpha/status/2083208027034071068?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 17,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-31T15:07:52Z",
-      "text_excerpt": "#Vtuberミュージアム  この秋、美術がもっと好きになる‼️  Vtuber×美術品パロディイラスト投稿企画を今年も開催いたします‼️ 投稿されたイラストは、虹乃アルファが配信でご紹介＆VRChatの博物館ワールドに展示しちゃいます‼️  参加方法はリプライ欄をチェック‼️ 皆様のご参加をお待ちしております‼️ https://t.co/J2XotPiQK9",
-      "query_groups": [
-        "ablation_complement",
-        "activities",
-        "core",
-        "lexical_high_precision"
-      ]
-    },
-    {
-      "status_id": "2082919356993061238",
-      "url": "https://x.com/Aoi_0130_t/status/2082919356993061238?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 17,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-30T20:00:48Z",
-      "text_excerpt": "私の事、(VRCで)無料で話せるキャバ嬢って言ったの誰ですか？  お金かからない、join戦争要らない、中身女、 基本緑ステだからいつでも会える、かまちょだから話してくれるしある程度ノリに乗ってくれる…  こんなん↑だからお砂糖も彼氏も出来ず変なやつが寄ってくるって言ったの誰ですか？",
-      "query_groups": [
-        "access"
-      ]
-    },
-    {
-      "status_id": "2082662469424587044",
-      "url": "https://x.com/Sasugo_3/status/2082662469424587044?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 17,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-30T03:00:01Z",
-      "text_excerpt": "【告知】 SpiceOfVRinks主催 スパトーナメント 変則ババ抜きホラーゲーム「迷子VR」  予選Cグループ「アンバサダー愚連隊」が1人、サスゴ視点によるYoutubeLIVE生放送します！ ↓ https://t.co/z2K1SzrpVa  初めてVRChatでYoutubeLIVEやるんでグダグダなったら御免な!!!!  #迷子VR #スパトーナメント https://t.co/QHamYRyyKG",
-      "query_groups": [
-        "core"
-      ]
-    },
-    {
-      "status_id": "2080452725167493526",
-      "url": "https://x.com/huryumonji/status/2080452725167493526?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 17,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-24T00:39:17Z",
-      "text_excerpt": "おは浴〜☀️ 昨日は頻繁なVRCからのタイムアウトで回線切断されてしまい困りましたが、お陰でVPNを使うという解決法が見つかったので試してみる！ 明日のVRダイビングツアーはこれで乗り切れると良いな🏝  【参加条件】 ・ダイビング改変(水平泳ぎ出来るエモートも🏊‍♂️) ・お気に入りの水着 https://t.co/Cac9Ngi9PL",
-      "query_groups": [
-        "core"
-      ]
-    },
-    {
-      "status_id": "2079555993495822359",
-      "url": "https://x.com/VRC_Kagekage/status/2079555993495822359?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 17,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-21T13:15:59Z",
-      "text_excerpt": "【イベントキャスト募集】 VRChatの新規イベント 【Club Erdbeere】 を立ち上げます!  イチゴちゃんによるキャバクライベントとなっております。  それに伴いキャスト 黒服を募集させていただきます!  募集要項をご覧いただきリプ欄にありますGoogleformにご記入ください。🙇‍♀️  #ichigo3D #VRChat https://t.co/XFPWqgdc3u",
-      "query_groups": [
-        "recruitment",
-        "venues"
-      ]
-    },
-    {
-      "status_id": "2078781897354989969",
-      "url": "https://x.com/V_ANK_E/status/2078781897354989969?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 17,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-19T10:00:00Z",
-      "text_excerpt": "START\tVRChat最大級ライブイベント   🔶Autonomy vol.3🔶 in Vket 2026 Summer    DAY2開催！！　ViANKiEは21:00頃出演だよー🎤♪ VRChat会場 & YouTube配信で楽しんでってね！ 配信見る方はぜひ一緒に歌ってね😊✌  DAY2 配信URL🔻 https://t.co/h6bdgqA5MC   #VRChat #Vket #VRAutonomy https://t.co/oN8zUOvdwn",
-      "query_groups": [
-        "core",
-        "structured_core"
-      ]
-    },
-    {
-      "status_id": "2083918884776931421",
-      "url": "https://x.com/nyamakumofuwari/status/2083918884776931421?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 16,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-02T14:12:34Z",
-      "text_excerpt": "7:00～  朝だけどチルなワールドをお借りして 寝転がりソロVRC配信をします！ 配信後にはインスタンスを立て 撮影会・ハイタッチ会を開催します！ ※ふわりソロGroupでインスタンス立てします  【3D朝活 / #vrchat 】 アイドルVTuberがベッドで 寝転がりながら配信をするらしい。/Sonus Room https://t.co/cqiGDVz8i9",
-      "query_groups": [
-        "ablation_complement",
-        "access",
-        "base",
-        "lexical_high_precision",
-        "structured_access",
-        "structured_activities"
-      ]
-    },
-    {
-      "status_id": "2078353334784893191",
-      "url": "https://x.com/namamono_v/status/2078353334784893191?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 16,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-18T05:37:03Z",
-      "text_excerpt": "START\tVRChatワールド向けギミックをBOOTHで販売開始しました  卓上メニュー風ジョインリストとでも申しましょうか、今ワールドに居る人間が居酒屋メニューぽく表示されます  9月までは半額の400円で売っとります https://t.co/13IPRj4IKp #VRChat #VRChatワールド #Booth",
-      "query_groups": [
-        "access",
-        "structured_access",
-        "venues"
-      ]
-    },
-    {
-      "status_id": "2084223333261062177",
-      "url": "https://x.com/tomo3_chan/status/2084223333261062177?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 16,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-03T10:22:20Z",
-      "text_excerpt": "【緩募】 11月頃に学校の体育館ステージのようなVRCワールドで軽音部の学祭ライブみたいなノリのイベントをやろうかなと考えているのですが、興味のある方いますか？  ・持ち時間15分前後 ・原則コピー元ネタは1アーティストとする ・オリジナル曲は演奏不可 ・初心者歓迎  各位、青春をやりませんか",
-      "query_groups": [
-        "base"
-      ]
-    },
-    {
-      "status_id": "2084538308760310046",
-      "url": "https://x.com/recaptray/status/2084538308760310046?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 15,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-04T07:13:56Z",
-      "text_excerpt": "【⚠️まもなく終了⚠️】  VRChat向けギミック「どっぺりん！」のリリース記念セールが終了間近です！ ✨ リリース記念1,000円OFF ✨  通常 ¥3,000 → ¥2,000 で買えるのは【明日 8/5(水)】まで！ お得にゲットできるラストチャンスです！  🎁 プレゼントキャンペーンは本日締切 🎁 https://t.co/mPo1IhpTsd",
-      "query_groups": [
-        "commerce_noise"
-      ]
-    },
-    {
-      "status_id": "2084216454187004251",
-      "url": "https://x.com/swingbox_vrc/status/2084216454187004251?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 15,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-08-03T09:55:00Z",
-      "text_excerpt": "「Swing Box in VRC」今週土曜から開催となります！ 開催に先立ちまして、本日より参加していただいた各イベントの紹介を行います！ VR、リアル含め新たなエレクトロスウィングイベントに足を運ぶきっかけになればと思います！  #swingbox_vrc https://t.co/IUCVdKAGIb",
-      "query_groups": [
-        "base"
-      ]
-    },
-    {
-      "status_id": "2076268177600946511",
-      "url": "https://x.com/Cr4_Bread/status/2076268177600946511?utm_source=yjrealtime&utm_medium=search",
-      "retweet_count": 15,
-      "reason": "missing_datetime",
-      "source_created_at": "2026-07-12T11:31:23Z",
-      "text_excerpt": "【告知】Swing Box in VRC 🗓 2026/8/8(Sat.) - 8/9(Sun.)  VRChatイベント連名のElectro Swing夏フェス開催 Swing Begin からは以下4名が出演します。  ❖ Swing Begin DJs ❖ - wayso / うぇいそ @waysoBP - ぎいち (Giichi) @giichi_vrc - RAKU LUCK @RLRL_VRC - 🦀🍞 @Cr4_Bread   #swingbox_vrc https://t.co/zaSHfTQrHF https://t.co/QzMWnEFu8u",
-      "query_groups": [
-        "core",
-        "structured_core"
       ]
     }
   ],
   "suspicious_accepted_commerce": [
     {
-      "status_id": "2084202614946984184",
-      "url": "https://x.com/Ninoukyo_VRC/status/2084202614946984184?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-08-03T09:00:00Z",
-      "text_excerpt": "#VRCにんおうきょう  VRCイベント「忍桜郷」 🌸8月4日(火)22時🌸  🌸昼の暑さも、夜風がそっと和らげる頃 今宵も忍桜郷にてお待ちしております  【タイムテーブル】   21:50~21:52　Req-In（招待をリクエスト） 受付&抽選(一人1回まで)  22:00～　開始 アフター無し 23:30前後　終了予定 https://t.co/o5njdbrpJl"
+      "status_id": "2085923965306806544",
+      "url": "https://x.com/Megane_hiromeru/status/2085923965306806544?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-08T03:00:02Z",
+      "text_excerpt": "【メガネアバターを広める会】 VRChatにてメガネアバター集会を開催します！ #VRCイベント #メガネアバターを広める会　＃VRCメガネ祭り  8/22(土)　22:00-23:00  今月はメガネショップShatono屋さんとのコラボ会となります！ https://t.co/GdwOCCvZOL"
+    },
+    {
+      "status_id": "2085908862083702898",
+      "url": "https://x.com/femboy_vrc/status/2085908862083702898?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-08T02:00:01Z",
+      "text_excerpt": "START\tVRCイベント「ふぇむふぇむもくもく」 #fem_moku   8/8（土）23:00にリクイン受付開始です  今夜は個室コンテナ２回ラウンジ１回での開催です 可愛いふぇむぼーい達を十分に堪能いただけます  フォロー&リポストで2名様に優先招待券をプレゼント！ 当選者は土曜18時以降にDMをお送りします https://t.co/ub6a8MLWI9"
+    },
+    {
+      "status_id": "2085848961513136333",
+      "url": "https://x.com/pocozo_game/status/2085848961513136333?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-07T22:02:00Z",
+      "text_excerpt": "START\t本日 8/8 21時から、節目の第100回 #VRCアバター自作交流会 です  アバターの制作など興味ありましたら、どなたでも参加できます  インスタンスはGroupまたはGroup+で開けますので、事前にVRC内のグループに参加をしていただくとインスタンス検索など便利です  #VRChat   https://t.co/zdBjUIUdiZ"
+    },
+    {
+      "status_id": "2085772283038314999",
+      "url": "https://x.com/Hitoha_ks/status/2085772283038314999?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-07T16:57:18Z",
+      "text_excerpt": "START\t本日です😊！SwingBox in VRC VRCでは珍しいVroidアバターですがこの日のためにエレスイ用衣装新調しましたーーー😆 　私は8/8 21:00〜26:00 と8/9 12:00〜17:00 21:00〜26:00の時間辺りで踊るつもりです。ぜひお越しください😊 Group+(SBVRC.0227)  #swingbox_vrc #VRchat https://t.co/kW0WXBVkJP https://t.co/kkUlVutnuw"
+    },
+    {
+      "status_id": "2085652170968645639",
+      "url": "https://x.com/casa_di_luce_vr/status/2085652170968645639?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-07T09:00:01Z",
+      "text_excerpt": "♦️•♣•━━  VRChatキャバレー 　Casa Di Luce 営業のお知らせ 　　　　　　　　　━━•♠•❤️  👠8月12日(水) 22:00 OPEN  事前抽選エントリー枠をご用意できる予定でおります （当日リクイン枠もあります☺️） 抽選等についての詳細は追ってご案内いたします  #Quest対応 #VRChat #カサデルシェ https://t.co/6snIRosbHm"
     },
     {
       "status_id": "2084187675288797205",
@@ -2601,34 +2608,16 @@
       "text_excerpt": "🙌  営業告知 🙌  寝る前の雑談を楽しむVRCイベント『おやすみ前の隠れ家。』  事前抽選に加え、当日リクイン枠もご用意しております。  🕑開催日 8/8(土) 21:50～23:30  事前抽選はGoogleフォームからご応募ください。 なんと、抽選形式をリニューアル！ 詳しくはツリーで👇  #OYSM_VR #VRCイベント https://t.co/SbxKJ2RKNC"
     },
     {
-      "status_id": "2084114872397337064",
-      "url": "https://x.com/yumemian29/status/2084114872397337064?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-08-03T03:11:21Z",
-      "text_excerpt": "START\tVRC和装接客型イベント 夢廻庵👘 🪭営業案内🪭 【8月5日(水)22時10分〜23時20分にて開催❗️】 ＊終了時間は前後する場合がございます  ⛩️参加方法:グループjoin&事前抽選‼️ ⛩️22:10にグループインスタンスにご参加下さい。  応募方法:こちらのポストRP&(@yumemian29)フォロー&いいね 期限8/4 21:00まで https://t.co/YIhzsu5Xh6"
-    },
-    {
-      "status_id": "2083885523681353945",
-      "url": "https://x.com/WR_VRC/status/2083885523681353945?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-08-02T12:00:00Z",
-      "text_excerpt": "【夏祭り集会のお知らせ】  開催：8月27日(木) 22:00～23:00 参加方法：VRCグループ「White Rabbits」に参加 時間になりましたら、グループインスタンスへお越しください。 https://t.co/Zxp2IAV75n  今月の集会は、いつもとは少し違う装い。 少年たちは夏祭り用の衣装で、皆様をお迎えいたします🎐 https://t.co/MhZcUnQzIC"
-    },
-    {
-      "status_id": "2083770096582119685",
-      "url": "https://x.com/0zoku_vrc/status/2083770096582119685?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-08-02T04:21:20Z",
-      "text_excerpt": "START\tVRCイベント 〜０属オークション〜  ✨8月開催告知✨  『第4回』 8/15 (土) 22:00～  ✅リクイン抽選式 ✅参加条件は5万UC以上の所持条件 ✅観戦枠参加は1万UC以上の所持条件  オークション参加に向けてUCを貯めましょう‼ https://t.co/308ebhwz1I"
-    },
-    {
       "status_id": "2083481023485276403",
       "url": "https://x.com/d_symmetry_b/status/2083481023485276403?utm_source=yjrealtime&utm_medium=search",
       "source_created_at": "2026-08-01T09:12:39Z",
       "text_excerpt": "ここあちゃん交流会は本日22時から！ サンプルアバターでのご参加も歓迎しています！ 事前にVRC ID：AAA159までフレンド申請をお願いしますね〜！ https://t.co/CP1saihVF2"
     },
     {
-      "status_id": "2083372140733338030",
-      "url": "https://x.com/femboy_vrc/status/2083372140733338030?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-08-01T02:00:00Z",
-      "text_excerpt": "START\tVRCイベント「ふぇむふぇむもくもく」 #fem_moku   8/1（土）23:00にリクイン受付開始です  今夜は個室コンテナ１回ラウンジ２回での開催です その為、ゲストの皆様の受け入れ人数が多くなっております  フォロー&リポストで2名様に優先招待券をプレゼント！ 当選者は土曜18時以降にDMをお送りします https://t.co/JplH1vHjWw"
+      "status_id": "2083118332396671244",
+      "url": "https://x.com/dokkaikouze/status/2083118332396671244?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-31T09:11:27Z",
+      "text_excerpt": "START\tVRC対応アバター、桜ノ結祈乃ちゃん発売記念の #黒柚式アバター集会 の告知です！ https://t.co/vmR32FlKyG  📅日時 8月1日(土) 22時～23時頃まで  🎉内容 サークル[黒柚式のソレ]のアバター購入者や、興味がある人の交流会です サンプルアバターや見学での参加も歓迎致します  #VRCイベント"
     },
     {
       "status_id": "2082990245176586249",
@@ -2643,82 +2632,10 @@
       "text_excerpt": "【📣VRCイベント告知】 8/1(土)22:45より 笑点風大喜利イベント 第170回 #にぎやか大喜利宴会 を開催します。  観るだけ・聴くだけ・笑うだけ歓迎！  回答したい人大歓迎！ ※小さいアバター、デスクトップ勢回答用挙手棒システム有〼  出演…タグ付け参照 開催…Group+ https://t.co/kT4EA9t9D6"
     },
     {
-      "status_id": "2082637116388073855",
-      "url": "https://x.com/Megane_hiromeru/status/2082637116388073855?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-30T01:19:16Z",
-      "text_excerpt": "👓【VRCメガネ祭り2026 開会式】👓  8月1日（土）21:00より、メガネ祭りの開会式を開催します！  メガネ祭りの紹介やイベントのお知らせ、皆さまからの質問にお答えする時間を予定しています✨  #VRCメガネ祭り #VRCイベント #メガネアバターを広める会 https://t.co/rw8e2fB9f3"
-    },
-    {
-      "status_id": "2082390931794436148",
-      "url": "https://x.com/NyumaShukai/status/2082390931794436148?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-29T09:01:01Z",
-      "text_excerpt": "🌊 夏のプライベートビーチに        海の家がオープンします📢  ✨ 見どころ ・夏らしい映えスポット📸 ・スイカ割りなどアクティビティがいっぱい🍉 ・RPキャストが元気にドタバタ営業中⁉  📅 7月30日（木） 🕘 21:30～23:00 📍VRChat グループインスタンス  こちらは サンプルアバターでの参加OK https://t.co/5GZBov4zUP"
-    },
-    {
-      "status_id": "2081943718962327678",
-      "url": "https://x.com/Conductor_vrc/status/2081943718962327678?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-28T03:23:57Z",
-      "text_excerpt": "#VRC_Conductor  VRC接客イベント『Conductor』  本日営業日です！！  時間:２１時 参加方法：Discord事前抽選＋join  join先：杉崎リン   ご来店希望の方は事前にフレンド申請をお願いします。  皆様のご来店お待ちしております！！ https://t.co/rKxAG8gPyL"
-    },
-    {
-      "status_id": "2081939281229357490",
-      "url": "https://x.com/yumemian29/status/2081939281229357490?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-28T03:06:19Z",
-      "text_excerpt": "START\tVRC和装接客型イベント 夢廻庵👘 🪭営業案内🪭 【7月29日(水)22時10分〜23時20分にて開催❗️】 ＊終了時間は前後する場合がございます  ⛩️参加方法:グループjoin&事前抽選‼️ ⛩️22:10にグループインスタンスにご参加下さい。  応募方法:こちらのポストRP&(@yumemian29)フォロー&いいね 期限7/28 https://t.co/BHOd6nEEk1"
-    },
-    {
-      "status_id": "2081253784056139795",
-      "url": "https://x.com/Conductor_vrc/status/2081253784056139795?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-26T05:42:24Z",
-      "text_excerpt": "#VRC_Conductor  VRC接客イベント『Conductor』  本日営業日です！！  時間:２１時 参加方法：Discord事前抽選＋join  join先：杉崎リン   ご来店希望の方は事前にフレンド申請をお願いします。  皆様のご来店お待ちしております！！ https://t.co/9PnYpNPE6L"
-    },
-    {
-      "status_id": "2080959303486517348",
-      "url": "https://x.com/TAD_exe_VRC/status/2080959303486517348?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-25T10:12:14Z",
-      "text_excerpt": "📶イベント告知📶 『VRChatロボっ娘アバター集会』やります。 日時:2026年8月8日(土)22:00～23:00 Group+インスタンスでの開催です。 ご参加の際はGroup加入後Group+インスタンスへJoin、 もしくは参加しているフレンドさんへのJoinをお願いします。 #VRChat #VRCロボっ娘アバター集会 https://t.co/JUZ3eL01aw"
-    },
-    {
-      "status_id": "2080835432632201623",
-      "url": "https://x.com/femboy_vrc/status/2080835432632201623?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-25T02:00:01Z",
-      "text_excerpt": "START\tVRCイベント「ふぇむふぇむもくもく」 #fem_moku   7/25（土）23:00にリクイン受付開始です  今夜は個室コンテナ２回ラウンジ１回での開催です 可愛いふぇむぼーい達を十分に堪能いただけます  フォロー&リポストで2名様に優先招待券をプレゼント！ 当選者は土曜18時以降にDMをお送りします https://t.co/1Bvizk4h2S"
-    },
-    {
-      "status_id": "2079523531591930156",
-      "url": "https://x.com/Tatuo_Labo/status/2079523531591930156?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-21T11:07:00Z",
-      "text_excerpt": "＜ウトナちゃん集会開催決定！！＞   8/1(土) 21:30～23:30    未購入、サンプルアバターでの参加もOKです！    グループ：https://t.co/ftYKOagT8V   〇参加方法   VRCグループ「TATUO LAB」に参加し、開催時間になりましたらGroup+インスタンスにお越しください！  皆来てくれ！！ #Utona3D https://t.co/5eXK4lkb2a"
-    },
-    {
-      "status_id": "2078059009173860769",
-      "url": "https://x.com/blitz_side/status/2078059009173860769?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-17T10:07:30Z",
-      "text_excerpt": "ついに明日です✨️ 12時～18時は 📍大阪梅田 グラングリーン大阪 BloomingCamp ✨️メッタおもろ祭り　合同会社Arkonブース 1️⃣ぼくたぬき×小夏蒼羽オリジナルグッズ手売り販売 2️⃣AIを活用したWEBサイト制作体験 3️⃣blenderを活用した3Dモデル制作体験 4️⃣VRChat体験 ※内容は変わる場合があります。 https://t.co/44YayC1WJj"
-    },
-    {
-      "status_id": "2084184881433817387",
-      "url": "https://x.com/chara_ket/status/2084184881433817387?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-08-03T07:49:32Z",
-      "text_excerpt": "START\t開催日程 8/11(火) 12:00~  8/16(日) 20:00~   所要時間は2時間から3時間程度を見込んでおります。  ※今回の体験会はVRChatへの市販アバターのアップロードがご自身で出来る前提となっております。アバターのアップロードが出来る環境をご用意いただいた上でご参加ください。"
-    },
-    {
-      "status_id": "2080579616897683632",
-      "url": "https://x.com/maemiemiemi/status/2080579616897683632?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-24T09:03:30Z",
-      "text_excerpt": "すげぇイベントやるらしいじゃん！ 【第２回Justギミック体験会】開催決定！  Justギミックを体験! そんなイベント楽しいに決まってる🤣  ♥️日時：７月２７日(月) 22:00～♥️ 場所：VRChat AIMグループインスタンス  参加方法や詳しい内容は 動画を見てネ  🌞動画はツリーからどうぞ🌞 #VRChat #booth https://t.co/mTCVNzafnR"
-    },
-    {
-      "status_id": "2083118332396671244",
-      "url": "https://x.com/dokkaikouze/status/2083118332396671244?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-31T09:11:27Z",
-      "text_excerpt": "START\tVRC対応アバター、桜ノ結祈乃ちゃん発売記念の #黒柚式アバター集会 の告知です！ https://t.co/vmR32FlKyG  📅日時 8月1日(土) 22時～23時頃まで  🎉内容 サークル[黒柚式のソレ]のアバター購入者や、興味がある人の交流会です サンプルアバターや見学での参加も歓迎致します  #VRCイベント"
-    },
-    {
-      "status_id": "2082435979541971082",
-      "url": "https://x.com/wakaran_vrc/status/2082435979541971082?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-29T12:00:01Z",
-      "text_excerpt": "第69回「アバター改変なんもわからん集会」 日時：8月5日(水) 22:00開場 内容：改変なんでも質問会 想定技術Lv：なんもわからん 参加方法：VRCグループへJOIN ※講師はいますが講演は行いません。 https://t.co/NFVuRkkNHV"
+      "status_id": "2081697355699778005",
+      "url": "https://x.com/CLUB_ONENIGHT/status/2081697355699778005?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-27T11:05:00Z",
+      "text_excerpt": "START\tVRchat　キャバクラRPイベント CLUB QUEEN NIGHT 8/1(土) 22:00~  フォロー・RP抽選にてご招待させていただきます。  詳細は以下投稿画像よりご確認くださいませ。  ご参加お待ちしております。  https://t.co/jxcQJvtVIC  #VRChat #CLUBQUEENNIGHT https://t.co/Ht70zSZoPr"
     },
     {
       "status_id": "2081650907213685224",
@@ -2727,10 +2644,16 @@
       "text_excerpt": "🙌  営業告知 🙌  寝る前の雑談を楽しむVRCイベント『おやすみ前の隠れ家。』 皆さまの応援のおかげで、無事第5回目の営業を迎えました🎉   事前抽選のゲストを募集いたします。  🕑開催日 8/1(土) 21:50～23:30  事前抽選はツリーのGoogleフォームからご応募ください。  #OYSM_VR #VRCイベント https://t.co/UOpRpwlzP1"
     },
     {
-      "status_id": "2079343257008709986",
-      "url": "https://x.com/SAVATAROU179842/status/2079343257008709986?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-20T23:10:39Z",
-      "text_excerpt": "【イベント告知】 ㊗️1周年 #VRC赤髪メンズ集会  第7回を開催致します‼️  🗓7/30(木)21:00~22:30  🏮夏を真っ赤に染めよう🏮  【参加方法&条件】 ・VRC赤髪メンズ集会に参加 https://t.co/K89unAoHeW ・赤髪男性アバター使用 (女性アバターを男性改変でも可) ・アバターサイズは50MB以内 https://t.co/8klmpYTJz1"
+      "status_id": "2080579616897683632",
+      "url": "https://x.com/maemiemiemi/status/2080579616897683632?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-24T09:03:30Z",
+      "text_excerpt": "すげぇイベントやるらしいじゃん！ 【第２回Justギミック体験会】開催決定！  Justギミックを体験! そんなイベント楽しいに決まってる🤣  ♥️日時：７月２７日(月) 22:00～♥️ 場所：VRChat AIMグループインスタンス  参加方法や詳しい内容は 動画を見てネ  🌞動画はツリーからどうぞ🌞 #VRChat #booth https://t.co/mTCVNzafnR"
+    },
+    {
+      "status_id": "2079523531591930156",
+      "url": "https://x.com/Tatuo_Labo/status/2079523531591930156?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-21T11:07:00Z",
+      "text_excerpt": "＜ウトナちゃん集会開催決定！！＞   8/1(土) 21:30～23:30    未購入、サンプルアバターでの参加もOKです！    グループ：https://t.co/ftYKOagT8V   〇参加方法   VRCグループ「TATUO LAB」に参加し、開催時間になりましたらGroup+インスタンスにお越しください！  皆来てくれ！！ #Utona3D https://t.co/5eXK4lkb2a"
     },
     {
       "status_id": "2079114240846090428",
@@ -2757,16 +2680,34 @@
       "text_excerpt": "🙌  営業告知 🙌  寝る前の雑談を楽しむVRCイベント『おやすみ前の隠れ家。』 前回は沢山のご応募を頂戴しました🎉  事前抽選に加え、当日リクイン枠もご用意しております。  開催日 🕑開催日時：7/11(土) 21:50～23:30  事前抽選はツリーのGoogleフォームからご応募ください。  #OYSM_VR #VRCイベント https://t.co/2Py5s5pvp8"
     },
     {
-      "status_id": "2073780500670591002",
-      "url": "https://x.com/niconamagimix/status/2073780500670591002?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-05T14:46:14Z",
-      "text_excerpt": "バタバタでこんな時間！！！ 今日配信お休みでし( ᴗ̀ ̫ᴗ́ )  明日また遊ぼーね！！！  明日は21時から！！！ ねが、ぴぃち、ギミックで 今年も来たぜVRchat Vket Summer！！！ 先行体験会行ってくる( •ω-  )☆  今回のアバターは...🥳"
+      "status_id": "2070465847987179552",
+      "url": "https://x.com/sis_pri25th/status/2070465847987179552?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-06-26T11:15:00Z",
+      "text_excerpt": "🎀シスプリ25周年記念ライブ 開催決定！🎀  シスター・プリンセス ライブステージ ～Dream♡World～  ・9/19(土)20:00～  本日からチケット販売も開始✨ VRライブと動画配信からお選びできます。  ・VRChatチケットサイト https://t.co/PCmqohS4Iw  ・動画配信サイト（SPWN） https://t.co/J18UuWMkXR https://t.co/GDRgwiUf0q"
     },
     {
-      "status_id": "2072606215331299802",
-      "url": "https://x.com/ibekoresub/status/2072606215331299802?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-02T09:00:03Z",
-      "text_excerpt": "#個室闇鍋VRC　2週連続開催決定！  何が起きるかは——お楽しみ。  個室での濃厚な時間。 普通のVRCイベントでは終わらない夜。  📅 7/8 22:10〜23:10 📷 参加方法：リクイン  フォロー＆RPで3名様を優先招待します。 〆切：7/6  何が起きるかな・・・？ https://t.co/6auMpTQytK"
+      "status_id": "2084649216673239206",
+      "url": "https://x.com/rabbicat_neko/status/2084649216673239206?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-04T14:34:38Z",
+      "text_excerpt": "【VRCイベント・集会】 AugmentedDollsアバターをメインに色々なワールドで写真を撮ったり雑談したりする #AugmentedDolls撮影交流会 を行います  開催日時：2026年8月8日(土) 21:00～22:00  夏といえばやっぱり海だよね  ※JOIN先とワールドはツリー参照 https://t.co/pJjqDihZDg"
+    },
+    {
+      "status_id": "2084202614946984184",
+      "url": "https://x.com/Ninoukyo_VRC/status/2084202614946984184?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-03T09:00:00Z",
+      "text_excerpt": "#VRCにんおうきょう  VRCイベント「忍桜郷」 🌸8月4日(火)22時🌸  🌸昼の暑さも、夜風がそっと和らげる頃 今宵も忍桜郷にてお待ちしております  【タイムテーブル】   21:50~21:52　Req-In（招待をリクエスト） 受付&抽選(一人1回まで)  22:00～　開始 アフター無し 23:30前後　終了予定 https://t.co/o5njdbrpJl"
+    },
+    {
+      "status_id": "2084184881433817387",
+      "url": "https://x.com/chara_ket/status/2084184881433817387?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-03T07:49:32Z",
+      "text_excerpt": "START\t開催日程 8/11(火) 12:00~  8/16(日) 20:00~   所要時間は2時間から3時間程度を見込んでおります。  ※今回の体験会はVRChatへの市販アバターのアップロードがご自身で出来る前提となっております。アバターのアップロードが出来る環境をご用意いただいた上でご参加ください。"
+    },
+    {
+      "status_id": "2084114872397337064",
+      "url": "https://x.com/yumemian29/status/2084114872397337064?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-03T03:11:21Z",
+      "text_excerpt": "START\tVRC和装接客型イベント 夢廻庵👘 🪭営業案内🪭 【8月5日(水)22時10分〜23時20分にて開催❗️】 ＊終了時間は前後する場合がございます  ⛩️参加方法:グループjoin&事前抽選‼️ ⛩️22:10にグループインスタンスにご参加下さい。  応募方法:こちらのポストRP&(@yumemian29)フォロー&いいね 期限8/4 21:00まで https://t.co/YIhzsu5Xh6"
     },
     {
       "status_id": "2083387255725363406",
@@ -2775,10 +2716,28 @@
       "text_excerpt": "🐺営業のお知らせ☕️  オオカミ少年アバター「アクセルくん」たちと自由気ままに過ごせるVRChatカフェイベント AXEL Coffee　本日営業します✨  ■営業時間：22:00～23:00   初来店・おひとり参加も歓迎しています！  参加方法はプロフィールへ  #VRChat #VRChatイベント #アクセルコーヒー"
     },
     {
+      "status_id": "2083372140733338030",
+      "url": "https://x.com/femboy_vrc/status/2083372140733338030?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-01T02:00:00Z",
+      "text_excerpt": "START\tVRCイベント「ふぇむふぇむもくもく」 #fem_moku   8/1（土）23:00にリクイン受付開始です  今夜は個室コンテナ１回ラウンジ２回での開催です その為、ゲストの皆様の受け入れ人数が多くなっております  フォロー&リポストで2名様に優先招待券をプレゼント！ 当選者は土曜18時以降にDMをお送りします https://t.co/JplH1vHjWw"
+    },
+    {
       "status_id": "2082761717512351835",
       "url": "https://x.com/d41k3y/status/2082761717512351835?utm_source=yjrealtime&utm_medium=search",
       "source_created_at": "2026-07-30T09:34:23Z",
       "text_excerpt": "今週末は主催と出演があります！ どちらも来てくれると嬉しいです！  夏の音、鳴らそっか。 #鳴らそっか  🗓️8/1(土) 14:00-18:00 📍秋葉原 雷神2F 📝主催！アニソカ中心の夏フェスイベ  #Booth2Booth Real 🗓️8/2(日) 14:00-22:00 📍渋谷PUBLIC PUBLIC 📝めありーちゃんとB2B！VRCと交錯するHyperなイベ"
+    },
+    {
+      "status_id": "2082637116388073855",
+      "url": "https://x.com/Megane_hiromeru/status/2082637116388073855?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-30T01:19:16Z",
+      "text_excerpt": "👓【VRCメガネ祭り2026 開会式】👓  8月1日（土）21:00より、メガネ祭りの開会式を開催します！  メガネ祭りの紹介やイベントのお知らせ、皆さまからの質問にお答えする時間を予定しています✨  #VRCメガネ祭り #VRCイベント #メガネアバターを広める会 https://t.co/rw8e2fB9f3"
+    },
+    {
+      "status_id": "2082435979541971082",
+      "url": "https://x.com/wakaran_vrc/status/2082435979541971082?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-29T12:00:01Z",
+      "text_excerpt": "第69回「アバター改変なんもわからん集会」 日時：8月5日(水) 22:00開場 内容：改変なんでも質問会 想定技術Lv：なんもわからん 参加方法：VRCグループへJOIN ※講師はいますが講演は行いません。 https://t.co/NFVuRkkNHV"
     },
     {
       "status_id": "2082419258232111368",
@@ -2787,10 +2746,22 @@
       "text_excerpt": "7/22　魔法少女プリズムリボンの撮影会の～写真となります～。 一同に揃うとなんか楽しくて良い感じでした！  それで、今日はこの衣装の集会あります（大事） 7/29 22時～VRCグループ『かぷちやふぁん！』で開かれるので是非…  #かぷちやこーで https://t.co/JFy7sSvnkH"
     },
     {
-      "status_id": "2081697355699778005",
-      "url": "https://x.com/CLUB_ONENIGHT/status/2081697355699778005?utm_source=yjrealtime&utm_medium=search",
-      "source_created_at": "2026-07-27T11:05:00Z",
-      "text_excerpt": "START\tVRchat　キャバクラRPイベント CLUB QUEEN NIGHT 8/1(土) 22:00~  フォロー・RP抽選にてご招待させていただきます。  詳細は以下投稿画像よりご確認くださいませ。  ご参加お待ちしております。  https://t.co/jxcQJvtVIC  #VRChat #CLUBQUEENNIGHT https://t.co/Ht70zSZoPr"
+      "status_id": "2082390931794436148",
+      "url": "https://x.com/NyumaShukai/status/2082390931794436148?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-29T09:01:01Z",
+      "text_excerpt": "🌊 夏のプライベートビーチに        海の家がオープンします📢  ✨ 見どころ ・夏らしい映えスポット📸 ・スイカ割りなどアクティビティがいっぱい🍉 ・RPキャストが元気にドタバタ営業中⁉  📅 7月30日（木） 🕘 21:30～23:00 📍VRChat グループインスタンス  こちらは サンプルアバターでの参加OK https://t.co/5GZBov4zUP"
+    },
+    {
+      "status_id": "2081943718962327678",
+      "url": "https://x.com/Conductor_vrc/status/2081943718962327678?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-28T03:23:57Z",
+      "text_excerpt": "#VRC_Conductor  VRC接客イベント『Conductor』  本日営業日です！！  時間:２１時 参加方法：Discord事前抽選＋join  join先：杉崎リン   ご来店希望の方は事前にフレンド申請をお願いします。  皆様のご来店お待ちしております！！ https://t.co/rKxAG8gPyL"
+    },
+    {
+      "status_id": "2081939281229357490",
+      "url": "https://x.com/yumemian29/status/2081939281229357490?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-28T03:06:19Z",
+      "text_excerpt": "START\tVRC和装接客型イベント 夢廻庵👘 🪭営業案内🪭 【7月29日(水)22時10分〜23時20分にて開催❗️】 ＊終了時間は前後する場合がございます  ⛩️参加方法:グループjoin&事前抽選‼️ ⛩️22:10にグループインスタンスにご参加下さい。  応募方法:こちらのポストRP&(@yumemian29)フォロー&いいね 期限7/28 https://t.co/BHOd6nEEk1"
     },
     {
       "status_id": "2081665908108402776",
@@ -2811,10 +2782,28 @@
       "text_excerpt": "【☀️夏フォトコン開催📣】 当ショップ「ロロショップ」の髪型・衣装・メイクを使ったVRChat写真を募集します‼️ ■テーマ 夏っぽいフォト（自由） ■参加方法 ①このアカウントをフォロー ②#LoLoshop夏フォトコン をつけて投稿 ■期間 7/26(日)〜8/10(月) 23:59 ■景品 最優秀賞：商品フルセット 3点 https://t.co/9TRUgHidva"
     },
     {
+      "status_id": "2081253784056139795",
+      "url": "https://x.com/Conductor_vrc/status/2081253784056139795?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-26T05:42:24Z",
+      "text_excerpt": "#VRC_Conductor  VRC接客イベント『Conductor』  本日営業日です！！  時間:２１時 参加方法：Discord事前抽選＋join  join先：杉崎リン   ご来店希望の方は事前にフレンド申請をお願いします。  皆様のご来店お待ちしております！！ https://t.co/9PnYpNPE6L"
+    },
+    {
       "status_id": "2081133885136781559",
       "url": "https://x.com/VRC_StayClose/status/2081133885136781559?utm_source=yjrealtime&utm_medium=search",
       "source_created_at": "2026-07-25T21:45:58Z",
       "text_excerpt": "【VRC イベント開催】<土曜日> 💕「距離感めちゃ近 1対1 個室イチャイチャ接客イベント」#VRC_ステイクロース ⌛日時： 2026/08/01（土曜日）23:20～25:00頃 📨受付：23:20～23:22の間に、「Medolize」まで「招待をリクエスト」を１回（抽選式）  📒事前予約抽選はこちら！ https://t.co/XTJgEOqYI7 https://t.co/HkcQbH4U5c"
+    },
+    {
+      "status_id": "2080959303486517348",
+      "url": "https://x.com/TAD_exe_VRC/status/2080959303486517348?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-25T10:12:14Z",
+      "text_excerpt": "📶イベント告知📶 『VRChatロボっ娘アバター集会』やります。 日時:2026年8月8日(土)22:00～23:00 Group+インスタンスでの開催です。 ご参加の際はGroup加入後Group+インスタンスへJoin、 もしくは参加しているフレンドさんへのJoinをお願いします。 #VRChat #VRCロボっ娘アバター集会 https://t.co/JUZ3eL01aw"
+    },
+    {
+      "status_id": "2080835432632201623",
+      "url": "https://x.com/femboy_vrc/status/2080835432632201623?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-25T02:00:01Z",
+      "text_excerpt": "START\tVRCイベント「ふぇむふぇむもくもく」 #fem_moku   7/25（土）23:00にリクイン受付開始です  今夜は個室コンテナ２回ラウンジ１回での開催です 可愛いふぇむぼーい達を十分に堪能いただけます  フォロー&リポストで2名様に優先招待券をプレゼント！ 当選者は土曜18時以降にDMをお送りします https://t.co/1Bvizk4h2S"
     },
     {
       "status_id": "2079840545095213339",
@@ -2829,10 +2818,22 @@
       "text_excerpt": "#VRC_Conductor  VRC接客イベント『Conductor』  本日営業日です！！  時間:２１時 参加方法：Discord事前抽選＋join  join先：杉崎リン   ご来店希望の方は事前にフレンド申請をお願いします。  皆様のご来店お待ちしております！！ https://t.co/4z3FT32f5X"
     },
     {
+      "status_id": "2079343257008709986",
+      "url": "https://x.com/SAVATAROU179842/status/2079343257008709986?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-20T23:10:39Z",
+      "text_excerpt": "【イベント告知】 ㊗️1周年 #VRC赤髪メンズ集会  第7回を開催致します‼️  🗓7/30(木)21:00~22:30  🏮夏を真っ赤に染めよう🏮  【参加方法&条件】 ・VRC赤髪メンズ集会に参加 https://t.co/K89unAoHeW ・赤髪男性アバター使用 (女性アバターを男性改変でも可) ・アバターサイズは50MB以内 https://t.co/8klmpYTJz1"
+    },
+    {
       "status_id": "2078424107897749619",
       "url": "https://x.com/Mina_MinVRC/status/2078424107897749619?utm_source=yjrealtime&utm_medium=search",
       "source_created_at": "2026-07-18T10:18:17Z",
       "text_excerpt": "📢VRChat イベント告知📢 女装男子好き・男の子アバターを女装改変する方向けの交流イベントを ⏰明日【 7/19 日曜日 】21時30分⏰に開催します！！ 皆様のご参加を心よりお待ちしております！ #VRChat #VRC_女装男子集会 https://t.co/S1mbQ1y6Xu https://t.co/0lWk1iAvNw"
+    },
+    {
+      "status_id": "2078059009173860769",
+      "url": "https://x.com/blitz_side/status/2078059009173860769?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-17T10:07:30Z",
+      "text_excerpt": "ついに明日です✨️ 12時～18時は 📍大阪梅田 グラングリーン大阪 BloomingCamp ✨️メッタおもろ祭り　合同会社Arkonブース 1️⃣ぼくたぬき×小夏蒼羽オリジナルグッズ手売り販売 2️⃣AIを活用したWEBサイト制作体験 3️⃣blenderを活用した3Dモデル制作体験 4️⃣VRChat体験 ※内容は変わる場合があります。 https://t.co/44YayC1WJj"
     },
     {
       "status_id": "2077543299196567691",
@@ -2859,6 +2860,12 @@
       "text_excerpt": "START\tVRCイベント 〜０属オークション〜  ✨第3回開催✨ 【RT招待キャンペーン！】  『開催日時』 7/6 (月) 22:00～  ✅リクイン抽選式 ✅参加条件は5万UC以上の所持条件 ✅観戦枠参加は1万UC以上の所持条件  ※引用ＲＴで「#0属オークション」を付けて投稿すると当選率ＵＰ‼ https://t.co/x23lt2kJQp"
     },
     {
+      "status_id": "2073780500670591002",
+      "url": "https://x.com/niconamagimix/status/2073780500670591002?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-05T14:46:14Z",
+      "text_excerpt": "バタバタでこんな時間！！！ 今日配信お休みでし( ᴗ̀ ̫ᴗ́ )  明日また遊ぼーね！！！  明日は21時から！！！ ねが、ぴぃち、ギミックで 今年も来たぜVRchat Vket Summer！！！ 先行体験会行ってくる( •ω-  )☆  今回のアバターは...🥳"
+    },
+    {
       "status_id": "2073765409590046907",
       "url": "https://x.com/Pecheur_VRC/status/2073765409590046907?utm_source=yjrealtime&utm_medium=search",
       "source_created_at": "2026-07-05T13:46:17Z",
@@ -2871,10 +2878,40 @@
       "text_excerpt": "START\tVRCイベント 〜０属オークション〜  ✨第2回開催✨ 【RT招待キャンペーン！】  『開催日時』 7/4 (土) 22:00～  ✅リクイン抽選式 ✅参加条件は5万UC以上の所持条件 ✅観戦枠参加は1万UC以上の所持条件  ※引用ＲＴで「#0属オークション」を付けて投稿すると当選率ＵＰ‼ https://t.co/n5XjhqzmhV"
     },
     {
+      "status_id": "2072606215331299802",
+      "url": "https://x.com/ibekoresub/status/2072606215331299802?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-07-02T09:00:03Z",
+      "text_excerpt": "#個室闇鍋VRC　2週連続開催決定！  何が起きるかは——お楽しみ。  個室での濃厚な時間。 普通のVRCイベントでは終わらない夜。  📅 7/8 22:10〜23:10 📷 参加方法：リクイン  フォロー＆RPで3名様を優先招待します。 〆切：7/6  何が起きるかな・・・？ https://t.co/6auMpTQytK"
+    },
+    {
       "status_id": "1634026294135635968",
       "url": "https://x.com/amausa_club/status/1634026294135635968?utm_source=yjrealtime&utm_medium=search",
       "source_created_at": "2023-03-10T03:00:01Z",
       "text_excerpt": "【告知】#あまうさくらぶ あまとうさぎで販売されていたアバターを中心とした交流会「思い出のあまうさアバター交流会」を実施致します！  日程:3/12 (日)22:00 JST ※Friend Onlyインスタンスです ※試着アバターも用意しています  開催時刻になりましたら、烏龍(VRChat ID:烏龍)にJoinしてください！ https://t.co/tsRhzfeYUr"
+    },
+    {
+      "status_id": "2086145739915468953",
+      "url": "https://x.com/4mota/status/2086145739915468953?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-08T17:41:17Z",
+      "text_excerpt": "START\tVRChatのエレスイDJイベントスクショ、２D版。明日も12:00～17:00と21:00～26:00にあるので行く予定。 #ElectroSwing #SwingxSwing #Swingbox_VRC #VRChat #2DVR #アバター #Avatar #Metaverse #FBT #DJ https://t.co/3HUAzd69XL"
+    },
+    {
+      "status_id": "2085580415570780539",
+      "url": "https://x.com/SharkWave_bar/status/2085580415570780539?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-07T04:14:53Z",
+      "text_excerpt": "START\tVRC合同夏祭り  :開催日時 8月16日(日) 22:00開始  ※開場時間21:30から  :開催方法 SharkWave グループ+  :ワールド VRC人工島  :アバターに関して ⚠こちらは必ず守ってください⚠  アバター容量30MB以下 NSFWに属する衣装アバターNG 極度のパーティクルNG 音の出るギミックNG  #VRC合同夏祭り https://t.co/yW0sbs0BNP"
+    },
+    {
+      "status_id": "2083885523681353945",
+      "url": "https://x.com/WR_VRC/status/2083885523681353945?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-02T12:00:00Z",
+      "text_excerpt": "【夏祭り集会のお知らせ】  開催：8月27日(木) 22:00～23:00 参加方法：VRCグループ「White Rabbits」に参加 時間になりましたら、グループインスタンスへお越しください。 https://t.co/Zxp2IAV75n  今月の集会は、いつもとは少し違う装い。 少年たちは夏祭り用の衣装で、皆様をお迎えいたします🎐 https://t.co/MhZcUnQzIC"
+    },
+    {
+      "status_id": "2083770096582119685",
+      "url": "https://x.com/0zoku_vrc/status/2083770096582119685?utm_source=yjrealtime&utm_medium=search",
+      "source_created_at": "2026-08-02T04:21:20Z",
+      "text_excerpt": "START\tVRCイベント 〜０属オークション〜  ✨8月開催告知✨  『第4回』 8/15 (土) 22:00～  ✅リクイン抽選式 ✅参加条件は5万UC以上の所持条件 ✅観戦枠参加は1万UC以上の所持条件  オークション参加に向けてUCを貯めましょう‼ https://t.co/308ebhwz1I"
     },
     {
       "status_id": "2083706861216518266",
@@ -2898,6 +2935,6 @@
   },
   "engagement_policy": "retweet_count_required_but_no_minimum",
   "temporal_policy": "past_events_are_accepted_and_marked_archived",
-  "past_accepted_count": 363,
-  "low_retweet_accepted_count": 190
+  "past_accepted_count": 491,
+  "low_retweet_accepted_count": 239
 }

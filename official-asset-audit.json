@@ -1,177 +1,179 @@
 {
   "schema_version": "1.1",
-  "generated_at": "2026-08-04T09:43:07Z",
+  "generated_at": "2026-08-09T05:09:45Z",
   "policy": "source-identity-and-x-official-embed-metadata-only",
   "counts": {
-    "events": 601,
-    "official_x": 135,
-    "official_web": 18,
-    "webp_image": 105,
-    "post_media": 84,
-    "profile_image": 21,
-    "unresolved": 466
+    "events": 617,
+    "official_x": 149,
+    "official_web": 15,
+    "webp_image": 121,
+    "post_media": 94,
+    "profile_image": 27,
+    "unresolved": 468
   },
-  "network_fetches": 1,
-  "fetch_failures": {},
+  "network_fetches": 15,
+  "fetch_failures": {
+    "ValueError": 1
+  },
   "sample": [
     {
-      "id": "73cfb3185dc2ebf7b2af",
-      "title": "【VJ Lounge SIGNAL】 VJの実演・解説・交流を楽しめるイベントを開催します！ VJを見てみたい方、これから始めたい方もお気軽にご参加ください。 📅2026年8月3日（月）21:…",
-      "official_x_url": "https://x.com/ComaPre",
+      "id": "fe4ff6a67c80199a5a4c",
+      "title": "おはようございます。本日は18:00からVRCのKaleidoskyというDJイベントに出演します。お時間ある方は是非お越しください！",
+      "official_x_url": "https://x.com/moqrin_x",
       "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/media/HNqCnP1aYAAOh0D.jpg?format=webp&name=small",
-      "image_kind": "post_media"
-    },
-    {
-      "id": "182514185caf2c0f17c2",
-      "title": "【告知】アニメのEDオンリーの DJイベント 宵待ちエンドロール にてVJします！ OPはよく聞くけどあよEDなかなかイベントで聞けないよね っていうそこの貴方！！ぜひ！ steamが使えてそ…",
-      "official_x_url": "https://x.com/vj_kurodo",
-      "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/profile_images/1528714129099587584/JdgOKp9l.jpg?format=webp&name=200x200",
+      "image_url": "https://pbs.twimg.com/profile_images/2066868432319234048/BwO1rvKj.jpg?format=webp&name=200x200",
       "image_kind": "organizer_profile"
     },
     {
-      "id": "6040e6de41d62008d418",
-      "title": "昼宣伝！ VJに焦点を当てた交流イベント！ クラブイベントとは少し違った形式になるのをご了承ください 目指すはVJ文化の拡大！ 8/3 月曜日の21時からVRChatにて宜しくお願いします～！…",
-      "official_x_url": "https://x.com/ComaPre",
+      "id": "22358ad30fc80d72f9ac",
+      "title": "おはようです！ 今夜は海夏青ちゃん主催 #nuts_Fes に出演するよ～！！ タイムテーブルも出た✨ 8月8日(土)19:30オープン、20:00スタート！ インスタンスは「たまLab.」さ…",
+      "official_x_url": "https://x.com/MagischerSchnee",
       "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/profile_images/2082742586465562624/glopVddj.jpg?format=webp&name=200x200",
+      "image_url": "https://pbs.twimg.com/profile_images/2083948550879395840/wOoULChD.jpg?format=webp&name=200x200",
       "image_kind": "organizer_profile"
     },
     {
-      "id": "a673a786ea64f7e23635",
-      "title": "START VRC怪談集会 赤い部屋 第142回 ◎開催日時：8/3(月) 22:00 ◎参加方法：akaiheyaグループインスタンスにJOIN https://t.co/qmUv5bDOb…",
-      "official_x_url": "https://x.com/akaiheya_vrc",
-      "official_website_url": "https://discord.gg/kaJE2fVEbC",
-      "image_url": "https://pbs.twimg.com/profile_images/1575059484556533760/1aX2bSIw.jpg?format=webp&name=200x200",
+      "id": "703363e496788646c098",
+      "title": "START VRChatユーザの皆さん📢 お盆の各種イベントでなめらかな動きができるよう、本日8/8(土)の20:00からHaritoraXの設定などを解説する「HaritoraXカリカリチュ…",
+      "official_x_url": "https://x.com/shiftall_jp",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/media/HPIOuTEasAA7lU1.jpg?format=webp&name=small",
+      "image_kind": "post_media"
+    },
+    {
+      "id": "ee9f702ea84e36c43da8",
+      "title": "START 今日のめぐる時間ｓのハイライト？です！ 今日はVRCよりダンスとワールド巡りをお送りしました 次回のめぐる時間ｓは明日20時 ニコニコ動画から「フリー」をお送ります ＃VRC ht…",
+      "official_x_url": "https://x.com/otak_cluster",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/amplify_video_thumb/2085377912283561984/img/v2Ni2CauLWC0Sa-c.jpg?format=webp&name=small",
+      "image_kind": "post_media"
+    },
+    {
+      "id": "705b3514ed3cdf4b1723",
+      "title": "START 今日は今週末のライブのリハでした！ なつせちゃんの夏フェスに伺います✨️ 今年は大阪ティキBARとのコラボもあるみたい🍸 8月8日(土)20:00スタート！ 現地はVRChatです…",
+      "official_x_url": "https://x.com/MagischerSchnee",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/profile_images/2083948550879395840/wOoULChD.jpg?format=webp&name=200x200",
       "image_kind": "organizer_profile"
     },
     {
-      "id": "a443c89acd67a4e7a2e9",
-      "title": "【VRChat DJイベント告知】 8/3(月)のPsy-Trance DJイベント情報！(*‘ω‘ *) 🍍2026/08/03(Mon) 🍍22:00-25:00(JST) 🍍Join→G…",
-      "official_x_url": "https://x.com/yossy222_VRC",
-      "official_website_url": "https://vrc.group/PSYAPL.9537",
-      "image_url": "https://pbs.twimg.com/media/HORLPKkboAAtMt3.jpg?format=webp&name=small",
+      "id": "a435ed06d7ac2a51f49f",
+      "title": "【 重大告知 】 Bowling Arena 大型アップデート‼️ 今回！なんと！ボウリングシステムを1から作り直しました🎳 ということで、新システムお披露目会及び説明会を開こうと思います❗️…",
+      "official_x_url": "https://x.com/Sarutori_VRC",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/media/HO7YMLfakAIx1CP.jpg?format=webp&name=small",
       "image_kind": "post_media"
     },
     {
-      "id": "8488da8ae081a67169be",
-      "title": "8月3日夜22:30から 不定期開催イベント 「でぃだら娘空遊」 開催します ! ——————————————————————- フレンドインスタンスで開きますので 参加したい方はこの投稿にリ…",
-      "official_x_url": "https://x.com/_osiruko",
+      "id": "e940ec99239d06def4df",
+      "title": "【 重大告知 】 Bowling Arena 大型アップデート‼️ 今回！なんと！ボウリングシステムを1から作り直しました🎳 ということで、新システムお披露目会及び説明会を開こうと思います❗️…",
+      "official_x_url": "https://x.com/Sarutori_VRC",
       "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/media/HOnkrtTbwAAGpql.jpg?format=webp&name=small",
+      "image_url": "https://pbs.twimg.com/media/HO7YMLfakAIx1CP.jpg?format=webp&name=small",
       "image_kind": "post_media"
     },
     {
-      "id": "a7c3e5d4d57fa73767a9",
-      "title": "#SIREN集会VRC 本日23:00～VRCで #異界入り2026 !!VRCID:【NAKADARARIRI】にフレンド申請をお忘れなく!! ※PC限定/定員45名/途中入場可 https…",
-      "official_x_url": "https://x.com/nakadarariri",
+      "id": "b78f2eef9c6e817c7b74",
+      "title": "【VRCゲーマーズイベント告知】 今年もやります水着ファッションショーイベント！ 開催日時：8/8 (土) 20:00～21:00 ファッションショーで改変をお披露目したいという方はDisco…",
+      "official_x_url": "https://x.com/NUMA7ma_VRC",
       "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/profile_images/1024259463128043520/Qg4VNc3e.jpg?format=webp&name=200x200",
+      "image_url": "https://pbs.twimg.com/media/HN_e3fvbQAAcaru.jpg?format=webp&name=small",
+      "image_kind": "post_media"
+    },
+    {
+      "id": "7d56734c27aecc1b2d1e",
+      "title": "🚨【告知】🚨 ⭐️初主催DJイベント AniStopPable（アニストッパブル）開催！🎉 DJ・VJ交代時も音楽はノンストップ。 音を止めないDJ・VJが4時間駆け抜けます🔥 音の止まらない…",
+      "official_x_url": "https://x.com/Shakugan_com487",
+      "official_website_url": "https://vrc.group/SGBOX.5435",
+      "image_url": "https://pbs.twimg.com/media/HOJOPUxboAAKtMn.jpg?format=webp&name=small",
+      "image_kind": "post_media"
+    },
+    {
+      "id": "d5ca0d0c34d9021ec485",
+      "title": "🚨【開催まであと少し！】🚨 ⭐️AniStopPable（アニストッパブル） DJ・VJ交代時も音楽はノンストップ！ サブカル満載の4時間をお届けします🔥 📅8/8(土) 20:30～24:3…",
+      "official_x_url": "https://x.com/Shakugan_com487",
+      "official_website_url": "https://vrc.group/SGBOX.5435",
+      "image_url": "https://pbs.twimg.com/profile_images/2032572417592406016/9c42Cpcb.jpg?format=webp&name=200x200",
       "image_kind": "organizer_profile"
     },
     {
-      "id": "7ddf0dde62ee2f77af82",
-      "title": "🔻SIREN異界突入脱出集会2026🔻 毎年恒例のVRCユーザー(PC)限定SIRENファン非公式集会。めちゃ急ですが今年は既存会場で異界入り当日も開催‼ 【突入集会 8/3 23:00～】 …",
-      "official_x_url": "https://x.com/nakadarariri",
-      "official_website_url": "https://x.gd/HjqFn",
-      "image_url": "https://pbs.twimg.com/media/HOj-CjjaMAAYuj1.jpg?format=webp&name=small",
-      "image_kind": "post_media"
-    },
-    {
-      "id": "e29e7f2bd2231715ddcf",
-      "title": "START 本日のVRCラジオ Kのワールド巡りは直前のご連絡となりますが、延期となります。 次回放送は8月4日(火)24:00からとなります📻 https://t.co/stHwI2tGMg",
-      "official_x_url": "https://x.com/k_unknown_star",
+      "id": "536b3499bd12f4a94051",
+      "title": "START VRCイベント メイド喫茶めろてぃ ☆浴衣営業デー☆ 【最大10名様】をご招待します！ 開催 8/8 21:00 OPEN 20:40 Reqin 参加方法 ①@vrc_merot…",
+      "official_x_url": "https://x.com/vrc_meroty",
       "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/profile_images/2083853043804905472/Mc-KOv4r.jpg?format=webp&name=200x200",
+      "image_url": "https://pbs.twimg.com/profile_images/2001256105637502977/x33JGvQW.jpg?format=webp&name=200x200",
       "image_kind": "organizer_profile"
     },
     {
-      "id": "1660345195ff72cb3f5d",
-      "title": "START 参加受付は本日8/4(火) 18:00まで！ VRCビリヤードC級ビギナー大会｢新人王｣、今夜21時スタート🎱 参加予定の方は登録をお忘れなく👇 #VRCビリヤード同好会 #VRC…",
-      "official_x_url": "https://x.com/VRC_billiards",
+      "id": "cd792d80461a555e33bb",
+      "title": "START 本日 8/8 21時から、節目の第100回 #VRCアバター自作交流会 です アバターの制作など興味ありましたら、どなたでも参加できます インスタンスはGroupまたはGroup+…",
+      "official_x_url": "https://x.com/pocozo_game",
       "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/profile_images/1744695668038590464/chJrTXC1.png?format=webp&name=200x200",
+      "image_url": "https://pbs.twimg.com/profile_images/1914412602933043201/4Mi6o_sS.jpg?format=webp&name=200x200",
       "image_kind": "organizer_profile"
     },
     {
-      "id": "ea24139957ccc6072fee",
-      "title": "START 本日20時より、第101回「VRCニコニコ集会（vR）」を開催します！ 今回は複数のワールドアップデートと二周年イベントのポスター、そして週末の出張集会について告知しますのでお楽し…",
-      "official_x_url": "https://x.com/CheddaraddehC",
+      "id": "0a9982fc99c4240049cc",
+      "title": "START 本日です😊！SwingBox in VRC VRCでは珍しいVroidアバターですがこの日のためにエレスイ用衣装新調しましたーーー😆 私は8/8 21:00〜26:00 と8/9 …",
+      "official_x_url": "https://x.com/Hitoha_ks",
       "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/media/HO2IwzqakAAa9ud.jpg?format=webp&name=small",
+      "image_url": "https://pbs.twimg.com/media/HPIm1auboAAMUHl.jpg?format=webp&name=small",
       "image_kind": "post_media"
     },
     {
-      "id": "24fc10762df5773a27d7",
-      "title": "Quest Dance party Club No.269 [VRC Quest対応DJイベント] 📅8月4日(火) OPEN 20:40 JST～ START 21:00 JST～ 今週のゲ…",
-      "official_x_url": "https://x.com/ClubDanceparty",
+      "id": "e283c8ddf207936535bf",
+      "title": "【VRCイベント・集会】 AugmentedDollsアバターをメインに色々なワールドで写真を撮ったり雑談したりする #AugmentedDolls撮影交流会 を行います 開催日時：2026年…",
+      "official_x_url": "https://x.com/rabbicat_neko",
       "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/media/HOg2pUHaMAARrRf.jpg?format=webp&name=small",
+      "image_url": "https://pbs.twimg.com/media/HO4oXOAaYAATK5l.jpg?format=webp&name=small",
       "image_kind": "post_media"
     },
     {
-      "id": "df3cf671239aebdc5d44",
-      "title": "【告知】 本日21:00から『沼民VRC部集会』を開催します。 グループインスタンスでの開催となるため、集会に参加する方は沼民グループへの参加をお忘れなく。 https://t.co/NJ7R…",
-      "official_x_url": "https://x.com/KMID_Numanidive",
+      "id": "735ea118878b8638f5fb",
+      "title": "【重大発表】 #255ラジオ部 夏の公開収録日決定！ 日時:8/8(土) 21:00~23:00 場所:2025年5月VRC同期会グループ＋ またYouTubeにて同時配信致します！ ぜひ遊び…",
+      "official_x_url": "https://x.com/255Radio_vrc",
       "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/profile_images/1532933351572910080/U5sVGHKp.jpg?format=webp&name=200x200",
+      "image_url": "https://pbs.twimg.com/media/HO3g8ivbUAAo-FP.jpg?format=webp&name=small",
+      "image_kind": "post_media"
+    },
+    {
+      "id": "293183b1f381b71e4dbd",
+      "title": "📢【お知らせ】 VRC向け初心者サポートイベント「びじてっど」OPEN！ 初心者さんの「わからない！」を一緒に解決✨ 初心者同士の交流はもちろん、初心者さんをサポートしたいTrustedの方も…",
+      "official_x_url": "https://x.com/1856922384a",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/media/HPHXrSuasAAfpYg.jpg?format=webp&name=small",
+      "image_kind": "post_media"
+    },
+    {
+      "id": "8bc83bb94fdaa00cd081",
+      "title": "🙌 営業告知 🙌 寝る前の雑談を楽しむVRCイベント『おやすみ前の隠れ家。』 事前抽選に加え、当日リクイン枠もご用意しております。 🕑開催日 8/8(土) 21:50～23:30 事前抽選はG…",
+      "official_x_url": "https://x.com/OYSM_VR",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/media/HOyFpP9XMAAHgiT.jpg?format=webp&name=small",
+      "image_kind": "post_media"
+    },
+    {
+      "id": "adc34a070d12dc6256f1",
+      "title": "【本日の注目イベント✨】 🕒8/8(土) 21:55～ 🟠VRCホストイベント【club Focus】🟠 VRChatホストイベント 多種多様なホストから繰り広げられる会話で今までとは一味違う…",
+      "official_x_url": "https://x.com/wondernote_info",
+      "official_website_url": null,
+      "image_url": "https://pbs.twimg.com/profile_images/1767475501449555968/fd3-TbwZ.png?format=webp&name=200x200",
       "image_kind": "organizer_profile"
     },
     {
-      "id": "4a8ecd8817d8f7a160a4",
-      "title": "🎇【本日21時開催】🎆 VRChat 静岡ケンミン集会 ☁️🍊 静岡県民あつまれ！ 👉 他県民の参加も大歓迎✨ ゆる雑談・初参加・聞き専OK！ 🕘 開始：21:00〜 ▼参加方法 ① 主催「お…",
-      "official_x_url": "https://x.com/ShizuokaSyuukai",
-      "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/media/HO2ut_8bwAAMeqt.jpg?format=webp&name=small",
+      "id": "e12de9aa2ef8fb943118",
+      "title": "8/8(土)にVRC盆踊りイベント #寝転ん盆踊り2026 (https://t.co/rT9rUBuTBi)が開催されます🏮 超ねこ速度でも非公式インスタンスを立てます！ Fluxスタッフや…",
+      "official_x_url": "https://x.com/FTC_VRC",
+      "official_website_url": "https://nekorojp.com/",
+      "image_url": "https://pbs.twimg.com/media/HOyzX5-agAA3Ufr.jpg?format=webp&name=small",
       "image_kind": "post_media"
     },
     {
-      "id": "440939b6f604d85dffee",
-      "title": "START VRC吟行句会 第87回 開催します。 Android、iOS対応のworldです。 ■日時 8/4（火）21:30～24:00 ■参加方法 ・「VRC吟行句会」グループに参加 （…",
-      "official_x_url": "https://x.com/VRCHaiku",
+      "id": "f4b8906bf84bbf409e0d",
+      "title": "START VRC1989年以前爆誕会 第161回定例飲み会(8/8(土)22:00開場・22:05乾杯)の告知です。参加条件は1989年以前生まれ(自称)。参加方法は代表にJoin。代表へf…",
+      "official_x_url": "https://x.com/NKYSKW_VRC",
       "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/profile_images/1809770321651929088/rWSeQPL-.jpg?format=webp&name=200x200",
-      "image_kind": "organizer_profile"
-    },
-    {
-      "id": "c8d673e9f78ad5cd40da",
-      "title": "【Guest Recruitment】 完璧な笑顔で武装した彼女たちが、 ハイヒールを脱ぎ、素顔に戻る場所。 VRChat 1:1個室いちゃいちゃイベント『Sovereign's Secret…",
-      "official_x_url": "https://x.com/sovereign_vrc",
-      "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/media/HOY2zhXboAAq-ps.jpg?format=webp&name=small",
-      "image_kind": "post_media"
-    },
-    {
-      "id": "20f2bfffdf28746da541",
-      "title": "#VRCにんおうきょう VRCイベント「忍桜郷」 🌸8月4日(火)22時🌸 🌸昼の暑さも、夜風がそっと和らげる頃 今宵も忍桜郷にてお待ちしております 【タイムテーブル】 21:50~21:52…",
-      "official_x_url": "https://x.com/Ninoukyo_VRC",
-      "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/media/HOs4qWaacAAKB0m.jpg?format=webp&name=small",
-      "image_kind": "post_media"
-    },
-    {
-      "id": "19c2024e4701727b3903",
-      "title": "START 本日(火)22時、VRChatで 子育てママパパゆるふわ交流会！ 子育てに興味ある方なら誰でもOK♪ 雑談だけでも歓迎👌 夏休みも中盤ですね🌻 最近の出来事や子どもの様子を ゆるく…",
-      "official_x_url": "https://x.com/mmpp_yurufuwa",
-      "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/media/HO2t-OHbYAAKkUc.jpg?format=webp&name=small",
-      "image_kind": "post_media"
-    },
-    {
-      "id": "a1c28a60476fea046b7b",
-      "title": "START 本日8/4（火）22:00からVRChat内で手話交流イベント #ゆびさきmeetup を開催します 手話に興味があるけれど「会話に加わるのはちょっと不安…」という方でも、毎回テー…",
-      "official_x_url": "https://x.com/esperina_e",
-      "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/media/HO1maXxa0AANT3D.png?format=webp&name=small",
-      "image_kind": "post_media"
-    },
-    {
-      "id": "1a349fb53d6e0268aae3",
-      "title": "【開催のお知らせ】 8/4(火) 23:00～ MDJがプレオープンいたします！ 今回個別接客を行うキャストはこちらです！ ぜっくん 霊柩ファントム Viola_vrc ÷わる÷ DJを聞きた…",
-      "official_x_url": "https://x.com/VRC_MDJ",
-      "official_website_url": null,
-      "image_url": "https://pbs.twimg.com/media/HOjmaQRaYAA3DpQ.jpg?format=webp&name=small",
+      "image_url": "https://pbs.twimg.com/media/HOupNScaQAAqhI5.jpg?format=webp&name=small",
       "image_kind": "post_media"
     }
   ]
