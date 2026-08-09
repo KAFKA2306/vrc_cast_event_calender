@@ -1,0 +1,168 @@
+name: Deploy canonical Pages v2
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 */6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/deploy-canonical-pages-v2.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: canonical-pages-v2
+  cancel-in-progress: false
+
+jobs:
+  deploy-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v6
+        with:
+          path: production
+          fetch-depth: 0
+      - name: Checkout canonical repository
+        uses: actions/checkout@v6
+        with:
+          repository: KAFKA2306/cast_event_cal
+          ref: main
+          path: canonical
+          fetch-depth: 0
+      - name: Validate canonical public snapshot
+        run: |
+          set -euo pipefail
+          grep -q 'VRChat Event Calendar' canonical/public/index.html
+          grep -q 'BEGIN:VCALENDAR' canonical/public/calendar.ics
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('canonical/public')
+          events = json.loads((root / 'events.json').read_text(encoding='utf-8'))
+          health = json.loads((root / 'health.json').read_text(encoding='utf-8'))
+          history = json.loads((root / 'yahoo-candidate-history.json').read_text(encoding='utf-8'))
+          classifier = json.loads((root / 'yahoo-classifier-audit.json').read_text(encoding='utf-8'))
+          ontology = json.loads((root / 'event-ontology.json').read_text(encoding='utf-8'))
+          ontology_audit = json.loads((root / 'ontology-match-audit.json').read_text(encoding='utf-8'))
+          category = json.loads((root / 'category-ontology.json').read_text(encoding='utf-8'))
+          registration = json.loads((root / 'registration-count-audit.json').read_text(encoding='utf-8'))
+
+          rows = events.get('events', [])
+          sources = {item.get('name'): item for item in health.get('sources', [])}
+          assert events.get('count') == len(rows)
+          assert events.get('count', 0) >= 500
+          assert health.get('event_count') == events.get('count')
+          assert history.get('target_count') == 1000
+          assert history.get('target_reached') is True
+          assert history.get('candidate_count', 0) >= 1000
+          assert history.get('candidate_count') == len(history.get('candidates', []))
+          assert classifier.get('classifier_version') == '1.9'
+          assert classifier.get('accepted_count') == sources.get('yahoo_realtime_events', {}).get('count')
+          assert classifier.get('accepted_count', 0) + classifier.get('rejected_count', 0) == history.get('candidate_count')
+          assert classifier.get('quality', {}).get('duplicate_status_ids') == 0
+          assert classifier.get('quality', {}).get('ambiguous_decisions') == 0
+          assert ontology.get('schema_version') == '3.0'
+          assert ontology.get('source_event_count') == events.get('count')
+          assert ontology_audit.get('category_classification', {}).get('event_count') == events.get('count')
+          assert ontology_audit.get('ambiguous_events') == 0
+          assert category.get('schema_version') == '2.0'
+          assert registration.get('status') == 'ok'
+          assert registration.get('latest', {}).get('calendar_event_count') == events.get('count')
+          assert registration.get('latest', {}).get('yahoo_candidate_count') == history.get('candidate_count')
+          PY
+      - name: Publish canonical public directory
+        run: |
+          set -euo pipefail
+          cp -a canonical/public/. production/
+          touch production/.nojekyll
+          cd production
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'Pages snapshot already matches canonical public/'
+          else
+            git commit -m 'chore: publish canonical public snapshot [skip ci]'
+            git pull --rebase --autostash origin main
+            git push origin HEAD:main
+          fi
+      - name: Verify live GitHub Pages snapshot
+        env:
+          PAGE_BASE: https://kafka2306.github.io/vrc_cast_event_calender
+        run: |
+          set -euo pipefail
+          expected_events_generated_at="$(python -c "import json; print(json.load(open('canonical/public/events.json', encoding='utf-8'))['generated_at'])")"
+          expected_classifier_generated_at="$(python -c "import json; print(json.load(open('canonical/public/yahoo-classifier-audit.json', encoding='utf-8'))['generated_at'])")"
+          verified=false
+          root_status=000
+          events_status=000
+          classifier_status=000
+          for attempt in $(seq 1 48); do
+            token="${GITHUB_RUN_ID}-${attempt}"
+            root_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-index.html -w '%{http_code}' "$PAGE_BASE/?run=$token" || true)"
+            events_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-events.json -w '%{http_code}' "$PAGE_BASE/events.json?run=$token" || true)"
+            classifier_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-classifier.json -w '%{http_code}' "$PAGE_BASE/yahoo-classifier-audit.json?run=$token" || true)"
+            if [ "$root_status" = '200' ] && [ "$events_status" = '200' ] && [ "$classifier_status" = '200' ] \
+              && grep -q 'VRChat Event Calendar' /tmp/live-index.html \
+              && EXPECTED_EVENTS="$expected_events_generated_at" EXPECTED_CLASSIFIER="$expected_classifier_generated_at" python - <<'PY'
+          import json
+          import os
+          events = json.load(open('/tmp/live-events.json', encoding='utf-8'))
+          classifier = json.load(open('/tmp/live-classifier.json', encoding='utf-8'))
+          assert events.get('generated_at') == os.environ['EXPECTED_EVENTS']
+          assert classifier.get('generated_at') == os.environ['EXPECTED_CLASSIFIER']
+          assert classifier.get('classifier_version') == '1.9'
+          assert events.get('count', 0) >= 500
+          PY
+            then
+              verified=true
+              break
+            fi
+            sleep 10
+          done
+          test "$verified" = true
+          mkdir -p production/audit
+          ROOT_STATUS="$root_status" EVENTS_STATUS="$events_status" CLASSIFIER_STATUS="$classifier_status" python - <<'PY'
+          import json
+          import os
+          from datetime import UTC, datetime
+          from pathlib import Path
+
+          events = json.loads(Path('/tmp/live-events.json').read_text(encoding='utf-8'))
+          classifier = json.loads(Path('/tmp/live-classifier.json').read_text(encoding='utf-8'))
+          result = {
+              'schema_version': '1.0',
+              'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
+              'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/',
+              'root_status': int(os.environ['ROOT_STATUS']),
+              'events_status': int(os.environ['EVENTS_STATUS']),
+              'classifier_status': int(os.environ['CLASSIFIER_STATUS']),
+              'events_generated_at': events.get('generated_at'),
+              'event_count': events.get('count'),
+              'classifier_generated_at': classifier.get('generated_at'),
+              'classifier_version': classifier.get('classifier_version'),
+              'yahoo_candidate_count': classifier.get('candidate_count'),
+              'yahoo_accepted_count': classifier.get('accepted_count'),
+              'status': 'ok',
+          }
+          Path('production/audit/production-v2-status.json').write_text(
+              json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+      - name: Record live verification
+        working-directory: production
+        run: |
+          set -euo pipefail
+          git add audit/production-v2-status.json
+          if git diff --cached --quiet; then
+            echo 'No verification audit changes'
+          else
+            git commit -m 'chore: record Pages v2 verification [skip ci]'
+            git pull --rebase --autostash origin main
+            git push origin HEAD:main
+          fi
