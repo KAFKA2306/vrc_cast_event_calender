@@ -6,6 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from scripts.verify_projection_manifest import verify
 from scripts.write_projection_manifest import build_manifest
 
 
@@ -53,6 +54,23 @@ class ProjectionManifestTest(unittest.TestCase):
             self.assertRegex(manifest["source_snapshot_sha256"], r"^[0-9a-f]{64}$")
             self.assertFalse(manifest["data_contract"]["classification_logic_in_this_repo"])
             self.assertFalse(manifest["data_contract"]["independent_collection_in_this_repo"])
+
+            manifest_path = root.parent / "projection-manifest-test.json"
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            result = verify(root, manifest_path)
+            self.assertEqual(result["status"], "ok")
+            self.assertEqual(result["asset_count"], 5)
+
+    def test_tampered_asset_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            self.write_fixture(root)
+            manifest = build_manifest(root, "c" * 40, timestamp="2026-08-10T00:01:00Z")
+            manifest_path = root.parent / "projection-manifest-tamper.json"
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            (root / "calendar.ics").write_text("tampered\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "mismatch"):
+                verify(root, manifest_path)
 
     def test_failed_canonical_health_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
