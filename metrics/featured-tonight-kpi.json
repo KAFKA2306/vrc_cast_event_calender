@@ -1,0 +1,22 @@
+{
+  "schema_version": "featured-tonight-kpi.v1",
+  "status": "NOT_STARTED",
+  "window_days": 45,
+  "metrics": {
+    "direct_proposals": 0,
+    "sponsor_demos": 0,
+    "qualified_inquiries": 0,
+    "paid_campaigns": 0,
+    "paid_campaign_outbound_clicks": 0,
+    "continuation_requests": 0
+  },
+  "targets": {
+    "direct_proposals": 10,
+    "sponsor_demos": 3,
+    "qualified_inquiries": 3,
+    "paid_campaigns": 1,
+    "paid_campaign_outbound_clicks": 20,
+    "continuation_requests": 1
+  },
+  "evidence": []
+}
