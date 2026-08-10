@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - "agent/**"
+      - "fix/**"
 
 permissions:
   contents: read
@@ -13,7 +14,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -26,9 +27,28 @@ jobs:
       - name: Verify public snapshot
         run: python scripts/verify_public_snapshot.py
 
-      - name: Verify projection manifest generator
+      - name: Test projection manifest contract
         run: |
-          python -m py_compile scripts/write_projection_manifest.py
+          python -m py_compile scripts/write_projection_manifest.py tests/test_projection_manifest.py
+          python -m unittest tests.test_projection_manifest -v
+
+      - name: Verify projection-only repository boundary
+        run: |
+          set -euo pipefail
+          test ! -e .github/workflows/publish-yahoo-best-1000.yml
+          test ! -e .github/workflows/publish-yahoo-query-ablation.yml
+          test ! -e .github/workflows/sync-quality-view.yml
+          test ! -e .github/workflows/rejection-metrics.yml
+          test ! -e .github/scripts/export_rejection_metrics.py
+          test ! -e .github/tests/test_rejection_metrics.py
+          test ! -e .github/audit/rejection-reasons-baseline.json
+          test ! -e audit/rejection-reasons-current.json
+          test ! -e audit/yahoo-query-ablation-status.json
+          test "$(grep -RIl --include='*.yml' --include='*.yaml' 'contents: write' .github/workflows | sort)" = ".github/workflows/deploy-canonical-pages-v2.yml"
+
+      - name: Generate and validate current snapshot manifest
+        run: |
+          set -euo pipefail
           python scripts/write_projection_manifest.py \
             --canonical-root . \
             --source-commit 1111111111111111111111111111111111111111 \
@@ -39,15 +59,22 @@ jobs:
           from pathlib import Path
 
           manifest = json.loads(Path('/tmp/projection-manifest.json').read_text(encoding='utf-8'))
-          events_raw = Path('events.json').read_bytes()
-          events = json.loads(events_raw)
-          assert manifest['schema_version'] == 'cast-event.projection-manifest.v1'
+          events = json.loads(Path('events.json').read_text(encoding='utf-8'))
+          assert manifest['schema_version'] == 'cast-event.projection-manifest.v2'
           assert manifest['role'] == 'projection_only'
           assert manifest['source_repository'] == 'KAFKA2306/cast_event_cal'
           assert manifest['source_commit_sha'] == '1' * 40
           assert manifest['event_count'] == events['count']
-          assert manifest['assets']['events.json']['bytes'] == len(events_raw)
-          assert manifest['assets']['events.json']['sha256'] == hashlib.sha256(events_raw).hexdigest()
+          assert manifest['collection_counts']['failed_sources'] == 0
+          assert manifest['validation_status'] == 'validated'
+          assert len(manifest['source_snapshot_sha256']) == 64
           assert manifest['data_contract']['classification_logic_in_this_repo'] is False
-          assert manifest['data_contract']['edinetdb_mode'] == 'not_applicable'
+          assert manifest['data_contract']['independent_collection_in_this_repo'] is False
+          for name, metadata in manifest['assets'].items():
+              raw = Path(name).read_bytes()
+              assert metadata['bytes'] == len(raw)
+              assert metadata['sha256'] == hashlib.sha256(raw).hexdigest()
           PY
+
+      - name: Verify checkout clean
+        run: test -z "$(git status --porcelain)"
