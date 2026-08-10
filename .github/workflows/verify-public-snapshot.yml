@@ -47,8 +47,8 @@ jobs:
           test ! -e .github/audit/rejection-reasons-baseline.json
           test ! -e audit/rejection-reasons-current.json
           test ! -e audit/yahoo-query-ablation-status.json
-          write_workflows="$(grep -RIl --include='*.yml' --include='*.yaml' 'contents: write' .github/workflows | sort)"
-          test "$write_workflows" = ".github/workflows/deploy-canonical-pages-v2.yml"
+          ! grep -RIl --include='*.yml' --include='*.yaml' \
+            'raw.githubusercontent.com/KAFKA2306/cast_event_cal' .github/workflows
 
       - name: Verify README canonical references
         run: |
