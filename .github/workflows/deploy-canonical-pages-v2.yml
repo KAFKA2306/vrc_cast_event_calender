@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - .github/workflows/deploy-canonical-pages-v2.yml
+      - scripts/write_projection_manifest.py
 
 permissions:
   contents: write
@@ -80,6 +81,11 @@ jobs:
           set -euo pipefail
           cp -a canonical/public/. production/
           touch production/.nojekyll
+          source_commit="$(git -C canonical rev-parse HEAD)"
+          python production/scripts/write_projection_manifest.py \
+            --canonical-root canonical/public \
+            --source-commit "$source_commit" \
+            --output production/projection-manifest.json
           cd production
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
@@ -98,26 +104,42 @@ jobs:
           set -euo pipefail
           expected_events_generated_at="$(python -c "import json; print(json.load(open('canonical/public/events.json', encoding='utf-8'))['generated_at'])")"
           expected_classifier_generated_at="$(python -c "import json; print(json.load(open('canonical/public/yahoo-classifier-audit.json', encoding='utf-8'))['generated_at'])")"
+          expected_source_commit="$(git -C canonical rev-parse HEAD)"
           verified=false
           root_status=000
           events_status=000
           classifier_status=000
+          manifest_status=000
           for attempt in $(seq 1 48); do
             token="${GITHUB_RUN_ID}-${attempt}"
             root_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-index.html -w '%{http_code}' "$PAGE_BASE/?run=$token" || true)"
             events_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-events.json -w '%{http_code}' "$PAGE_BASE/events.json?run=$token" || true)"
             classifier_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-classifier.json -w '%{http_code}' "$PAGE_BASE/yahoo-classifier-audit.json?run=$token" || true)"
-            if [ "$root_status" = '200' ] && [ "$events_status" = '200' ] && [ "$classifier_status" = '200' ] \
+            manifest_status="$(curl -sS --connect-timeout 10 --max-time 20 -o /tmp/live-projection-manifest.json -w '%{http_code}' "$PAGE_BASE/projection-manifest.json?run=$token" || true)"
+            if [ "$root_status" = '200' ] && [ "$events_status" = '200' ] && [ "$classifier_status" = '200' ] && [ "$manifest_status" = '200' ] \
               && grep -q 'VRChat Event Calendar' /tmp/live-index.html \
-              && EXPECTED_EVENTS="$expected_events_generated_at" EXPECTED_CLASSIFIER="$expected_classifier_generated_at" python - <<'PY'
+              && EXPECTED_EVENTS="$expected_events_generated_at" EXPECTED_CLASSIFIER="$expected_classifier_generated_at" EXPECTED_SOURCE_COMMIT="$expected_source_commit" python - <<'PY'
+          import hashlib
           import json
           import os
-          events = json.load(open('/tmp/live-events.json', encoding='utf-8'))
+          from pathlib import Path
+
+          events_path = Path('/tmp/live-events.json')
+          events = json.load(events_path.open(encoding='utf-8'))
           classifier = json.load(open('/tmp/live-classifier.json', encoding='utf-8'))
+          manifest = json.load(open('/tmp/live-projection-manifest.json', encoding='utf-8'))
           assert events.get('generated_at') == os.environ['EXPECTED_EVENTS']
           assert classifier.get('generated_at') == os.environ['EXPECTED_CLASSIFIER']
           assert classifier.get('classifier_version') == '1.9'
           assert events.get('count', 0) >= 500
+          assert manifest.get('role') == 'projection_only'
+          assert manifest.get('source_repository') == 'KAFKA2306/cast_event_cal'
+          assert manifest.get('source_commit_sha') == os.environ['EXPECTED_SOURCE_COMMIT']
+          expected = manifest.get('assets', {}).get('events.json', {})
+          raw = events_path.read_bytes()
+          assert expected.get('bytes') == len(raw)
+          assert expected.get('sha256') == hashlib.sha256(raw).hexdigest()
+          assert manifest.get('event_count') == events.get('count')
           PY
             then
               verified=true
@@ -127,7 +149,7 @@ jobs:
           done
           test "$verified" = true
           mkdir -p production/audit
-          ROOT_STATUS="$root_status" EVENTS_STATUS="$events_status" CLASSIFIER_STATUS="$classifier_status" python - <<'PY'
+          ROOT_STATUS="$root_status" EVENTS_STATUS="$events_status" CLASSIFIER_STATUS="$classifier_status" MANIFEST_STATUS="$manifest_status" SOURCE_COMMIT="$expected_source_commit" python - <<'PY'
           import json
           import os
           from datetime import UTC, datetime
@@ -135,19 +157,25 @@ jobs:
 
           events = json.loads(Path('/tmp/live-events.json').read_text(encoding='utf-8'))
           classifier = json.loads(Path('/tmp/live-classifier.json').read_text(encoding='utf-8'))
+          manifest = json.loads(Path('/tmp/live-projection-manifest.json').read_text(encoding='utf-8'))
           result = {
-              'schema_version': '1.0',
+              'schema_version': '2.0',
               'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
               'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/',
               'root_status': int(os.environ['ROOT_STATUS']),
               'events_status': int(os.environ['EVENTS_STATUS']),
               'classifier_status': int(os.environ['CLASSIFIER_STATUS']),
+              'manifest_status': int(os.environ['MANIFEST_STATUS']),
               'events_generated_at': events.get('generated_at'),
               'event_count': events.get('count'),
               'classifier_generated_at': classifier.get('generated_at'),
               'classifier_version': classifier.get('classifier_version'),
               'yahoo_candidate_count': classifier.get('candidate_count'),
               'yahoo_accepted_count': classifier.get('accepted_count'),
+              'source_repository': manifest.get('source_repository'),
+              'source_commit_sha': manifest.get('source_commit_sha'),
+              'expected_source_commit_sha': os.environ['SOURCE_COMMIT'],
+              'projection_manifest_schema': manifest.get('schema_version'),
               'status': 'ok',
           }
           Path('production/audit/production-v2-status.json').write_text(
