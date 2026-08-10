@@ -25,3 +25,29 @@ jobs:
 
       - name: Verify public snapshot
         run: python scripts/verify_public_snapshot.py
+
+      - name: Verify projection manifest generator
+        run: |
+          python -m py_compile scripts/write_projection_manifest.py
+          python scripts/write_projection_manifest.py \
+            --canonical-root . \
+            --source-commit 1111111111111111111111111111111111111111 \
+            --output /tmp/projection-manifest.json
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          manifest = json.loads(Path('/tmp/projection-manifest.json').read_text(encoding='utf-8'))
+          events_raw = Path('events.json').read_bytes()
+          events = json.loads(events_raw)
+          assert manifest['schema_version'] == 'cast-event.projection-manifest.v1'
+          assert manifest['role'] == 'projection_only'
+          assert manifest['source_repository'] == 'KAFKA2306/cast_event_cal'
+          assert manifest['source_commit_sha'] == '1' * 40
+          assert manifest['event_count'] == events['count']
+          assert manifest['assets']['events.json']['bytes'] == len(events_raw)
+          assert manifest['assets']['events.json']['sha256'] == hashlib.sha256(events_raw).hexdigest()
+          assert manifest['data_contract']['classification_logic_in_this_repo'] is False
+          assert manifest['data_contract']['edinetdb_mode'] == 'not_applicable'
+          PY
