@@ -47,8 +47,16 @@ jobs:
           test ! -e .github/audit/rejection-reasons-baseline.json
           test ! -e audit/rejection-reasons-current.json
           test ! -e audit/yahoo-query-ablation-status.json
-          ! grep -RIl --include='*.yml' --include='*.yaml' \
-            'raw.githubusercontent.com/KAFKA2306/cast_event_cal' .github/workflows
+          python - <<'PY'
+          from pathlib import Path
+          needle = 'raw.githubusercontent.com/' + 'KAFKA2306/cast_event_cal'
+          offenders = [
+              str(path)
+              for path in Path('.github/workflows').glob('*.y*ml')
+              if needle in path.read_text(encoding='utf-8')
+          ]
+          assert not offenders, f'partial canonical publishers remain: {offenders}'
+          PY
 
       - name: Verify README canonical references
         run: |
