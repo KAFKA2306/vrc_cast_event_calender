@@ -66,5 +66,8 @@ jobs:
           grep -q 'KAFKA2306/cast_event_cal/blob/main/README.md#品質原則' README.md
           grep -q 'projection_only' README.md
 
+      - name: Remove test caches
+        run: find . -type d -name __pycache__ -prune -exec rm -rf {} +
+
       - name: Verify checkout clean
         run: test -z "$(git status --porcelain)"
