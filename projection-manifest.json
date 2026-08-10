@@ -1,0 +1,40 @@
+{
+  "schema_version": "cast-event.projection-manifest.v1",
+  "role": "projection_only",
+  "source_repository": "KAFKA2306/cast_event_cal",
+  "source_commit_sha": "1a2c524722e07b1ba9b89cbe1a29d7bc733b1551",
+  "generated_at": "2026-08-10T00:42:51Z",
+  "source_snapshot_generated_at": "2026-08-09T21:16:59Z",
+  "event_count": 594,
+  "assets": {
+    "events.json": {
+      "bytes": 1927101,
+      "sha256": "752ab47b0a42171fd307f53ced19d176e23a3eaec7bdcc2d139738ac6aa72af9"
+    },
+    "health.json": {
+      "bytes": 2322,
+      "sha256": "12a73266d1d638297e0316c5d721d26f3830610e54aaa73eb0ddf3932efb6ff9"
+    },
+    "calendar.ics": {
+      "bytes": 272065,
+      "sha256": "5ad65bb62d541faf63c8398db88a88c4f2f65f61c5e32a60cf84baaf6a02882a"
+    },
+    "event-ontology.json": {
+      "bytes": 217617,
+      "sha256": "c94dd68f60f040355ea9590975f4f680e10b0fefebe6e3e87aa657f77f8a1dd0"
+    },
+    "category-ontology.json": {
+      "bytes": 12267,
+      "sha256": "ae754556ffccdf3fcd40640fb7e534cd11c897617ab632335c541810a9c088bb"
+    },
+    "ontology-match-audit.json": {
+      "bytes": 103691,
+      "sha256": "237837578b4ce16a07083d746c05031688df120328b45036b9ed7cc28bbdabdc"
+    }
+  },
+  "data_contract": {
+    "canonical_ingestion": "KAFKA2306/cast_event_cal",
+    "classification_logic_in_this_repo": false,
+    "edinetdb_mode": "not_applicable"
+  }
+}
