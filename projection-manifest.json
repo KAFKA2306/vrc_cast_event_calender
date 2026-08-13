@@ -5,9 +5,9 @@
   "source_commit_sha": "0a8761e15fbd07d9e296cb0dd902a7358929fa0c",
   "source_snapshot_sha256": "41da2888d8d1aca4efd5d96481b3aedf68a0eb558148bff044bcf64cae7656a5",
   "source_snapshot_generated_at": "2026-08-12T21:31:50Z",
-  "generated_at": "2026-08-13T03:06:42Z",
-  "received_at": "2026-08-13T03:06:42Z",
-  "deployed_at": "2026-08-13T03:06:42Z",
+  "generated_at": "2026-08-13T08:00:08Z",
+  "received_at": "2026-08-13T08:00:08Z",
+  "deployed_at": "2026-08-13T08:00:08Z",
   "collection_counts": {
     "event_count": 596,
     "enabled_sources": 5,
