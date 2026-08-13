@@ -2,19 +2,19 @@
   "schema_version": "cast-event.projection-manifest.v2",
   "role": "projection_only",
   "source_repository": "KAFKA2306/cast_event_cal",
-  "source_commit_sha": "b0873c01b7225ecde66929a011adb3d2a098c489",
-  "source_snapshot_sha256": "621c87ba6234ac3031568f1b1fa79af17512a6b83f8cd56d32fc7d054747332b",
-  "source_snapshot_generated_at": "2026-08-12T00:15:28Z",
-  "generated_at": "2026-08-12T19:35:04Z",
-  "received_at": "2026-08-12T19:35:04Z",
-  "deployed_at": "2026-08-12T19:35:04Z",
+  "source_commit_sha": "0a8761e15fbd07d9e296cb0dd902a7358929fa0c",
+  "source_snapshot_sha256": "41da2888d8d1aca4efd5d96481b3aedf68a0eb558148bff044bcf64cae7656a5",
+  "source_snapshot_generated_at": "2026-08-12T21:31:50Z",
+  "generated_at": "2026-08-13T03:06:42Z",
+  "received_at": "2026-08-13T03:06:42Z",
+  "deployed_at": "2026-08-13T03:06:42Z",
   "collection_counts": {
-    "event_count": 599,
+    "event_count": 596,
     "enabled_sources": 5,
     "successful_sources": 5,
     "failed_sources": 0
   },
-  "event_count": 599,
+  "event_count": 596,
   "ontology_version": "3.0",
   "validation_status": "validated",
   "assets": {
@@ -27,44 +27,44 @@
       "sha256": "866eac76992a50aba3e17f5b89d8d67ca14b396ad966db5a355f0335d5deb785"
     },
     "calendar.ics": {
-      "bytes": 277180,
-      "sha256": "a6ffbe36de94e4d6c06f33b4d6f99a1f1d938c5f29784c77b299c589ba3e5d2e"
+      "bytes": 273350,
+      "sha256": "4cb219fcbb1c613b2007a8f4202b26e3f6d2622e5eede3f90a37ff4bc6666237"
     },
     "category-ontology.json": {
       "bytes": 12267,
       "sha256": "ae754556ffccdf3fcd40640fb7e534cd11c897617ab632335c541810a9c088bb"
     },
     "event-link-audit.json": {
-      "bytes": 27817,
-      "sha256": "9312a91a98f50d0c8012c998a1010368b99038d3c5b112c0f2e0280f9276df1f"
+      "bytes": 27936,
+      "sha256": "f2f37d25fac26226a0fd366b2950935dcdb4a91d76b16940886ced03bd17be55"
     },
     "event-ontology.json": {
-      "bytes": 224851,
-      "sha256": "e5d264e2e94d6eac99a0593f57e60e525a14ca92e455826c8ed26f94abf4c9ff"
+      "bytes": 219152,
+      "sha256": "1f15bd83b3cbaa54be7ea25311827386cae1aabbc8730e707b0db8cbdff0fde7"
     },
     "events.json": {
-      "bytes": 1946748,
-      "sha256": "d00ec7ca086af7860bdcee51c6f15c0693befa0da8d78b04654d54a0d00d18ea"
+      "bytes": 1933391,
+      "sha256": "89633a0a68664d0dc303861364182206432b1019744c80bf4cceb653aec337ac"
     },
     "health.json": {
-      "bytes": 2347,
-      "sha256": "a523e35ca7ddf0ef411ad93c637e6e6782917acd55e69b6ebccdbd04634b781f"
+      "bytes": 2346,
+      "sha256": "05b738e892930070f4db0274a025e1cecace47d675630415a6bd1b6715b313b7"
     },
     "index.html": {
       "bytes": 37572,
-      "sha256": "f53f28a41a9aa259d54452bb7a59eeba22ba641d1c79ae97d318276768a592e6"
+      "sha256": "1239e6c0d62515e199c2d9fef86aa6a06b675e4088ef27e36ef6c314ee437762"
     },
     "official-asset-audit.json": {
-      "bytes": 10711,
-      "sha256": "91510d35bef53224afd7fa30919720a850baa0df8584200791de60478b4e42d0"
+      "bytes": 10433,
+      "sha256": "1cde26eb0cf1be0231e200024fecbc3d9cdf03d3589f9d830836ff87a8bf7992"
     },
     "ontology-match-audit.json": {
-      "bytes": 102850,
-      "sha256": "7b4e37bde3c02eb61e0803031ca285eecdf6b6283455c9ab36d4641e69a5c18d"
+      "bytes": 102123,
+      "sha256": "ea71806e5f85afc9b9447f6e7589f5ad0abcef2d3ee310915168e4fe3f7253d0"
     },
     "registration-count-audit.json": {
-      "bytes": 24838,
-      "sha256": "1a84218b0e5d5bdb1804d6680b602f21fd48b3e597566fc5e59d077e8434b52a"
+      "bytes": 27860,
+      "sha256": "f39d04e362bf1de86f8b5d9fd6bb4b920452c959591cec7344d7569b5a4db456"
     },
     "series-profile.js": {
       "bytes": 6958,
@@ -79,36 +79,36 @@
       "sha256": "c6eed12aeb38a458702d90958493577a8a398787ecce08b6876390fe45cc7932"
     },
     "vrchat-group-asset-audit.json": {
-      "bytes": 10429,
-      "sha256": "2363a78ef9062a8ca68b77f5a3f71c08824565ae14c8ff8d3fdb6f18685c7690"
+      "bytes": 10287,
+      "sha256": "47c56a72e34bfd3405e940c524a5005c5e09e9867f641ba4f426be5d0013ab5f"
     },
     "yahoo-best-1000-audit.json": {
       "bytes": 21364,
       "sha256": "4253b6c77dedaeeae69f6ca21308b85f0abeec4973209737e95becdf483aa20d"
     },
     "yahoo-candidate-history.json": {
-      "bytes": 4541254,
-      "sha256": "f58c1cd06f50645ed60b900040518ec2a1a51e03f3d788271bd0d6934c734218"
+      "bytes": 4699362,
+      "sha256": "da3a973419114e857a5e91555a6b47ffdbe0a0e2e6989f2f17a94755caf0a857"
     },
     "yahoo-classifier-audit.json": {
-      "bytes": 208858,
-      "sha256": "567060d92ef87150930668095c372acad18e3f4ba03cc00073253a3f72290e4b"
+      "bytes": 210221,
+      "sha256": "cbc65fcf579cffd9a3207f60b79480902cec22f043186ea4719ff81c839e9287"
     },
     "yahoo-date-resolution-audit.json": {
-      "bytes": 1129,
-      "sha256": "c0eb9cb3715f6a86275acc2be1a2e49af7e7b9815299cda86393eee6791f8782"
+      "bytes": 1682,
+      "sha256": "c402983310b914b089da66cf89dcff85a5eb62ce62bb9c0ba6a8a5c9e10141b9"
     },
     "yahoo-llm-review-queue-audit.json": {
       "bytes": 298,
-      "sha256": "af1ed0f992bcfc17be30792674a66528042a2b75dd2cdafb1148bc08e16d72a5"
+      "sha256": "9c9c032e92f6b10948edb4cb3aa7994962f5e2301358fd4cdea982dddbe4136d"
     },
     "yahoo-positive-vocabulary.json": {
       "bytes": 4583,
-      "sha256": "848f0a30b9d558d0d979f52cfac197c67d4d9a186b1491d4bf8ab02c830da7cc"
+      "sha256": "5d3a04754713f62e0a4c9253f85d3925a7e1e2f60af2e9b87fd5921e5ca374db"
     },
     "yahoo-query-ablation.json": {
-      "bytes": 17461,
-      "sha256": "d368238313ec5a08adae1a33540dc8b48f96fff78f4d52e84fd7e0a97768f1e5"
+      "bytes": 17368,
+      "sha256": "a2879550013a4c543cbc189989a3a5586758bd334b0b8a64a9e5fceeb2db28f4"
     },
     "yahoo-query-expert-model.json": {
       "bytes": 99712,
@@ -116,7 +116,7 @@
     },
     "yahoo-rejection-sample-audit.json": {
       "bytes": 24451,
-      "sha256": "2d36c82e9a36e02b71137cb7e3a7aef40c19926c95cbec88798320df3a187278"
+      "sha256": "e7e15ea05184487fb943ea83a018f8cf41f5a588ec80b9949ccefb451121e41f"
     }
   },
   "data_contract": {
