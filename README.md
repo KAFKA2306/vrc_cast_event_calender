@@ -1,8 +1,12 @@
-# VRChat Event Calendar — 公開projection
+# VRChat Event Calendar
 
-`KAFKA2306/vrc_cast_event_calender` は、VRChatイベントの検証済みsnapshotを配信する **projection/deploy専用リポジトリ** です。
+**公開カレンダーが見えていても、「その情報をどこで作ったか」が曖昧なら更新事故は防げない。**
 
-**このリポジトリは正本ではありません。** 収集、正規化、重複除去、分類、event series ontology、品質判定、公開snapshot生成の正本は [`KAFKA2306/cast_event_cal`](https://github.com/KAFKA2306/cast_event_cal) です。このリポジトリでは同じeventを再収集・再分類せず、正本が生成した `public/` snapshotを受信し、整合性を検証して静的配信します。
+収集・分類する場所と配信する場所を同じ正本として扱うと、片方だけ更新されたり、配信成功を収集成功と誤認したりします。このリポジトリは、イベントを再収集・再分類せず、正本が作った検証済みsnapshotだけを受け取って公開する配信面です。
+
+正本は [`KAFKA2306/cast_event_cal`](https://github.com/KAFKA2306/cast_event_cal) です。ここで初めて projection、snapshot、manifest、hash parity などの技術語を使い、正本commitと公開artifactの対応を検証します。
+
+READMEの入口は [`KAFKA2306/articles#34`](https://github.com/KAFKA2306/articles/issues/34) の「広い問題 → 具体例 → 技術」の編集原則を維持し、配信成功を収集・分類成功へ読み替えません。
 
 - GitHub Pages: https://kafka2306.github.io/vrc_cast_event_calender/
 - Cloudflare Pages: https://vrc-cast-event-calender.pages.dev/
