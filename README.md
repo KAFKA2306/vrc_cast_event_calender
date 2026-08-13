@@ -4,9 +4,7 @@
 
 収集・分類する場所と配信する場所を同じ正本として扱うと、片方だけ更新されたり、配信成功を収集成功と誤認したりします。このリポジトリは、イベントを再収集・再分類せず、正本が作った検証済みsnapshotだけを受け取って公開する配信面です。
 
-正本は [`KAFKA2306/cast_event_cal`](https://github.com/KAFKA2306/cast_event_cal) です。ここで初めて projection、snapshot、manifest、hash parity などの技術語を使い、正本commitと公開artifactの対応を検証します。
-
-READMEの入口は [`KAFKA2306/articles#34`](https://github.com/KAFKA2306/articles/issues/34) の「広い問題 → 具体例 → 技術」の編集原則を維持し、配信成功を収集・分類成功へ読み替えません。
+正本は [`KAFKA2306/cast_event_cal`](https://github.com/KAFKA2306/cast_event_cal) です。projection、snapshot、manifest、hash parityを使って、正本commitと公開artifactの対応を検証し、配信成功を収集・分類成功へ読み替えません。
 
 - GitHub Pages: https://kafka2306.github.io/vrc_cast_event_calender/
 - Cloudflare Pages: https://vrc-cast-event-calender.pages.dev/
@@ -77,7 +75,7 @@ mismatch時はdeploy workflowをfailureにし、「古い値や一部だけ更�
 | `projection-manifest.json` | 正本commit・snapshot・artifact hashの追跡契約 |
 | `audit/production-v2-status.json` | production HTTP検証結果 |
 
-件数・分類version・生成時刻はsnapshotごとに変わるため、このREADMEへ固定値として複製しません。現在値は各JSONとmanifestを参照してください。
+件数・分類version・生成時刻はsnapshotごとに変わります。現在値は各JSONとmanifestを参照してください。
 
 ## 利用者向け画面
 
