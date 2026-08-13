@@ -1,13 +1,13 @@
 {
   "schema_version": "3.0",
-  "verified_at": "2026-08-12T19:35:07Z",
+  "verified_at": "2026-08-13T03:07:16Z",
   "page_url": "https://kafka2306.github.io/vrc_cast_event_calender/",
   "source_repository": "KAFKA2306/cast_event_cal",
-  "source_commit_sha": "b0873c01b7225ecde66929a011adb3d2a098c489",
-  "source_snapshot_sha256": "621c87ba6234ac3031568f1b1fa79af17512a6b83f8cd56d32fc7d054747332b",
+  "source_commit_sha": "0a8761e15fbd07d9e296cb0dd902a7358929fa0c",
+  "source_snapshot_sha256": "41da2888d8d1aca4efd5d96481b3aedf68a0eb558148bff044bcf64cae7656a5",
   "projection_manifest_schema": "cast-event.projection-manifest.v2",
   "asset_count": 25,
-  "event_count": 599,
+  "event_count": 596,
   "validation_status": "validated",
   "status": "ok"
 }
