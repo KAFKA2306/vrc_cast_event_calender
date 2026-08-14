@@ -1,10 +1,8 @@
 # VRChat Event Calendar
 
-**公開カレンダーが見えていても、「その情報をどこで作ったか」が曖昧なら更新事故は防げない。**
+**今夜行けるイベントを探したい。そのとき必要なのは、イベント数より「この日時・参加方法をどこまで信じてよいか」です。**
 
-収集・分類する場所と配信する場所を同じ正本として扱うと、片方だけ更新されたり、配信成功を収集成功と誤認したりします。このリポジトリは、イベントを再収集・再分類せず、正本が作った検証済みsnapshotだけを受け取って公開する配信面です。
-
-正本は [`KAFKA2306/cast_event_cal`](https://github.com/KAFKA2306/cast_event_cal) です。projection、snapshot、manifest、hash parityを使って、正本commitと公開artifactの対応を検証し、配信成功を収集・分類成功へ読み替えません。
+VRChat Event Calendar は、VRChatのイベントを検索・購読しやすい形で公開しながら、**表示している情報がどの正本snapshotから来たのかを追跡できる配信面**です。
 
 - GitHub Pages: https://kafka2306.github.io/vrc_cast_event_calender/
 - Cloudflare Pages: https://vrc-cast-event-calender.pages.dev/
@@ -12,98 +10,164 @@
 - iCalendar: https://kafka2306.github.io/vrc_cast_event_calender/calendar.ics
 - 標準タイムゾーン: JST
 
-## 正本への入口
+正本は [`KAFKA2306/cast_event_cal`](https://github.com/KAFKA2306/cast_event_cal) です。このrepositoryはイベントを再収集・再分類せず、正本が生成した検証済みsnapshotを受け取って公開します。
 
-データの意味・生成方法・品質判定は配信repoで二重定義しません。次の正本資料を参照してください。
+## Vision
 
-- **正本README / Data Quality:** https://github.com/KAFKA2306/cast_event_cal/blob/main/README.md#品質原則
-- **Methodology / scraping:** https://github.com/KAFKA2306/cast_event_cal/blob/main/docs/SCRAPING_METHOD.md
-- **MCP:** https://github.com/KAFKA2306/cast_event_cal/blob/main/docs/mcp.md
-- **Architecture:** https://github.com/KAFKA2306/cast_event_cal/blob/main/docs/architecture.md
-- **API:** https://github.com/KAFKA2306/cast_event_cal/blob/main/docs/api-v1.md
+複数の告知先を手作業で巡回しなくても、**利用者が「今夜・今週どんなVRChatイベントがあるか」を素早く見つけ、公式告知へ戻って参加判断できる体験**を作ります。
 
-MCPをこの配信面へ追加する場合も、同一snapshot/read modelを読むproxy/adapterに限定します。このrepoで独立した収集・分類・正本データを生成しません。
+同時に、配信側が古い・部分的・壊れたデータを「最新」と見せないことを重視します。
 
-## Data Contract
+利用者ができること:
 
-公開snapshotは `.github/workflows/deploy-canonical-pages-v2.yml` が `KAFKA2306/cast_event_cal` の `main` をcheckoutし、`canonical/public/` を一括受信して配信します。部分的なYahoo evidence同期やdeploy側での分類指標生成は正準経路にしません。
+- 日時・カテゴリ・情報源からイベントを探す
+- mobile-firstの`/tonight/`で開催直前の情報を見る
+- calendarを購読する
+- 主催者の公式告知・Group・World・申込先へ移動する
+- 公開snapshotのsource commit / hash / healthを確認する
 
-各deployで `projection-manifest.json` を生成します。manifest v2は少なくとも次を保持します。
+## Design philosophy
 
-- `schema_version`
+- **収集と配信を二重管理しない。** ingestion / normalization / classificationは`cast_event_cal`だけが担う。
+- **配信成功をデータ成功と呼ばない。** Pagesが200を返しても、正本snapshotのhealthとparityが合わなければ成功扱いしない。
+- **partial updateを正常snapshotにしない。** canonical `public/` を一括受信し、artifact集合全体をmanifestで固定する。
+- **鮮度を推測しない。** source commit、snapshot generated time、received/deployed timeを分けて保持する。
+- **hashで正本まで戻れるようにする。** path / bytes / SHA-256からsnapshot digestを決定論的に作る。
+- **最終判断は主催者の最新公式情報へ戻す。** calendarは発見と整理を助けるが、主催者の告知を置き換えない。
+
+## Why / 差別化
+
+静的なイベント一覧やICSを作るだけなら、配信は簡単です。難しいのは、**配信された1件1件が「どの正本状態から来たか」を説明し、正本と公開物がずれたときに公開を止めること**です。
+
+このrepositoryの差別化はイベント件数ではありません。
+
+- canonical sourceとprojectionを分離する
+- source commitとsnapshot digestを公開artifactへ結びつける
+- fail-closed parity gateを持つ
+- production HTTP verificationをbuild成功と分離する
+
+ことで、利用者へ「見えているから正しい」ではなく「どの状態を根拠に表示しているか分かる」calendarを提供します。
+
+## User journey
+
+```text
+イベントを探す
+  → / または /tonight/
+  → 日時・カテゴリ・情報源で絞る
+  → event cardを確認
+  → 主催者の公式告知へ移動
+  → 最新日時・参加条件を最終確認
+  → VRChatで参加
+```
+
+calendarの役割は、公式情報へ短く到達させることです。
+
+## Canonical data boundary
+
+```text
+KAFKA2306/cast_event_cal
+  collection
+  normalization
+  classification
+  ontology
+  canonical public snapshot
+        │
+        │ source commit + hashes
+        ▼
+KAFKA2306/vrc_cast_event_calender
+  receive
+  parity validation
+  projection only
+        │
+        ├─ GitHub Pages
+        └─ Cloudflare Pages
+```
+
+配信repoで独自collector、独自classifier、別正本DBを持ちません。
+
+正本資料:
+
+- [README / Data Quality](https://github.com/KAFKA2306/cast_event_cal/blob/main/README.md)
+- [Scraping methodology](https://github.com/KAFKA2306/cast_event_cal/blob/main/docs/SCRAPING_METHOD.md)
+- [Architecture](https://github.com/KAFKA2306/cast_event_cal/blob/main/docs/architecture.md)
+- [API](https://github.com/KAFKA2306/cast_event_cal/blob/main/docs/api-v1.md)
+- [MCP](https://github.com/KAFKA2306/cast_event_cal/blob/main/docs/mcp.md)
+
+## Projection manifest
+
+`.github/workflows/deploy-canonical-pages-v2.yml` が正本`main`の`canonical/public/`を受信し、`projection-manifest.json`を生成します。
+
+主なfield:
+
 - `role = projection_only`
 - `source_repository`
 - `source_commit_sha`
 - `source_snapshot_sha256`
 - `source_snapshot_generated_at`
-- `generated_at`
 - `received_at`
 - `deployed_at`
 - `collection_counts`
 - `event_count`
 - `ontology_version`
 - `validation_status`
-- canonical `public/` 配下の**全file**について `bytes` / `sha256`
+- 全canonical artifactの`bytes` / `sha256`
 
-`source_snapshot_sha256` は、manifestに列挙した全canonical artifactのpath・byte数・SHA-256から決定論的に導出します。これにより、公開snapshotから正本commitと受信artifact集合へ遡れます。
+`source_snapshot_sha256` はmanifest内のartifact集合から決定論的に導出します。
 
-## Fail-closed gate
+## Fail-closed publish gate
 
-公開前に次を検証します。
+公開前に検証するもの:
 
-1. 正本 `events.json` / `health.json` / ontology / auditのschemaと件数整合
-2. `health.status == ok` かつ `failed_sources == 0`
-3. event countとsource/ontology監査の整合
-4. projection manifestのsource commit、snapshot digest、全artifact byte数・SHA-256
-5. GitHub PagesのHTTP responseとmanifest/source commitの一致
-6. 公開artifactのhash parity
+1. `events.json` / `health.json` / ontology / auditのschema・件数整合
+2. `health.status == ok`
+3. `failed_sources == 0`
+4. source commit / snapshot digest / bytes / SHA-256 parity
+5. GitHub Pages production HTTP response
+6. production manifestとsource commitの一致
 
-mismatch時はdeploy workflowをfailureにし、「古い値や一部だけ更新した値を正常snapshotとして公開できた」とは扱いません。
+mismatch時はdeploy failureです。古いsnapshotや部分更新を「正常最新値」へ昇格しません。
 
-## 公開data
+## Public artifacts
 
-主なartifact:
-
-| path | 役割 |
+| path | purpose |
 |---|---|
-| `events.json` | 統合イベントと生成metadata |
-| `calendar.ics` | カレンダー購読 |
-| `health.json` | 正本pipelineのhealth snapshot |
-| `event-ontology.json` | event seriesとの紐付け結果 |
-| `category-ontology.json` | category / 開催形式定義 |
-| `ontology-match-audit.json` | ontology照合監査 |
-| `projection-manifest.json` | 正本commit・snapshot・artifact hashの追跡契約 |
-| `audit/production-v2-status.json` | production HTTP検証結果 |
+| `events.json` | canonical event projection |
+| `calendar.ics` | calendar subscription |
+| `health.json` | source pipeline health |
+| `event-ontology.json` | event-series relation |
+| `category-ontology.json` | category / format definitions |
+| `ontology-match-audit.json` | ontology matching evidence |
+| `projection-manifest.json` | source commit / snapshot / artifact parity |
+| `audit/production-v2-status.json` | production HTTP verification |
 
-件数・分類version・生成時刻はsnapshotごとに変わります。現在値は各JSONとmanifestを参照してください。
+件数・分類version・生成時刻はsnapshotごとに変わるため、現在値はJSON / manifestを参照してください。
 
-## 利用者向け画面
+## Views
 
-- `/` — 検索、期間、カテゴリ、情報源、分類根拠を確認する一覧
-- `/tonight/` — 開催時刻と参加方法を優先するmobile-first画面
+### `/`
 
-イベントカードから公式告知、参加・申込ページ、VRChat Group、World、公式X等を確認できます。日時・参加条件は主催者の最新公式情報を最終確認してください。
+検索・期間・カテゴリ・情報源を使う通常のevent discovery viewです。
 
-## ローカルpreview
+### `/tonight/`
 
-静的ファイルが中心です。
+開催時刻と参加方法を優先するmobile-first viewです。直前の参加判断では必ず公式告知を再確認してください。
+
+## Local preview
 
 ```bash
 python -m http.server 8000
 ```
 
-その後、`http://localhost:8000/` または `/tonight/` を開きます。`file://` ではbrowserのfetch制限によりJSONを読み込めない場合があります。
+`http://localhost:8000/` または `/tonight/` を開きます。`file://`ではJSON fetchが制限される場合があります。
 
-## 検証
-
-repository内snapshot:
+## Validation
 
 ```bash
 python scripts/verify_public_snapshot.py
 python -m unittest tests.test_projection_manifest -v
 ```
 
-projection manifest生成:
+manifest生成:
 
 ```bash
 python scripts/write_projection_manifest.py \
@@ -112,37 +176,24 @@ python scripts/write_projection_manifest.py \
   --output projection-manifest.json
 ```
 
-PRとmainでは `.github/workflows/verify-public-snapshot.yml` が同じ契約を検査します。実deployは `.github/workflows/deploy-canonical-pages-v2.yml` が正本checkout → 検証 → 一括copy → manifest生成 → production HTTP検証まで行います。
+## Privacy / security
 
-## セキュリティとprivacy
+- API key、cookie、認証sessionをpublic repoへ保存しない
+- 非公開event・参加者個人情報を公開dataへ入れない
+- 閲覧履歴を正本へ送らない
+- collection側の利用条件・rate limitは`cast_event_cal`で管理する
+- 配信面へ独立した正本MCP / collectorを追加しない
 
-- API key、cookie、認証sessionを公開repositoryへ保存しません。
-- 非公開eventや参加者個人情報を公開dataへ追加しません。
-- 閲覧履歴を使うUI機能はbrowser内に保持し、serverへ正本データとして送信しません。
-- 正本の取得元利用条件・rate limit・分類方針は `cast_event_cal` 側で管理します。
-- 配信repoは独自のEDINETDB consumer、独立MCP正本、独自収集器を持ちません。
+## Known limits
 
-## 既知の制約
+- すべてのVRChat eventを網羅するサービスではない
+- source停止・仕様変更で欠損は起こり得る
+- 自動分類は誤る可能性がある
+- build成功だけではproduction/CDN状態まで証明しない
+- calendar情報は主催者の最終公式告知を置き換えない
 
-- すべてのVRChat eventを網羅するサービスではありません。
-- 正本の情報源停止や仕様変更により欠損が発生し得ます。
-- 自動分類には誤りがあり得ます。
-- repository snapshotの整合だけではCDN/cacheを含むproduction成功を証明しないため、production HTTP検証を別gateで行います。
-- GitHub Contents API等は大容量JSON本文を省略する場合があるため、byte数やhashの判定はcheckoutした実ファイルで行います。
+## Done
 
-## Repository boundary
+このrepositoryの成功は「イベントを何件表示したか」では測りません。
 
-```text
-KAFKA2306/cast_event_cal
-  canonical ingestion / normalization / classification / ontology
-  canonical public snapshot generation
-        │
-        ▼  commit SHA + snapshot hashes
-KAFKA2306/vrc_cast_event_calender
-  receive / parity validation / static projection
-        │
-        ├─ GitHub Pages
-        └─ Cloudflare Pages
-```
-
-この境界を変更する場合は、正本と配信面を再び二重管理しないことを最優先にします。
+**利用者が行きたいイベントへ短く到達でき、運営側はその表示がどの正本snapshotに基づくかを説明でき、ずれた公開物を正常扱いしないこと**をDoneとします。
