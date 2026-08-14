@@ -71,7 +71,6 @@ jobs:
       - name: Start static site
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/web-quality-http.log 2>&1 &
-          echo $! > /tmp/web-quality-http.pid
           for i in {1..30}; do
             curl --fail --silent http://127.0.0.1:4173/ >/dev/null && exit 0
             sleep 1
@@ -81,7 +80,8 @@ jobs:
 
       - name: Playwright + axe
         run: |
-          cat > /tmp/a11y.spec.js <<'EOF'
+          mkdir -p .web-quality
+          cat > .web-quality/a11y.spec.js <<'EOF'
           const { test, expect } = require('@playwright/test')
           const AxeBuilder = require('@axe-core/playwright').default
 
@@ -92,7 +92,14 @@ jobs:
             expect(results.violations).toEqual([])
           })
           EOF
-          npx playwright test /tmp/a11y.spec.js --project=chromium --config=/dev/null
+          cat > .web-quality/playwright.config.js <<'EOF'
+          module.exports = {
+            testDir: '.',
+            workers: 1,
+            use: { browserName: 'chromium' },
+          }
+          EOF
+          npx playwright test --config=.web-quality/playwright.config.js
 
       - name: Lighthouse CI
         run: >-
