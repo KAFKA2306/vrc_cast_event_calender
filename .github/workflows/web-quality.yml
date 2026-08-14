@@ -1,0 +1,102 @@
+name: Web quality
+
+on:
+  pull_request:
+    paths:
+      - "**/*.html"
+      - "**/*.css"
+      - "**/*.js"
+      - "**/*.md"
+      - ".github/workflows/web-quality.yml"
+  push:
+    branches: [main]
+    paths:
+      - "**/*.html"
+      - "**/*.css"
+      - "**/*.js"
+      - "**/*.md"
+      - ".github/workflows/web-quality.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: web-quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  conformance-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Nu HTML Checker
+        run: >-
+          docker run --rm
+          -v "${{ github.workspace }}:/data:ro"
+          ghcr.io/validator/validator:latest
+          vnu --skip-non-html /data
+
+      - name: Check links with lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --verbose
+            --exclude-mail
+            README.md
+            index.html
+            docs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  browser-a11y-performance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install browser audit tools
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-save --package-lock=false @playwright/test@1.57.0 @axe-core/playwright@4.12.1 @lhci/cli@0.15.1
+          npx playwright install --with-deps chromium
+
+      - name: Start static site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/web-quality-http.log 2>&1 &
+          echo $! > /tmp/web-quality-http.pid
+          for i in {1..30}; do
+            curl --fail --silent http://127.0.0.1:4173/ >/dev/null && exit 0
+            sleep 1
+          done
+          cat /tmp/web-quality-http.log
+          exit 1
+
+      - name: Playwright + axe
+        run: |
+          cat > /tmp/a11y.spec.js <<'EOF'
+          const { test, expect } = require('@playwright/test')
+          const AxeBuilder = require('@axe-core/playwright').default
+
+          test('home page has no automatically detectable accessibility violations', async ({ page }) => {
+            await page.goto('http://127.0.0.1:4173/')
+            await page.waitForLoadState('networkidle')
+            const results = await new AxeBuilder({ page }).analyze()
+            expect(results.violations).toEqual([])
+          })
+          EOF
+          npx playwright test /tmp/a11y.spec.js --project=chromium --config=/dev/null
+
+      - name: Lighthouse CI
+        run: >-
+          npx lhci collect
+          --url=http://127.0.0.1:4173/
+          --numberOfRuns=1
+          && npx lhci assert --preset=lighthouse:recommended
