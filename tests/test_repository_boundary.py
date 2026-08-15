@@ -31,6 +31,15 @@ class RepositoryBoundaryTest(unittest.TestCase):
     def test_noncanonical_write_capable_research_workflow_is_absent(self):
         self.assertFalse((ROOT / ".github/workflows/weekly-repo-research.yml").exists())
 
+    def test_cloudflare_routes_are_delivery_owned(self):
+        routes = ROOT / "_routes.json"
+        self.assertTrue(routes.is_file())
+        payload = json.loads(routes.read_text(encoding="utf-8"))
+        self.assertEqual(payload["version"], 1)
+        workflow = (ROOT / ".github/workflows/deploy-canonical-pages-v2.yml").read_text(encoding="utf-8")
+        self.assertIn("DELIVERY_OWNED_ASSETS = {'_routes.json'}", workflow)
+        self.assertIn("if name in DELIVERY_OWNED_ASSETS:", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()
