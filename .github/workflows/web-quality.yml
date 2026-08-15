@@ -52,7 +52,6 @@ jobs:
           args: >-
             --no-progress
             --verbose
-            --exclude-mail
             README.md
             index.html
             docs
