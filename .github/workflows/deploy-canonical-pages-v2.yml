@@ -97,6 +97,7 @@ jobs:
 
           root = Path('production')
           manifest_path = root / 'projection-manifest.json'
+          DELIVERY_OWNED_ASSETS = {'_routes.json'}
           if manifest_path.is_file():
               manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
               assets = manifest.get('assets', {})
@@ -106,6 +107,8 @@ jobs:
                   relative = Path(name)
                   if relative.is_absolute() or '..' in relative.parts:
                       raise SystemExit(f'unsafe existing asset path: {name!r}')
+                  if name in DELIVERY_OWNED_ASSETS:
+                      continue
                   target = root / relative
                   if target.is_file() or target.is_symlink():
                       target.unlink()
