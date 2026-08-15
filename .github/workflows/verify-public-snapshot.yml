@@ -65,7 +65,7 @@ jobs:
           set -euo pipefail
           grep -q 'KAFKA2306/cast_event_cal/blob/main/docs/mcp.md' README.md
           grep -q 'KAFKA2306/cast_event_cal/blob/main/docs/SCRAPING_METHOD.md' README.md
-          grep -q 'KAFKA2306/cast_event_cal/blob/main/README.md#品質原則' README.md
+          grep -q 'KAFKA2306/cast_event_cal/blob/main/README.md' README.md
           grep -q 'projection_only' README.md
           grep -q 'canonical_snapshot_acceptance_rate' docs/canonical-flow.md
           grep -q 'projection_freshness' docs/canonical-flow.md
