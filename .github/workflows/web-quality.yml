@@ -16,6 +16,9 @@ on:
       - "**/*.js"
       - "**/*.md"
       - ".github/workflows/web-quality.yml"
+  workflow_run:
+    workflows: ["Deploy canonical Pages v2"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -27,6 +30,7 @@ concurrency:
 
 jobs:
   conformance-links:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -79,6 +83,7 @@ jobs:
           test "$LYCHEE_OUTCOME" = success
 
   browser-a11y-performance:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
