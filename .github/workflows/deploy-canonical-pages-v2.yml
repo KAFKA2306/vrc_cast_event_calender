@@ -26,6 +26,7 @@ jobs:
       - name: Checkout Pages repository
         uses: actions/checkout@v6
         with:
+          ref: main
           path: production
           fetch-depth: 0
 
