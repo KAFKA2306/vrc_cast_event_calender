@@ -2,19 +2,19 @@
   "schema_version": "cast-event.projection-manifest.v2",
   "role": "projection_only",
   "source_repository": "KAFKA2306/cast_event_cal",
-  "source_commit_sha": "3587af75b79b9bf8e441830a34750fcfe21c87c5",
-  "source_snapshot_sha256": "8b5e7039658e61f09cc32b06eb2c99446bdf2897c0bed48a505132424efa4324",
-  "source_snapshot_generated_at": "2026-08-13T21:31:50Z",
-  "generated_at": "2026-08-14T19:27:08Z",
-  "received_at": "2026-08-14T19:27:08Z",
-  "deployed_at": "2026-08-14T19:27:08Z",
+  "source_commit_sha": "df69e81e668ce1087702a343be52e3fe3c5a9660",
+  "source_snapshot_sha256": "d2382972479f71db6e7b2fdfdead2103128b99036de12f7f39efd0f0a7fface5",
+  "source_snapshot_generated_at": "2026-08-15T01:44:30Z",
+  "generated_at": "2026-08-15T01:55:58Z",
+  "received_at": "2026-08-15T01:55:58Z",
+  "deployed_at": "2026-08-15T01:55:58Z",
   "collection_counts": {
-    "event_count": 598,
+    "event_count": 615,
     "enabled_sources": 5,
     "successful_sources": 5,
     "failed_sources": 0
   },
-  "event_count": 598,
+  "event_count": 615,
   "ontology_version": "3.0",
   "validation_status": "validated",
   "assets": {
@@ -27,44 +27,44 @@
       "sha256": "866eac76992a50aba3e17f5b89d8d67ca14b396ad966db5a355f0335d5deb785"
     },
     "calendar.ics": {
-      "bytes": 275937,
-      "sha256": "182aa010de5271ad04ec856b86394eada83d6d1b5545f39422ff610d0b1447e5"
+      "bytes": 289219,
+      "sha256": "b8da398d2d464dd7d3bebb95d3797957eed0712c0bc9bf95610d7a4b1b9dabbb"
     },
     "category-ontology.json": {
       "bytes": 12267,
       "sha256": "ae754556ffccdf3fcd40640fb7e534cd11c897617ab632335c541810a9c088bb"
     },
     "event-link-audit.json": {
-      "bytes": 27619,
-      "sha256": "cafd127ba64fa736e9eaa2cde0409ca509608d4f29dd9fa1f46054cb934ccb8a"
+      "bytes": 28176,
+      "sha256": "032c7a58ff57e08b062f4f976732b5c2198b59cc734d0126e0326a39575ec77b"
     },
     "event-ontology.json": {
-      "bytes": 224010,
-      "sha256": "da07fb7fd41a1143598ec206946807ba01190618d282c8a4fa84c6fc6bbbcfc6"
+      "bytes": 239657,
+      "sha256": "1163f9a6c4fb9088fd0090d071c53a9239a68836ef22a4605b302ef4eaf2875a"
     },
     "events.json": {
-      "bytes": 1942151,
-      "sha256": "38891592cd06b73bc705dde3628022d15a0a6d4561d0162a26f93480672c68bc"
+      "bytes": 1999905,
+      "sha256": "ea736e71a9392cf60f47422b431049b47004f24e4f63d95aac5178ee6d854ce1"
     },
     "health.json": {
       "bytes": 2399,
-      "sha256": "d3cac337ff4b388597260a7fc7bf2227f6accece5b249806ec100a6c065b959b"
+      "sha256": "ec098b10dbb0460bbc76d02a370d1beefa852cdceacee6d294243eaef71086ee"
     },
     "index.html": {
-      "bytes": 37572,
-      "sha256": "fc29259700e4bfc0b03738bd4037389ac10cd2a7e676dc049db4086fc4c3275f"
+      "bytes": 37603,
+      "sha256": "6d39a6e44a9b95d76c679c398900ef8be090944256dc001b771bdb2e7e280fbd"
     },
     "official-asset-audit.json": {
-      "bytes": 10886,
-      "sha256": "5a15edfe1756a61dd6040d0c949c5b98377d491b937b35fc2d514bd300f609b2"
+      "bytes": 10712,
+      "sha256": "2818863a3fbbc2c59e25340ff5bee55fbef96c203e463c6f534c67f3675ffcb0"
     },
     "ontology-match-audit.json": {
-      "bytes": 101341,
-      "sha256": "d60a203d5107d5cb7bd7c9284f886ecec40d956c6f2d8711cce572b6c06d038e"
+      "bytes": 103807,
+      "sha256": "60e5d12a2367744d6aed175da58354dc9aa310b0b216921d88515878d9acea0e"
     },
     "registration-count-audit.json": {
-      "bytes": 29876,
-      "sha256": "b5b3715a7c06a516705246efe0d4adf996b4072f1831fce272d53324d746a958"
+      "bytes": 32902,
+      "sha256": "83a2993c2188c16fa6ba83a0c29e8a385dcfeb98d92780fda2edeaaf655dca29"
     },
     "series-profile.js": {
       "bytes": 6958,
@@ -79,44 +79,44 @@
       "sha256": "c6eed12aeb38a458702d90958493577a8a398787ecce08b6876390fe45cc7932"
     },
     "vrchat-group-asset-audit.json": {
-      "bytes": 10484,
-      "sha256": "cd1a68078743324c2ba8be1e0d94508293693537d08f19b4b7b8d5100c5af21e"
+      "bytes": 10777,
+      "sha256": "fca2af8e696f348f8a3ae986811dd9abfdee320e43206e32e95f59f9232356c9"
     },
     "yahoo-best-1000-audit.json": {
       "bytes": 21364,
       "sha256": "4253b6c77dedaeeae69f6ca21308b85f0abeec4973209737e95becdf483aa20d"
     },
     "yahoo-candidate-history.json": {
-      "bytes": 4842515,
-      "sha256": "591df3f37dabf80463d6b4c5945e7b1bfed60582dcd58fadd60e484544f6426c"
+      "bytes": 5030290,
+      "sha256": "90d23bb4722896c64ea1f372d91ecce3f9b501249db67ceb6cfcf099269bda48"
     },
     "yahoo-classifier-audit.json": {
-      "bytes": 212150,
-      "sha256": "1cbf1fbea0c3236678c028595299136561488d9f60636d305c6f17cc434c20d4"
+      "bytes": 210881,
+      "sha256": "c26bd456e9c892db3d38e5fb4ff84dfaf2cf9f8e97bf93ba97b8db1e71f30934"
     },
     "yahoo-date-resolution-audit.json": {
-      "bytes": 1031,
-      "sha256": "9a79ea0765bd8435e4738bb27685f16dfb7216817c96fa331ebdcdeb3bdef8f2"
+      "bytes": 447,
+      "sha256": "30cf3dd8bf62fbdae2cc5a5a963949a8ed7f333ddb44281dde19067e556df320"
     },
     "yahoo-llm-review-queue-audit.json": {
       "bytes": 298,
-      "sha256": "5d1d9c23c30ee7ee8a9af373c45b313a0cecbe1781cb2e429ec1e59c03328389"
+      "sha256": "b0a05686c3680e3737ebb517c9fe7e5cff3320088b724ff089941d48808bc4ea"
     },
     "yahoo-positive-vocabulary.json": {
       "bytes": 4583,
-      "sha256": "39fa8dda7101f93696db230c50cddfd992e83cae29d57caaf0354c729dd25e3a"
+      "sha256": "dbcbbae2bbde1771064c98063c92f58effbbb97f0c82aacb1faa957afb048ac1"
     },
     "yahoo-query-ablation.json": {
-      "bytes": 17325,
-      "sha256": "f685e938012f1d46d2164d380a74e34589bf96c80884598e557b0107f262f034"
+      "bytes": 17386,
+      "sha256": "76aca9f37f9e66a01883009a839b7a0fc5b0da4c6d223e900cf7bb825e1ccd51"
     },
     "yahoo-query-expert-model.json": {
       "bytes": 99712,
       "sha256": "3d111ad13c87791535b3ba9d764e92428540550d55d72c4052f08877f4359bb1"
     },
     "yahoo-rejection-sample-audit.json": {
-      "bytes": 25158,
-      "sha256": "45ee65c791186a71737fef96a734b893cdb969c61e632bdb957e4a55afa5977c"
+      "bytes": 25226,
+      "sha256": "b6c5f6fe1e4dd0b6726a368b4582f75467c9f0ea1f84f831e924cea12e965d7d"
     }
   },
   "data_contract": {
