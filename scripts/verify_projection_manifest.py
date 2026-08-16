@@ -24,6 +24,7 @@ REQUIRED_FIELDS = {
     "validation_status",
 }
 SEARCH_BASE_URL = "https://kafka2306.github.io/vrc_cast_event_calender/"
+SEARCH_PAGE_PREFIXES = ("events/", "categories/", "series/")
 
 
 def snapshot_digest(assets: dict[str, dict[str, Any]]) -> str:
@@ -48,11 +49,12 @@ def verify_search_surface(root: Path, assets: dict[str, dict[str, Any]]) -> None
     if missing:
         raise ValueError(f"search surface missing assets: {', '.join(missing)}")
 
-    detail_assets = sorted(
+    search_assets = sorted(
         name
         for name in assets
-        if name.startswith("events/") and name.endswith("/index.html")
+        if name.startswith(SEARCH_PAGE_PREFIXES) and name.endswith("/index.html")
     )
+    detail_assets = [name for name in search_assets if name.startswith("events/")]
     if not detail_assets:
         raise ValueError("search surface has no event detail pages")
 
@@ -66,19 +68,19 @@ def verify_search_surface(root: Path, assets: dict[str, dict[str, Any]]) -> None
     if not urls or urls[0] != SEARCH_BASE_URL:
         raise ValueError("sitemap must start with the canonical homepage")
 
-    expected_detail_urls = {
-        SEARCH_BASE_URL + name.removesuffix("index.html") for name in detail_assets
+    expected_search_urls = {
+        SEARCH_BASE_URL + name.removesuffix("index.html") for name in search_assets
     }
-    if set(urls[1:]) != expected_detail_urls:
-        raise ValueError("sitemap/detail-page parity mismatch")
+    if set(urls[1:]) != expected_search_urls:
+        raise ValueError("sitemap/search-page parity mismatch")
 
-    for name in detail_assets:
+    for name in search_assets:
         content = (root / name).read_text(encoding="utf-8")
         expected_url = SEARCH_BASE_URL + name.removesuffix("index.html")
         canonical = f'rel="canonical" href="{expected_url}"'
         if canonical not in content:
-            raise ValueError(f"missing canonical event URL: {name}")
-        if "application/ld+json" in content:
+            raise ValueError(f"missing canonical search URL: {name}")
+        if name.startswith("events/") and "application/ld+json" in content:
             raise ValueError(f"unsupported virtual-only Event JSON-LD: {name}")
 
     config = json.loads((root / "analytics-config.json").read_text(encoding="utf-8"))
@@ -95,7 +97,7 @@ def verify(root: Path, manifest_path: Path) -> dict[str, Any]:
         raise ValueError("projection manifest must contain an object")
     missing = sorted(REQUIRED_FIELDS - set(manifest))
     if missing:
-        raise ValueError(f"projection manifest missing fields: {', '.join(missing)}")
+        raise ValueError("projection manifest missing fields: " + ", ".join(missing))
     if manifest.get("schema_version") != "cast-event.projection-manifest.v2":
         raise ValueError("unsupported projection manifest schema")
     if manifest.get("role") != "projection_only":
