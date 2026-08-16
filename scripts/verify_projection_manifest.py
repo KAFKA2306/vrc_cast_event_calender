@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
 
@@ -22,6 +23,7 @@ REQUIRED_FIELDS = {
     "ontology_version",
     "validation_status",
 }
+SEARCH_BASE_URL = "https://kafka2306.github.io/vrc_cast_event_calender/"
 
 
 def snapshot_digest(assets: dict[str, dict[str, Any]]) -> str:
@@ -34,6 +36,58 @@ def snapshot_digest(assets: dict[str, dict[str, Any]]) -> str:
         digest.update(metadata["sha256"].encode("ascii"))
         digest.update(b"\n")
     return digest.hexdigest()
+
+
+def verify_search_surface(root: Path, assets: dict[str, dict[str, Any]]) -> None:
+    """Validate the derived search surface once a canonical sitemap is present."""
+    if "sitemap.xml" not in assets:
+        return
+
+    required = {"sitemap.xml", "analytics.js", "analytics-config.json"}
+    missing = sorted(required - set(assets))
+    if missing:
+        raise ValueError(f"search surface missing assets: {', '.join(missing)}")
+
+    detail_assets = sorted(
+        name
+        for name in assets
+        if name.startswith("events/") and name.endswith("/index.html")
+    )
+    if not detail_assets:
+        raise ValueError("search surface has no event detail pages")
+
+    sitemap = ET.parse(root / "sitemap.xml").getroot()
+    namespace = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    urls = [node.text for node in sitemap.findall("s:url/s:loc", namespace)]
+    if any(not isinstance(url, str) or not url.startswith(SEARCH_BASE_URL) for url in urls):
+        raise ValueError("sitemap contains a non-canonical URL")
+    if len(urls) != len(set(urls)):
+        raise ValueError("sitemap contains duplicate URLs")
+    if not urls or urls[0] != SEARCH_BASE_URL:
+        raise ValueError("sitemap must start with the canonical homepage")
+
+    expected_detail_urls = {
+        SEARCH_BASE_URL + name.removeprefix("events/").removesuffix("index.html")
+        for name in detail_assets
+    }
+    if set(urls[1:]) != expected_detail_urls:
+        raise ValueError("sitemap/detail-page parity mismatch")
+
+    for name in detail_assets:
+        content = (root / name).read_text(encoding="utf-8")
+        expected_url = SEARCH_BASE_URL + name.removeprefix("events/").removesuffix("index.html")
+        canonical = f'rel="canonical" href="{expected_url}"'
+        if canonical not in content:
+            raise ValueError(f"missing canonical event URL: {name}")
+        if "application/ld+json" in content:
+            raise ValueError(f"unsupported virtual-only Event JSON-LD: {name}")
+
+    config = json.loads((root / "analytics-config.json").read_text(encoding="utf-8"))
+    measurement_id = config.get("ga4_measurement_id")
+    if measurement_id is not None and (
+        not isinstance(measurement_id, str) or not measurement_id.startswith("G-")
+    ):
+        raise ValueError("invalid GA4 measurement ID")
 
 
 def verify(root: Path, manifest_path: Path) -> dict[str, Any]:
@@ -91,6 +145,8 @@ def verify(root: Path, manifest_path: Path) -> dict[str, Any]:
         raise ValueError("ontology event_count mismatch")
     if manifest.get("collection_counts", {}).get("failed_sources") != 0:
         raise ValueError("manifest reports failed sources")
+
+    verify_search_surface(root, assets)
 
     return {
         "status": "ok",
