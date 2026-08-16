@@ -33,8 +33,10 @@ jobs:
             scripts/write_projection_manifest.py \
             scripts/verify_projection_manifest.py \
             tests/test_projection_manifest.py \
-            tests/test_repository_boundary.py
-          python -m unittest tests.test_projection_manifest tests.test_repository_boundary -v
+            tests/test_repository_boundary.py \
+            tests/test_tonight_detail_links.py
+          python -m unittest tests.test_projection_manifest tests.test_repository_boundary tests.test_tonight_detail_links -v
+          node --check tonight/tonight.js
 
       - name: Verify projection-only repository boundary
         run: |
