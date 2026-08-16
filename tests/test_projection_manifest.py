@@ -44,6 +44,10 @@ class ProjectionManifestTest(unittest.TestCase):
                 f'<!doctype html><link rel="canonical" href="{SEARCH_BASE_URL}{url}">\n',
                 encoding="utf-8",
             )
+        (root / "index.html").write_text(
+            "<!doctype html>" + "".join(f'<a href="{url}">{url}</a>' for url in pages.values()),
+            encoding="utf-8",
+        )
         urls = [SEARCH_BASE_URL, *(SEARCH_BASE_URL + url for url in pages.values())]
         body = "".join(f"<url><loc>{url}</loc></url>" for url in urls)
         (root / "sitemap.xml").write_text(
@@ -116,6 +120,25 @@ class ProjectionManifestTest(unittest.TestCase):
             manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
 
             with self.assertRaisesRegex(ValueError, "sitemap/search-page parity mismatch"):
+                verify(root, manifest_path)
+
+    def test_search_surface_rejects_homepage_one_hop_drift(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            self.write_fixture(root)
+            self.write_search_surface(root)
+            index = root / "index.html"
+            index.write_text(
+                index.read_text(encoding="utf-8").replace(
+                    '<a href="categories/music/">categories/music/</a>', ""
+                ),
+                encoding="utf-8",
+            )
+            manifest = build_manifest(root, "f" * 40, timestamp="2026-08-10T00:01:00Z")
+            manifest_path = root.parent / "projection-manifest-home-drift.json"
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "homepage/search-page one-hop parity mismatch"):
                 verify(root, manifest_path)
 
     def test_tampered_asset_is_rejected(self) -> None:
