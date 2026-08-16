@@ -2,19 +2,19 @@
   "schema_version": "cast-event.projection-manifest.v2",
   "role": "projection_only",
   "source_repository": "KAFKA2306/cast_event_cal",
-  "source_commit_sha": "9051feedc61707d7dca15cd19f479e364f32a868",
-  "source_snapshot_sha256": "f81d422b6b8873d08689fb6ea1a4034565f44c3b07d3235b0b650baf6b36aff1",
-  "source_snapshot_generated_at": "2026-08-15T21:03:25Z",
-  "generated_at": "2026-08-16T02:04:14Z",
-  "received_at": "2026-08-16T02:04:14Z",
-  "deployed_at": "2026-08-16T02:04:14Z",
+  "source_commit_sha": "f0e147bd4179d7f5cf860458d370e753654d6642",
+  "source_snapshot_sha256": "2726ec60807cda9b89be41a4d142c15d5aa6a48e06f2d1d0eb605517c1a771dc",
+  "source_snapshot_generated_at": "2026-08-16T02:49:22Z",
+  "generated_at": "2026-08-16T07:08:12Z",
+  "received_at": "2026-08-16T07:08:12Z",
+  "deployed_at": "2026-08-16T07:08:12Z",
   "collection_counts": {
-    "event_count": 613,
+    "event_count": 618,
     "enabled_sources": 5,
     "successful_sources": 5,
     "failed_sources": 0
   },
-  "event_count": 613,
+  "event_count": 618,
   "ontology_version": "3.0",
   "validation_status": "validated",
   "assets": {
@@ -23,12 +23,12 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "accepted-event-kpi.jsonl": {
-      "bytes": 414,
-      "sha256": "cc4fe3ef3c4a9f78b34f4fb549c32c0ff3ce0be25067ea579557451b69a5b19e"
+      "bytes": 578,
+      "sha256": "bac8243cce0f111a83980aaa01628e477469e323597e1f12ecdd4f97f104b4d1"
     },
     "calendar.ics": {
-      "bytes": 287725,
-      "sha256": "d060d8027d6f55a129757265213f06ad668febed9c35cdc13c739de8c1b9e4fd"
+      "bytes": 292144,
+      "sha256": "37cc234b1a2a23f2f83072e0b786ccc423ff0442eea52180e8f94d49e5dfc6eb"
     },
     "category-ontology.json": {
       "bytes": 12267,
@@ -36,43 +36,43 @@
     },
     "event-duplicate-audit.json": {
       "bytes": 13563,
-      "sha256": "81eb072d5f1cca53cf19cf618906d52ead86a768c966154912381118c6d7dfdf"
+      "sha256": "ced21d1b9bf34b6139101986f42c3e1250175018787630dc646e412189eb2e3d"
     },
     "event-link-audit.json": {
-      "bytes": 29638,
-      "sha256": "0178b97c11a5f182d87d6c6612d410fcca10173fd4d6b9b26b96a1373fe9ae96"
+      "bytes": 29883,
+      "sha256": "4da20a1670cea10df4ba873b0bfcebd9170c9740e97b4bd63b324428afd6468a"
     },
     "event-ontology.json": {
-      "bytes": 244066,
-      "sha256": "352286c529fd2aa88255e4afeef00f964121e521da8ddd79bfa7ea2a9af35136"
+      "bytes": 249878,
+      "sha256": "99b5408d263cde890c0998c62fd45cd0e47c04442bfe68553b8114f7cd423bc9"
     },
     "events.json": {
-      "bytes": 2360623,
-      "sha256": "056d451465b60074f35e5b1469f7d3365ff5906b1aacd054d663c2f4a8202963"
+      "bytes": 2382388,
+      "sha256": "601562b95be4fc7b8ce1f3263c5622f0ae7a2d4604bd1c5206a0912ccbdee9a1"
     },
     "health.json": {
       "bytes": 2426,
-      "sha256": "dca5712bd00992ee9c027a3aa9e7f0a12bfded861d4348e108e83b0cac985d1b"
+      "sha256": "9e6f7fdca2c91403bc8fefe0e95967e898bd4747569e68b8971f64634bebfaab"
     },
     "image-reachability-audit.json": {
       "bytes": 4687,
-      "sha256": "ebe03ce03c7094bdedb6f872ed6312be1214855f6d0943d1511b1b9ef37934b0"
+      "sha256": "e3f135dca64f0488397819fdbd29bdc2c12ab752afa5ba02caf9b851166ffd6d"
     },
     "index.html": {
       "bytes": 38892,
-      "sha256": "c0d186dc137b685b74f3584178f668897b138c7a9bd87f9caa92d79a77fb8dff"
+      "sha256": "f8bff664e45a92b8730dc380818ef70bf5a6d0a7f80bf960f3356307d52effad"
     },
     "official-asset-audit.json": {
-      "bytes": 10839,
-      "sha256": "13cb29ea5b8640d009c24159e82aa93dc61213fe2ced60d68380eb7db4933987"
+      "bytes": 10849,
+      "sha256": "b658dd3e661028788c7e163e6b45e8bd5a516cc736fafebfa807954726489779"
     },
     "ontology-match-audit.json": {
-      "bytes": 104679,
-      "sha256": "9edf83daeeae1f0d99518e3abd167613d4e15ada8804eb98303660250c7c751d"
+      "bytes": 105713,
+      "sha256": "d7897967c3978743f55e826f3a86a9571c3ba55e356ac47dd4ed20d0d6cc938a"
     },
     "registration-count-audit.json": {
-      "bytes": 43144,
-      "sha256": "8a9361a252a652cf752a83f7d0f98401db13a35436ed393f7d6aee329bfe049e"
+      "bytes": 45230,
+      "sha256": "7b0b0f6f2bad8ca23bcfe0763ab585b58bb5fe96359e6514bc38c35be1817b0f"
     },
     "series-profile.js": {
       "bytes": 6958,
@@ -88,23 +88,23 @@
     },
     "vrchat-group-asset-audit.json": {
       "bytes": 11319,
-      "sha256": "acdc6036264dcb7e1d5fe304df7cba8e265ebf5b9a483ea744f9d9e934c24212"
+      "sha256": "1a7701674884b9dee703f066b78de96c25557dd8e88ca9b7ec1846918564901b"
     },
     "yahoo-best-1000-audit.json": {
       "bytes": 21364,
       "sha256": "4253b6c77dedaeeae69f6ca21308b85f0abeec4973209737e95becdf483aa20d"
     },
     "yahoo-candidate-history.json": {
-      "bytes": 5243537,
-      "sha256": "bf095cb263d95e6e168d8833b10f326da010776e6d1c130b79602079340bd119"
+      "bytes": 5274554,
+      "sha256": "1d3d59e5ff8756cf7c814be26167c52302bb9f23eaa9ad060876b08b9e350776"
     },
     "yahoo-classifier-audit.json": {
-      "bytes": 212954,
-      "sha256": "bd8113e69c748b4d3a7a1540ddddeb726153f8a8cc5f6eeac83f409fd7da96ca"
+      "bytes": 213477,
+      "sha256": "a16ec8c58697012bbc567127557d5853db116a23d50a8198ca4bf246414af5e3"
     },
     "yahoo-date-resolution-audit.json": {
       "bytes": 447,
-      "sha256": "e692523bd1b3591e8ee14bc46ffa42b96c1375ebba9b8dd8b5ddcfd1574d9a71"
+      "sha256": "9dd52055ab7caa06e177aa601df2c37d9b8539c2fba08ad95837505fed846437"
     },
     "yahoo-llm-review-queue-audit.json": {
       "bytes": 299,
@@ -112,7 +112,7 @@
     },
     "yahoo-positive-vocabulary.json": {
       "bytes": 4585,
-      "sha256": "e9b95f22dd3b32af5adb6f2ba4df164a103445f7462136e04f96730a6706d430"
+      "sha256": "4184a66f5e29959a453b05c68d779a149b606d1df6443eb7c02b07075ee4ae72"
     },
     "yahoo-query-ablation.json": {
       "bytes": 17435,
@@ -124,7 +124,7 @@
     },
     "yahoo-rejection-sample-audit.json": {
       "bytes": 25956,
-      "sha256": "c308c72f58de2acfd171e10ae362deffae6c757862ffafd1e81cda07f183cac8"
+      "sha256": "36bfcaeba35d5b4719e8f0e59ffd002403461e7038ec541c6ecb78fb0a85b49c"
     }
   },
   "data_contract": {
