@@ -2,12 +2,12 @@
   "schema_version": "cast-event.projection-manifest.v2",
   "role": "projection_only",
   "source_repository": "KAFKA2306/cast_event_cal",
-  "source_commit_sha": "8a3bf1a2e115731c27c3b2397589249eeb588aad",
-  "source_snapshot_sha256": "e3dbcdd12c3ee0b3deb5ed29caf2bbb707f0c95b5e5c7285d51a2b1989111fdf",
+  "source_commit_sha": "e88117f0ab74fe3598cb8413b0f7a9ae6e4181a3",
+  "source_snapshot_sha256": "e8f38422269418f685526ac098a824f3d5becf0b35a16620dc9cd8d5ae338dc2",
   "source_snapshot_generated_at": "2026-08-16T09:49:53Z",
-  "generated_at": "2026-08-16T10:05:38Z",
-  "received_at": "2026-08-16T10:05:38Z",
-  "deployed_at": "2026-08-16T10:05:38Z",
+  "generated_at": "2026-08-16T10:14:42Z",
+  "received_at": "2026-08-16T10:14:42Z",
+  "deployed_at": "2026-08-16T10:14:42Z",
   "collection_counts": {
     "event_count": 624,
     "enabled_sources": 5,
@@ -1551,8 +1551,8 @@
       "sha256": "fe398faa3499922b495265add4c5eed41e93df68d298dd4da54e445d0682a6d1"
     },
     "index.html": {
-      "bytes": 49226,
-      "sha256": "29f24ab1b1efed9bfe8809d2a3112fb0223bbcadc22e601e326c6407d0ff6de5"
+      "bytes": 49228,
+      "sha256": "9332542f4fa41633800ff5f6e12addd7f29f5d45dcdc4aa16492a7c92e6349b5"
     },
     "official-asset-audit.json": {
       "bytes": 10631,
@@ -1623,8 +1623,8 @@
       "sha256": "2b36c91985318e3ecae6770d88692e3fce14ab4c5818195eaa2263cac7345afc"
     },
     "sitemap.xml": {
-      "bytes": 54253,
-      "sha256": "fe7cac7ee80c463945d7d730106114415b16febbb794c780f4bf89156ab54ce3"
+      "bytes": 40174,
+      "sha256": "297b27dc5dacb962ca271a753eeff3416ed0b08ff2e8118977cdeaac7c27a8ff"
     },
     "uiux-v4.css": {
       "bytes": 12724,
