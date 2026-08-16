@@ -67,15 +67,14 @@ def verify_search_surface(root: Path, assets: dict[str, dict[str, Any]]) -> None
         raise ValueError("sitemap must start with the canonical homepage")
 
     expected_detail_urls = {
-        SEARCH_BASE_URL + name.removeprefix("events/").removesuffix("index.html")
-        for name in detail_assets
+        SEARCH_BASE_URL + name.removesuffix("index.html") for name in detail_assets
     }
     if set(urls[1:]) != expected_detail_urls:
         raise ValueError("sitemap/detail-page parity mismatch")
 
     for name in detail_assets:
         content = (root / name).read_text(encoding="utf-8")
-        expected_url = SEARCH_BASE_URL + name.removeprefix("events/").removesuffix("index.html")
+        expected_url = SEARCH_BASE_URL + name.removesuffix("index.html")
         canonical = f'rel="canonical" href="{expected_url}"'
         if canonical not in content:
             raise ValueError(f"missing canonical event URL: {name}")
