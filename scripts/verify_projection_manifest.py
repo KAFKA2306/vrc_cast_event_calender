@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
@@ -44,7 +45,7 @@ def verify_search_surface(root: Path, assets: dict[str, dict[str, Any]]) -> None
     if "sitemap.xml" not in assets:
         return
 
-    required = {"sitemap.xml", "analytics.js", "analytics-config.json"}
+    required = {"index.html", "sitemap.xml", "analytics.js", "analytics-config.json"}
     missing = sorted(required - set(assets))
     if missing:
         raise ValueError(f"search surface missing assets: {', '.join(missing)}")
@@ -73,6 +74,19 @@ def verify_search_surface(root: Path, assets: dict[str, dict[str, Any]]) -> None
     }
     if set(urls[1:]) != expected_search_urls:
         raise ValueError("sitemap/search-page parity mismatch")
+
+    expected_root_links = {name.removesuffix("index.html") for name in search_assets}
+    root_html = (root / "index.html").read_text(encoding="utf-8")
+    root_links = set(
+        re.findall(r'href=["\']((?:events|categories|series)/[^"\']+/)["\']', root_html)
+    )
+    if root_links != expected_root_links:
+        missing_links = sorted(expected_root_links - root_links)
+        extra_links = sorted(root_links - expected_root_links)
+        raise ValueError(
+            "homepage/search-page one-hop parity mismatch: "
+            f"missing={missing_links[:5]} extra={extra_links[:5]}"
+        )
 
     for name in search_assets:
         content = (root / name).read_text(encoding="utf-8")
