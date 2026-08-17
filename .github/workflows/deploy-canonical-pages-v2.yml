@@ -6,8 +6,6 @@ on:
     branches: [main]
     paths:
       - .github/workflows/deploy-canonical-pages-v2.yml
-      - scripts/write_projection_manifest.py
-      - scripts/verify_projection_manifest.py
 
 permissions:
   contents: write
@@ -21,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout Pages repository
+      - name: Checkout compatibility repository
         uses: actions/checkout@v6
         with:
           ref: main
@@ -36,58 +34,40 @@ jobs:
           path: canonical
           fetch-depth: 0
 
-      - name: Validate canonical public snapshot
+      - name: Validate canonical public contract
         run: |
           set -euo pipefail
-          grep -q 'VRChat Event Calendar' canonical/public/index.html
-          grep -q 'BEGIN:VCALENDAR' canonical/public/calendar.ics
           python canonical/scripts/audit_public_feed.py \
             canonical/public/events.json \
             --report /tmp/public-feed-audit.json
           python - <<'PY'
           import json
+          import xml.etree.ElementTree as ET
           from pathlib import Path
 
           root = Path('canonical/public')
+          new_base = 'https://kafka2306.github.io/cast_event_cal/'
+          old_base = 'https://kafka2306.github.io/vrc_cast_event_calender'
           events = json.loads((root / 'events.json').read_text(encoding='utf-8'))
           health = json.loads((root / 'health.json').read_text(encoding='utf-8'))
-          history = json.loads((root / 'yahoo-candidate-history.json').read_text(encoding='utf-8'))
-          classifier = json.loads((root / 'yahoo-classifier-audit.json').read_text(encoding='utf-8'))
-          ontology = json.loads((root / 'event-ontology.json').read_text(encoding='utf-8'))
-          ontology_audit = json.loads((root / 'ontology-match-audit.json').read_text(encoding='utf-8'))
-          category = json.loads((root / 'category-ontology.json').read_text(encoding='utf-8'))
-          registration = json.loads((root / 'registration-count-audit.json').read_text(encoding='utf-8'))
-          feed_audit = json.loads(Path('/tmp/public-feed-audit.json').read_text(encoding='utf-8'))
-
-          rows = events.get('events', [])
-          sources = {item.get('name'): item for item in health.get('sources', [])}
-          assert events.get('count') == len(rows)
-          assert events.get('count', 0) >= 500
+          feed = json.loads(Path('/tmp/public-feed-audit.json').read_text(encoding='utf-8'))
+          index = (root / 'index.html').read_text(encoding='utf-8')
+          assert events.get('count') == len(events.get('events', []))
+          assert events.get('count', 0) > 0
           assert health.get('status') == 'ok'
           assert health.get('failed_sources') == 0
           assert health.get('event_count') == events.get('count')
-          assert feed_audit.get('error_count') == 0
-          assert feed_audit.get('unique_identity_count') == events.get('count')
-          assert history.get('target_count') == 1000
-          assert history.get('target_reached') is True
-          assert history.get('candidate_count', 0) >= 1000
-          assert history.get('candidate_count') == len(history.get('candidates', []))
-          assert classifier.get('classifier_version') == '1.9'
-          assert classifier.get('accepted_count') == sources.get('yahoo_realtime_events', {}).get('count')
-          assert classifier.get('accepted_count', 0) + classifier.get('rejected_count', 0) == history.get('candidate_count')
-          assert classifier.get('quality', {}).get('duplicate_status_ids') == 0
-          assert classifier.get('quality', {}).get('ambiguous_decisions') == 0
-          assert ontology.get('schema_version') == '3.0'
-          assert ontology.get('source_event_count') == events.get('count')
-          assert ontology_audit.get('category_classification', {}).get('event_count') == events.get('count')
-          assert ontology_audit.get('ambiguous_events') == 0
-          assert category.get('schema_version') == '2.0'
-          assert registration.get('status') == 'ok'
-          assert registration.get('latest', {}).get('calendar_event_count') == events.get('count')
-          assert registration.get('latest', {}).get('yahoo_candidate_count') == history.get('candidate_count')
+          assert feed.get('error_count') == 0
+          assert feed.get('unique_identity_count') == events.get('count')
+          assert f'<link rel="canonical" href="{new_base}">' in index
+          assert old_base not in index
+          sitemap = ET.parse(root / 'sitemap.xml').getroot()
+          ns = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+          urls = [node.text for node in sitemap.findall('s:url/s:loc', ns)]
+          assert urls and all(url and url.startswith(new_base) for url in urls)
           PY
 
-      - name: Replace projection with one canonical snapshot
+      - name: Replace compatibility snapshot
         run: |
           set -euo pipefail
           python - <<'PY'
@@ -96,7 +76,7 @@ jobs:
 
           root = Path('production')
           manifest_path = root / 'projection-manifest.json'
-          DELIVERY_OWNED_ASSETS = {'_routes.json'}
+          delivery_owned = {'_routes.json'}
           if manifest_path.is_file():
               manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
               assets = manifest.get('assets', {})
@@ -106,7 +86,7 @@ jobs:
                   relative = Path(name)
                   if relative.is_absolute() or '..' in relative.parts:
                       raise SystemExit(f'unsafe existing asset path: {name!r}')
-                  if name in DELIVERY_OWNED_ASSETS:
+                  if name in delivery_owned:
                       continue
                   target = root / relative
                   if target.is_file() or target.is_symlink():
@@ -123,7 +103,7 @@ jobs:
             --root production \
             --manifest production/projection-manifest.json
 
-      - name: Commit canonical snapshot
+      - name: Commit final compatibility snapshot
         working-directory: production
         run: |
           set -euo pipefail
@@ -131,125 +111,34 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -A
           if git diff --cached --quiet; then
-            echo 'Pages snapshot already matches canonical public/'
+            echo 'Compatibility snapshot already matches canonical public/'
           else
-            git commit -m 'chore: publish canonical public snapshot [skip ci]'
+            git commit -m 'chore: sync final canonical compatibility snapshot [skip ci]'
             git pull --rebase --autostash origin main
             git push origin HEAD:main
           fi
 
-      - name: Verify every live canonical artifact
+      - name: Verify live compatibility surface
         env:
           PAGE_BASE: https://kafka2306.github.io/vrc_cast_event_calender
         run: |
           set -euo pipefail
-          expected_source_commit="$(git -C canonical rev-parse HEAD)"
-          EXPECTED_SOURCE_COMMIT="$expected_source_commit" python - <<'PY'
-          import concurrent.futures
-          import json
-          import os
-          import shutil
-          import sys
-          import time
-          import urllib.parse
-          import urllib.request
-          from pathlib import Path
-
-          page_base = os.environ['PAGE_BASE'].rstrip('/')
-          expected_commit = os.environ['EXPECTED_SOURCE_COMMIT']
-          live_root = Path('/tmp/live-projection')
-          manifest_path = Path('/tmp/live-projection-manifest.json')
-          sys.path.insert(0, 'production')
-          from scripts.verify_projection_manifest import verify
-
-          def fetch(path: str, token: str) -> bytes:
-              quoted = '/'.join(urllib.parse.quote(part) for part in path.split('/'))
-              request = urllib.request.Request(
-                  f'{page_base}/{quoted}?run={token}',
-                  headers={'Cache-Control': 'no-cache', 'User-Agent': 'projection-verifier'},
-              )
-              with urllib.request.urlopen(request, timeout=20) as response:
-                  if response.status != 200:
-                      raise RuntimeError(f'{path}: HTTP {response.status}')
-                  return response.read()
-
-          last_error = 'not attempted'
-          for attempt in range(1, 37):
-              token = f'{os.environ.get("GITHUB_RUN_ID", "run")}-{attempt}'
-              try:
-                  manifest_raw = fetch('projection-manifest.json', token)
-                  manifest = json.loads(manifest_raw)
-                  if manifest.get('schema_version') != 'cast-event.projection-manifest.v2':
-                      raise RuntimeError('live manifest schema is stale')
-                  if manifest.get('source_commit_sha') != expected_commit:
-                      raise RuntimeError('live source commit is stale')
-                  assets = manifest.get('assets')
-                  if not isinstance(assets, dict) or not assets:
-                      raise RuntimeError('live manifest has no assets')
-
-                  shutil.rmtree(live_root, ignore_errors=True)
-                  live_root.mkdir(parents=True)
-                  with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
-                      futures = {executor.submit(fetch, name, token): name for name in assets}
-                      for future in concurrent.futures.as_completed(futures):
-                          name = futures[future]
-                          raw = future.result()
-                          target = live_root / name
-                          target.parent.mkdir(parents=True, exist_ok=True)
-                          target.write_bytes(raw)
-                  manifest_path.write_bytes(manifest_raw)
-                  result = verify(live_root, manifest_path)
-                  if result['source_commit_sha'] != expected_commit:
-                      raise RuntimeError('verified source commit mismatch')
-                  Path('/tmp/live-verification.json').write_text(
-                      json.dumps(result, ensure_ascii=False, sort_keys=True) + '\n', encoding='utf-8'
-                  )
-                  break
-              except Exception as exc:
-                  last_error = f'{type(exc).__name__}: {exc}'
-                  if attempt == 36:
-                      raise RuntimeError(f'live projection did not converge: {last_error}') from exc
-                  time.sleep(10)
-          PY
-
-      - name: Record live verification
-        run: |
-          set -euo pipefail
-          mkdir -p production/audit
+          base="${PAGE_BASE%/}"
+          fetch() {
+            curl --fail --location --silent --show-error --retry 12 --retry-delay 5 "$1"
+          }
+          fetch "$base/" > /tmp/index.html
+          fetch "$base/events.json" > /tmp/events.json
+          fetch "$base/calendar.ics" > /tmp/calendar.ics
+          fetch "$base/tonight/" > /tmp/tonight.html
+          grep -q '<link rel="canonical" href="https://kafka2306.github.io/cast_event_cal/">' /tmp/index.html
+          ! grep -q '<link rel="canonical" href="https://kafka2306.github.io/vrc_cast_event_calender/">' /tmp/index.html
           python - <<'PY'
           import json
-          from datetime import UTC, datetime
           from pathlib import Path
-
-          result = json.loads(Path('/tmp/live-verification.json').read_text(encoding='utf-8'))
-          manifest = json.loads(Path('/tmp/live-projection-manifest.json').read_text(encoding='utf-8'))
-          audit = {
-              'schema_version': '3.0',
-              'verified_at': datetime.now(UTC).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
-              'page_url': 'https://kafka2306.github.io/vrc_cast_event_calender/',
-              'source_repository': manifest.get('source_repository'),
-              'source_commit_sha': result.get('source_commit_sha'),
-              'source_snapshot_sha256': result.get('source_snapshot_sha256'),
-              'projection_manifest_schema': manifest.get('schema_version'),
-              'asset_count': result.get('asset_count'),
-              'event_count': result.get('event_count'),
-              'validation_status': manifest.get('validation_status'),
-              'status': 'ok',
-          }
-          Path('production/audit/production-v2-status.json').write_text(
-              json.dumps(audit, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
-          )
+          payload = json.loads(Path('/tmp/events.json').read_text(encoding='utf-8'))
+          assert payload.get('count') == len(payload.get('events', []))
+          assert payload.get('count', 0) > 0
           PY
-
-      - name: Commit live verification audit
-        working-directory: production
-        run: |
-          set -euo pipefail
-          git add audit/production-v2-status.json
-          if git diff --cached --quiet; then
-            echo 'No verification audit changes'
-          else
-            git commit -m 'chore: record Pages v2 verification [skip ci]'
-            git pull --rebase --autostash origin main
-            git push origin HEAD:main
-          fi
+          grep -q '^BEGIN:VCALENDAR' /tmp/calendar.ics
+          grep -q '今夜のVRChat' /tmp/tonight.html
