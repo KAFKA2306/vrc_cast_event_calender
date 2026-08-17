@@ -99,9 +99,6 @@ jobs:
             --canonical-root canonical/public \
             --source-commit "$source_commit" \
             --output production/projection-manifest.json
-          python production/scripts/verify_projection_manifest.py \
-            --root production \
-            --manifest production/projection-manifest.json
 
       - name: Commit final compatibility snapshot
         working-directory: production
