@@ -1,5 +1,9 @@
 # VRChat Event Calendar
 
+[![Deploy canonical Pages v2](https://github.com/KAFKA2306/vrc_cast_event_calender/actions/workflows/deploy-canonical-pages-v2.yml/badge.svg)](https://github.com/KAFKA2306/vrc_cast_event_calender/actions/workflows/deploy-canonical-pages-v2.yml)
+[![Web quality](https://github.com/KAFKA2306/vrc_cast_event_calender/actions/workflows/web-quality.yml/badge.svg)](https://github.com/KAFKA2306/vrc_cast_event_calender/actions/workflows/web-quality.yml)
+[![Verify public snapshot](https://github.com/KAFKA2306/vrc_cast_event_calender/actions/workflows/verify-public-snapshot.yml/badge.svg)](https://github.com/KAFKA2306/vrc_cast_event_calender/actions/workflows/verify-public-snapshot.yml)
+
 **今夜行けるイベントを探したい。そのとき必要なのは、イベント数より「この日時・参加方法をどこまで信じてよいか」です。**
 
 VRChat Event Calendar は、VRChatのイベントを検索・購読しやすい形で公開しながら、**表示している情報がどの正本snapshotから来たのかを追跡できる配信面**です。
