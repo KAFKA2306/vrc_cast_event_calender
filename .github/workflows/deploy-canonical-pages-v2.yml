@@ -2,8 +2,6 @@ name: Deploy canonical Pages v2
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 */6 * * *'
   push:
     branches: [main]
     paths:
